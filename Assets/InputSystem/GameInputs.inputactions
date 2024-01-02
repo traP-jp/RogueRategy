@@ -1,0 +1,54 @@
+{
+    "name": "GameInputs",
+    "maps": [
+        {
+            "name": "BattleScene",
+            "id": "4b094081-f848-45bf-bd00-c11d36a28e58",
+            "actions": [
+                {
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "8a574952-27c0-4ee0-8839-e6eb120ff4a0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "ce62a096-8f78-4e63-93a9-029d6938f5c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6612e265-2bf6-4b74-b679-0c5c6b66d0c5",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e78c967d-9102-4f84-9470-54a90295ce7f",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
