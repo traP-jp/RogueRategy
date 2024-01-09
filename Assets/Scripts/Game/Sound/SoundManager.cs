@@ -19,6 +19,7 @@ public class SoundManager :SingletonMonoBehaviour<SoundManager>
     [SerializeField] SoundData[] SESoundDatas;
     [SerializeField] SoundData[] environmentSoundDatas;
     [SerializeField] AudioMixer  audioMixer;
+    [SerializeField][Header("音の最小デシベル")] float minimumDB;
 
     Dictionary<string, int> BGMNameToIndex = new Dictionary<string, int>();
     Dictionary<string, int> SENameToIndex = new Dictionary<string, int>();
@@ -38,7 +39,10 @@ public class SoundManager :SingletonMonoBehaviour<SoundManager>
             environmentNameToIndex.Add(environmentSoundDatas[i].soundName, i);
         }
     }
-
+    private void Start()
+    {
+        StopBGM(10);
+    }
     public void PlayBGM(string BGMName)
     {
         SoundData soundData = BGMSoundDatas[BGMNameToIndex[BGMName]];
@@ -65,34 +69,46 @@ public class SoundManager :SingletonMonoBehaviour<SoundManager>
     {
         //turnOffTime秒かけて音を消す。
         StartCoroutine(StopBGMProcess(turnOffTime));
-
+    }
+    public void StopBGM()
+    {
+        BGMPlayer.Stop();
     }
     IEnumerator StopBGMProcess(float turnOffTime)
     {
         float nowTime = 0;
-        float beginningVolume = BGMPlayer.volume;
+        float beginningDB = 20 * Mathf.Log10(BGMPlayer.volume);//ボリュームをデシベルに変換
         while (nowTime < turnOffTime)
         {
-            BGMPlayer.volume = beginningVolume * (1 - nowTime / turnOffTime);
+            float ratio = nowTime / turnOffTime;//BGMストップの進行度0-1
+            BGMPlayer.volume = Mathf.Pow(10, Mathf.Lerp(beginningDB, minimumDB, ratio) / 20f);//デシベルの線形変化をボリュームに変換
             nowTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         BGMPlayer.Stop();
     }
+
     public void StopEnvironment(float turnOffTime)
     {
         StartCoroutine(StopEnvironmentProcess(turnOffTime));
     }
+    public void StopEnvironment()
+    {
+        environmentPlayer.Stop();
+    }
     IEnumerator StopEnvironmentProcess(float turnOffTime)
     {
         float nowTime = 0;
-        float beginningVolume = environmentPlayer.volume;
+        float beginningDB = 20 * Mathf.Log10(environmentPlayer.volume);//ボリュームをデシベルに変換
         while (nowTime < turnOffTime)
         {
-            environmentPlayer.volume = beginningVolume * (1 - nowTime / turnOffTime);
+            float ratio = nowTime / turnOffTime;//Environmentストップの進行度0-1
+            environmentPlayer.volume = Mathf.Pow(10, Mathf.Lerp(beginningDB, minimumDB, ratio) / 20f);//デシベルの線形変化をボリュームに変換
             nowTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         environmentPlayer.Stop();
     }
+
+
 }
