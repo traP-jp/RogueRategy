@@ -141,12 +141,16 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     private List<IBattleSceneActions> m_BattleSceneActionsCallbackInterfaces = new List<IBattleSceneActions>();
     private readonly InputAction m_BattleScene_Down;
     private readonly InputAction m_BattleScene_Up;
+    private readonly InputAction m_BattleScene_Left;
+    private readonly InputAction m_BattleScene_Right;
     public struct BattleSceneActions
     {
         private @GameInputs m_Wrapper;
         public BattleSceneActions(@GameInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Down => m_Wrapper.m_BattleScene_Down;
         public InputAction @Up => m_Wrapper.m_BattleScene_Up;
+        public InputAction @Left => m_Wrapper.m_BattleScene_Left;
+        public InputAction @Right => m_Wrapper.m_BattleScene_Right;
         public InputActionMap Get() { return m_Wrapper.m_BattleScene; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
