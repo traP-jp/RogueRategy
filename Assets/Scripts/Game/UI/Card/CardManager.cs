@@ -39,8 +39,8 @@ public class CardManager : MonoBehaviour
     }
     void PlayTopCard()
     {
-        GameObject generatingGameObject = nowDisplayCards[0].cardInfo.unitObject;
-        Instantiate(generatingGameObject, playerTransform.position, Quaternion.identity, unitTransform);
+        nowDisplayCards[0].cardInfo.cardEffect.Process();
+        
 
     }
     void DeleteTopCard()

@@ -9,4 +9,6 @@ public class Card
    [HideInInspector]public GameObject cardObject;//カード自体のゲームオブジェクト
     public CardInfo cardInfo;
     public int cost = 2;//エネルギーコスト
+
+    
 }

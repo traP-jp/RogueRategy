@@ -8,7 +8,10 @@ public class CardInfo:ScriptableObject
 {
     //ここにカードの情報を入れる
     public Sprite sprite;
-    public GameObject unitObject;//unitのプレファブ
-
-
+    public ICard cardEffect;
+    
+}
+public interface ICard
+{
+    void Process();
 }
