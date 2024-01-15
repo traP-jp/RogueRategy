@@ -80,9 +80,11 @@ public class CardManager : MonoBehaviour
         //CardInfoのデータから初期状態のCardを生成
         Card resultCard = new Card();
         resultCard.cardInfo = cardInfo;
+        resultCard.cost = cardInfo.defaultCost;
         GameObject cardObject = Instantiate(cardPrefab, this.transform);
         resultCard.cardObject = cardObject;
         cardObject.GetComponent<CardDisplayUpdater>().cardGraphic.sprite = cardInfo.sprite;
+        
         return resultCard;
     }
 }

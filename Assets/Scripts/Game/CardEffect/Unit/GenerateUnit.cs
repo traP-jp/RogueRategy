@@ -7,7 +7,6 @@ namespace CardEffect//カードの効果はこの名前空間に入れる
     public class GenerateUnit : ICardEffect
     {
         //この辺でどのユニットをどこに出すかを指定
-        //parentTransformやplayerTransformは指定せずに入力されるようにしたい
         [SerializeField] GameObject unitObject;
         public void Process()
         {

@@ -7,6 +7,7 @@ namespace CardEffect
     [System.Serializable]
     public class CardEffectBundle : ICardEffectBundle
     {
+        //カードの効果が複数あるのを一つにまとめたもの
         [SerializeReference,SubclassSelector]public ICardEffect[] cardEffectArray;
 
         public void Process()

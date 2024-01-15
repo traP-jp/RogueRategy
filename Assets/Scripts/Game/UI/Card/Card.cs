@@ -8,7 +8,7 @@ public class Card
     //Attack,HP,など
    [HideInInspector]public GameObject cardObject;//カード自体のゲームオブジェクト
     public CardInfo cardInfo;
-    public int cost = 2;//エネルギーコスト
+    public int cost;//エネルギーコスト
 
     
 }
