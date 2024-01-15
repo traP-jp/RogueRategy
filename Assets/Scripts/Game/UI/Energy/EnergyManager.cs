@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using System;
 public class EnergyManager : MonoBehaviour
 {
+    [SerializeReference, SubclassSelector] ICard ic;
+    [SerializeReference] CardEffect.GenerateUnit gu;
+
     [SerializeField] int maxEnergy;
     [SerializeField] Image[] energyImages;
     [SerializeField] Sprite energyOnSprite;
