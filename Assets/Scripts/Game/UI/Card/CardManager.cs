@@ -39,7 +39,7 @@ public class CardManager : MonoBehaviour
     }
     void PlayTopCard()
     {
-        nowDisplayCards[0].cardInfo.cardEffect.Process();
+        nowDisplayCards[0].cardInfo.cardEffectInfo.Process();
         
 
     }

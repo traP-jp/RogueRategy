@@ -8,10 +8,8 @@ public class CardInfo:ScriptableObject
 {
     //ここにカードの情報を入れる
     public Sprite sprite;
-    public ICard cardEffect;
+    public int defaultCost;
+    [SerializeReference,SubclassSelector] public  CardEffect.ICardEffectBundle cardEffectInfo;
     
 }
-public interface ICard
-{
-    void Process();
-}
+
