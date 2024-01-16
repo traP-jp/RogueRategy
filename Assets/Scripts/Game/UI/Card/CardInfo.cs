@@ -8,7 +8,9 @@ public class CardInfo:ScriptableObject
 {
     //ここにカードの情報を入れる
     public Sprite sprite;
-    public GameObject unitObject;//unitのプレファブ
-
-
+    public int defaultCost;
+    public string cardExplanation;
+    [SerializeReference,SubclassSelector] public  CardEffect.ICardEffectBundle cardEffectInfo;
+    
 }
+
