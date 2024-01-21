@@ -5,13 +5,18 @@ using BuffTypeInspector;
 using System;
 public class BuffStack : MonoBehaviour,CardEffect.IBuffable
 {
-    public int di;
     List<BuffCore> nowBuffList = new List<BuffCore>();//全てのバフのリスト
     List<(BuffCore,float)> nowBuffDictionaryWithTimeLimit = new List<(BuffCore, float)>();//今のタイムリミット付きバフが入る
     List<(BuffCore, int)> nowBuffDictionaryWithCardCountLimit = new List<(BuffCore, int)>();//今のカードカウント制限付きバフが入る                                                                                             
 
+    private void Start()
+    {
+        BuffManager.Instance.SubscribeBuffStack(this);
+    }
+
     public void AddBuff(BuffCore buffCore)
     {
+        //タイプ分けしてリストに登録
         nowBuffList.Add(buffCore);
         Type buffTypesType = buffCore.GetBufftype().GetType();
         if(buffTypesType == typeof(LimitedTime))
@@ -29,7 +34,6 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
     private void Update()
     {
         UpdateLeftTime();
-        di = nowBuffList.Count;
     }
 
     void UpdateLeftTime()
