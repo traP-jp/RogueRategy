@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: energyt
+    m_Hash: 49670147
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: energyt_0
+      m_Hash: 534730932
+      m_Sprite: {fileID: 1412211951, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1412211951, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_1
+      m_Hash: 685271074
+      m_Sprite: {fileID: -2081317845, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2081317845, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_2
+      m_Hash: 835795352
+      m_Sprite: {fileID: -1170504828, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1170504828, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_3
+      m_Hash: 114690318
+      m_Sprite: {fileID: -1957166907, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1957166907, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_4
+      m_Hash: 414358701
+      m_Sprite: {fileID: 42649547, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 42649547, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_5
+      m_Hash: 800435259
+      m_Sprite: {fileID: 373082018, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 373082018, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_6
+      m_Hash: 918355329
+      m_Sprite: {fileID: 550891013, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 550891013, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_7
+      m_Hash: 29084951
+      m_Sprite: {fileID: -542328964, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -542328964, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_8
+      m_Hash: 285528198
+      m_Sprite: {fileID: -1822629379, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1822629379, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    - m_Name: energyt_9
+      m_Hash: 637788176
+      m_Sprite: {fileID: -119161093, guid: 9864edcd79f2760439bf389133422add, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -119161093, guid: 9864edcd79f2760439bf389133422add, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 10
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638410241801051450
+  m_Version: 1

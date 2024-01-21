@@ -6,9 +6,9 @@ using System;
 public class EnergyManager : MonoBehaviour
 {
     [SerializeField] int maxEnergy;
-    [SerializeField] Image[] energyImages;
-    [SerializeField] Sprite energyOnSprite;
-    [SerializeField] Sprite energyOffSprite;
+    [SerializeField] Sprite[] energyImages;
+    
+    private Image energyBase;
     public float energyRecoverInterval = 1;
     int nowEnergy = 0;
     public int nowEnergyProperty
@@ -22,7 +22,7 @@ public class EnergyManager : MonoBehaviour
             if(value >= 0 && value <= maxEnergy)
             {
                 nowEnergy = value;
-                displayEnergy();
+                DisplayEnergy();
             }
             else
             {
@@ -36,6 +36,8 @@ public class EnergyManager : MonoBehaviour
 
     private void Start()
     {
+        //変化させる対象のImageを選択
+        energyBase = gameObject.GetComponent<Image>();
         StartCoroutine(recoverEnergyConstantly());
     }
 
@@ -57,12 +59,8 @@ public class EnergyManager : MonoBehaviour
        
     }
 
-    void displayEnergy()
+    void DisplayEnergy()
     {
-        for(int index = 0;index < maxEnergy; index++)
-        {
-            energyImages[index].sprite = index < nowEnergy ? energyOnSprite : energyOffSprite;
-        }
-       
+            energyBase.sprite = energyImages[nowEnergyProperty];
     }
 }
