@@ -10,8 +10,7 @@ namespace CardEffect//カードの効果はこの名前空間に入れる
         [SerializeField] GameObject unitObject;
         public void Process()
         {
-            //Instantiate(unitObject, playerTransform.position, Quaternion.identity, parentTransform);
-            Debug.Log("発射");
+            CardEffectProcessor.Instance.GenerateUnitOnPlayer(unitObject);
         }
     }
 }
