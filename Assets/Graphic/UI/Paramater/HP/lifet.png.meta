@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9864edcd79f2760439bf389133422add
+guid: 72057ea0dc7824040bb1082d791126ab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: energyt_0
+      name: lifet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4097609768754a1794ed1b084362e39
-      internalID: 1412211951
+      spriteID: 57794922ed4cc4f2ca434303ff101a1a
+      internalID: 1862118908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_1
+      name: lifet_1
       rect:
         serializedVersion: 2
-        x: 27
+        x: 26
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caa445e46ec1a43c1bb288d8c6a3fb36
-      internalID: -2081317845
+      spriteID: 4b7c6fecb5f07447bbf73a9308ac380f
+      internalID: -325164248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_2
+      name: lifet_2
       rect:
         serializedVersion: 2
-        x: 54
+        x: 52
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb6fe48a3c4024604b06000c031c9837
-      internalID: -1170504828
+      spriteID: 05586f38edc5542f590da064a6dc8f35
+      internalID: 1148576109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_3
+      name: lifet_3
       rect:
         serializedVersion: 2
-        x: 81
+        x: 78
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50bba06feeb504ad68240c4a4630b97f
-      internalID: -1957166907
+      spriteID: f6ed29b6449fc46d9a37bbc378d77d8d
+      internalID: 485861741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_4
+      name: lifet_4
       rect:
         serializedVersion: 2
-        x: 108
+        x: 104
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a75f66933f704429da77fcafba16a8a2
-      internalID: 42649547
+      spriteID: 7c3275d7d86184ce8950c33e39ed03cb
+      internalID: -1281098915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_5
+      name: lifet_5
       rect:
         serializedVersion: 2
-        x: 135
+        x: 130
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 797a8f28a29a646a5adb9bd0aa9dcf5d
-      internalID: 373082018
+      spriteID: 0d6de5f23f65c4785b1b721a36ae6ebc
+      internalID: -1109208599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_6
+      name: lifet_6
       rect:
         serializedVersion: 2
-        x: 162
+        x: 156
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f905c0836056c40c7a55e6abb3778cd5
-      internalID: 550891013
+      spriteID: edb6e67272a9548819df913f8cb6e009
+      internalID: 572390148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_7
+      name: lifet_7
       rect:
         serializedVersion: 2
-        x: 189
+        x: 182
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c70f921b58a364237a9ec32969cd0465
-      internalID: -542328964
+      spriteID: 3200cef4db563469a8ea61c726c3092a
+      internalID: -1120082246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_8
+      name: lifet_8
       rect:
         serializedVersion: 2
-        x: 216
+        x: 208
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,20 +318,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b5420bfe47494c07a01206dacf80172
-      internalID: -1822629379
+      spriteID: 10673155895e449a299de24d2a8c7f93
+      internalID: -440927483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: energyt_9
+      name: lifet_9
       rect:
         serializedVersion: 2
-        x: 243
+        x: 234
         y: 0
-        width: 27
-        height: 98
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,8 +339,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 641866af811ac4b16b972a143fd319f6
-      internalID: -119161093
+      spriteID: e54359869438e48fe8a734575bebaf4f
+      internalID: 1415600860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lifet_10
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ac16a3ae7b54566b038820f99db384
+      internalID: -1354959557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lifet_11
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 0
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c7a16266f8044fc5833a377019f87d3
+      internalID: -1743749876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lifet_12
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c84df1bacc24d08bca4d8549c14f5d
+      internalID: -739873646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lifet_13
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 0
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee0d502480d8461ca59ae944d8d1c4f
+      internalID: 805875123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lifet_14
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 0
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52d27af87c5f412dbf4ca95719b3a55
+      internalID: 78023602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lifet_15
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9259ef0544fc44be394cf51b33734c40
+      internalID: 317809669
       vertices: []
       indices: 
       edges: []
@@ -356,16 +482,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      energyt_0: 1412211951
-      energyt_1: -2081317845
-      energyt_2: -1170504828
-      energyt_3: -1957166907
-      energyt_4: 42649547
-      energyt_5: 373082018
-      energyt_6: 550891013
-      energyt_7: -542328964
-      energyt_8: -1822629379
-      energyt_9: -119161093
+      lifet_0: 1862118908
+      lifet_1: -325164248
+      lifet_10: -1354959557
+      lifet_11: -1743749876
+      lifet_12: -739873646
+      lifet_13: 805875123
+      lifet_14: 78023602
+      lifet_15: 317809669
+      lifet_2: 1148576109
+      lifet_3: 485861741
+      lifet_4: -1281098915
+      lifet_5: -1109208599
+      lifet_6: 572390148
+      lifet_7: -1120082246
+      lifet_8: -440927483
+      lifet_9: 1415600860
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

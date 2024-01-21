@@ -31,7 +31,7 @@ MonoBehaviour:
     - rid: 7769764138042523651
       type: {class: GenerateUnit, ns: CardEffect, asm: Assembly-CSharp}
       data:
-        unitObject: {fileID: 0}
+        unitObject: {fileID: 6440545330278303188, guid: 56b2b8ce6be87431da6b483693d2f71f, type: 3}
     - rid: 7769764138042523654
       type: {class: AddBuffToSomething, ns: CardEffect, asm: Assembly-CSharp}
       data:
@@ -41,5 +41,7 @@ MonoBehaviour:
       type: {class: Burning, ns: , asm: Assembly-CSharp}
       data:
         buffType:
+          rid: -2
+        buffTypeWhenActivate:
           rid: -2
         Intensity: 0
