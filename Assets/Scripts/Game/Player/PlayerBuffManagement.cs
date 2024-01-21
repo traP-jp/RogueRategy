@@ -4,8 +4,8 @@ using UnityEngine;
 using CardEffect;
 public class PlayerBuffManagement : MonoBehaviour,IBuffable
 {
-    List<IBuff> nowBuffList = new List<IBuff>();//プレイヤーが今持っている状態異常をリストにする
-    public void AddBuff(IBuff buff)
+    List<BuffCore> nowBuffList = new List<BuffCore>();//プレイヤーが今持っている状態異常をリストにする
+    public void AddBuff(BuffCore buff)
     {
         nowBuffList.Add(buff);
     }
