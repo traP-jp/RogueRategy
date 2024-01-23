@@ -59,6 +59,14 @@ public class PlayerManager : MonoBehaviour
         if (gameInputs.BattleScene.Down.IsPressed())
         {
             transform.position = Vector2.down * playerVelocity * Time.deltaTime + (Vector2)transform.position;
+        }       
+        if (gameInputs.BattleScene.Left.IsPressed())
+        {
+            transform.position = Vector2.left * playerVelocity * Time.deltaTime + (Vector2)transform.position;
+        }
+        if (gameInputs.BattleScene.Right.IsPressed())
+        {
+            transform.position = Vector2.right * playerVelocity * Time.deltaTime + (Vector2)transform.position;
         }
 
         
