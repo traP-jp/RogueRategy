@@ -28,7 +28,7 @@ public class EnergyManager : MonoBehaviour
             {
                 if (value < 0) nowEnergy = 0;
                 if (value > maxEnergy) nowEnergy = maxEnergy;
-                throw new ArgumentOutOfRangeException();
+                DisplayEnergy();
             }
         }
     }
@@ -46,14 +46,7 @@ public class EnergyManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(energyRecoverInterval);
-            try
-            {
-                nowEnergyProperty = nowEnergyProperty + 1;
-            }
-            catch
-            {
-
-            }
+            nowEnergyProperty = nowEnergyProperty + 1;
         }
         
        

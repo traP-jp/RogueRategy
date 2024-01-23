@@ -36,7 +36,7 @@ public class EnemyManager : MonoBehaviour,IDamagable
         }
         finally
         {
-            enemyHPSlider.value = nowHPProperty / (float)maxHP;
+            //enemyHPSlider.value = nowHPProperty / (float)maxHP;
         }
     }
 }

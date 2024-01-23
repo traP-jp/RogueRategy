@@ -5,7 +5,30 @@ using UnityEngine.InputSystem;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] float playerVelocity;
-
+    [SerializeField] int playerMaxHP;
+    [SerializeField] PlayerHPUpdater playerHPUpdater;
+    public int playerHPProperty
+    {
+        get
+        {
+            return playerHP;
+        }
+        set
+        {
+            if(value >= 0 && value <= playerMaxHP)
+            {
+                playerHP = value;
+                playerHPUpdater.UpdateHPTank(value);
+            }
+            else
+            {
+                if (value < 0) playerHP = 0;
+                if (value > playerMaxHP) playerHP = playerMaxHP;
+                playerHPUpdater.UpdateHPTank(playerHP);
+            }
+        }
+    }
+    int playerHP;
 
     #region InputSystem関係
     GameInputs gameInputs;
@@ -14,13 +37,18 @@ public class PlayerManager : MonoBehaviour
         gameInputs = new GameInputs();
         gameInputs.Enable();
     }
-    #endregion
-    // Start is called before the first frame update
-    void Start()
+    private void OnDisable()
     {
-        
+        gameInputs.Disable();
     }
+    #endregion
 
+
+    private void Start()
+    {
+        //プレイヤーHPの初期化(実際は常にHPMaxスタートではない)
+        playerHPProperty = playerMaxHP-10;
+    }
     // Update is called once per frame
     void Update()
     {
