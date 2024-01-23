@@ -20,6 +20,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
     public void RestoreEnergy(int amount)
     {
         playerEnergy.nowEnergyProperty += amount;
+    }
     public void RecoverPlayerHP(int recoverHP)
     {
         playerManager.playerHPProperty += recoverHP;
