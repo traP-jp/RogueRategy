@@ -17,9 +17,12 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
     {
         Instantiate(unitObject, playerTransform.position, Quaternion.identity, playersUnitParentTransform);
     }
+
     public void RestoreEnergy(int amount)
     {
         playerEnergy.nowEnergyProperty += amount;
+    }
+
     public void RecoverPlayerHP(int recoverHP)
     {
         playerManager.playerHPProperty += recoverHP;
