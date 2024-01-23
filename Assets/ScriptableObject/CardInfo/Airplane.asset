@@ -20,14 +20,12 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 7769764138042523649
       type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
       data:
         cardEffectArray:
         - rid: 7769764138042523651
-        - rid: 7769764138042523654
+        - rid: 7769764267853348882
     - rid: 7769764138042523651
       type: {class: GenerateUnit, ns: CardEffect, asm: Assembly-CSharp}
       data:
