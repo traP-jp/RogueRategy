@@ -6,6 +6,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] Transform playersUnitParentTransform;
+    [SerializeField] Transform playerBulletParentTransform;
     [SerializeField] EnergyManager playerEnergy;
     PlayerManager playerManager;
     private void Start()
@@ -26,5 +27,10 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
     public void RecoverPlayerHP(int recoverHP)
     {
         playerManager.playerHPProperty += recoverHP;
+    }
+
+    public void GenerateBulletFromPlayer(GameObject bulletObject)
+    {
+        Instantiate(bulletObject, playerTransform.position, Quaternion.identity, playerBulletParentTransform);
     }
 }
