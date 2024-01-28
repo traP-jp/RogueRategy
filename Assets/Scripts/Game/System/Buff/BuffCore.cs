@@ -14,7 +14,7 @@ public abstract class BuffCore
     {
         return buffTypeWhenActivate;
     }
-    public abstract void Process();
+    public abstract void Process(StatusBase statusBase);
 }
 
 

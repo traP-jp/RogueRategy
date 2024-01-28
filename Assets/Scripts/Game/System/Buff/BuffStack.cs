@@ -5,6 +5,8 @@ using BuffTypeInspector;
 using System;
 public class BuffStack : MonoBehaviour,CardEffect.IBuffable
 {
+    [SerializeField] int debugInt;
+
     List<BuffCore> nowBuffList = new List<BuffCore>();//全てのバフのリスト
     List<(BuffCore,float)> nowBuffDictionaryWithTimeLimit = new List<(BuffCore, float)>();//今のタイムリミット付きバフが入る
     List<(BuffCore, int)> nowBuffDictionaryWithCardCountLimit = new List<(BuffCore, int)>();//今のカードカウント制限付きバフが入る                                                                                             
@@ -12,6 +14,12 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
     List<(BuffCore, float)> nowBuffWithActivateAtInterval = new List<(BuffCore, float)>();
     List<BuffCore> nowBuffWithActivatePermanently = new List<BuffCore>();
     List<BuffCore> nowBuffWithActivateOnCardUse = new List<BuffCore>();
+
+    StatusBase connectedStatusBase;
+    public void NoticeStatusBase(StatusBase statusBase)
+    {
+        connectedStatusBase = statusBase;
+    }
     private void Start()
     {
         BuffManager.Instance.SubscribeBuffStack(this);
@@ -30,7 +38,7 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
         else if(buffTypesType == typeof(LimitedCardCount))
         {
             LimitedCardCount lcc = (LimitedCardCount)buffCore.GetBufftype();
-            nowBuffDictionaryWithCardCountLimit.Add((buffCore, lcc.limitCardCount));
+            nowBuffDictionaryWithCardCountLimit.Add((buffCore, lcc.limitCardCount + 1));
         }
 
         Type buffWhenActivateType = buffCore.GetBuffWhenActivate().GetType();
@@ -46,6 +54,8 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
         else if(buffWhenActivateType == typeof(Permanently))
         {
             //プレイヤークラスに状態異常の更新をするような通知を行う
+            nowBuffWithActivatePermanently.Add(buffCore);
+            connectedStatusBase.PermanentBuffUpdate(nowBuffWithActivatePermanently.ToArray());
         }
     }
     public void RemoveBuff(BuffCore buffCore)
@@ -60,6 +70,7 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
         if(buffCore.GetBuffWhenActivate().GetType() == typeof(Permanently))
         {
             //プレイヤークラスに状態異常の更新をするような通知を行う
+            connectedStatusBase.PermanentBuffUpdate(nowBuffWithActivatePermanently.ToArray());
         }
     }
     public void RemoveOneItem1Tuple<T,V>(T deleteKey,List<(T,V)> deleteList)
@@ -83,6 +94,7 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
     {
         UpdateLeftTime();
         UpdateInterval();
+        debugInt = nowBuffWithActivatePermanently.Count;
     }
 
     void UpdateLeftTime()
@@ -98,7 +110,6 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
             if(updatedLeftTime <= 0)
             {
                 deleteIndexes.Push(i);
-                nowBuffList.Remove(pair.Item1);
             }
             else
             {
@@ -107,7 +118,7 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
         }
         while (deleteIndexes.Count > 0)
         {
-            nowBuffDictionaryWithTimeLimit.RemoveAt(deleteIndexes.Pop());
+            RemoveBuff(nowBuffDictionaryWithTimeLimit[deleteIndexes.Pop()].Item1);
         }
     }
     void UpdateInterval()
@@ -121,12 +132,12 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
             {
                 //バフ効果を発動してインターバルタイムを復活
                 BuffCore bc = pair.Item1;
-                bc.Process();
+                bc.Process(connectedStatusBase);
                 float intervalTime = ((AtInterval)bc.GetBuffWhenActivate()).intervalTime;//バフのインターバルタイムを取得
                 leftTime += intervalTime;
-                nowBuffWithActivateAtInterval[i] = (bc, leftTime);
             }
-            
+            nowBuffWithActivateAtInterval[i] = (pair.Item1, leftTime);
+
         }
     }
 
@@ -134,9 +145,9 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
     {
         //カードを使用した時にBuffManagerが自動的に呼び出す。
         //カードが使用された時に効果発動するバフの処理を行う
-        foreach(BuffCore bc in nowBuffWithActivateOnCardUse)
+        foreach (BuffCore bc in nowBuffWithActivateOnCardUse)
         {
-            bc.Process();
+            bc.Process(connectedStatusBase);
         }
         //カード使用回数制限があるバフを更新する
         Stack<int> deleteIndexes = new Stack<int>();
@@ -147,17 +158,17 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
             int updatedCardCount = pair.Item2 - 1;
             if (updatedCardCount <= 0)
             {
+               
                 deleteIndexes.Push(i);
-                nowBuffList.Remove(pair.Item1);
             }
             else
             {
-                nowBuffDictionaryWithTimeLimit[i] = (pair.Item1,updatedCardCount);
+                nowBuffDictionaryWithCardCountLimit[i] = (pair.Item1,updatedCardCount);
             }
         }
         while (deleteIndexes.Count > 0)
         {
-            nowBuffDictionaryWithTimeLimit.RemoveAt(deleteIndexes.Pop());
+            RemoveBuff(nowBuffDictionaryWithCardCountLimit[deleteIndexes.Pop()].Item1);
         }
 
     }

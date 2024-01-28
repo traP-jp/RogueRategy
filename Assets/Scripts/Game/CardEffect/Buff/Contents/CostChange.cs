@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class Burning : BuffCore
+public class CostChange : BuffCore
 {
-    public float Intensity;
-
+    public int changeAmount;
     public override void Process(StatusBase statusBase)
     {
-        statusBase.HP -= Intensity;
+        ((PlayerStatus)statusBase).costDiffAmount += changeAmount;
+        
     }
 }

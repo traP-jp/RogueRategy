@@ -25,7 +25,6 @@ public class EnemyManager : MonoBehaviour,IDamagable
     }
    public void AddDamage(int strength)
     {
-        Debug.Log(strength + "ダメージ");
         try
         {
             nowHPProperty -= strength;

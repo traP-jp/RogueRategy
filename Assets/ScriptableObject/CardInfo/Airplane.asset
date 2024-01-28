@@ -20,8 +20,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 7769764138042523649
       type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
       data:
@@ -36,12 +34,18 @@ MonoBehaviour:
       type: {class: AddBuffToSomething, ns: CardEffect, asm: Assembly-CSharp}
       data:
         buff:
-          rid: 7769764424263139329
-    - rid: 7769764424263139329
-      type: {class: Burning, ns: , asm: Assembly-CSharp}
+          rid: 7769764424263139334
+    - rid: 7769764424263139334
+      type: {class: CostChange, ns: , asm: Assembly-CSharp}
       data:
         buffType:
-          rid: -2
+          rid: 7769764424263139335
         buffTypeWhenActivate:
-          rid: -2
-        Intensity: 0
+          rid: 7769764424263139336
+        changeAmount: 3
+    - rid: 7769764424263139335
+      type: {class: LimitedCardCount, ns: BuffTypeInspector, asm: Assembly-CSharp}
+      data:
+        limitCardCount: 1
+    - rid: 7769764424263139336
+      type: {class: Permanently, ns: BuffTypeInspector, asm: Assembly-CSharp}
