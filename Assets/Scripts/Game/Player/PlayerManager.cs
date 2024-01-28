@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] float playerVelocity;
+    [SerializeField] float slowRate;
     [SerializeField] int playerMaxHP;
     [SerializeField] PlayerHPUpdater playerHPUpdater;
     public int playerHPProperty
@@ -52,21 +53,26 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float realVelocity=playerVelocity;
+        if (gameInputs.BattleScene.Slow.IsPressed())
+        {
+            realVelocity *= slowRate;
+        }
         if (gameInputs.BattleScene.Up.IsPressed())
         {
-            transform.position = Vector2.up * playerVelocity * Time.deltaTime + (Vector2)transform.position;
+            transform.position = Vector2.up * realVelocity * Time.deltaTime + (Vector2)transform.position;
         }
         if (gameInputs.BattleScene.Down.IsPressed())
         {
-            transform.position = Vector2.down * playerVelocity * Time.deltaTime + (Vector2)transform.position;
+            transform.position = Vector2.down * realVelocity * Time.deltaTime + (Vector2)transform.position;
         }       
         if (gameInputs.BattleScene.Left.IsPressed())
         {
-            transform.position = Vector2.left * playerVelocity * Time.deltaTime + (Vector2)transform.position;
+            transform.position = Vector2.left * realVelocity * Time.deltaTime + (Vector2)transform.position;
         }
         if (gameInputs.BattleScene.Right.IsPressed())
         {
-            transform.position = Vector2.right * playerVelocity * Time.deltaTime + (Vector2)transform.position;
+            transform.position = Vector2.right * realVelocity * Time.deltaTime + (Vector2)transform.position;
         }
 
         

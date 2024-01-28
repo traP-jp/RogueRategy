@@ -547,7 +547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438510307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1.91, y: 0.03, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -619,6 +619,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerVelocity: 8
+  slowRate: 0.3
+  playerMaxHP: 0
+  playerHPUpdater: {fileID: 0}
 --- !u!114 &438510311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2665,3 +2668,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 438510308}
   playersUnitParentTransform: {fileID: 7641256597915962255}
+  playerEnergy: {fileID: 0}
