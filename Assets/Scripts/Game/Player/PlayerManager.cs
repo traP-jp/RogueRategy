@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float slowRate;
     [SerializeField] int playerMaxHP;
     [SerializeField] PlayerHPUpdater playerHPUpdater;
+
+    private Rigidbody2D _rigidbody;
     public int playerHPProperty
     {
         get
@@ -45,36 +47,42 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
 
-    private void Start()
+    void Start()
     {
+        //自然な動きの実装(Rigidbody2Dの利用)
+        _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         //プレイヤーHPの初期化(実際は常にHPMaxスタートではない)
         playerHPProperty = playerMaxHP-10;
+
     }
     // Update is called once per frame
     void Update()
     {
-        float realVelocity=playerVelocity;
+        float calculatedVelocity=playerVelocity;
+        var realVelocity=new Vector2();
         if (gameInputs.BattleScene.Slow.IsPressed())
         {
-            realVelocity *= slowRate;
+            calculatedVelocity *= slowRate;
         }
         if (gameInputs.BattleScene.Up.IsPressed())
         {
-            transform.position = Vector2.up * realVelocity * Time.deltaTime + (Vector2)transform.position;
+            realVelocity.y += calculatedVelocity;
         }
         if (gameInputs.BattleScene.Down.IsPressed())
         {
-            transform.position = Vector2.down * realVelocity * Time.deltaTime + (Vector2)transform.position;
+            realVelocity.y -= calculatedVelocity;
         }       
         if (gameInputs.BattleScene.Left.IsPressed())
         {
-            transform.position = Vector2.left * realVelocity * Time.deltaTime + (Vector2)transform.position;
+            realVelocity.x -= calculatedVelocity;
         }
         if (gameInputs.BattleScene.Right.IsPressed())
         {
-            transform.position = Vector2.right * realVelocity * Time.deltaTime + (Vector2)transform.position;
+            realVelocity.x += calculatedVelocity;
         }
 
-        
+        _rigidbody.velocity = realVelocity;
+
+
     }
 }
