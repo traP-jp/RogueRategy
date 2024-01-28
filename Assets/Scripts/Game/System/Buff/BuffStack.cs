@@ -9,6 +9,9 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
     List<(BuffCore,float)> nowBuffDictionaryWithTimeLimit = new List<(BuffCore, float)>();//今のタイムリミット付きバフが入る
     List<(BuffCore, int)> nowBuffDictionaryWithCardCountLimit = new List<(BuffCore, int)>();//今のカードカウント制限付きバフが入る                                                                                             
 
+    List<(BuffCore, float)> nowBuffWithActivateAtInterval = new List<(BuffCore, float)>();
+    List<BuffCore> nowBuffWithActivatePermanently = new List<BuffCore>();
+    List<BuffCore> nowBuffWithActivateOnCardUse = new List<BuffCore>();
     private void Start()
     {
         BuffManager.Instance.SubscribeBuffStack(this);
@@ -29,11 +32,57 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
             LimitedCardCount lcc = (LimitedCardCount)buffCore.GetBufftype();
             nowBuffDictionaryWithCardCountLimit.Add((buffCore, lcc.limitCardCount));
         }
-    }
 
+        Type buffWhenActivateType = buffCore.GetBuffWhenActivate().GetType();
+        if(buffWhenActivateType == typeof(AtInterval))
+        {
+            AtInterval atInterval = (AtInterval)buffCore.GetBuffWhenActivate();
+            nowBuffWithActivateAtInterval.Add((buffCore, atInterval.intervalTime));
+        }
+        else if(buffWhenActivateType == typeof(OnCardUse))
+        {
+            nowBuffWithActivateOnCardUse.Add(buffCore);
+        }
+        else if(buffWhenActivateType == typeof(Permanently))
+        {
+            //プレイヤークラスに状態異常の更新をするような通知を行う
+        }
+    }
+    public void RemoveBuff(BuffCore buffCore)
+    {
+        //バフを取り除く
+        nowBuffList.Remove(buffCore);
+        RemoveOneItem1Tuple(buffCore, nowBuffDictionaryWithTimeLimit);
+        RemoveOneItem1Tuple(buffCore, nowBuffDictionaryWithCardCountLimit);
+        RemoveOneItem1Tuple(buffCore, nowBuffWithActivateAtInterval);
+        nowBuffWithActivatePermanently.Remove(buffCore);
+        nowBuffWithActivatePermanently.Remove(buffCore);
+        if(buffCore.GetBuffWhenActivate().GetType() == typeof(Permanently))
+        {
+            //プレイヤークラスに状態異常の更新をするような通知を行う
+        }
+    }
+    public void RemoveOneItem1Tuple<T,V>(T deleteKey,List<(T,V)> deleteList)
+    {
+        //タプルを要素にもつリストのItem1が一致するものを一つだけ消す
+        int deleteIndex = -1;
+        for(int i = 0; i < deleteList.Count; i++)
+        {
+            if (deleteList[i].Item1.Equals(deleteKey))
+            {
+                deleteIndex = i;
+                break;
+            }
+        }
+        if(deleteIndex >= 0)
+        {
+            deleteList.RemoveAt(deleteIndex);
+        }
+    }
     private void Update()
     {
         UpdateLeftTime();
+        UpdateInterval();
     }
 
     void UpdateLeftTime()
@@ -61,10 +110,35 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
             nowBuffDictionaryWithTimeLimit.RemoveAt(deleteIndexes.Pop());
         }
     }
+    void UpdateInterval()
+    {
+        //一定時間おきに発動するバフの起動を行う
+        for(int i = 0;i<nowBuffWithActivateAtInterval.Count;i++)
+        {
+            var pair = nowBuffWithActivateAtInterval[i];
+            float leftTime = pair.Item2 - Time.deltaTime;
+            if(leftTime <= 0)
+            {
+                //バフ効果を発動してインターバルタイムを復活
+                BuffCore bc = pair.Item1;
+                bc.Process();
+                float intervalTime = ((AtInterval)bc.GetBuffWhenActivate()).intervalTime;//バフのインターバルタイムを取得
+                leftTime += intervalTime;
+                nowBuffWithActivateAtInterval[i] = (bc, leftTime);
+            }
+            
+        }
+    }
 
     public void NoticeCardUse()
     {
-        //カードを使用した時にBuffManagerが自動的に呼び出し、カード使用回数制限があるバフを更新する
+        //カードを使用した時にBuffManagerが自動的に呼び出す。
+        //カードが使用された時に効果発動するバフの処理を行う
+        foreach(BuffCore bc in nowBuffWithActivateOnCardUse)
+        {
+            bc.Process();
+        }
+        //カード使用回数制限があるバフを更新する
         Stack<int> deleteIndexes = new Stack<int>();
         for (int i = 0; i < nowBuffDictionaryWithCardCountLimit.Count; i++)
         {

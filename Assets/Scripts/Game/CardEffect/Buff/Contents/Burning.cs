@@ -5,4 +5,9 @@ using UnityEngine;
 public class Burning : BuffCore
 {
     public float Intensity;
+
+    public override void Process()
+    {
+
+    }
 }

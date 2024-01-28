@@ -10,6 +10,11 @@ public abstract class BuffCore
     {
         return buffType;
     }
+    public BuffTypeInspector.IBuffTypeWhenActivate GetBuffWhenActivate()
+    {
+        return buffTypeWhenActivate;
+    }
+    public abstract void Process();
 }
 
 
