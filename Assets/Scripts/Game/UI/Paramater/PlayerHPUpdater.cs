@@ -7,7 +7,7 @@ public class PlayerHPUpdater : MonoBehaviour
 {
     [SerializeField] Sprite[] HPTankSprites;
     Image HPTankImage;
-    private void Start()
+    private void Awake()
     {
         HPTankImage = GetComponent<Image>();
     }

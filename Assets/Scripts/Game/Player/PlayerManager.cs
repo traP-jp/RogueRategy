@@ -46,11 +46,14 @@ public class PlayerManager : MonoBehaviour
     }
     #endregion
 
-
-    void Start()
+    private void Awake()
     {
         //自然な動きの実装(Rigidbody2Dの利用)
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+    }
+    void Start()
+    {
+        
         //プレイヤーHPの初期化(実際は常にHPMaxスタートではない)
         playerHPProperty = playerMaxHP-10;
 
