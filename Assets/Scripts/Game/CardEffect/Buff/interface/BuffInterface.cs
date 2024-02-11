@@ -7,6 +7,8 @@ namespace CardEffect
     {
         //バフを受けることができるキャラにつける
         void AddBuff(BuffCore buff);
+
+        void RemoveBuff(BuffCore buff);
     }
 }
 

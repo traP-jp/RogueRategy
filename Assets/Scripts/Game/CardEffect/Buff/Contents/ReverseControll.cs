@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
-public class Burning : BuffCore
-{
-    public float Intensity;
 
+[System.Serializable]
+public class ReverseControll : BuffCore
+{
+    public float speedRatio;
     public override void Process(StatusBase statusBase)
     {
-        statusBase.HP -= Intensity;
+        ((PlayerStatus)statusBase).isControllReverse = true;
     }
 }

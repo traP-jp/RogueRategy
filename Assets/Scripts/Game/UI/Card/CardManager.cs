@@ -13,6 +13,8 @@ public class CardManager : MonoBehaviour
     [SerializeField] GameObject cardPrefab;
     [SerializeField] Transform playerTransform;
     [SerializeField] Transform unitTransform;
+
+    [SerializeField] PlayerStatus playerStatus;//仮置き
     Card[] nowDisplayCards;
     int topCardIndex = 0;//今のトップカードのnowDeckでのインデックスを表す
     private void Start()
@@ -28,9 +30,10 @@ public class CardManager : MonoBehaviour
     }
     private void Update()
     {
-        if (nowDisplayCards[0].cost <= energyManager.nowEnergyProperty)
+        //仮置き
+        if (nowDisplayCards[0].cost + playerStatus.costDiffAmount <= energyManager.nowEnergyProperty)
         {
-            energyManager.nowEnergyProperty -= nowDisplayCards[0].cost;
+            energyManager.nowEnergyProperty -= nowDisplayCards[0].cost + playerStatus.costDiffAmount;
             PlayTopCard();
             DeleteTopCard();
             GenerateNextCard();
@@ -40,13 +43,10 @@ public class CardManager : MonoBehaviour
     void PlayTopCard()
     {
         nowDisplayCards[0].cardInfo.cardEffectInfo.Process();
-        
-
+        BuffManager.Instance.NoticeCardUse();
     }
     void DeleteTopCard()
     {
-
-        
         //トップカードが空いた分を詰める
         for(int index = 0;index < displayMaxCount - 1; index++)
         {
