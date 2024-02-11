@@ -33,11 +33,14 @@ public class EnergyManager : MonoBehaviour
         }
     }
 
-
+    private void Awake()
+    {
+        energyBase = gameObject.GetComponent<Image>();
+    }
     private void Start()
     {
         //変化させる対象のImageを選択
-        energyBase = gameObject.GetComponent<Image>();
+        
         StartCoroutine(recoverEnergyConstantly());
     }
 
