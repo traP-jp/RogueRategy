@@ -34,7 +34,7 @@ public class EnemyHPbar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void HPBarUpdate()
+    public void HPBarUpdate()
     {
         // 現在HPの反映
         _currentHPratio = (float)_enemyManager.nowHPProperty/(float)_enemyManager.maxHP;
@@ -44,7 +44,7 @@ public class EnemyHPbar : MonoBehaviour
         _currentHPbar.transform.localScale = _currentHPbarScale;
     }
 
-    void Vanish()
+    public void Vanish()
     {
         Destroy(gameObject);
         

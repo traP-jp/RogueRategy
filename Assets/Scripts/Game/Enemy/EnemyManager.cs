@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class EnemyManager : MonoBehaviour,IDamagable
     public bool HPbarDisplayed = false;
     
     public int maxHP = 1000;
-    int nowHP = 1000;
+    int nowHP = 100;
     public int nowHPProperty
     {
         get { return nowHP; }
@@ -25,7 +26,13 @@ public class EnemyManager : MonoBehaviour,IDamagable
             else nowHP = value;
         }
     }
-   public void AddDamage(int strength)
+
+    void Start()
+    {
+        DrawHPbar();
+    }
+
+    public void AddDamage(int strength)
     {
         try
         {
@@ -44,8 +51,21 @@ public class EnemyManager : MonoBehaviour,IDamagable
    //HPバーの描画
    public void DrawHPbar()
    {
-       
+       if (!HPbarDisplayed)
+       {
+           Instantiate(enemyHPbar,gameObject.transform);
+           HPbarDisplayed = true;
+       }
+       else
+       {
+           enemyHPbar.HPBarUpdate();
+       }
    }
    
    //HPバーの消去
+
+   public void VanishHPbar()
+   {
+       enemyHPbar.Vanish();
+   }
 }
