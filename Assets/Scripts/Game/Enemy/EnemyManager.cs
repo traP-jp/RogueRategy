@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemyManager : MonoBehaviour,IDamagable
 {
-    [SerializeField] UnityEngine.UI.Slider enemyHPSlider;
-    int maxHP = 1000;
+    [SerializeField] EnemyHPbar enemyHPbar;
+    public bool HPbarDisplayed = false;
+    
+    public int maxHP = 1000;
     int nowHP = 1000;
-    int nowHPProperty
+    public int nowHPProperty
     {
         get { return nowHP; }
         set
@@ -38,4 +40,12 @@ public class EnemyManager : MonoBehaviour,IDamagable
             //enemyHPSlider.value = nowHPProperty / (float)maxHP;
         }
     }
+
+   //HPバーの描画
+   public void DrawHPbar()
+   {
+       
+   }
+   
+   //HPバーの消去
 }
