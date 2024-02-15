@@ -1,14 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 public class EnemyManager : MonoBehaviour,IDamagable
 {
-    [SerializeField] EnemyHPbar enemyHPbar;
+    [SerializeField] EnemyHPbar enemyHPbarPrehab;
+    private EnemyHPbar _enemyHPbar;
     public bool HPbarDisplayed = false;
     
     public int maxHP = 1000;
     int nowHP = 100;
+    private float _displaytime;
+    
     public int nowHPProperty
     {
         get { return nowHP; }
@@ -29,6 +33,18 @@ public class EnemyManager : MonoBehaviour,IDamagable
 
     void Start()
     {
+        DrawHPbar();
+        
+    }
+
+    private void Update()
+    {
+        if (!HPbarDisplayed) return;
+        _displaytime -= Time.deltaTime;
+        Debug.Log(_displaytime);
+        if (_displaytime >= 0f) return; 
+        VanishHPbar(); 
+        HPbarDisplayed = false;
         
     }
 
@@ -54,19 +70,23 @@ public class EnemyManager : MonoBehaviour,IDamagable
    {
        if (!HPbarDisplayed)
        {
-           Instantiate(enemyHPbar,gameObject.transform);
+           _enemyHPbar=Instantiate(enemyHPbarPrehab,gameObject.transform);
            HPbarDisplayed = true;
        }
        else
        {
-           enemyHPbar.HPBarUpdate();
+           _enemyHPbar.HPBarUpdate();
        }
+
+       _displaytime = 3.0f;
+
    }
    
    //HPバーの消去
 
    public void VanishHPbar()
    {
-       enemyHPbar.Vanish();
+       _enemyHPbar.Vanish();
+       HPbarDisplayed = false;
    }
 }
