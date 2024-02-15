@@ -30,18 +30,12 @@ public class EnemyManager : MonoBehaviour,IDamagable
             else nowHP = value;
         }
     }
-
-    void Start()
-    {
-        DrawHPbar();
-        
-    }
+    
 
     private void Update()
     {
         if (!HPbarDisplayed) return;
         _displaytime -= Time.deltaTime;
-        Debug.Log(_displaytime);
         if (_displaytime >= 0f) return; 
         VanishHPbar(); 
         HPbarDisplayed = false;

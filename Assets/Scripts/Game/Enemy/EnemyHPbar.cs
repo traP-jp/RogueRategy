@@ -46,7 +46,6 @@ public class EnemyHPbar : MonoBehaviour
 
     public void Vanish()
     {
-        Debug.Log("Destroy");
         Destroy(gameObject);
 
     }
