@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour,IDamagable
 
     void Start()
     {
-        DrawHPbar();
+        
     }
 
     public void AddDamage(int strength)
@@ -37,6 +37,7 @@ public class EnemyManager : MonoBehaviour,IDamagable
         try
         {
             nowHPProperty -= strength;
+            DrawHPbar();
         }
         catch
         {
