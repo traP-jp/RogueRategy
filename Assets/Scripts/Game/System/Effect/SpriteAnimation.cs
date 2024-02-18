@@ -22,7 +22,7 @@ public class SpriteAnimation : MonoBehaviour
     }
     private void Start()
     {
-        animationSprites = getSpritesFromTileSet(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
+        animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
         if (initializeOnStart)
         {
             Initialize();
@@ -45,7 +45,7 @@ public class SpriteAnimation : MonoBehaviour
 
     }
 
-    Sprite[] getSpritesFromTileSet(Sprite sprite,int XCount,int YCount)
+    Sprite[] getSpritesFromLargeSprite(Sprite sprite,int XCount,int YCount)
     {
         int oneSpriteSizeX =(int)( sprite.rect.width / XCount);
         int oneSpriteSizeY = (int)(sprite.rect.height / YCount);
