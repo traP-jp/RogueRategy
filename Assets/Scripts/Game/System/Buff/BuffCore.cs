@@ -23,8 +23,9 @@ public enum BuffSubjectEntity
 {
     Enemy,
     Player,
-    Unit,
-    EnemyAndUnit,
+    PlayerUnit,
+    PlayerAndPlayerUnit,
+    EnemyAndPlayerUnit,
     All
 }
 
