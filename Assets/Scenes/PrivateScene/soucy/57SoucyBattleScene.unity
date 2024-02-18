@@ -728,9 +728,23 @@ MonoBehaviour:
   defense: 0
   speed: 0
   HP: 0
+  resultAttack: 0
+  resultDefense: 0
+  resultSpeed: 0
+  attackRatio: 1
+  defenseRatio: 0
+  speedRatio: 0
   unitAttack: 0
   unitDefense: 0
   unitSpeed: 0
+  unitAttackRatio: 0
+  unitDefenseRatio: 0
+  unitSpeedRatio: 0
+  costDiffAmount: 0
+  isControllReverse: 0
+  resultUnitAttack: 0
+  resultUnitDefense: 0
+  resultUnitSpeed: 0
 --- !u!1 &484913754
 GameObject:
   m_ObjectHideFlags: 0

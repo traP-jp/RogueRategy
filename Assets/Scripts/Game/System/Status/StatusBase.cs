@@ -4,6 +4,17 @@ using UnityEngine;
 
 public abstract class StatusBase : MonoBehaviour
 {
+    protected void Awake()
+    {
+        attackRatio = 1;
+        defenseRatio = 1;
+        speedRatio = 1;
+        resultAttack = attack;
+        resultDefense = defense;
+        resultSpeed = speed;
+    }
+
+
 
     [SerializeField] BuffStack connectedBuffStack;
     //デフォルトの戦闘中は不変の値

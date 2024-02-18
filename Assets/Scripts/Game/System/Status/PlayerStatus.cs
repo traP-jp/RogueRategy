@@ -5,6 +5,16 @@ using CardEffect;
 using BuffTypeInspector;
 public class PlayerStatus : StatusBase
 {
+    private void Awake()
+    {
+        base.Awake();
+        unitAttackRatio = 1;
+        unitDefenseRatio = 1;
+        unitSpeedRatio = 1;
+        resultUnitAttack = unitAttack;
+        resultUnitDefense = unitDefense;
+        resultUnitSpeed = unitSpeed;
+    }
     //デフォルト値
     public float unitAttack;//プレイヤーが出すユニットに反映される攻撃力,attackと統合しても良いがいつでも分けられるように分けておく
     public float unitDefense;

@@ -36,12 +36,11 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         bulletMane.bulletStatus.SettingAttack(playerManager.playerStatus.resultAttack);
         bulletMane.bulletMovement.SetupVelocity(5, 0);
         //状態異常の引き継ぎ
-        BuffStack bulletBuffStack = bulletMane.buffStack;
         foreach(BuffCore bc in playerManager.playerBuffStack.GetNowBuffCoreArray())
         {
             if(bc.buffSubject is BuffSubjectEntity.Enemy or BuffSubjectEntity.EnemyAndPlayerUnit or BuffSubjectEntity.PlayerAndEnemy or BuffSubjectEntity.All)
             {
-                bulletBuffStack.AddBuff(bc);
+                bulletMane.bulletsBuffList.Add(bc);
             }
         }
     }

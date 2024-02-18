@@ -23,7 +23,7 @@ MonoBehaviour:
     - rid: 5963945000857239552
       type: {class: AttackChange, ns: , asm: Assembly-CSharp}
       data:
-        buffSubject: 1
+        buffSubject: 0
         buffType:
           rid: 5963945000857239553
         buffTypeWhenActivate:
@@ -38,7 +38,7 @@ MonoBehaviour:
     - rid: 5963945000857239555
       type: {class: GenerateBullet, ns: CardEffect, asm: Assembly-CSharp}
       data:
-        bulletObject: {fileID: -3337633070562945079, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
+        bulletObject: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
     - rid: 7769764138042523649
       type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
       data:

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1612351465310837231}
   - component: {fileID: -1010217565435742961}
   - component: {fileID: -3337633070562945079}
-  - component: {fileID: -7678717469653271112}
   - component: {fileID: -4178343824937487828}
   m_Layer: 7
   m_Name: Bullet
@@ -150,19 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultAttackRatio: 1
   resultAttack: 0
---- !u!114 &-7678717469653271112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3408257862577032563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c206b41c369648ee8de3c689940f633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugInt: 0
 --- !u!114 &-4178343824937487828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3128bd68090dc43dcbd72ef5c2a3c0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffStack: {fileID: -7678717469653271112}
   bulletMovement: {fileID: 1612351465310837231}
   bulletStatus: {fileID: -3337633070562945079}
