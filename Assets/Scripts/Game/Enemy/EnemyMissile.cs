@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using Cysharp.Threading.Tasks;
 public class EnemyMissile : MonoBehaviour
 {
     //親オブジェクト
@@ -12,7 +12,7 @@ public class EnemyMissile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Movement());
+        Movement();
     }
 
     // Update is called once per frame
@@ -20,17 +20,17 @@ public class EnemyMissile : MonoBehaviour
     {
         
     }
-    public IEnumerator Movement()
+    public async UniTaskVoid Movement()
     {
         foreach (var enemyPath in enemyPaths)
         {
         transform.DOLocalPath(
         path     : enemyPath.GetWayPoints(), //移動するポイント
-        duration : enemyPath.GetMoveTime()[0], //移動時間
+        duration : enemyPath.GetMoveTime(), //移動時間
         pathType : PathType.CatmullRom //移動するパスの種類
         ).SetEase(Ease.OutCubic)
         .OnComplete(SetPosition);
-        yield return new WaitForSeconds(3);
+        await UniTask.Delay(enemyPath.GetWaitTime());
         }
     }
     //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする

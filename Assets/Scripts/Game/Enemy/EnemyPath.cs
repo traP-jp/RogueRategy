@@ -12,10 +12,16 @@ public class EnemyPath : ScriptableObject
         return wayPoints;
     }
     //各通過地点への移動時間
-    [SerializeField] float[] moveTime;
-    public float[] GetMoveTime(){
+    [SerializeField] float moveTime;
+    public float GetMoveTime(){
         return moveTime;
     }
+    //次の移動への待ち時間
+    [SerializeField] float waitTime;
+    public int GetWaitTime(){
+        return (int)(waitTime*1000);
+    }
+    
     [SerializeField]DG.Tweening.Ease ease;
     public DG.Tweening.Ease GetEase(){
         return ease;
