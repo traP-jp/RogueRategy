@@ -58,6 +58,19 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
             connectedStatusBase.PermanentBuffUpdate(nowBuffWithActivatePermanently.ToArray());
         }
     }
+
+    public BuffCore[] GetNowBuffCoreArray()
+    {
+        return nowBuffList.ToArray();
+    }
+    public void RemoveAllBuff()
+    {
+        //全てのバフを削除
+        foreach(BuffCore bc in nowBuffList)
+        {
+            RemoveBuff(bc);
+        }
+    }
     public void RemoveBuff(BuffCore buffCore)
     {
         //バフを取り除く

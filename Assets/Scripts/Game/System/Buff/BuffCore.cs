@@ -26,6 +26,7 @@ public enum BuffSubjectEntity
     PlayerUnit,
     PlayerAndPlayerUnit,
     EnemyAndPlayerUnit,
+    PlayerAndEnemy,
     All
 }
 
