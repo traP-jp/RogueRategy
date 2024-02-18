@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public abstract class BuffCore
 {
+    //BuffCoreから派生する各バフはプレイヤーのみしか適用されないやつなど(CostChange.cs)などがあり、判定する方法がないため変数だけ作っておきます
+    public BuffSubjectEntity buffSubject;//実装はまだ
+
     //全てのバフはIBuffインターフェイスを廃止し、これを継承(諸事情によります)
     [SerializeReference, SubclassSelector] BuffTypeInspector.IBuffTypeInspector buffType;
     [SerializeReference, SubclassSelector] BuffTypeInspector.IBuffTypeWhenActivate buffTypeWhenActivate;
@@ -16,7 +19,13 @@ public abstract class BuffCore
     }
     public abstract void Process(StatusBase statusBase);
 }
-
+public enum BuffSubjectEntity
+{
+    Enemy,
+    Player,
+    Unit,
+    All
+}
 
 namespace BuffTypeInspector
 {
