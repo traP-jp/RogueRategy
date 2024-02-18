@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+[RequireComponent(typeof(PlayerStatus))]
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] float playerVelocity;
     [SerializeField] float slowRate;
     [SerializeField] int playerMaxHP;
     [SerializeField] PlayerHPUpdater playerHPUpdater;
+
+    [System.NonSerialized]public PlayerStatus playerStatus;
+    [System.NonSerialized] public BuffStack playerBuffStack;
 
     private Rigidbody2D _rigidbody;
     public int playerHPProperty
@@ -50,6 +54,8 @@ public class PlayerManager : MonoBehaviour
     {
         //自然な動きの実装(Rigidbody2Dの利用)
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        playerStatus = GetComponent<PlayerStatus>();
+        playerBuffStack = GetComponent<BuffStack>();
     }
     void Start()
     {

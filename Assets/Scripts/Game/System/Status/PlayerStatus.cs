@@ -5,18 +5,31 @@ using CardEffect;
 using BuffTypeInspector;
 public class PlayerStatus : StatusBase
 {
-    
-    public float unitAttack { get; }//プレイヤーが出すユニットに反映される攻撃力,attackと統合しても良いがいつでも分けられるように分けておく
-    public float unitDefense { get; }
-    public float unitSpeed { get; }
-    
-    public float unitAttackRatio { get; set; }
-    public float unitDefenseRatio { get; set; }
-    public float unitSpeedRatio { get; set; }
-
-    public int costDiffAmount { get; set; }//カードのコストの変化、1なら2コストのカードが3コストかかる
-    public bool isControllReverse { get; set; }
-    
+    private void Awake()
+    {
+        base.Awake();
+        unitAttackRatio = 1;
+        unitDefenseRatio = 1;
+        unitSpeedRatio = 1;
+        resultUnitAttack = unitAttack;
+        resultUnitDefense = unitDefense;
+        resultUnitSpeed = unitSpeed;
+    }
+    //デフォルト値
+    public float unitAttack;//プレイヤーが出すユニットに反映される攻撃力,attackと統合しても良いがいつでも分けられるように分けておく
+    public float unitDefense;
+    public float unitSpeed;
+    //バフなどで変動する倍率
+    public float unitAttackRatio;
+    public float unitDefenseRatio;
+    public float unitSpeedRatio;
+    //現在の特殊な状態
+    public int costDiffAmount;//カードのコストの変化、1なら2コストのカードが3コストかかる
+    public bool isControllReverse;
+    //現在の値
+    public float resultUnitAttack;
+    public float resultUnitDefense;
+    public float resultUnitSpeed;
 
     public override void PermanentBuffUpdate(BuffCore[] buffCores)
     {
@@ -29,11 +42,18 @@ public class PlayerStatus : StatusBase
         unitSpeedRatio = 1;
         costDiffAmount = 0;
         isControllReverse = false;
-        //値の更新
+        //Ratio値の更新
         foreach(BuffCore buffCore in buffCores)
         {
             buffCore.Process(this);
         }
+        //現在の値の更新
+        resultAttack = attack * attackRatio;
+        resultDefense = defense * defenseRatio;
+        resultSpeed = speed * speedRatio;
+        resultUnitAttack = unitAttack * unitAttackRatio;
+        resultUnitDefense = unitDefense * unitDefenseRatio;
+        resultUnitSpeed = unitSpeed * unitSpeedRatio;
 
     }
 }

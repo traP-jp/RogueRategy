@@ -7,7 +7,7 @@ namespace CardEffect
     [System.Serializable]
     public class GenerateBullet : ICardEffect
     {
-        [SerializeField] GameObject bulletObject;
+        [SerializeField] BulletManager bulletObject;
         public void Process()
         {
             CardEffectProcessor.Instance.GenerateBulletFromPlayer(bulletObject);

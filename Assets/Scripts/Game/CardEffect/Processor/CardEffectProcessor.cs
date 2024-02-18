@@ -29,8 +29,19 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         playerManager.playerHPProperty += recoverHP;
     }
 
-    public void GenerateBulletFromPlayer(GameObject bulletObject)
+    public void GenerateBulletFromPlayer(BulletManager bulletObject)
     {
-        Instantiate(bulletObject, playerTransform.position, Quaternion.identity, playerBulletParentTransform);
+        //弾丸を生成する.　以前はGameObjectをInstantiateしていたが、BulletStatusに変更(GetComponentを減らすため)
+        BulletManager bulletMane = Instantiate(bulletObject, playerTransform.position, Quaternion.identity, playerBulletParentTransform);
+        bulletMane.bulletStatus.SettingAttack(playerManager.playerStatus.resultAttack);
+        bulletMane.bulletMovement.SetupVelocity(5, 0);
+        //状態異常の引き継ぎ
+        foreach(BuffCore bc in playerManager.playerBuffStack.GetNowBuffCoreArray())
+        {
+            if(bc.buffSubject is BuffSubjectEntity.Enemy or BuffSubjectEntity.EnemyAndPlayerUnit or BuffSubjectEntity.PlayerAndEnemy or BuffSubjectEntity.All)
+            {
+                bulletMane.bulletsBuffList.Add(bc);
+            }
+        }
     }
 }
