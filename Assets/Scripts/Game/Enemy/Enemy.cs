@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 public class Enemy : MonoBehaviour 
 {
     [SerializeField] UnityEngine.UI.Slider enemyHPSlider;
     //ユニットの通過経路
-    [SerializeField] private List<EnemyPath> enemyPaths;
-    int maxHP = 1000;
-    int nowHP = 1000;
+    private EnemyPaths enemyPaths;
+    public void SetEnemyPaths(EnemyPaths enemyPaths){
+        this.enemyPaths = enemyPaths;
+    }
+    [SerializeField] int maxHP = 1000;
+    [SerializeField] int nowHP = 1000;
     //死亡判定
     bool deadflag = false;
     //親オブジェクト
@@ -65,20 +69,21 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Movement());
+       
     }
     //移動処理
-    public IEnumerator Movement()
+    public async UniTaskVoid Movement()
     {
-        foreach (var enemyPath in enemyPaths)
+        EnemyPath[] paths = enemyPaths.SetEnemyPaths();
+        foreach (var enemyPath in paths)
         {
         transform.DOLocalPath(
         path     : enemyPath.GetWayPoints(), //移動するポイント
-        duration : enemyPath.GetMoveTime()[0], //移動時間
+        duration : enemyPath.GetMoveTime(), //移動時間
         pathType : PathType.CatmullRom //移動するパスの種類
         ).SetEase(Ease.OutCubic)
         .OnComplete(SetPosition);
-        yield return new WaitForSeconds(3);
+        await UniTask.Delay(enemyPath.GetWaitTime());
         }
     }
     //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
