@@ -1,12 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 public class EnemyManager : MonoBehaviour,IDamagable
 {
-    [SerializeField] UnityEngine.UI.Slider enemyHPSlider;
-    int maxHP = 1000;
-    int nowHP = 1000;
-    int nowHPProperty
+    [SerializeField] EnemyHPbar enemyHPbarPrehab;
+    private EnemyHPbar _enemyHPbar;
+    public bool HPbarDisplayed = false;
+    
+    public int maxHP = 1000;
+    int nowHP = 100;
+    private float _displaytime;
+    
+    public int nowHPProperty
     {
         get { return nowHP; }
         set
@@ -23,11 +30,24 @@ public class EnemyManager : MonoBehaviour,IDamagable
             else nowHP = value;
         }
     }
-   public void AddDamage(int strength)
+    
+
+    private void Update()
+    {
+        if (!HPbarDisplayed) return;
+        _displaytime -= Time.deltaTime;
+        if (_displaytime >= 0f) return; 
+        VanishHPbar(); 
+        HPbarDisplayed = false;
+        
+    }
+
+    public void AddDamage(int strength)
     {
         try
         {
             nowHPProperty -= strength;
+            DrawHPbar();
         }
         catch
         {
@@ -38,4 +58,29 @@ public class EnemyManager : MonoBehaviour,IDamagable
             //enemyHPSlider.value = nowHPProperty / (float)maxHP;
         }
     }
+
+   //HPバーの描画
+   public void DrawHPbar()
+   {
+       if (!HPbarDisplayed)
+       {
+           _enemyHPbar=Instantiate(enemyHPbarPrehab,gameObject.transform);
+           HPbarDisplayed = true;
+       }
+       else
+       {
+           _enemyHPbar.HPBarUpdate();
+       }
+
+       _displaytime = 3.0f;
+
+   }
+   
+   //HPバーの消去
+
+   public void VanishHPbar()
+   {
+       _enemyHPbar.Vanish();
+       HPbarDisplayed = false;
+   }
 }
