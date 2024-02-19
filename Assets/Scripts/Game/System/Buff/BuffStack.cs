@@ -5,6 +5,7 @@ using BuffTypeInspector;
 using System;
 public class BuffStack : MonoBehaviour,CardEffect.IBuffable
 {
+    [SerializeField]bool isPlayersBuffStack = false;//プレイヤーに付けられているバフスタックならtrue、ユニットにつけられているならfalse
     [SerializeField] int debugInt;
 
     List<BuffCore> nowBuffList = new List<BuffCore>();//全てのバフのリスト
@@ -18,6 +19,7 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
     StatusBase connectedStatusBase;
     public void NoticeStatusBase(StatusBase statusBase)
     {
+        //StatusBaseのStartで呼び出される
         connectedStatusBase = statusBase;
     }
     private void Start()
@@ -145,7 +147,8 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
             {
                 //バフ効果を発動してインターバルタイムを復活
                 BuffCore bc = pair.Item1;
-                bc.Process(connectedStatusBase);
+                //bc.Process(connectedStatusBase);
+                ProcessBuffEffect(bc, connectedStatusBase);
                 float intervalTime = ((AtInterval)bc.GetBuffWhenActivate()).intervalTime;//バフのインターバルタイムを取得
                 leftTime += intervalTime;
             }
@@ -154,13 +157,20 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
         }
     }
 
+    public void ProcessBuffEffect(BuffCore bc,StatusBase statusBase)
+    {
+        if (isPlayersBuffStack && bc.IsBuffSubjectPlayer()) bc.Process(statusBase);//プレイヤーのBuffStackならバフの対象がプレイヤーなら発動する
+        if (!isPlayersBuffStack && bc.IsBuffSubjectAllyUnit()) bc.Process(statusBase);//ユニットのBuffStackならバフの対象がユニット自身なら発動する
+    }
+
     public void NoticeCardUse()
     {
         //カードを使用した時にBuffManagerが自動的に呼び出す。
         //カードが使用された時に効果発動するバフの処理を行う
         foreach (BuffCore bc in nowBuffWithActivateOnCardUse)
         {
-            bc.Process(connectedStatusBase);
+            //bc.Process(connectedStatusBase);
+            ProcessBuffEffect(bc, connectedStatusBase);
         }
         //カード使用回数制限があるバフを更新する
         Stack<int> deleteIndexes = new Stack<int>();
