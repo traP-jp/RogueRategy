@@ -38,7 +38,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         //状態異常の引き継ぎ
         foreach(BuffCore bc in playerManager.playerBuffStack.GetNowBuffCoreArray())
         {
-            if(bc.buffSubject is BuffSubjectEntity.Enemy or BuffSubjectEntity.EnemyAndPlayerUnit or BuffSubjectEntity.PlayerAndEnemy or BuffSubjectEntity.All)
+            if(bc.IsBuffSubjectOpponentUnit())
             {
                 bulletMane.bulletsBuffList.Add(bc);
             }
