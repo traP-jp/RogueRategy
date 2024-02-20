@@ -14,9 +14,18 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         playerManager = playerTransform.GetComponent<PlayerManager>();
     }
     //カード効果を実行する役割を持つ
-    public void GenerateUnitOnPlayer(GameObject unitObject)
+    public void GenerateUnitOnPlayer(UnitManager unitObject)
     {
-        Instantiate(unitObject, playerTransform.position, Quaternion.identity, playersUnitParentTransform);
+       //ユニットを生成し、バフの引き継ぎを行う
+        UnitManager unitManager = Instantiate(unitObject, playerTransform.position, Quaternion.identity, playersUnitParentTransform);
+        //状態異常の引き継ぎ
+        foreach (BuffCore bc in playerManager.playerBuffStack.GetNowBuffCoreArray())
+        {
+            if (bc.IsBuffSubjectOpponentUnit() || bc.IsBuffSubjectAllyUnit())
+            {
+                unitManager.unitBuffStack.AddBuff(bc);
+            }
+        }
     }
 
     public void RestoreEnergy(int amount)
