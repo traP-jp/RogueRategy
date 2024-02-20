@@ -54,6 +54,5 @@ public class PlayerStatus : StatusBase
         resultUnitAttack = unitAttack * unitAttackRatio;
         resultUnitDefense = unitDefense * unitDefenseRatio;
         resultUnitSpeed = unitSpeed * unitSpeedRatio;
-
     }
 }

@@ -43,7 +43,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         //弾丸を生成する.　以前はGameObjectをInstantiateしていたが、BulletStatusに変更(GetComponentを減らすため)
         BulletManager bulletMane = Instantiate(bulletObject, playerTransform.position, Quaternion.identity, playerBulletParentTransform);
         bulletMane.bulletStatus.SettingAttack(playerManager.playerStatus.resultAttack);
-        bulletMane.bulletMovement.SetupVelocity(5, 0);
+        bulletMane.bulletMovement.Initialize(5);
         //状態異常の引き継ぎ
         foreach(BuffCore bc in playerManager.playerBuffStack.GetNowBuffCoreArray())
         {

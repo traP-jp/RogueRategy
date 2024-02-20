@@ -623,6 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayersBuffStack: 1
   debugInt: 0
+  connectedStatusBase: {fileID: 438510315}
 --- !u!61 &438510312
 BoxCollider2D:
   m_ObjectHideFlags: 0

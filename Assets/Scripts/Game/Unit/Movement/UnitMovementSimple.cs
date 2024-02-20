@@ -8,7 +8,7 @@ public class UnitMovementSimple : MonoBehaviour
 
     [SerializeField] float intervalTime = 0.3f;
 
-    [SerializeField] GameObject bullet;
+    [SerializeField] BulletManager bullet;
 
     private void Start()
     {
@@ -27,11 +27,8 @@ public class UnitMovementSimple : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(interval);
-            GameObject tmp = Instantiate(bullet, transform.position, Quaternion.identity, this.transform);
-            Vector2 velocityVector = Info.Instance.enemyTransform.position - transform.position;
-            velocityVector.Normalize();
-            velocityVector *= 5;
-            tmp.GetComponent<BulletMovementSimple>().SetupVelocity(velocityVector.x, velocityVector.y);
+            BulletManager bulletManager = Instantiate(bullet, transform.position, Quaternion.identity, this.transform);
+            bulletManager.bulletMovement.Initialize(5);
         }
     }
 }

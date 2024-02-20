@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2396527414328147845}
   - component: {fileID: 7886212009693136816}
   - component: {fileID: 5701976289418249816}
+  - component: {fileID: -6561713624535342386}
   m_Layer: 6
   m_Name: Baloon
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityX: 2
   intervalTime: 0.3
-  bullet: {fileID: 3408257862577032563, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
+  bullet: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
 --- !u!58 &2396527414328147845
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +166,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayersBuffStack: 0
   debugInt: 0
+  connectedStatusBase: {fileID: -6561713624535342386}
+--- !u!114 &-6561713624535342386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311921651342255844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bef29cdeac704676a2f2c40ac4f1132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedBuffStack: {fileID: 5701976289418249816}
+  MaxHP: 0
+  attack: 0
+  defense: 0
+  speed: 0
+  HP: 0
+  resultAttack: 0
+  resultDefense: 0
+  resultSpeed: 0
+  attackRatio: 0
+  defenseRatio: 0
+  speedRatio: 0

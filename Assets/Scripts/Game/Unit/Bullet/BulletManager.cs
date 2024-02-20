@@ -5,8 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(BulletStatus))]
 public class BulletManager : MonoBehaviour
 {
-    public BulletMovementSimple bulletMovement;
+    public IBulletMovement bulletMovement;
     public BulletStatus bulletStatus;
 
     public List<BuffCore> bulletsBuffList = new List<BuffCore>();
+
+    private void OnEnable()
+    {
+        bulletMovement = GetComponent<IBulletMovement>();
+    }
+}
+
+public interface IBulletMovement
+{
+    void Initialize(float speed);
 }

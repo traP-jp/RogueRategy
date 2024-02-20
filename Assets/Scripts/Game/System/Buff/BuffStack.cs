@@ -16,12 +16,7 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
     List<BuffCore> nowBuffWithActivatePermanently = new List<BuffCore>();
     List<BuffCore> nowBuffWithActivateOnCardUse = new List<BuffCore>();
 
-    StatusBase connectedStatusBase;
-    public void NoticeStatusBase(StatusBase statusBase)
-    {
-        //StatusBaseのStartで呼び出される
-        connectedStatusBase = statusBase;
-    }
+    [SerializeField]StatusBase connectedStatusBase;
     private void Start()
     {
         BuffManager.Instance.SubscribeBuffStack(this);

@@ -33,10 +33,4 @@ public abstract class StatusBase : MonoBehaviour
     public float speedRatio;
 
     public abstract void PermanentBuffUpdate(BuffCore[] buffCores);
-
-    private void Start()
-    {
-        //BuffStackとの相互参照
-        connectedBuffStack.NoticeStatusBase(this);
-    }
 }
