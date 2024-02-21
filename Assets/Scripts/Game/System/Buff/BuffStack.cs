@@ -22,6 +22,11 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
         BuffManager.Instance.SubscribeBuffStack(this);
     }
 
+    private void Reset()
+    {
+        connectedStatusBase = GetComponent<StatusBase>();
+    }
+
     public void AddBuff(BuffCore buffCore)
     {
         //タイプ分けしてリストに登録

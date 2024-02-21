@@ -12,7 +12,18 @@ public class BulletManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if(bulletMovement == null)
+        {
+            bulletMovement = GetComponent<IBulletMovement>();
+            Debug.Log("Resetをすればゲーム開始前にbulletMovementを設定できます");
+        }
+        
+    }
+
+    private void Reset()
+    {
         bulletMovement = GetComponent<IBulletMovement>();
+        bulletStatus = GetComponent<BulletStatus>();
     }
 }
 

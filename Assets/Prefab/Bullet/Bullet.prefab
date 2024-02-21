@@ -161,5 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3128bd68090dc43dcbd72ef5c2a3c0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletMovement: {fileID: 1612351465310837231}
   bulletStatus: {fileID: -3337633070562945079}

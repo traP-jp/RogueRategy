@@ -23,7 +23,7 @@ MonoBehaviour:
     - rid: 5963945000857239552
       type: {class: AttackChange, ns: , asm: Assembly-CSharp}
       data:
-        buffSubject: 0
+        buffSubject: 2
         buffType:
           rid: 5963945000857239553
         buffTypeWhenActivate:

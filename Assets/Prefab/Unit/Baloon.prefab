@@ -181,13 +181,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedBuffStack: {fileID: 5701976289418249816}
   MaxHP: 0
-  attack: 0
+  attack: 10
   defense: 0
   speed: 0
   HP: 0
   resultAttack: 0
   resultDefense: 0
   resultSpeed: 0
-  attackRatio: 0
+  attackRatio: 1
   defenseRatio: 0
   speedRatio: 0

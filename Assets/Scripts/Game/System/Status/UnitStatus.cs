@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class UnitStatus : StatusBase
 {
+
+    private void Reset()
+    {
+        base.Reset();
+    }
+
     public override void PermanentBuffUpdate(BuffCore[] buffCores)
     {
         //初期化

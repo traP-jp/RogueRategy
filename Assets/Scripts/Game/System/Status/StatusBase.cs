@@ -4,6 +4,13 @@ using UnityEngine;
 
 public abstract class StatusBase : MonoBehaviour
 {
+    protected void Reset()
+    {
+        attackRatio = 1;
+        defenseRatio = 1;
+        speedRatio = 1;
+        connectedBuffStack = GetComponent<BuffStack>();
+    }
     protected void Awake()
     {
         attackRatio = 1;
@@ -13,9 +20,6 @@ public abstract class StatusBase : MonoBehaviour
         resultDefense = defense;
         resultSpeed = speed;
     }
-
-
-
     [SerializeField] BuffStack connectedBuffStack;
     //デフォルトの戦闘中は不変の値
     public float MaxHP;

@@ -5,6 +5,14 @@ using CardEffect;
 using BuffTypeInspector;
 public class PlayerStatus : StatusBase
 {
+    private void Reset()
+    {
+        base.Reset();
+        unitAttackRatio = 1;
+        unitDefenseRatio = 1;
+        unitSpeedRatio = 1;
+    }
+
     private void Awake()
     {
         base.Awake();
