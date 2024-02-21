@@ -20,7 +20,10 @@ public class UnitStatus : StatusBase
         //Ratio値の更新
         foreach (BuffCore buffCore in buffCores)
         {
-            buffCore.Process(this);
+            if (buffCore.IsBuffSubjectAllyUnit())
+            {
+                buffCore.Process(this);
+            }
         }
         //現在の値の更新
         resultAttack = attack * attackRatio;

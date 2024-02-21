@@ -25,7 +25,10 @@ public class PlayerStatus : StatusBase
         //Ratio値の更新
         foreach(BuffCore buffCore in buffCores)
         {
-            buffCore.Process(this);
+            if (buffCore.IsBuffSubjectPlayer())
+            {
+                buffCore.Process(this);
+            }
         }
         //現在の値の更新
         resultAttack = attack * attackRatio;
