@@ -30,6 +30,7 @@ public class UnitMovementSimple : MonoBehaviour
         {
             yield return new WaitForSeconds(interval);
             BulletManager bulletManager = Instantiate(bullet, transform.position, Quaternion.identity, this.transform);
+            bulletManager.bulletStatus.SettingAttack(unitManager.unitStatus.resultAttack);
             bulletManager.bulletMovement.Initialize(5);
             unitManager.ConveyBuffToBullet(bulletManager);
         }
