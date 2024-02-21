@@ -5,32 +5,6 @@ using CardEffect;
 using BuffTypeInspector;
 public class PlayerStatus : StatusBase
 {
-    private void Reset()
-    {
-        base.Reset();
-        unitAttackRatio = 1;
-        unitDefenseRatio = 1;
-        unitSpeedRatio = 1;
-    }
-
-    private void Awake()
-    {
-        base.Awake();
-        unitAttackRatio = 1;
-        unitDefenseRatio = 1;
-        unitSpeedRatio = 1;
-        resultUnitAttack = unitAttack;
-        resultUnitDefense = unitDefense;
-        resultUnitSpeed = unitSpeed;
-    }
-    //デフォルト値
-    public float unitAttack;//プレイヤーが出すユニットに反映される攻撃力,attackと統合しても良いがいつでも分けられるように分けておく
-    public float unitDefense;
-    public float unitSpeed;//プレイヤーが出すユニットの速度の倍率を指定(1.2だったらユニットの速度が1.2倍)
-    //バフなどで変動する倍率
-    public float unitAttackRatio;
-    public float unitDefenseRatio;
-    public float unitSpeedRatio;
     //現在の特殊な状態
     public int costDiffAmount;//カードのコストの変化、1なら2コストのカードが3コストかかる
     public bool isControllReverse;
@@ -45,9 +19,6 @@ public class PlayerStatus : StatusBase
         attackRatio = 1;
         defenseRatio = 1;
         speedRatio = 1;
-        unitAttackRatio = 1;
-        unitDefenseRatio = 1;
-        unitSpeedRatio = 1;
         costDiffAmount = 0;
         isControllReverse = false;
         //Ratio値の更新
@@ -59,8 +30,5 @@ public class PlayerStatus : StatusBase
         resultAttack = attack * attackRatio;
         resultDefense = defense * defenseRatio;
         resultSpeed = speed * speedRatio;
-        resultUnitAttack = unitAttack * unitAttackRatio;
-        resultUnitDefense = unitDefense * unitDefenseRatio;
-        resultUnitSpeed = unitSpeed * unitSpeedRatio;
     }
 }
