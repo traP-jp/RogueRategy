@@ -39,12 +39,31 @@ MonoBehaviour:
       type: {class: GenerateBullet, ns: CardEffect, asm: Assembly-CSharp}
       data:
         bulletObject: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
+    - rid: 5963945070561329152
+      type: {class: AddBuffToSomething, ns: CardEffect, asm: Assembly-CSharp}
+      data:
+        buff:
+          rid: 5963945070561329153
+    - rid: 5963945070561329153
+      type: {class: SpeedChange, ns: , asm: Assembly-CSharp}
+      data:
+        buffSubject: 2
+        buffType:
+          rid: 5963945070561329154
+        buffTypeWhenActivate:
+          rid: 5963945070561329155
+        speedRatio: 2
+    - rid: 5963945070561329154
+      type: {class: Permanent, ns: BuffTypeInspector, asm: Assembly-CSharp}
+    - rid: 5963945070561329155
+      type: {class: Permanently, ns: BuffTypeInspector, asm: Assembly-CSharp}
     - rid: 7769764138042523649
       type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
       data:
         cardEffectArray:
         - rid: 5963945000857239555
         - rid: 7769764424263139328
+        - rid: 5963945070561329152
     - rid: 7769764424263139328
       type: {class: AddBuffToSomething, ns: CardEffect, asm: Assembly-CSharp}
       data:

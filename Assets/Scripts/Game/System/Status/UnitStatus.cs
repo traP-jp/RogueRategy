@@ -16,6 +16,7 @@ public class UnitStatus : StatusBase
         attackRatio = 1;
         defenseRatio = 1;
         speedRatio = 1;
+        bulletSpeedRatio = 1;
         //Ratio値の更新
         foreach (BuffCore buffCore in buffCores)
         {
@@ -25,5 +26,6 @@ public class UnitStatus : StatusBase
         resultAttack = attack * attackRatio;
         resultDefense = defense * defenseRatio;
         resultSpeed = speed * speedRatio;
+        resultBulletSpeed = bulletSpeed * bulletSpeedRatio;
     }
 }

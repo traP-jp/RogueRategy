@@ -759,7 +759,7 @@ MonoBehaviour:
   attack: 0
   defense: 0
   speed: 5
-  bulletSpeed: 0
+  bulletSpeed: 1
   HP: 0
   resultAttack: 0
   resultDefense: 0
@@ -769,12 +769,6 @@ MonoBehaviour:
   defenseRatio: 1
   speedRatio: 1
   bulletSpeedRatio: 1
-  unitAttack: 0
-  unitDefense: 0
-  unitSpeed: 0
-  unitAttackRatio: 1
-  unitDefenseRatio: 1
-  unitSpeedRatio: 1
   costDiffAmount: 0
   isControllReverse: 0
   resultUnitAttack: 0

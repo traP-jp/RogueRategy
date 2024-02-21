@@ -19,6 +19,7 @@ public class PlayerStatus : StatusBase
         attackRatio = 1;
         defenseRatio = 1;
         speedRatio = 1;
+        bulletSpeedRatio = 1;
         costDiffAmount = 0;
         isControllReverse = false;
         //Ratio値の更新
@@ -30,5 +31,6 @@ public class PlayerStatus : StatusBase
         resultAttack = attack * attackRatio;
         resultDefense = defense * defenseRatio;
         resultSpeed = speed * speedRatio;
+        resultBulletSpeed = bulletSpeed * bulletSpeedRatio;
     }
 }
