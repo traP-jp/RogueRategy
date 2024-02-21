@@ -10,6 +10,8 @@ public class UnitMovementSimple : MonoBehaviour
 
     [SerializeField] BulletManager bullet;
 
+    [SerializeField] UnitManager unitManager;
+
     private void Start()
     {
         StartCoroutine(AttackWithIntervalTime(intervalTime));
@@ -29,6 +31,7 @@ public class UnitMovementSimple : MonoBehaviour
             yield return new WaitForSeconds(interval);
             BulletManager bulletManager = Instantiate(bullet, transform.position, Quaternion.identity, this.transform);
             bulletManager.bulletMovement.Initialize(5);
+            unitManager.ConveyBuffToBullet(bulletManager);
         }
     }
 }

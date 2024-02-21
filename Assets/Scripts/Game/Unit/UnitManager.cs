@@ -10,4 +10,15 @@ public class UnitManager : MonoBehaviour
     {
         unitBuffStack = GetComponent<BuffStack>();
     }
+
+    public void ConveyBuffToBullet(BulletManager bulletManager)
+    {
+        foreach (BuffCore bc in unitBuffStack.GetNowBuffCoreArray())
+        {
+            if (bc.IsBuffSubjectOpponentUnit())
+            {
+                bulletManager.bulletsBuffList.Add(bc);
+            }
+        }
+    }
 }
