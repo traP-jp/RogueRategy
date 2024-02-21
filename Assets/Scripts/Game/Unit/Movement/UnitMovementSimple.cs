@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UnitMovementSimple : MonoBehaviour
 {
-    [SerializeField]float velocityX = 1;
-
     [SerializeField] float intervalTime = 0.3f;
 
     [SerializeField] BulletManager bullet;
@@ -20,7 +18,7 @@ public class UnitMovementSimple : MonoBehaviour
     void Update()
     {
         Vector2 moveVector = transform.position;
-        moveVector += new Vector2(velocityX * Time.deltaTime, 0);
+        moveVector += new Vector2(unitManager.unitStatus.resultSpeed * Time.deltaTime, 0);
         transform.position = moveVector;
     }
 
