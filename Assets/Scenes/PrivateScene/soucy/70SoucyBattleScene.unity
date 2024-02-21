@@ -1608,7 +1608,7 @@ GameObject:
   - component: {fileID: 1418660565}
   - component: {fileID: 1418660566}
   m_Layer: 0
-  m_Name: Info
+  m_Name: '@Info'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1642,6 +1642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTransform: {fileID: 1635288032}
+  bulletParentTransform: {fileID: 420842102}
 --- !u!1 &1574238142
 GameObject:
   m_ObjectHideFlags: 0
