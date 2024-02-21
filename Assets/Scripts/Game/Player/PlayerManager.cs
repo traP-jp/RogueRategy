@@ -89,6 +89,7 @@ public class PlayerManager : MonoBehaviour
             realVelocity.x += calculatedVelocity;
         }
 
+        if (playerStatus.isControllReverse) realVelocity *= -1;
         _rigidbody.velocity = realVelocity;
 
 
