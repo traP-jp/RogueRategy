@@ -739,7 +739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbc7336a57db47fab0a59d167493df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVelocity: 5
   slowRate: 0.5
   playerMaxHP: 0
   playerHPUpdater: {fileID: 1816015533459529988}
@@ -759,20 +758,23 @@ MonoBehaviour:
   MaxHP: 0
   attack: 0
   defense: 0
-  speed: 0
+  speed: 5
+  bulletSpeed: 0
   HP: 0
   resultAttack: 0
   resultDefense: 0
   resultSpeed: 0
-  attackRatio: 0
-  defenseRatio: 0
-  speedRatio: 0
+  resultBulletSpeed: 0
+  attackRatio: 1
+  defenseRatio: 1
+  speedRatio: 1
+  bulletSpeedRatio: 1
   unitAttack: 0
   unitDefense: 0
   unitSpeed: 0
-  unitAttackRatio: 0
-  unitDefenseRatio: 0
-  unitSpeedRatio: 0
+  unitAttackRatio: 1
+  unitDefenseRatio: 1
+  unitSpeedRatio: 1
   costDiffAmount: 0
   isControllReverse: 0
   resultUnitAttack: 0

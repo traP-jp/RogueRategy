@@ -26,7 +26,7 @@ public class PlayerStatus : StatusBase
     //デフォルト値
     public float unitAttack;//プレイヤーが出すユニットに反映される攻撃力,attackと統合しても良いがいつでも分けられるように分けておく
     public float unitDefense;
-    public float unitSpeed;
+    public float unitSpeed;//プレイヤーが出すユニットの速度の倍率を指定(1.2だったらユニットの速度が1.2倍)
     //バフなどで変動する倍率
     public float unitAttackRatio;
     public float unitDefenseRatio;
