@@ -43,20 +43,24 @@ MonoBehaviour:
       type: {class: AddBuffToSomething, ns: CardEffect, asm: Assembly-CSharp}
       data:
         buff:
-          rid: 5963945070561329153
-    - rid: 5963945070561329153
-      type: {class: SpeedChange, ns: , asm: Assembly-CSharp}
+          rid: 5963945070561329169
+    - rid: 5963945070561329169
+      type: {class: Burning, ns: , asm: Assembly-CSharp}
       data:
-        buffSubject: 2
+        buffSubject: 1
         buffType:
-          rid: 5963945070561329154
+          rid: 5963945070561329170
         buffTypeWhenActivate:
-          rid: 5963945070561329155
-        speedRatio: 2
-    - rid: 5963945070561329154
-      type: {class: Permanent, ns: BuffTypeInspector, asm: Assembly-CSharp}
-    - rid: 5963945070561329155
-      type: {class: Permanently, ns: BuffTypeInspector, asm: Assembly-CSharp}
+          rid: 5963945070561329172
+        Intensity: 5
+    - rid: 5963945070561329170
+      type: {class: LimitedTime, ns: BuffTypeInspector, asm: Assembly-CSharp}
+      data:
+        durationTime: 3
+    - rid: 5963945070561329172
+      type: {class: AtInterval, ns: BuffTypeInspector, asm: Assembly-CSharp}
+      data:
+        intervalTime: 0.5
     - rid: 7769764138042523649
       type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
       data:

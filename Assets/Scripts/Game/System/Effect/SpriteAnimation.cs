@@ -16,13 +16,9 @@ public class SpriteAnimation : MonoBehaviour
 
     Sprite[] animationSprites;
     Image animationImage;
-    private void Awake()
-    {
-        animationImage = GetComponent<Image>();
-    }
     private void Start()
     {
-        animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
+        
         if (initializeOnStart)
         {
             Initialize();
@@ -30,6 +26,8 @@ public class SpriteAnimation : MonoBehaviour
     }
     public void Initialize()
     {
+        animationImage = GetComponent<Image>();
+        animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
         StartCoroutine(doAnimation());
     }
     IEnumerator doAnimation()
@@ -42,7 +40,7 @@ public class SpriteAnimation : MonoBehaviour
                 yield return new WaitForSeconds(animationIntervalTime[i] + constantInterval);
             }
         } while (isLoop);
-
+        Destroy(gameObject);
     }
 
     Sprite[] getSpritesFromLargeSprite(Sprite sprite,int XCount,int YCount)
