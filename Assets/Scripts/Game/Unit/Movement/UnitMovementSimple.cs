@@ -34,4 +34,14 @@ public class UnitMovementSimple : MonoBehaviour
             tmp.GetComponent<BulletMovementSimple>().SetupVelocity(velocityVector.x, velocityVector.y);
         }
     }
+    
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        //将来的にはプレイヤーオブジェクト以外のオブジェクトとの衝突で消えるようにしたい
+        if (collider.tag != "ally")
+        {
+            Destroy(gameObject);    
+        }
+        
+    }
 }
