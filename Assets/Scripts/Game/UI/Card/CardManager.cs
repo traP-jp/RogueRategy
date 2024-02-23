@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour
@@ -59,7 +60,7 @@ public class CardManager : MonoBehaviour
         //カードの位置の更新
         for(int index = 0;index < displayMaxCount; index++)
         {
-            nowDisplayCards[index].cardObject.transform.position = new Vector2(cardPositionX, bottomPositionY + cardHeight * index);
+            nowDisplayCards[index].cardObject.transform.DOMove(new Vector2(cardPositionX, bottomPositionY + cardHeight * index),0.5f);
         }
     }
 
