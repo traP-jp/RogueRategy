@@ -28,7 +28,8 @@ public class Enemy : MonoBehaviour
     int time = 0;
     //攻撃が可能か
     bool canAttack = true;
-
+    //移動処理が完了したか
+    bool iscontinue = true;
     int nowHPProperty
     {
         get { return nowHP; }
@@ -71,6 +72,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       this.transform.localPosition = new Vector3(0, 0, 0);
        Movement(0);
     }
     //移動処理
@@ -83,9 +85,11 @@ public class Enemy : MonoBehaviour
         path     : paths[i].GetWayPoints(), //移動するポイント
         duration : paths[i].GetMoveTime(), //移動時間
         pathType : PathType.CatmullRom //移動するパスの種類
-        ).SetEase(paths[i].GetEase())
-        .OnComplete(SetPosition);
-        await UniTask.Delay(enemyPaths.GetWaitTime(i)+(int)paths[i].GetMoveTime()*1000);
+        ).SetEase(paths[i].GetEase()).
+        OnComplete(SetPosition).SetRelative(true);
+        await UniTask.WaitWhile(() => iscontinue);
+        iscontinue = true;
+        await UniTask.Delay(enemyPaths.GetWaitTime(i));
         }
         if(enemyPaths.GetIsLoop()){
             Movement(enemyPaths.GetLoopPoint());
@@ -93,9 +97,7 @@ public class Enemy : MonoBehaviour
     }
     //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
     public void SetPosition(){
-        parentTransform.position += this.transform.localPosition;
-        this.transform.localPosition = new Vector3(0, 0, 0);
-
+        iscontinue = false;
     }
     //攻撃の処理
     public void Attack(){

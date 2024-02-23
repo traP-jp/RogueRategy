@@ -16,5 +16,5 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 1.8, y: -2.5, z: 0}
   - {x: 2.5, y: -6, z: 0}
-  moveTime: 3
-  ease: 13
+  moveTime: 2
+  ease: 4

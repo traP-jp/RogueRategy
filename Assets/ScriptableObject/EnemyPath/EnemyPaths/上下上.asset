@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: "\u4E0A\u4E0B\u4E0A"
   m_EditorClassIdentifier: 
   enemyPaths:
+  - {fileID: 11400000, guid: f4b7cec84e7a489448a7864c0363fdd8, type: 2}
   - {fileID: 11400000, guid: 71597f9012eae1044a97fc5a491d95b7, type: 2}
   - {fileID: 11400000, guid: 6256c517257b6fd4bb6462f58e968a35, type: 2}
   informaton: 
   waitTime:
+  - 0
   - 5
   - 5
   isLoop: 1
-  loopPoint: 0
+  loopPoint: 1

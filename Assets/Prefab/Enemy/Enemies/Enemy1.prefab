@@ -487,13 +487,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHPSlider: {fileID: 7704189120080195036}
-  enemyPaths:
-  - {fileID: 11400000, guid: 3360491243ab5fc4a9dadc21d5dd8002, type: 2}
-  - {fileID: 11400000, guid: 063437d104dcc1042acaaa6cdebd29ee, type: 2}
+  enemyPaths: {fileID: 0}
+  paths: []
+  maxHP: 1000
+  nowHP: 1000
   parentTransform: {fileID: 8622806212795797011}
   missile:
   - {fileID: 2050110343604384230, guid: 7c5f1f3222a3797438b17e7d2ad0178e, type: 3}
-  waitTime: 300
+  waitTime: 999999
 --- !u!1 &6558719223637699979
 GameObject:
   m_ObjectHideFlags: 0

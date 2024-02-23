@@ -17,5 +17,5 @@ MonoBehaviour:
   informaton: 
   waitTime:
   - 10
-  isLoop: 1
+  isLoop: 0
   loopPoint: 0
