@@ -8,10 +8,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] UnityEngine.UI.Slider enemyHPSlider;
     //ユニットの通過経路
-    private EnemyPaths enemyPaths;
+    [SerializeField] private EnemyPaths enemyPaths;
     public void SetEnemyPaths(EnemyPaths enemyPaths){
         this.enemyPaths = enemyPaths;
     }
+    //敵の軌道作成用
+    public EnemyPath[] paths;
     [SerializeField] int maxHP = 1000;
     [SerializeField] int nowHP = 1000;
     //死亡判定
@@ -69,21 +71,24 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       Movement(0);
     }
     //移動処理
-    public async UniTaskVoid Movement()
+    public async UniTaskVoid Movement(int loopPoint)
     {
-        EnemyPath[] paths = enemyPaths.SetEnemyPaths();
-        foreach (var enemyPath in paths)
+        paths = enemyPaths.SetEnemyPaths();
+        for(int i = loopPoint; i < paths.Length;i++)
         {
         transform.DOLocalPath(
-        path     : enemyPath.GetWayPoints(), //移動するポイント
-        duration : enemyPath.GetMoveTime(), //移動時間
+        path     : paths[i].GetWayPoints(), //移動するポイント
+        duration : paths[i].GetMoveTime(), //移動時間
         pathType : PathType.CatmullRom //移動するパスの種類
-        ).SetEase(Ease.OutCubic)
+        ).SetEase(paths[i].GetEase())
         .OnComplete(SetPosition);
-        await UniTask.Delay(enemyPath.GetWaitTime());
+        await UniTask.Delay(enemyPaths.GetWaitTime(i)+(int)paths[i].GetMoveTime()*1000);
+        }
+        if(enemyPaths.GetIsLoop()){
+            Movement(enemyPaths.GetLoopPoint());
         }
     }
     //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
