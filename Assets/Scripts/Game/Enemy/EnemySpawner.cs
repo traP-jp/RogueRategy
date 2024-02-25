@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
                     Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
                     Debug.Log(enemy);
                     enemy.SetEnemyPaths(wave.paths);
-                    enemy.Movement();
+                    enemy.Movement(0);
                     //生成した敵の座標を決定する(現状X=0,Y=10,Z=20の位置に出力)
                     Vector3 vector3 = new Vector3(wave.interval.x*j,wave.interval.y*k,0);
                     enemyObject.transform.position = wave.spawnPoint + vector3;
@@ -35,7 +35,6 @@ public class EnemySpawner : MonoBehaviour
 
             }
             await UniTask.Delay((int)(wave.spawnTime*1000));
-            Debug.Log("33434");
                 
         }
     }

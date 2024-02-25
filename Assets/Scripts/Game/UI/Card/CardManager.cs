@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour
@@ -34,12 +36,19 @@ public class CardManager : MonoBehaviour
         if (nowDisplayCards[0].cost + playerStatus.costDiffAmount <= energyManager.nowEnergyProperty)
         {
             energyManager.nowEnergyProperty -= nowDisplayCards[0].cost + playerStatus.costDiffAmount;
-            PlayTopCard();
-            DeleteTopCard();
-            GenerateNextCard();
-            UpdateCardDisplay();
+            CardMovement();
         }
     }
+
+    void CardMovement()
+    {
+        PlayTopCard();
+        DeleteTopCard();
+        GenerateNextCard();
+        UpdateCardDisplay();
+        
+    }
+    
     void PlayTopCard()
     {
         nowDisplayCards[0].cardInfo.cardEffectInfo.Process();
@@ -47,6 +56,8 @@ public class CardManager : MonoBehaviour
     }
     void DeleteTopCard()
     {
+        // トップカードの消去
+        nowDisplayCards[0].Vanish();
         //トップカードが空いた分を詰める
         for(int index = 0;index < displayMaxCount - 1; index++)
         {
@@ -59,7 +70,7 @@ public class CardManager : MonoBehaviour
         //カードの位置の更新
         for(int index = 0;index < displayMaxCount; index++)
         {
-            nowDisplayCards[index].cardObject.transform.position = new Vector2(cardPositionX, bottomPositionY + cardHeight * index);
+            nowDisplayCards[index].cardObject.transform.DOMove(new Vector2(cardPositionX, bottomPositionY + cardHeight * index),0.5f);
         }
     }
 
@@ -71,8 +82,7 @@ public class CardManager : MonoBehaviour
         //次に引くカードのインデックスの導出
         int nextCardIndex = (topCardIndex + displayMaxCount - 1) % nowDeck.Length;
         nowDisplayCards[displayMaxCount - 1] = GenerateDefaultCard(nowDeck[nextCardIndex]);
-
-
+        
     }
 
     Card GenerateDefaultCard(CardInfo cardInfo)
@@ -81,11 +91,18 @@ public class CardManager : MonoBehaviour
         Card resultCard = new Card();
         resultCard.cardInfo = cardInfo;
         resultCard.cost = cardInfo.defaultCost;
-        GameObject cardObject = Instantiate(cardPrefab, this.transform);
+        GameObject cardObject = Instantiate(cardPrefab, transform);
+        // GameObject cardObject = Instantiate(cardPrefab, new Vector2(cardPositionX, bottomPositionY + cardHeight * displayMaxCount),Quaternion.identity);
         resultCard.cardObject = cardObject;
         cardObject.GetComponent<CardDisplayUpdater>().cardGraphic.sprite = cardInfo.sprite;
         
         return resultCard;
+    }
+
+    public void SetNowDeck(CardInfo[] inputDeck)
+    {
+        //戦闘開始時のデッキの初期化に利用
+        nowDeck = inputDeck;
     }
 }
     

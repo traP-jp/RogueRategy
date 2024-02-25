@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2396527414328147845}
   - component: {fileID: 200542201808437275}
   - component: {fileID: 4464319627058155068}
+
   m_Layer: 6
   m_Name: Baloon
   m_TagString: Untagged
@@ -100,9 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ea2638f58be4b76a78aae870946a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityX: 2
   intervalTime: 0.3
-  bullet: {fileID: 3408257862577032563, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
+  bullet: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
+  unitManager: {fileID: 7886212009693136816}
 --- !u!58 &2396527414328147845
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,9 +139,11 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+
 --- !u!50 &200542201808437275
 Rigidbody2D:
   serializedVersion: 4
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -166,6 +169,7 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &4464319627058155068
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,3 +182,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyByAlly: 0
+

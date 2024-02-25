@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerStatus))]
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] float playerVelocity;
     [SerializeField] float slowRate;
     [SerializeField] int playerMaxHP;
     [SerializeField] PlayerHPUpdater playerHPUpdater;
@@ -67,7 +66,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float calculatedVelocity=playerVelocity;
+        float calculatedVelocity=playerStatus.resultSpeed;
         var realVelocity=new Vector2();
         if (gameInputs.BattleScene.Slow.IsPressed())
         {
@@ -90,6 +89,7 @@ public class PlayerManager : MonoBehaviour
             realVelocity.x += calculatedVelocity;
         }
 
+        if (playerStatus.isControllReverse) realVelocity *= -1;
         _rigidbody.velocity = realVelocity;
 
 
