@@ -5,6 +5,7 @@ using CardEffect;
 using BuffTypeInspector;
 public class PlayerStatus : StatusBase
 {
+
     //現在の特殊な状態
     public int costDiffAmount;//カードのコストの変化、1なら2コストのカードが3コストかかる
     public bool isControllReverse;

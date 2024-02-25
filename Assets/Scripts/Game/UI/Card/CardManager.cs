@@ -98,5 +98,11 @@ public class CardManager : MonoBehaviour
         
         return resultCard;
     }
+
+    public void SetNowDeck(CardInfo[] inputDeck)
+    {
+        //戦闘開始時のデッキの初期化に利用
+        nowDeck = inputDeck;
+    }
 }
     
