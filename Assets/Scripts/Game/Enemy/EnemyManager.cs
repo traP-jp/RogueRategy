@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour,IDamagable
     public bool HPbarDisplayed = false;
     
     public int maxHP = 1000;
-    int nowHP = 100;
+    public int nowHP = 1000;
     private float _displaytime;
     
     public int nowHPProperty

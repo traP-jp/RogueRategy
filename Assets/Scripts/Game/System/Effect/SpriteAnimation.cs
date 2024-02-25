@@ -31,7 +31,7 @@ public class SpriteAnimation : MonoBehaviour
     }
     private void Start()
     {
-        animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
+        
         if (initializeOnStart)
         {
             Initialize();
@@ -39,6 +39,8 @@ public class SpriteAnimation : MonoBehaviour
     }
     public void Initialize()
     {
+        animationImage = GetComponent<Image>();
+        animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
         StartCoroutine(doAnimation());
     }
     IEnumerator doAnimation()
@@ -66,7 +68,7 @@ public class SpriteAnimation : MonoBehaviour
             usedLoopPoint = loopPoint;
         } while (isLoop);
         }
-
+        Destroy(gameObject);
     }
 
     Sprite[] getSpritesFromLargeSprite(Sprite sprite,int XCount,int YCount)
