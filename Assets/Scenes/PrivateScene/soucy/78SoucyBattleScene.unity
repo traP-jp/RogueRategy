@@ -520,6 +520,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 9.841852}
   m_EdgeRadius: 0
+--- !u!1 &404004843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404004844}
+  - component: {fileID: 404004845}
+  m_Layer: 0
+  m_Name: '@GameFlowManager'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404004844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404004843}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 724606508}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &404004845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404004843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27d716d48d7b4a4b811aa82b0d70fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatus: {fileID: 438510315}
+  cardManager: {fileID: 1382738180}
 --- !u!1 &438510307
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c206b41c369648ee8de3c689940f633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayersBuffStack: 0
   debugInt: 0
+  connectedStatusBase: {fileID: 0}
 --- !u!61 &438510312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -706,7 +754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbc7336a57db47fab0a59d167493df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVelocity: 5
   slowRate: 0.5
   playerMaxHP: 0
   playerHPUpdater: {fileID: 1816015533459529988}
@@ -723,7 +770,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedBuffStack: {fileID: 438510311}
+  MaxHP: 0
+  attack: 0
+  defense: 0
+  speed: 0
+  bulletSpeed: 0
   HP: 0
+  resultAttack: 0
+  resultDefense: 0
+  resultSpeed: 0
+  resultBulletSpeed: 0
+  attackRatio: 0
+  defenseRatio: 0
+  speedRatio: 0
+  bulletSpeedRatio: 0
+  costDiffAmount: 0
+  isControllReverse: 0
+  resultUnitAttack: 0
+  resultUnitDefense: 0
+  resultUnitSpeed: 0
 --- !u!1 &484913754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1180,7 @@ Transform:
   - {fileID: 1418660565}
   - {fileID: 1242640520712940788}
   - {fileID: 664726177950567965}
+  - {fileID: 404004844}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1588,6 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTransform: {fileID: 1635288032}
+  bulletParentTransform: {fileID: 0}
 --- !u!1 &1574238142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +2008,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be934673372184207abe12d774896d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHPSlider: {fileID: 0}
+  enemyHPbarPrehab: {fileID: 0}
+  HPbarDisplayed: 0
+  maxHP: 1000
+  nowHP: 1000
 --- !u!1 &1698498392
 GameObject:
   m_ObjectHideFlags: 0
