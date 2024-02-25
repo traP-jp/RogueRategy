@@ -5,8 +5,29 @@ using UnityEngine;
 [RequireComponent(typeof(BulletStatus))]
 public class BulletManager : MonoBehaviour
 {
-    public BulletMovementSimple bulletMovement;
+    public IBulletMovement bulletMovement;
     public BulletStatus bulletStatus;
 
     public List<BuffCore> bulletsBuffList = new List<BuffCore>();
+
+    private void OnEnable()
+    {
+        if(bulletMovement == null)
+        {
+            bulletMovement = GetComponent<IBulletMovement>();
+            Debug.Log("Resetをすればゲーム開始前にbulletMovementを設定できます");
+        }
+        
+    }
+
+    private void Reset()
+    {
+        bulletMovement = GetComponent<IBulletMovement>();
+        bulletStatus = GetComponent<BulletStatus>();
+    }
+}
+
+public interface IBulletMovement
+{
+    void Initialize(float speed);
 }

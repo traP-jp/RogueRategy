@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 [System.Serializable]
-public class ReverseControll : BuffCore
+public class BulletSpeedChange : BuffCore
 {
+    public float bulletSpeedRatio;
     public override void Process(StatusBase statusBase)
     {
-        ((PlayerStatus)statusBase).isControllReverse = true;
+        statusBase.bulletSpeedRatio *= bulletSpeedRatio;
     }
 }

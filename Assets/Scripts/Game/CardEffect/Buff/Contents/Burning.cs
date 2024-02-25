@@ -9,5 +9,6 @@ public class Burning : BuffCore
     public override void Process(StatusBase statusBase)
     {
         statusBase.HP -= Intensity;
+        EffectDepictor.Instance.DepictEffect(Info.Instance.enemyTransform.position, "Refresh");
     }
 }

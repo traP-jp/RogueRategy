@@ -1,17 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CardEffect;
-using BuffTypeInspector;
-public class PlayerStatus : StatusBase
+
+public class UnitStatus : StatusBase
 {
-    //現在の特殊な状態
-    public int costDiffAmount;//カードのコストの変化、1なら2コストのカードが3コストかかる
-    public bool isControllReverse;
-    //現在の値
-    public float resultUnitAttack;
-    public float resultUnitDefense;
-    public float resultUnitSpeed;
+
+    private void Reset()
+    {
+        base.Reset();
+    }
 
     public override void PermanentBuffUpdate(BuffCore[] buffCores)
     {
@@ -20,12 +17,10 @@ public class PlayerStatus : StatusBase
         defenseRatio = 1;
         speedRatio = 1;
         bulletSpeedRatio = 1;
-        costDiffAmount = 0;
-        isControllReverse = false;
         //Ratio値の更新
-        foreach(BuffCore buffCore in buffCores)
+        foreach (BuffCore buffCore in buffCores)
         {
-            if (buffCore.IsBuffSubjectPlayer())
+            if (buffCore.IsBuffSubjectAllyUnit())
             {
                 buffCore.Process(this);
             }

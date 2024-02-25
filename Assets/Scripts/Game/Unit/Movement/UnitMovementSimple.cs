@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class UnitMovementSimple : MonoBehaviour
 {
-    [SerializeField]float velocityX = 1;
-
     [SerializeField] float intervalTime = 0.3f;
 
-    [SerializeField] GameObject bullet;
+    [SerializeField] BulletManager bullet;
+
+    [SerializeField] UnitManager unitManager;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class UnitMovementSimple : MonoBehaviour
     void Update()
     {
         Vector2 moveVector = transform.position;
-        moveVector += new Vector2(velocityX * Time.deltaTime, 0);
+        moveVector += new Vector2(unitManager.unitStatus.resultSpeed * Time.deltaTime, 0);
         transform.position = moveVector;
     }
 
@@ -27,11 +27,10 @@ public class UnitMovementSimple : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(interval);
-            GameObject tmp = Instantiate(bullet, transform.position, Quaternion.identity, this.transform);
-            Vector2 velocityVector = Info.Instance.enemyTransform.position - transform.position;
-            velocityVector.Normalize();
-            velocityVector *= 5;
-            tmp.GetComponent<BulletMovementSimple>().SetupVelocity(velocityVector.x, velocityVector.y);
+            BulletManager bulletManager = Instantiate(bullet, transform.position, Quaternion.identity, Info.Instance.bulletParentTransform);
+            bulletManager.bulletStatus.SettingAttack(unitManager.unitStatus.resultAttack);
+            bulletManager.bulletMovement.Initialize(unitManager.unitStatus.resultBulletSpeed);
+            unitManager.ConveyBuffToBullet(bulletManager);
         }
     }
 }

@@ -18,15 +18,28 @@ public abstract class BuffCore
         return buffTypeWhenActivate;
     }
     public abstract void Process(StatusBase statusBase);
+
+    public bool IsBuffSubjectPlayer()
+    {
+        return buffSubject is BuffSubjectEntity.Player or BuffSubjectEntity.PlayerAndAllyUnit or BuffSubjectEntity.PlayerAndOpponentUnit or BuffSubjectEntity.All;
+    }
+    public bool IsBuffSubjectAllyUnit()
+    {
+        return buffSubject is BuffSubjectEntity.AllyUnit or BuffSubjectEntity.PlayerAndAllyUnit or BuffSubjectEntity.OpponentUnitAndAllyUnit or BuffSubjectEntity.All;
+    }
+    public bool IsBuffSubjectOpponentUnit()
+    {
+        return buffSubject is BuffSubjectEntity.OpponentUnit or BuffSubjectEntity.OpponentUnitAndAllyUnit or BuffSubjectEntity.PlayerAndOpponentUnit or BuffSubjectEntity.All;
+    }
 }
 public enum BuffSubjectEntity
 {
-    Enemy,
+    OpponentUnit,
     Player,
-    PlayerUnit,
-    PlayerAndPlayerUnit,
-    EnemyAndPlayerUnit,
-    PlayerAndEnemy,
+    AllyUnit,
+    PlayerAndAllyUnit,
+    OpponentUnitAndAllyUnit,
+    PlayerAndOpponentUnit,
     All
 }
 

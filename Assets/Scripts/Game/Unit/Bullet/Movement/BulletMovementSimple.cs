@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMovementSimple : MonoBehaviour
+public class BulletMovementSimple : MonoBehaviour,IBulletMovement
 {
-    float VX, VY;
-    public void SetupVelocity(float velocityX,float velocityY)
+    float VX = 0;
+    float VY = 0;
+
+    public void Initialize(float speed)
     {
-        VX = velocityX;
-        VY = velocityY;
+        Vector2 velocityVector = Info.Instance.enemyTransform.position - transform.position;
+        velocityVector.Normalize();
+        velocityVector *= speed;
+        VX = velocityVector.x;
+        VY = velocityVector.y;
     }
     private void Update()
     {
