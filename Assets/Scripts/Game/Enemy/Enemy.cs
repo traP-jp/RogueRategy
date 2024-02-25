@@ -8,10 +8,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] UnityEngine.UI.Slider enemyHPSlider;
     //ユニットの通過経路
-    private EnemyPaths enemyPaths;
+    [SerializeField] private EnemyPaths enemyPaths;
     public void SetEnemyPaths(EnemyPaths enemyPaths){
         this.enemyPaths = enemyPaths;
     }
+    //敵の軌道作成用
+    public EnemyPath[] paths;
     [SerializeField] int maxHP = 1000;
     [SerializeField] int nowHP = 1000;
     //死亡判定
@@ -26,7 +28,8 @@ public class Enemy : MonoBehaviour
     int time = 0;
     //攻撃が可能か
     bool canAttack = true;
-
+    //移動処理が完了したか
+    bool iscontinue = true;
     int nowHPProperty
     {
         get { return nowHP; }
@@ -69,28 +72,32 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       this.transform.localPosition = new Vector3(0, 0, 0);
+       Movement(0);
     }
     //移動処理
-    public async UniTaskVoid Movement()
+    public async UniTaskVoid Movement(int loopPoint)
     {
-        EnemyPath[] paths = enemyPaths.SetEnemyPaths();
-        foreach (var enemyPath in paths)
+        paths = enemyPaths.SetEnemyPaths();
+        for(int i = loopPoint; i < paths.Length;i++)
         {
         transform.DOLocalPath(
-        path     : enemyPath.GetWayPoints(), //移動するポイント
-        duration : enemyPath.GetMoveTime(), //移動時間
+        path     : paths[i].GetWayPoints(), //移動するポイント
+        duration : paths[i].GetMoveTime(), //移動時間
         pathType : PathType.CatmullRom //移動するパスの種類
-        ).SetEase(Ease.OutCubic)
-        .OnComplete(SetPosition);
-        await UniTask.Delay(enemyPath.GetWaitTime());
+        ).SetEase(paths[i].GetEase()).
+        OnComplete(SetPosition).SetRelative(true);
+        await UniTask.WaitWhile(() => iscontinue);
+        iscontinue = true;
+        await UniTask.Delay(enemyPaths.GetWaitTime(i));
+        }
+        if(enemyPaths.GetIsLoop()){
+            Movement(enemyPaths.GetLoopPoint());
         }
     }
     //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
     public void SetPosition(){
-        parentTransform.position += this.transform.localPosition;
-        this.transform.localPosition = new Vector3(0, 0, 0);
-
+        iscontinue = false;
     }
     //攻撃の処理
     public void Attack(){

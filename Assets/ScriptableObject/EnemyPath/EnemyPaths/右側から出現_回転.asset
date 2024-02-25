@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3271bf5d25a85514d96034170338d715, type: 3}
+  m_Name: "\u53F3\u5074\u304B\u3089\u51FA\u73FE_\u56DE\u8EE2"
+  m_EditorClassIdentifier: 
+  enemyPaths:
+  - {fileID: 11400000, guid: cbf24b9555118f2448dc9616ed2cf5e4, type: 2}
+  - {fileID: 11400000, guid: bb4687cb525247c4f97a5f76e81e679c, type: 2}
+  informaton: "\u53F3\u5074\u304B\u3089\u51FA\u73FE\u3055\u305B\u305D\u306E\u5F8C\u306B\u56DE\u8EE2\u3055\u305B\u308B"
+  waitTime:
+  - 0
+  - 0
+  isLoop: 1
+  loopPoint: 1
