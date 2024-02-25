@@ -72,27 +72,28 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       this.transform.localPosition = new Vector3(0, 0, 0);
        Movement(0);
     }
     //移動処理
     public async UniTaskVoid Movement(int loopPoint)
     {
-        paths = enemyPaths.SetEnemyPaths();
-        for(int i = loopPoint; i < paths.Length;i++)
-        {
-        transform.DOLocalPath(
-        path     : paths[i].GetWayPoints(), //移動するポイント
-        duration : paths[i].GetMoveTime(), //移動時間
-        pathType : PathType.CatmullRom //移動するパスの種類
-        ).SetEase(paths[i].GetEase()).
-        OnComplete(SetPosition).SetRelative(true);
-        await UniTask.WaitWhile(() => iscontinue);
-        iscontinue = true;
-        await UniTask.Delay(enemyPaths.GetWaitTime(i));
-        }
-        if(enemyPaths.GetIsLoop()){
-            Movement(enemyPaths.GetLoopPoint());
+        if(enemyPaths != null){
+            paths = enemyPaths.SetEnemyPaths();
+            for(int i = loopPoint; i < paths.Length;i++)
+            {
+            transform.DOLocalPath(
+            path     : paths[i].GetWayPoints(), //移動するポイント
+            duration : paths[i].GetMoveTime(), //移動時間
+            pathType : PathType.CatmullRom //移動するパスの種類
+            ).SetEase(paths[i].GetEase()).
+            OnComplete(SetPosition).SetRelative(true);
+            await UniTask.WaitWhile(() => iscontinue);
+            iscontinue = true;
+            await UniTask.Delay(enemyPaths.GetWaitTime(i));
+            }
+            if(enemyPaths.GetIsLoop()){
+                Movement(enemyPaths.GetLoopPoint());
+            }
         }
     }
     //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
