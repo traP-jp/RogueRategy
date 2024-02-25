@@ -17,7 +17,7 @@ public class BulletMovementSimple : MonoBehaviour
         transform.position = Vector2.up * VY * Time.deltaTime + (Vector2)transform.position;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerExit2D(Collider2D collider)
     {
         //将来的にはプレイヤーオブジェクト以外のオブジェクトとの衝突で消えるようにしたい
         if (collider.tag != "ally")
