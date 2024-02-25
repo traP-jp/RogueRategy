@@ -16,4 +16,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: -30, y: 0, z: 0}
   moveTime: 6
+  - {x: -20, y: 0, z: 0}
+  moveTime: 4
+  waitTime: 0
   ease: 0

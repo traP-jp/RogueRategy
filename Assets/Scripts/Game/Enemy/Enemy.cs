@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour
             }
             if(enemyPaths.GetIsLoop()){
                 Movement(enemyPaths.GetLoopPoint());
-            }
+         
         }
     }
     //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
