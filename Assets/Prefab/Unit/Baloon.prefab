@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5908490945895199897}
   - component: {fileID: 2396527414328147845}
   - component: {fileID: 200542201808437275}
+  - component: {fileID: 4464319627058155068}
   m_Layer: 6
   m_Name: Baloon
   m_TagString: Untagged
@@ -164,3 +165,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4464319627058155068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311921651342255844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08729f4aa54a2314089ef7b8ab7affe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyByAlly: 0
