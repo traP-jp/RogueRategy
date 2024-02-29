@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intervalTime: 0.3
   bullet: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
-  unitManager: {fileID: 0}
+  unitManager: {fileID: -9145926631589445083}
 --- !u!58 &2396527414328147845
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -226,8 +226,8 @@ MonoBehaviour:
   MaxHP: 0
   attack: 0
   defense: 0
-  speed: 0
-  bulletSpeed: 0
+  speed: 2
+  bulletSpeed: 4
   HP: 0
   resultAttack: 0
   resultDefense: 0

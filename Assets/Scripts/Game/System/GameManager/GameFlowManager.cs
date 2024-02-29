@@ -8,8 +8,8 @@ public class GameFlowManager : MonoBehaviour
 {
     [SerializeField] PlayerStatus playerStatus;
     [SerializeField] CardManager cardManager;
-
-    private void Start()
+    [SerializeField] PlayersInfo playersInfo;
+    private void Awake()
     {
         PlayerStatusInitialize();
         //他にもゲームを開始する処理や戦闘開始みたいな表示を出したりする時に使う
@@ -17,14 +17,15 @@ public class GameFlowManager : MonoBehaviour
 
     void PlayerStatusInitialize()
     {
-        playerStatus.MaxHP = PlayersInfo.maxHP;
-        playerStatus.HP = PlayersInfo.nowHP;
-        playerStatus.attack = PlayersInfo.attack;
-        playerStatus.defense = PlayersInfo.defense;
-        playerStatus.speed = PlayersInfo.speed;
-        playerStatus.bulletSpeed = PlayersInfo.bulletSpeed;
+        playerStatus.MaxHP = playersInfo.maxHP;
+        playerStatus.HP = playersInfo.nowHP;
+        playerStatus.attack = playersInfo.attack;
+        playerStatus.defense = playersInfo.defense;
+        playerStatus.speed = playersInfo.speed;
+        playerStatus.bulletSpeed = playersInfo.bulletSpeed;
         //デッキも
-        cardManager.SetNowDeck(PlayersInfo.playersDeck.ToArray());
+        cardManager.SetNowDeck(playersInfo.playersDeck.ToArray());
+        
     }
 
 

@@ -978,6 +978,7 @@ MonoBehaviour:
   - {fileID: 1110020126}
   - {fileID: 951870262}
   - {fileID: 195356151}
+  playersInfo: {fileID: 11400000, guid: 8274fd8ac3278462da8a800e1c0011c0, type: 2}
 --- !u!114 &4396792490622285611
 MonoBehaviour:
   m_ObjectHideFlags: 0

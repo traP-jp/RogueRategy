@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648220348f09d4257a38f8d7f4f0247f, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  _playersDeck:
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
+  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
+  _nowHP: 0
+  _maxHP: 0
+  _attack: 2
+  _defense: 3
+  _speed: 0
+  _bulletSpeed: 0
