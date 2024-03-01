@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648220348f09d4257a38f8d7f4f0247f, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  _playersDeck:
+  playersDeck:
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
-  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
-  _nowHP: 0
-  _maxHP: 0
-  _attack: 2
-  _defense: 3
-  _speed: 0
-  _bulletSpeed: 0
+  nowHP: 15
+  maxHP: 15
+  attack: 5
+  defense: 3
+  speed: 2
+  bulletSpeed: 3
