@@ -2384,6 +2384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStatus: {fileID: 7810184838114248337}
   cardManager: {fileID: 1382738180}
+  playersInfo: {fileID: 11400000, guid: 8274fd8ac3278462da8a800e1c0011c0, type: 2}
 --- !u!4 &4782532839192633366
 Transform:
   m_ObjectHideFlags: 0

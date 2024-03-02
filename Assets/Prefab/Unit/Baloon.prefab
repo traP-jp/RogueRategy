@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 2396527414328147845}
   - component: {fileID: 200542201808437275}
   - component: {fileID: 4464319627058155068}
-
+  - component: {fileID: -9145926631589445083}
+  - component: {fileID: -6147495964100545168}
+  - component: {fileID: -4812431308771784745}
   m_Layer: 6
   m_Name: Baloon
   m_TagString: Untagged
@@ -103,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intervalTime: 0.3
   bullet: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
-  unitManager: {fileID: 7886212009693136816}
+  unitManager: {fileID: -9145926631589445083}
 --- !u!58 &2396527414328147845
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -139,11 +141,9 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
-
 --- !u!50 &200542201808437275
 Rigidbody2D:
   serializedVersion: 4
-
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -169,7 +169,6 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &4464319627058155068
-
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,4 +181,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyByAlly: 0
-
+--- !u!114 &-9145926631589445083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311921651342255844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e99cedc6410455d8f1df6311d8167c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitBuffStack: {fileID: -6147495964100545168}
+  unitStatus: {fileID: -4812431308771784745}
+--- !u!114 &-6147495964100545168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311921651342255844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c206b41c369648ee8de3c689940f633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayersBuffStack: 0
+  debugInt: 0
+  connectedStatusBase: {fileID: -4812431308771784745}
+--- !u!114 &-4812431308771784745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311921651342255844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bef29cdeac704676a2f2c40ac4f1132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedBuffStack: {fileID: -6147495964100545168}
+  MaxHP: 0
+  attack: 0
+  defense: 0
+  speed: 2
+  bulletSpeed: 4
+  HP: 0
+  resultAttack: 0
+  resultDefense: 0
+  resultSpeed: 0
+  resultBulletSpeed: 0
+  attackRatio: 1
+  defenseRatio: 1
+  speedRatio: 1
+  bulletSpeedRatio: 1

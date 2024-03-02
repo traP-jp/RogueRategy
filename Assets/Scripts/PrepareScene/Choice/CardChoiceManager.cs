@@ -9,6 +9,7 @@ namespace PrepareSceneOnly
     public class CardChoiceManager : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI[] choiceExplanationTexts;
+        [SerializeField] PlayersInfo playersInfo;
         ChoiceSelector choiceSelector;
         OnFinish onFinish;
 
@@ -29,7 +30,7 @@ namespace PrepareSceneOnly
         {
             //3択の選択肢のどれかを選んだときに呼び出される
             //一番左のを選んだ時はchoiceNumber=0,真ん中は1,右は2
-            choiceArray[choiceNumber].Process(onFinish);
+            choiceArray[choiceNumber].Process(onFinish,playersInfo);
 
         }
 
@@ -64,7 +65,7 @@ namespace PrepareSceneOnly
     public interface IChoice
     {
         //選択肢を表すスクリプトにはこのインターフェイスをつける
-        void Process(OnFinish onFinish);//クリックされたときはこの関数を呼ぶ
+        void Process(OnFinish onFinish,PlayersInfo playersInfo);//クリックされたときはこの関数を呼ぶ
 
         string GetExplanationText();
     }
