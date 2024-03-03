@@ -2048,7 +2048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0ec618d6e73ea4fbbcbc9782e1a130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 1666738334}
+  pool: {fileID: 1692457923}
   enemyHPSlider: {fileID: 0}
   enemyPaths: {fileID: 0}
   paths: []
