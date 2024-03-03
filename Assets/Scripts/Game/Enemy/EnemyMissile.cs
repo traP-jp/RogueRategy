@@ -5,6 +5,8 @@ using DG.Tweening;
 using Cysharp.Threading.Tasks;
 public class EnemyMissile : MonoBehaviour
 {
+    //親オブジェクト
+    [SerializeField] Transform parentTransform;
     //ユニットの通過経路
     [SerializeField] private EnemyPaths enemyPaths;
     public void SetEnemyPaths(EnemyPaths enemyPaths){
@@ -12,10 +14,15 @@ public class EnemyMissile : MonoBehaviour
     }
     //敵の軌道作成用
     public EnemyPath[] paths;
+    bool isContinueMove = true;
     // Start is called before the first frame update
-    public virtual void Start()
+    void OnEnable()
     {
         Movement();
+    }
+    private void OffActive()
+    {
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,11 +42,17 @@ public class EnemyMissile : MonoBehaviour
         path     : paths[i].GetWayPoints(), //移動するポイント
         duration : paths[i].GetMoveTime(), //移動時間
         pathType : PathType.CatmullRom //移動するパスの種類
-        ).SetEase(paths[i].GetEase()).SetRelative(true)
-        .SetEase(Ease.OutCubic);
-        //.OnComplete(SetPosition);
-        await UniTask.Delay(3000);
-
+        ).SetEase(Ease.OutCubic).SetRelative(true)
+        .OnComplete(SetPosition);
+        await UniTask.WaitWhile(() => isContinueMove);
+        isContinueMove = true;
+        await UniTask.Delay(enemyPaths.GetWaitTime(i));
+        OffActive();
         }
     }
+    public void SetPosition(){
+        isContinueMove = false;
+    }
+    //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
 }
+
