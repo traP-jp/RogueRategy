@@ -14,10 +14,15 @@ public class EnemyMissile : MonoBehaviour
     }
     //敵の軌道作成用
     public EnemyPath[] paths;
+    bool isContinueMove = true;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         Movement();
+    }
+    private void OffActive()
+    {
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,15 +42,16 @@ public class EnemyMissile : MonoBehaviour
         path     : paths[i].GetWayPoints(), //移動するポイント
         duration : paths[i].GetMoveTime(), //移動時間
         pathType : PathType.CatmullRom //移動するパスの種類
-        ).SetEase(Ease.OutCubic)
+        ).SetEase(Ease.OutCubic).SetRelative(true)
         .OnComplete(SetPosition);
-        await UniTask.Delay(3000);
+        await UniTask.WaitWhile(() => isContinueMove);
+        isContinueMove = true;
+        await UniTask.Delay(enemyPaths.GetWaitTime(i));
+        OffActive();
         }
     }
-    //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
     public void SetPosition(){
-        parentTransform.position += this.transform.localPosition;
-        this.transform.localPosition = new Vector3(0, 0, 0);
-
+        isContinueMove = false;
     }
+    //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
 }
