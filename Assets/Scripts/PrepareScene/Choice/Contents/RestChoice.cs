@@ -6,9 +6,9 @@ namespace PrepareSceneOnly
     public class RestChoice : MonoBehaviour,IChoice
     {
         public float recoverAmount;//回復量を表す。HPがfloat型なのでfloat型だが、表記するときは見栄えから整数で表記するかも?
-        public void Process(OnFinish onFinish)
+        public void Process(OnFinish onFinish,PlayersInfo playersInfo)
         {
-            PlayersInfo.nowHP = Mathf.Min(PlayersInfo.nowHP + recoverAmount,PlayersInfo.maxHP);
+            playersInfo.nowHP = Mathf.Min(playersInfo.nowHP + recoverAmount,playersInfo.maxHP);
             onFinish();
         }
 

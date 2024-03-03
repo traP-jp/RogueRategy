@@ -5,9 +5,9 @@ namespace PrepareSceneOnly
 {
     public class StatusEnhanceChoice : MonoBehaviour, IChoice
     {
-        public void Process(OnFinish onFinish)
+        public void Process(OnFinish onFinish,PlayersInfo playersInfo)
         {
-            PlayersInfo.attack += 10;//仮置きでプレイヤーのアタック+10としている　　実際は動的に様々な強化内容が設定できるようにしたい
+            playersInfo.attack += 10;//仮置きでプレイヤーのアタック+10としている　　実際は動的に様々な強化内容が設定できるようにしたい
             onFinish();
         }
 

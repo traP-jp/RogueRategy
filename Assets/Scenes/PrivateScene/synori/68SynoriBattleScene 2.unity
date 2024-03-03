@@ -1153,9 +1153,12 @@ MonoBehaviour:
   paths: []
   maxHP: 1000
   nowHP: 1000
+  deadflag: 0
   parentTransform: {fileID: 0}
   missile: []
   waitTime: 0
+  time: 0
+  canAttack: 1
   missilePort:
   - {fileID: 949811242}
   missiles:
@@ -1245,7 +1248,7 @@ SpriteRenderer:
   m_Size: {x: 53, y: 28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1057523454
@@ -1265,9 +1268,13 @@ MonoBehaviour:
   paths: []
   maxHP: 1000
   nowHP: 1000
+  deadflag: 0
   parentTransform: {fileID: 0}
   missile: []
   waitTime: 0
+  time: 0
+  canAttack: 1
+  iscontinue: 1
   missilePort:
   - {fileID: 1117267689}
   - {fileID: 1799525356}
@@ -1321,12 +1328,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c9d014bc5c46f4a8f64848e79e11ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossSpeed: 0.002
   bossBodyPart: {fileID: 1057523454}
   bossPart1: {fileID: 1190978704}
+  isBossPart1Broken: 0
   bossPart2: {fileID: 1529901000}
+  isBossPart2Broken: 0
   player: {fileID: 1579548369}
   laserTime: 400
+  laserTimer: 0
   beamTime: 2000
+  beamTimer: 0
 --- !u!1 &1117267688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,9 +1388,13 @@ MonoBehaviour:
   paths: []
   maxHP: 1000
   nowHP: 1000
+  deadflag: 0
   parentTransform: {fileID: 0}
   missile: []
   waitTime: 0
+  time: 0
+  canAttack: 1
+  iscontinue: 1
   missilePort: []
   missiles: []
   isbroken: 0
@@ -1465,7 +1481,7 @@ SpriteRenderer:
   m_Size: {x: 66, y: 18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1190978704
@@ -1485,9 +1501,13 @@ MonoBehaviour:
   paths: []
   maxHP: 1000
   nowHP: 1000
+  deadflag: 0
   parentTransform: {fileID: 0}
   missile: []
   waitTime: 0
+  time: 0
+  canAttack: 1
+  iscontinue: 1
   missilePort:
   - {fileID: 1326637194}
   missiles:
@@ -1756,6 +1776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTransform: {fileID: 0}
+  bulletParentTransform: {fileID: 0}
 --- !u!1 &1446556001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +1973,7 @@ SpriteRenderer:
   m_Size: {x: 66, y: 18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1529901000
@@ -1972,9 +1993,13 @@ MonoBehaviour:
   paths: []
   maxHP: 1000
   nowHP: 1000
+  deadflag: 0
   parentTransform: {fileID: 0}
   missile: []
   waitTime: 0
+  time: 0
+  canAttack: 1
+  iscontinue: 1
   missilePort:
   - {fileID: 949811242}
   missiles:
@@ -2086,6 +2111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1660a00b0124bab46b2098ba0175f0c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
 --- !u!212 &1579548371
 SpriteRenderer:
   m_ObjectHideFlags: 0

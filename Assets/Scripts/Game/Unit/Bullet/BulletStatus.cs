@@ -11,4 +11,8 @@ public class BulletStatus : MonoBehaviour
     {
         resultAttack = attack * defaultAttackRatio;
     }
+    public float GetDamage(){
+        return resultAttack;
+
+    }
 }

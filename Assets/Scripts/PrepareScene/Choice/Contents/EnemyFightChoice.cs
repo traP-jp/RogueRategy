@@ -6,7 +6,7 @@ namespace PrepareSceneOnly
 {
     public class EnemyFightChoice : MonoBehaviour,IChoice
     {
-        public void Process(OnFinish onFinish)
+        public void Process(OnFinish onFinish,PlayersInfo playersInfo)
         {
             string sceneName = SceneManager.GetActiveScene().name.Replace("Prepare","Battle");
             SceneManager.LoadScene(sceneName);

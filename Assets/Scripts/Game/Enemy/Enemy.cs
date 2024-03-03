@@ -16,18 +16,12 @@ public class Enemy : MonoBehaviour
     public EnemyPath[] paths;
     [SerializeField] int maxHP = 1000;
     [SerializeField] int nowHP = 1000;
-    //死亡判定
-    bool deadflag = false;
-    //親オブジェクト
-    [SerializeField] Transform parentTransform;
     //弾丸の種類
     [SerializeField] List<GameObject> missile;
     //攻撃の待機時間
     [SerializeField] int waitTime;
     //攻撃から経った時間　
     int time = 0;
-    //攻撃が可能か
-    bool canAttack = true;
     //移動処理が完了したか
     bool iscontinue = true;
     int nowHPProperty
@@ -61,7 +55,7 @@ public class Enemy : MonoBehaviour
         }
         finally
         {
-            enemyHPSlider.value = nowHPProperty / (float)maxHP;
+            //enemyHPSlider.value = nowHPProperty / (float)maxHP;
         }
     }
     //倒された時の処理
@@ -72,31 +66,27 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       Movement(0);
+       Movement(0).Forget();
     }
     //移動処理
     public async UniTaskVoid Movement(int loopPoint)
     {
-        if(enemyPaths != null){
-            paths = enemyPaths.SetEnemyPaths();
-            for(int i = loopPoint; i < paths.Length;i++)
-            {
-            transform.DOLocalPath(
+        paths = enemyPaths.SetEnemyPaths();
+        for(int i = loopPoint; i < paths.Length;i++)
+        {
+        transform.DOLocalPath(
             path     : paths[i].GetWayPoints(), //移動するポイント
             duration : paths[i].GetMoveTime(), //移動時間
             pathType : PathType.CatmullRom //移動するパスの種類
-            ).SetEase(paths[i].GetEase()).
-            OnComplete(SetPosition).SetRelative(true);
-            await UniTask.WaitWhile(() => iscontinue);
-            iscontinue = true;
-            await UniTask.Delay(enemyPaths.GetWaitTime(i));
-            }
-            if(enemyPaths.GetIsLoop()){
-                Movement(enemyPaths.GetLoopPoint());
-         
+            ).SetEase(paths[i].GetEase()).OnComplete(SetPosition).SetRelative(true);
+        await UniTask.WaitWhile(() => iscontinue);
+        iscontinue = true;
+        await UniTask.Delay(enemyPaths.GetWaitTime(i));
+        }
+        if(enemyPaths.GetIsLoop()){
+           Movement(enemyPaths.GetLoopPoint()).Forget();
         }
     }
-    //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
     public void SetPosition(){
         iscontinue = false;
     }
@@ -109,9 +99,19 @@ public class Enemy : MonoBehaviour
         }
         
     }
-    // Update is called once per frame
+    //被弾処理
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(nowHPProperty);
+        BulletStatus bulletStatus = other.gameObject.GetComponent<BulletStatus>();
+        AddDamage((int)bulletStatus.GetDamage());
+        Destroy(other.gameObject);
+    }    
     void Update()
     {
         Attack();
+    }
+    public void BrokenEffect(){
+
     }
 }

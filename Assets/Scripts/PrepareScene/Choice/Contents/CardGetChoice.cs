@@ -12,7 +12,7 @@ namespace PrepareSceneOnly
             return rewardCard.cardName + "を獲得する";
         }
 
-        public void Process(OnFinish onFinish)
+        public void Process(OnFinish onFinish,PlayersInfo playersInfo)
         {
             onFinish();
         }
