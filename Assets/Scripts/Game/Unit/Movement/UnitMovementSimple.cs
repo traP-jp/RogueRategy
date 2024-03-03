@@ -33,4 +33,5 @@ public class UnitMovementSimple : MonoBehaviour
             unitManager.ConveyBuffToBullet(bulletManager);
         }
     }
+    
 }
