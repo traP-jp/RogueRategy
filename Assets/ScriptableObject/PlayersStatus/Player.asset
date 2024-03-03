@@ -18,9 +18,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
-  _nowHP: 12
-  _maxHP: 15
-  _attack: 2
-  _defense: 2
-  _speed: 2
-  _bulletSpeed: 4
+  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
+  nowHP: 15
+  maxHP: 15
+  attack: 5
+  defense: 3
+  speed: 3.95
+  bulletSpeed: 3

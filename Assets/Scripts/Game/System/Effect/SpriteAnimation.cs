@@ -10,12 +10,25 @@ public class SpriteAnimation : MonoBehaviour
     [SerializeField] Vector2Int spriteSplitCount;
     [SerializeField] bool initializeOnStart = false;
     [SerializeField] bool isLoop = false;
+    //何番目からループするか
+    [SerializeField] int loopPoint = 0;
+    int usedLoopPoint = 0;
+    enum WhichComponent{
+        image,
+        spriteRenderer
+    }
+    [SerializeField] WhichComponent component;
     [Header("nからn+1枚目のanimにかける時間")][SerializeField] float[] animationIntervalTime;
     [SerializeField] float constantInterval = 0;
     [SerializeField] float magnification = 1;
 
     Sprite[] animationSprites;
     Image animationImage;
+    SpriteRenderer spriteRenderer;
+    private void Awake()
+    {
+        animationImage = GetComponent<Image>();
+    }
     private void Start()
     {
         
@@ -31,15 +44,30 @@ public class SpriteAnimation : MonoBehaviour
         StartCoroutine(doAnimation());
     }
     IEnumerator doAnimation()
-    {
+    {   
+        if(component == WhichComponent.image)
         do
         {
-            for (int i = 0; i < animationSprites.Length; i++)
+            for (int i = usedLoopPoint; i < animationSprites.Length; i++)
             {
                 animationImage.sprite = animationSprites[i];
                 yield return new WaitForSeconds(animationIntervalTime[i] + constantInterval);
             }
+            usedLoopPoint = loopPoint;
         } while (isLoop);
+        //SpriteRendererの処理
+        else{
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            do
+        {
+            for (int i = usedLoopPoint; i < animationSprites.Length; i++)
+            {
+                spriteRenderer.sprite = animationSprites[i];
+                yield return new WaitForSeconds(animationIntervalTime[i] + constantInterval);
+            }
+            usedLoopPoint = loopPoint;
+        } while (isLoop);
+        }
         Destroy(gameObject);
     }
 
