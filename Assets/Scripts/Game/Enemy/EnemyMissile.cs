@@ -35,9 +35,9 @@ public class EnemyMissile : MonoBehaviour
         path     : paths[i].GetWayPoints(), //移動するポイント
         duration : paths[i].GetMoveTime(), //移動時間
         pathType : PathType.CatmullRom //移動するパスの種類
-        ).SetEase(paths[i].GetEase()).SetRelative(true);
-        ).SetEase(Ease.OutCubic)
-        .OnComplete(SetPosition);
+        ).SetEase(paths[i].GetEase()).SetRelative(true)
+        .SetEase(Ease.OutCubic);
+        //.OnComplete(SetPosition);
         await UniTask.Delay(3000);
 
         }
