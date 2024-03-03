@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     bool isContinueMove = true;
     //警戒線とそのプール
     [SerializeField] GameObject cordon;
-    [SerializeField] Transform CordonPool;
+    [SerializeField] Transform cordonPool;
     int nowHPProperty
     {
         get { return nowHP; }
@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour
     public async UniTaskVoid Attack(){
         
         //警戒線の処理
-        GameObjectPool(CordonPool,this.transform.position,this.transform.rotation,cordon);
+        GameObjectPool(cordonPool,this.transform.position,this.transform.rotation,cordon);
         //暫く待機
         await UniTask.Delay(500);
         //弾発射
