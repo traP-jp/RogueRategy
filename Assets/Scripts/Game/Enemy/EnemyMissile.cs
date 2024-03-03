@@ -35,7 +35,9 @@ public class EnemyMissile : MonoBehaviour
             paths = enemyPaths.SetEnemyPaths();
             
         }
-        
+        else{
+            await UniTask.Delay(500);
+        }
         for(int i = 0; i < paths.Length;i++)
         {
         transform.DOLocalPath(
@@ -47,8 +49,8 @@ public class EnemyMissile : MonoBehaviour
         await UniTask.WaitWhile(() => isContinueMove);
         isContinueMove = true;
         await UniTask.Delay(enemyPaths.GetWaitTime(i));
-        OffActive();
         }
+        OffActive();
     }
     public void SetPosition(){
         isContinueMove = false;
