@@ -22,5 +22,5 @@ MonoBehaviour:
   maxHP: 15
   attack: 5
   defense: 3
-  speed: 2
+  speed: 3.95
   bulletSpeed: 3
