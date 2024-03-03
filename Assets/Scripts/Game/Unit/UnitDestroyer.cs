@@ -3,14 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class UnitDestroyer : MonoBehaviour
 {
     [SerializeField] private bool destroyByAlly;
-    private void OnTriggerExit2D(Collider2D collider)
+
+    private void Update()
     {
-        if (!(collider.gameObject.CompareTag("ally") && !destroyByAlly))
-        {
-            Destroy(gameObject);
-        }
+        DestroyCheck();
+    }
+
+    private void DestroyCheck()
+    {
+        if (Math.Abs(transform.position.x) <= 10f && Math.Abs(transform.position.y) <= 6f) return;
+        Destroy(gameObject);
+        
     }
 }
