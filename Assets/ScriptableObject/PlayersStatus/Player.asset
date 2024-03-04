@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playersDeck:
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
-  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
-  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
-  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
-  nowHP: 15
-  maxHP: 15
-  attack: 5
-  defense: 3
-  speed: 3.95
-  bulletSpeed: 3
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  _nowHP: 15
+  _maxHP: 15
+  _attack: 1
+  _defense: 1
+  _speed: 3
+  _bulletSpeed: 3

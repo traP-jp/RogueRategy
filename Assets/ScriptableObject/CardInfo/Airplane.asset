@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a79a186e9e30a4635b633df0f98ea19d, type: 3}
   defaultCost: 2
+  cardName: 
   cardExplanation: 
   cardEffectInfo:
     rid: 7769764138042523649
@@ -38,7 +39,7 @@ MonoBehaviour:
     - rid: 5963945000857239555
       type: {class: GenerateBullet, ns: CardEffect, asm: Assembly-CSharp}
       data:
-        bulletObject: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
+        bulletObject: {fileID: -4178343824937487828, guid: 432118c69ba8241389d45786e7d11b70, type: 3}
     - rid: 5963945070561329152
       type: {class: AddBuffToSomething, ns: CardEffect, asm: Assembly-CSharp}
       data:
