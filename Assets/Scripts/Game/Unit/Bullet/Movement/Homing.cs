@@ -5,21 +5,31 @@ using UnityEngine;
 
 public class Homing : MonoBehaviour,IBulletMovement
 {
+    [SerializeField] private Transform chased;
     float VX = 0;
     float VY = 0;
+    private float _speed;
+    private Rigidbody2D _rb;
 
     public void Initialize(float speed)
     {
+        _speed = speed;
         Vector2 velocityVector = Info.Instance.enemyTransform.position - transform.position;
         velocityVector.Normalize();
-        velocityVector *= speed;
-        VX = velocityVector.x;
-        VY = velocityVector.y;
+        velocityVector *= _speed;
+        _rb.velocity = velocityVector;
     }
+
+    private void Awake()
+    {
+        _rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+
     private void Update()
     {
-        transform.position = Vector2.right * VX * Time.deltaTime + (Vector2)transform.position;
-        transform.position = Vector2.up * VY * Time.deltaTime + (Vector2)transform.position;
+        //Updateでbulletに力を加える
+        _rb.velocity.Normalize();
+        _rb.velocity *= _speed;
     }
     
 
