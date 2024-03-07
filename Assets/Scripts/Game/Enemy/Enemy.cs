@@ -8,7 +8,7 @@ using Cysharp.Threading.Tasks;
 public class Enemy : MonoBehaviour 
 {
     
-    [SerializeField] Transform pool;
+    [SerializeField] Transform missilePool;
     [SerializeField] UnityEngine.UI.Slider enemyHPSlider;
     //ユニットの通過経路
     [SerializeField] private EnemyPaths enemyPaths;
@@ -27,6 +27,9 @@ public class Enemy : MonoBehaviour
     int time = 0;
     //移動処理が完了したか
     bool isContinueMove = true;
+    //警戒線とそのプール
+    [SerializeField] GameObject cordon;
+    [SerializeField] Transform cordonPool;
     int nowHPProperty
     {
         get { return nowHP; }
@@ -98,24 +101,30 @@ public class Enemy : MonoBehaviour
         isContinueMove = false;
     }
     //攻撃の処理
-    public void Attack(){
-        time += 1;
-        if (time >= waitTime){
-            time = 0;
-            bool isPoolHave = false;
-            foreach(Transform t in pool) {
+    public async UniTaskVoid Attack(){
+        
+        //警戒線の処理
+        GameObjectPool(cordonPool,this.transform.position,this.transform.rotation,cordon);
+        //暫く待機
+        await UniTask.Delay(500);
+        //弾発射
+        GameObjectPool(missilePool,this.transform.position,this.transform.rotation,missile[0]);
+    }
+    
+    public void GameObjectPool(Transform pool,Vector3 vector3,Quaternion quaternion,GameObject missile){
+        bool isPoolHave = false;
+        foreach(Transform t in pool) {
             //オブジェが非アクティブなら使い回し
-                if( ! t.gameObject.activeSelf){ 
-                    t.SetPositionAndRotation(this.transform.position,this.transform.rotation); 
-                    t.gameObject.SetActive(true);//位置と回転を設定後、アクティブにする
-                    isPoolHave = true;
-                    break;
-                } 
+            if( ! t.gameObject.activeSelf){ 
+                t.SetPositionAndRotation(vector3,quaternion); 
+                t.gameObject.SetActive(true);//位置と回転を設定後、アクティブにする
+                isPoolHave = true;
+                break;
             } 
-            if(!isPoolHave){
-             //非アクティブなオブジェクトがないなら生成
-                Instantiate(missile[0], this.transform.position, Quaternion.identity,pool);
-            }
+        } 
+        if(!isPoolHave){
+            //非アクティブなオブジェクトがないなら生成
+            Instantiate(missile, vector3, quaternion,pool);
         }
     }
     //被弾処理
@@ -128,7 +137,11 @@ public class Enemy : MonoBehaviour
     }    
     void Update()
     {
-        Attack();
+        time += 1;
+        if (time >= waitTime){
+            time = 0;
+            Attack();
+        }
     }
     public void BrokenEffect(){
 
