@@ -35,7 +35,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
 
     public void RecoverPlayerHP(int recoverHP)
     {
-        playerManager.playerHPProperty += recoverHP;
+        playerManager.ChangePlayersHP(recoverHP);
     }
 
     public void GenerateBulletFromPlayer(BulletManager bulletObject)
