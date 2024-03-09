@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3c248afc310dd4fb7ef374f807021d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPaths: {fileID: 11400000, guid: efff7c586e849dd429e31e09a621df5f, type: 2}
+  enemyPaths: {fileID: 11400000, guid: cb73526be65dc9048827a38d0bf074b0, type: 2}
   paths: []
   orbitPoolName: OrbitPool
   orbit: {fileID: 5999999863764758739, guid: ec9c7029b17b8b14da19e0b80671b1c7, type: 3}
-  fadeTime: 0.05
+  fadeTime: 0.01
