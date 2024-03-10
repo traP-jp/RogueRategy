@@ -14,6 +14,7 @@ namespace PrepareSceneOnly
 
         public void Process(OnFinish onFinish,PlayersInfo playersInfo)
         {
+            playersInfo.playersDeck.Add(rewardCard);
             onFinish();
         }
     }
