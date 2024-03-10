@@ -6,9 +6,8 @@ namespace PrepareSceneOnly
 {
     public class ChoiceSelector : MonoBehaviour
     {
-        [SerializeField] CardInfo[] cardList;//カードを手にいれる選択肢で手に入るカードのリストをこれに設定し、このスクリプト内で乱数でゲット
-                                         //いつかこれにレアリティ的な概念を入れて、カードのレア度に差をつけたい
-
+        [SerializeField] RandomTable<Item> rewardItemTable;
+        [SerializeField] RandomTable<CardInfo> rewardCardTable;
 
         public IChoice[] GetChoices(int length)
         {
@@ -50,7 +49,7 @@ namespace PrepareSceneOnly
         IChoice GenerateCardGetChoice()
         {
             CardGetChoice cardGetChoice = new CardGetChoice();
-            cardGetChoice.rewardCard = cardList[Random.Range(0, cardList.Length)];
+            cardGetChoice.rewardCard = rewardCardTable.GetRandomData();
             return cardGetChoice;
         }
 
@@ -65,7 +64,7 @@ namespace PrepareSceneOnly
         IChoice GenerateItemGetChoice()
         {
             ItemGetChoice itemGetChoice = new ItemGetChoice();
-            //アイテム周りの処理は作成していないので仮置き
+            itemGetChoice.rewardItem = rewardItemTable.GetRandomData();
             return itemGetChoice;
         }
 

@@ -183,9 +183,9 @@ MonoBehaviour:
   connectedBuffStack: {fileID: -7149031143781184849}
   MaxHP: 0
   attack: 5
-  defense: 0
+  defense: 1
   speed: 1
-  bulletSpeed: 0
+  bulletSpeed: 2
   HP: 0
   resultAttack: 0
   resultDefense: 0

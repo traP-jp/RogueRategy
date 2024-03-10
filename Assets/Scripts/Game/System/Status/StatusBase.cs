@@ -23,7 +23,7 @@ public abstract class StatusBase : MonoBehaviour
         resultSpeed = speed;
         resultBulletSpeed = bulletSpeed;
     }
-    [SerializeField] BuffStack connectedBuffStack;
+    public BuffStack connectedBuffStack;
     //デフォルトの戦闘中は不変の値
     public float MaxHP;
     public float attack; //デフォルトの攻撃力
@@ -43,4 +43,11 @@ public abstract class StatusBase : MonoBehaviour
     public float bulletSpeedRatio;
 
     public abstract void PermanentBuffUpdate(BuffCore[] buffCores);
+
+    public void HPChange(float changeAmount)
+    {
+        HP += changeAmount;
+        HP = Mathf.Clamp(HP, 0, MaxHP);
+        //さらにこの後、HPが回復した時のエフェクトやダメージの際のエフェクトなどを記述する
+    }
 }

@@ -10,11 +10,11 @@ namespace CardEffect
         //カードの効果が複数あるのを一つにまとめたもの
         [SerializeReference,SubclassSelector]public ICardEffect[] cardEffectArray;
 
-        public void Process()
+        public void Process(StatusBase usersStatus,Vector2 usersPos)
         {
             for(int i = 0; i < cardEffectArray.Length; i++)
             {
-                cardEffectArray[i].Process();//カードエフェクトをバンドルに入っているものを上から実行する
+                cardEffectArray[i].Process(usersStatus,usersPos);//カードエフェクトをバンドルに入っているものを上から実行する
             }
         }
 
@@ -22,10 +22,10 @@ namespace CardEffect
     }
     public interface ICardEffectBundle
     {
-        void Process();
+        void Process(StatusBase usersStatus,Vector2 usersPos);
     }
     public interface ICardEffect
     {
-        void Process();
+        void Process(StatusBase usersStatus,Vector2 usersPos);
     }
 }

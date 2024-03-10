@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using System;
+
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PlayerStatus")]
 public class PlayersInfo:ScriptableObject
 {
     //バトルシーンと準備シーン両方で保持する必要があるものをここに入れる
     [NonSerialized]public List<CardInfo> playersDeck;//playerのカードの順番を保存
-
+    [NonSerialized]public List<Item> playersItem;
     [NonSerialized]public float nowHP;
     [NonSerialized]public float maxHP;
     [NonSerialized]public float attack;
@@ -17,7 +18,8 @@ public class PlayersInfo:ScriptableObject
     [NonSerialized]public float bulletSpeed;
 
 
-    [SerializeField]CardInfo[] _playersDeck;
+    [SerializeField] CardInfo[] _playersDeck;
+    [SerializeField] Item[] _playersItem;
     [SerializeField] float _nowHP;
     [SerializeField] float _maxHP;
     [SerializeField] float _attack;
@@ -34,6 +36,7 @@ public class PlayersInfo:ScriptableObject
         speed = _speed;
         bulletSpeed = _bulletSpeed;
         playersDeck = new List<CardInfo>(_playersDeck);
+        playersItem = new List<Item>(_playersItem);
     }
 
 }

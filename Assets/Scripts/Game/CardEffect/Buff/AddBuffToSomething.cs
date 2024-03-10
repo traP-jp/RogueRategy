@@ -7,10 +7,9 @@ namespace CardEffect
     public class AddBuffToSomething : ICardEffect
     {
         [SerializeReference, SubclassSelector] BuffCore buff;
-        public void Process()
+        public void Process(StatusBase usersStatus,Vector2 usersPos)
         {
-            //playerBuffManagement.AddBuff(buff);
-            BuffManager.Instance.AddBuffToPlayer(buff);
+            usersStatus.connectedBuffStack.AddBuff(buff);
         }
     }
 
