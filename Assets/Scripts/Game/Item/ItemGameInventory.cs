@@ -55,5 +55,7 @@ public class ItemGameInventory : MonoBehaviour
         //一旦アイテムを使用したときにカードを使用した時と同様の処理にする
         CardEffect.ICardEffectBundle bundle = playersInfo.playersItem[itemNumber].itemEffectInfo;
         bundle.Process();
+        playersInfo.playersItem[itemNumber] = null;
+        itemImages[itemNumber].sprite = null;
     }
 }

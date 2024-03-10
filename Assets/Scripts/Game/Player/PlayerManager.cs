@@ -65,13 +65,13 @@ public class PlayerManager : MonoBehaviour
 
         if (playerStatus.isControllReverse) realVelocity *= -1;
         _rigidbody.velocity = realVelocity;
+
+        playerHPUpdater.UpdateHPTank(Mathf.RoundToInt(playerStatus.HP));
     }
 
 
     public void ChangePlayersHP(float changeHPAmount)
     {
         playerStatus.HP += changeHPAmount;
-        playerStatus.HP = Mathf.Clamp(playerStatus.HP, playerStatus.MaxHP,0);
-        playerHPUpdater.UpdateHPTank(Mathf.RoundToInt(playerStatus.HP));
     }
 }
