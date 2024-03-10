@@ -991,9 +991,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e9728dc462947bb8e705a3da5a53e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardList:
-  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
-  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
+  rewardItemTable:
+    table:
+    - rarityName: Common
+      probability: 5
+      tableItems:
+      - {fileID: 11400000, guid: 835ab16addd0746699e67b2c55e6ea35, type: 2}
+    - rarityName: UnCommon
+      probability: 2
+      tableItems:
+      - {fileID: 11400000, guid: 94f771ef0beb74bf4a153ff6168313e1, type: 2}
+  rewardCardTable:
+    table:
+    - rarityName: Common
+      probability: 5
+      tableItems:
+      - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+    - rarityName: UnCommon
+      probability: 2
+      tableItems:
+      - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
 --- !u!223 &4721522829267619705
 Canvas:
   m_ObjectHideFlags: 0

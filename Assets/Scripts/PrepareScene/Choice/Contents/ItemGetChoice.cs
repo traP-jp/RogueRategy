@@ -5,6 +5,7 @@ namespace PrepareSceneOnly
 {
     public class ItemGetChoice : MonoBehaviour,IChoice
     {
+        public Item rewardItem;
         public void Process(OnFinish onFinish,PlayersInfo playersInfo) 
         {
             Debug.Log("アイテムをゲットしたよ!!");
@@ -13,7 +14,7 @@ namespace PrepareSceneOnly
 
         public string GetExplanationText()
         {
-            return "アイテムを獲得する";
+            return "アイテム:" +rewardItem.itemName+"を獲得する";
         }
     }
 
