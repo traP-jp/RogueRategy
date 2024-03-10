@@ -51,7 +51,7 @@ public class CardManager : MonoBehaviour
     
     void PlayTopCard()
     {
-        nowDisplayCards[0].cardInfo.cardEffectInfo.Process();
+        nowDisplayCards[0].cardInfo.cardEffectInfo.Process(playerStatus,playerStatus.transform.position);
         BuffManager.Instance.NoticeCardUse();
     }
     void DeleteTopCard()

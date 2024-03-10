@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a9ae98c38494ed0a117c2f04970789, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
+  itemName: "\u708E"
+  itemExplanation: 
   itemEffectInfo:
     rid: 7494893806572797952
   itemIcon: {fileID: 21300000, guid: a6375090c62784dae91c240f369165f5, type: 3}

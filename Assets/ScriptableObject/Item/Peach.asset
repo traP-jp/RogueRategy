@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a9ae98c38494ed0a117c2f04970789, type: 3}
   m_Name: Peach
   m_EditorClassIdentifier: 
+  isUseItemOnPlayer: 0
+  itemName: "\u6843"
+  itemExplanation: 
   itemEffectInfo:
     rid: 7494893806572797957
   itemIcon: {fileID: 21300000, guid: 2b4027c458a2c46029e4e0acb270b3fb, type: 3}
@@ -22,8 +25,8 @@ MonoBehaviour:
       type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
       data:
         cardEffectArray:
-        - rid: 7494893806572797958
-    - rid: 7494893806572797958
-      type: {class: HPRecover, ns: CardEffect, asm: Assembly-CSharp}
+        - rid: 7494893806572797960
+    - rid: 7494893806572797960
+      type: {class: GenerateUnit, ns: CardEffect, asm: Assembly-CSharp}
       data:
-        recoverValue: 5
+        unitObject: {fileID: 1692914360709707340, guid: 56b2b8ce6be87431da6b483693d2f71f, type: 3}

@@ -8,9 +8,9 @@ namespace CardEffect
     public class GenerateBullet : ICardEffect
     {
         [SerializeField] BulletManager bulletObject;
-        public void Process()
+        public void Process(StatusBase usersStatus,Vector2 usersPos)
         {
-            CardEffectProcessor.Instance.GenerateBulletFromPlayer(bulletObject);
+            CardEffectProcessor.Instance.GenerateBullet(bulletObject,usersStatus,usersPos);
         }
     }
 

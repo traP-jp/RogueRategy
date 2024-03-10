@@ -26,6 +26,8 @@ public class ItemGameInventory : MonoBehaviour
 
     PlayersInfo playersInfo;
     [SerializeField]Image[] itemImages;
+    [SerializeField] PlayerStatus playerStatus;
+    [SerializeField] Camera mainCamera;
     public void DepictItemInInventory(PlayersInfo _playersInfo)
     {
         playersInfo = _playersInfo;//このタイミングでPlayersInfoをGameFlowManagerから受け渡す
@@ -54,7 +56,14 @@ public class ItemGameInventory : MonoBehaviour
         Debug.Log("アイテム使用");
         //一旦アイテムを使用したときにカードを使用した時と同様の処理にする
         CardEffect.ICardEffectBundle bundle = playersInfo.playersItem[itemNumber].itemEffectInfo;
-        bundle.Process();
+        if (playersInfo.playersItem[itemNumber].isUseItemOnPlayer)
+        {
+            bundle.Process(playerStatus, playerStatus.transform.position);
+        }
+        else
+        {
+            bundle.Process(playerStatus, mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue()));
+        }
         playersInfo.playersItem[itemNumber] = null;
         itemImages[itemNumber].sprite = null;
     }

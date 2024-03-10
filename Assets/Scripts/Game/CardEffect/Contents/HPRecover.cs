@@ -8,9 +8,9 @@ namespace CardEffect
     public class HPRecover : ICardEffect
     {
         public int recoverValue;
-        public void Process()
+        public void Process(StatusBase usersStatus,Vector2 usersPos)
         {
-            CardEffectProcessor.Instance.RecoverPlayerHP(recoverValue);
+            usersStatus.HPChange(recoverValue);
         }
     }
 }
