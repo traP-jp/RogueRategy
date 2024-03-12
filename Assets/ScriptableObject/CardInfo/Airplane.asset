@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a79a186e9e30a4635b633df0f98ea19d, type: 3}
   defaultCost: 2
+
   cardName: Airplane
+
   cardExplanation: 
   cardEffectInfo:
     rid: 7769764138042523649
@@ -36,15 +38,39 @@ MonoBehaviour:
         limitCardCount: 5
     - rid: 5963945000857239554
       type: {class: Permanently, ns: BuffTypeInspector, asm: Assembly-CSharp}
-    - rid: 5963945000857239555
+
+    - rid: 5963945070561329152
+      type: {class: AddBuffToSomething, ns: CardEffect, asm: Assembly-CSharp}
+      data:
+        buff:
+          rid: 5963945070561329169
+    - rid: 5963945070561329169
+      type: {class: Burning, ns: , asm: Assembly-CSharp}
+      data:
+        buffSubject: 1
+        buffType:
+          rid: 5963945070561329170
+        buffTypeWhenActivate:
+          rid: 5963945070561329172
+        Intensity: 5
+    - rid: 5963945070561329170
+      type: {class: LimitedTime, ns: BuffTypeInspector, asm: Assembly-CSharp}
+      data:
+        durationTime: 3
+    - rid: 5963945070561329172
+      type: {class: AtInterval, ns: BuffTypeInspector, asm: Assembly-CSharp}
+      data:
+        intervalTime: 0.5
+    - rid: 7240135734972907520
       type: {class: GenerateBullet, ns: CardEffect, asm: Assembly-CSharp}
       data:
-        bulletObject: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
+        bulletObject: {fileID: -4178343824937487828, guid: 432118c69ba8241389d45786e7d11b70, type: 3}
+
     - rid: 7769764138042523649
       type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
       data:
         cardEffectArray:
-        - rid: 5963945000857239555
+        - rid: 7240135734972907520
         - rid: 7769764424263139328
     - rid: 7769764424263139328
       type: {class: AddBuffToSomething, ns: CardEffect, asm: Assembly-CSharp}
