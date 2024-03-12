@@ -8,9 +8,9 @@ namespace CardEffect//カードの効果はこの名前空間に入れる
     {
         //この辺でどのユニットをどこに出すかを指定
         [SerializeField] UnitManager unitObject;
-        public void Process()
+        public void Process(StatusBase usersStatus,Vector2 usersPos)
         {
-            CardEffectProcessor.Instance.GenerateUnitOnPlayer(unitObject);
+            CardEffectProcessor.Instance.GenerateUnit(unitObject,usersStatus,usersPos);
         }
     }
 }

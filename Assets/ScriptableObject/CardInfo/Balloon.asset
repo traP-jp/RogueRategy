@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 40693c289e375472aaa4d7d640c5b444, type: 3}
   defaultCost: 3
-  cardName: 
+  cardName: Balloon
   cardExplanation: 
   cardEffectInfo:
     rid: 7769764138042523652

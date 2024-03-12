@@ -7,7 +7,7 @@ namespace CardEffect
     public class RestoreEnergy : ICardEffect
     {
         public int energyRestoreAmount;
-        public void Process()
+        public void Process(StatusBase usersStatus,Vector2 usersPos)
         {
             CardEffectProcessor.Instance.RestoreEnergy(energyRestoreAmount);
         }

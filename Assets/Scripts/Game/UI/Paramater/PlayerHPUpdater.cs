@@ -13,6 +13,7 @@ public class PlayerHPUpdater : MonoBehaviour
     }
     public void UpdateHPTank(int HP)
     {
+        if(HP >= 0 && HP< HPTankSprites.Length)
         HPTankImage.sprite = HPTankSprites[HP];
     }
 }

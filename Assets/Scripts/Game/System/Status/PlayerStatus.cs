@@ -9,11 +9,6 @@ public class PlayerStatus : StatusBase
     //現在の特殊な状態
     public int costDiffAmount;//カードのコストの変化、1なら2コストのカードが3コストかかる
     public bool isControllReverse;
-    //現在の値
-    public float resultUnitAttack;
-    public float resultUnitDefense;
-    public float resultUnitSpeed;
-
     public override void PermanentBuffUpdate(BuffCore[] buffCores)
     {
         //初期化
