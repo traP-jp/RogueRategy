@@ -31,6 +31,7 @@ public class UnitManager : MonoBehaviour,IDamagable
         DrawHPbar();
     }
 
+
     //以下EnemyManagerから移したダメージ関係の処理
     [SerializeField] EnemyHPbar enemyHPbarPrehab;
     private EnemyHPbar _enemyHPbar;
@@ -69,5 +70,10 @@ public class UnitManager : MonoBehaviour,IDamagable
     {
         _enemyHPbar.Vanish();
         HPbarDisplayed = false;
+    }
+
+    public float GetHPRatio()
+    {
+       return unitStatus.HP / unitStatus.MaxHP;
     }
 }
