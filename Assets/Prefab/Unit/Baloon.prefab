@@ -195,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitBuffStack: {fileID: -6147495964100545168}
   unitStatus: {fileID: -4812431308771784745}
+  isPlayerSide: 0
 --- !u!114 &-6147495964100545168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedBuffStack: {fileID: -6147495964100545168}
   MaxHP: 0
-  attack: 0
+  attack: 5
   defense: 0
   speed: 2
   bulletSpeed: 4
@@ -237,3 +238,4 @@ MonoBehaviour:
   defenseRatio: 1
   speedRatio: 1
   bulletSpeedRatio: 1
+  unitManager: {fileID: 0}

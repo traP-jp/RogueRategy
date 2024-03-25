@@ -20,12 +20,12 @@ public class EnemyManager : MonoBehaviour,IDamagable
         {
             if (value <= 0)
             {
+                nowHP = 0;
                 //エネミーを消す処理
             }
             else if (value > maxHP)
             {
                 nowHP = maxHP;
-                throw new System.ArgumentOutOfRangeException();
             }
             else nowHP = value;
         }
@@ -44,19 +44,8 @@ public class EnemyManager : MonoBehaviour,IDamagable
 
     public void AddDamage(int strength)
     {
-        try
-        {
-            nowHPProperty -= strength;
-            DrawHPbar();
-        }
-        catch
-        {
-
-        }
-        finally
-        {
-            //enemyHPSlider.value = nowHPProperty / (float)maxHP;
-        }
+        nowHPProperty -= strength;
+        DrawHPbar();
     }
 
    //HPバーの描画
