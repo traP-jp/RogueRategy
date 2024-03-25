@@ -6,7 +6,7 @@ public class UnitMovementSimple : MonoBehaviour
 {
     [SerializeField] float intervalTime = 0.3f;
 
-    [SerializeField] BulletManager bullet;
+    [SerializeField] CardInfo cardEffect;
 
     [SerializeField] UnitManager unitManager;
 
@@ -27,10 +27,7 @@ public class UnitMovementSimple : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(interval);
-            BulletManager bulletManager = Instantiate(bullet, transform.position, Quaternion.identity, Info.Instance.bulletParentTransform);
-            bulletManager.bulletStatus.SettingAttack(unitManager.unitStatus.resultAttack);
-            bulletManager.bulletMovement.Initialize(unitManager.unitStatus.resultBulletSpeed);
-            unitManager.ConveyBuffToBullet(bulletManager);
+            cardEffect.cardEffectInfo.Process(unitManager.unitStatus,transform.position);
         }
     }
     

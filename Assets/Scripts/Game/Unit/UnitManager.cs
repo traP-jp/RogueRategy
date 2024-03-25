@@ -50,7 +50,7 @@ public class UnitManager : MonoBehaviour,IDamagable
     //HPバーの描画
     public void DrawHPbar()
     {
-        if (!HPbarDisplayed)
+        if (!HPbarDisplayed && enemyHPbarPrehab != null)
         {
             _enemyHPbar = Instantiate(enemyHPbarPrehab, gameObject.transform);
             HPbarDisplayed = true;

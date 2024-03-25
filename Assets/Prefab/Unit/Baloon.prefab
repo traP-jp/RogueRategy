@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intervalTime: 0.3
-  bullet: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
+  cardEffect: {fileID: 11400000, guid: 1d1c6aa55d1d94cd0a9a522aac957de1, type: 2}
   unitManager: {fileID: -9145926631589445083}
 --- !u!58 &2396527414328147845
 CircleCollider2D:
@@ -196,6 +196,8 @@ MonoBehaviour:
   unitBuffStack: {fileID: -6147495964100545168}
   unitStatus: {fileID: -4812431308771784745}
   isPlayerSide: 0
+  enemyHPbarPrehab: {fileID: 1506394302388534272, guid: 3c8e593eed78b3647aeb6c3f981cbbfd, type: 3}
+  HPbarDisplayed: 0
 --- !u!114 &-6147495964100545168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,4 +240,4 @@ MonoBehaviour:
   defenseRatio: 1
   speedRatio: 1
   bulletSpeedRatio: 1
-  unitManager: {fileID: 0}
+  unitManager: {fileID: -9145926631589445083}

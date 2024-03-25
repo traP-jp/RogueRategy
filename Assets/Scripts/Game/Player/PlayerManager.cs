@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerStatus))]
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour,IDamagable
 {
     [SerializeField] float slowRate;
     [SerializeField] PlayerHPUpdater playerHPUpdater;
@@ -73,5 +73,10 @@ public class PlayerManager : MonoBehaviour
     public void ChangePlayersHP(float changeHPAmount)
     {
         playerStatus.HP += changeHPAmount;
+    }
+
+    public void AddDamage(int strength)
+    {
+        ChangePlayersHP(strength);
     }
 }
