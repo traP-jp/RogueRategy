@@ -72,11 +72,11 @@ public class PlayerManager : MonoBehaviour,IDamagable
 
     public void ChangePlayersHP(float changeHPAmount)
     {
-        playerStatus.HP += changeHPAmount;
+        playerStatus.HPChange(changeHPAmount);
     }
 
     public void AddDamage(int strength)
     {
-        ChangePlayersHP(strength);
+        ChangePlayersHP(-strength);
     }
 }

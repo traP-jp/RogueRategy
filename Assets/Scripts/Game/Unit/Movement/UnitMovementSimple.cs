@@ -18,7 +18,14 @@ public class UnitMovementSimple : MonoBehaviour
     void Update()
     {
         Vector2 moveVector = transform.position;
-        moveVector += new Vector2(unitManager.unitStatus.resultSpeed * Time.deltaTime, 0);
+        if (unitManager.isPlayerSide)
+        {
+            moveVector += new Vector2(unitManager.unitStatus.resultSpeed * Time.deltaTime, 0);
+        }
+        else
+        {
+            moveVector -= new Vector2(unitManager.unitStatus.resultSpeed * Time.deltaTime, 0); ;
+        }
         transform.position = moveVector;
     }
 

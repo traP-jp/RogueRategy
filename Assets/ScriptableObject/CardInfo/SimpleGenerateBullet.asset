@@ -17,9 +17,16 @@ MonoBehaviour:
   cardName: 
   cardExplanation: 
   cardEffectInfo:
-    rid: -2
+    rid: 7494894146173272064
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 7494894146173272064
+      type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
+      data:
+        cardEffectArray:
+        - rid: 7494894146173272065
+    - rid: 7494894146173272065
+      type: {class: GenerateBullet, ns: CardEffect, asm: Assembly-CSharp}
+      data:
+        bulletObject: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}

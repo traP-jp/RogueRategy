@@ -1387,6 +1387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTransform: {fileID: 1635288032}
+  playerManager: {fileID: 4308595679652787036}
   bulletParentTransform: {fileID: 1666738334}
 --- !u!1 &1574238142
 GameObject:
@@ -1583,6 +1584,7 @@ GameObject:
   - component: {fileID: 1635288038}
   - component: {fileID: 1635288037}
   - component: {fileID: 1635288036}
+  - component: {fileID: 1635288039}
   m_Layer: 8
   m_Name: '@Enemy'
   m_TagString: Untagged
@@ -1745,9 +1747,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedBuffStack: {fileID: 1635288037}
   MaxHP: 1000
-  attack: 3
+  attack: 100
   defense: 3
-  speed: 3
+  speed: 0
   bulletSpeed: 3
   HP: 1000
   resultAttack: 0
@@ -1791,6 +1793,21 @@ MonoBehaviour:
   isPlayerSide: 0
   enemyHPbarPrehab: {fileID: 1506394302388534272, guid: 3c8e593eed78b3647aeb6c3f981cbbfd, type: 3}
   HPbarDisplayed: 0
+--- !u!114 &1635288039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635288030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ea2638f58be4b76a78aae870946a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intervalTime: 1
+  cardEffect: {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
+  unitManager: {fileID: 1635288038}
 --- !u!1 &1666738333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2223,7 @@ GameObject:
   - component: {fileID: 3172801703092263349}
   - component: {fileID: 4308595679652787036}
   - component: {fileID: 7810184838114248337}
+  - component: {fileID: 9140529612959169019}
   m_Layer: 6
   m_Name: '@Cannon'
   m_TagString: Untagged
@@ -2717,3 +2735,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9140529612959169019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006356780669586088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d5792d9c4c34a639a30f6eaa792a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
