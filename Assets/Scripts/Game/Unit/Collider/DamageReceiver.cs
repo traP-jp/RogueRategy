@@ -20,4 +20,5 @@ public class DamageReceiver : MonoBehaviour
 public interface IDamagable
 {
     void AddDamage(int strength);
+    void ConveyBuff(BuffStack bulletsBuffStack);
 }

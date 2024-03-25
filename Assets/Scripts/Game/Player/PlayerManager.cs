@@ -79,4 +79,17 @@ public class PlayerManager : MonoBehaviour,IDamagable
     {
         ChangePlayersHP(-strength);
     }
+
+    public void ConveyBuff(BuffStack bulletsBuffStack)
+    {
+        //状態異常の引き継ぎ
+        foreach (BuffCore bc in bulletsBuffStack.GetNowBuffCoreArray())
+        {
+            if (bc.IsBuffSubjectOpponentUnit())
+            {
+                bc.buffSubject = BuffSubjectEntity.MyselfButCantConvey;
+                playerBuffStack.AddBuff(bc);
+            }
+        }
+    }
 }

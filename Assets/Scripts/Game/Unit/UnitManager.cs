@@ -76,4 +76,17 @@ public class UnitManager : MonoBehaviour,IDamagable
     {
        return unitStatus.HP / unitStatus.MaxHP;
     }
+
+    public void ConveyBuff(BuffStack bulletsBuffStack)
+    {
+        //状態異常の引き継ぎ
+        foreach (BuffCore bc in bulletsBuffStack.GetNowBuffCoreArray())
+        {
+            if (bc.IsBuffSubjectOpponentUnit())
+            {
+                bc.buffSubject = BuffSubjectEntity.MyselfButCantConvey;
+                unitBuffStack.AddBuff(bc);
+            }
+        }
+    }
 }

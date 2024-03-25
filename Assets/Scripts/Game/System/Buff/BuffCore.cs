@@ -40,7 +40,8 @@ public enum BuffSubjectEntity
     PlayerAndAllyUnit,
     OpponentUnitAndAllyUnit,
     PlayerAndOpponentUnit,
-    All
+    All,
+    MyselfButCantConvey //自分はバフの効果を受けるがそれ以外のものに伝達することはない
 }
 
 namespace BuffTypeInspector
