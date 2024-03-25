@@ -29,7 +29,7 @@ public abstract class BuffCore
     }
     public bool IsBuffSubjectOpponentUnit()
     {
-        return buffSubject is BuffSubjectEntity.OpponentUnit or BuffSubjectEntity.OpponentUnitAndAllyUnit or BuffSubjectEntity.PlayerAndOpponentUnit or BuffSubjectEntity.All;
+        return buffSubject is BuffSubjectEntity.OpponentUnit or BuffSubjectEntity.OpponentUnitAndAllyUnit or BuffSubjectEntity.PlayerAndOpponentUnit or BuffSubjectEntity.All or BuffSubjectEntity.OpponentUnitButOnlyViaSelfBullet;
     }
 }
 public enum BuffSubjectEntity
@@ -40,7 +40,9 @@ public enum BuffSubjectEntity
     PlayerAndAllyUnit,
     OpponentUnitAndAllyUnit,
     PlayerAndOpponentUnit,
-    All
+    All,
+    MyselfButCantConvey, //自分はバフの効果を受けるがそれ以外のものに伝達することはない
+    OpponentUnitButOnlyViaSelfBullet //バフは自分が打った球のみを介して伝播する
 }
 
 namespace BuffTypeInspector

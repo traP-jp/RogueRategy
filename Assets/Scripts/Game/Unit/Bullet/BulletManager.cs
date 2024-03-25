@@ -28,5 +28,5 @@ public class BulletManager : MonoBehaviour
 
 public interface IBulletMovement
 {
-    void Initialize(float speed);
+    void Initialize(float speed,bool isPlayerSide);
 }

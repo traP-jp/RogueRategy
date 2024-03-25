@@ -21,11 +21,15 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         //状態異常の引き継ぎ
         foreach (BuffCore bc in usersStatus.connectedBuffStack.GetNowBuffCoreArray())
         {
-            if (bc.IsBuffSubjectOpponentUnit() || bc.IsBuffSubjectAllyUnit())
+            if ((bc.IsBuffSubjectOpponentUnit() && bc.buffSubject != BuffSubjectEntity.OpponentUnitButOnlyViaSelfBullet) || bc.IsBuffSubjectAllyUnit())
             {
                 unitManager.unitBuffStack.AddBuff(bc);
             }
         }
+        //プレイヤー側のユニットかどうか判定
+        unitManager.isPlayerSide = JudgeIsPlayerSide(usersStatus);
+        //レイヤーの設定
+        unitManager.gameObject.layer = unitManager.isPlayerSide ? 6 : 8;
     }
 
     public void RestoreEnergy(int amount)
@@ -38,7 +42,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         //弾丸を生成する.　以前はGameObjectをInstantiateしていたが、BulletStatusに変更(GetComponentを減らすため)
         BulletManager bulletMane = Instantiate(bulletObject, usersPos, Quaternion.identity, bulletParentTransform);
         bulletMane.bulletStatus.SettingAttack(usersStatus.resultAttack);
-        bulletMane.bulletMovement.Initialize(usersStatus.resultBulletSpeed);
+        bulletMane.bulletMovement.Initialize(usersStatus.resultBulletSpeed,JudgeIsPlayerSide(usersStatus));
         //状態異常の引き継ぎ
         foreach(BuffCore bc in usersStatus.connectedBuffStack.GetNowBuffCoreArray())
         {
@@ -47,7 +51,19 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
                 bulletMane.bulletsBuffList.Add(bc);
             }
         }
+        //レイヤーの設定
+        bulletMane.gameObject.layer = JudgeIsPlayerSide(usersStatus) ? 7 : 9;
     }
 
-
+    bool JudgeIsPlayerSide(StatusBase status)
+    {
+        //プレイヤーサイドのユニットorプレイヤーのステータスか判定
+        bool isPlayerSide = false;
+        if (status.GetType() == typeof(PlayerStatus)) isPlayerSide = true;
+        if (status.GetType() == typeof(UnitStatus))
+        {
+            isPlayerSide = ((UnitStatus)status).unitManager.isPlayerSide;
+        }
+        return isPlayerSide;
+    }
 }

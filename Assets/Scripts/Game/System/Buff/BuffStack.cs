@@ -159,8 +159,8 @@ public class BuffStack : MonoBehaviour,CardEffect.IBuffable
 
     public void ProcessBuffEffect(BuffCore bc,StatusBase statusBase)
     {
-        if (isPlayersBuffStack && bc.IsBuffSubjectPlayer()) bc.Process(statusBase);//プレイヤーのBuffStackならバフの対象がプレイヤーなら発動する
-        if (!isPlayersBuffStack && bc.IsBuffSubjectAllyUnit()) bc.Process(statusBase);//ユニットのBuffStackならバフの対象がユニット自身なら発動する
+        if (isPlayersBuffStack && (bc.IsBuffSubjectPlayer() || bc.buffSubject == BuffSubjectEntity.MyselfButCantConvey)) bc.Process(statusBase);//プレイヤーのBuffStackならバフの対象がプレイヤーなら発動する
+        if (!isPlayersBuffStack && (bc.IsBuffSubjectAllyUnit() || bc.buffSubject == BuffSubjectEntity.MyselfButCantConvey)) bc.Process(statusBase);//ユニットのBuffStackならバフの対象がユニット自身なら発動する
     }
 
     public void NoticeCardUse()

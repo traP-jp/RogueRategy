@@ -8,9 +8,17 @@ public class BulletMovementSimple : MonoBehaviour,IBulletMovement
     float VX = 0;
     float VY = 0;
 
-    public void Initialize(float speed)
+    public void Initialize(float speed,bool isPlayerSide)
     {
-        Vector2 velocityVector = Info.Instance.enemyTransform.position - transform.position;
+        Vector2 velocityVector;
+        if (isPlayerSide)
+        {
+            velocityVector = Info.Instance.enemyTransform.position - transform.position;
+        }
+        else
+        {
+            velocityVector = Info.Instance.playerManager.transform.position - transform.position;
+        }   
         velocityVector.Normalize();
         velocityVector *= speed;
         VX = velocityVector.x;
