@@ -21,7 +21,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         //状態異常の引き継ぎ
         foreach (BuffCore bc in usersStatus.connectedBuffStack.GetNowBuffCoreArray())
         {
-            if (bc.IsBuffSubjectOpponentUnit() || bc.IsBuffSubjectAllyUnit())
+            if ((bc.IsBuffSubjectOpponentUnit() && bc.buffSubject != BuffSubjectEntity.OpponentUnitButOnlyViaSelfBullet) || bc.IsBuffSubjectAllyUnit())
             {
                 unitManager.unitBuffStack.AddBuff(bc);
             }
