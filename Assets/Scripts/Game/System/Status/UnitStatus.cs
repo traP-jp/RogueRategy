@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class UnitStatus : StatusBase
 {
-
+    public UnitManager unitManager;
     private void Reset()
     {
         base.Reset();
+        unitManager = GetComponent<UnitManager>();
     }
 
     public override void PermanentBuffUpdate(BuffCore[] buffCores)

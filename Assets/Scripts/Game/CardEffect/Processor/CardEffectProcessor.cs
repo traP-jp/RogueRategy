@@ -26,6 +26,10 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
                 unitManager.unitBuffStack.AddBuff(bc);
             }
         }
+        //プレイヤー側のユニットかどうか判定
+        unitManager.isPlayerSide = JudgeIsPlayerSide(usersStatus);
+        //レイヤーの設定
+        unitManager.gameObject.layer = unitManager.isPlayerSide ? 6 : 8;
     }
 
     public void RestoreEnergy(int amount)
@@ -47,7 +51,19 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
                 bulletMane.bulletsBuffList.Add(bc);
             }
         }
+        //レイヤーの設定
+        bulletMane.gameObject.layer = JudgeIsPlayerSide(usersStatus) ? 7 : 9;
     }
 
-
+    bool JudgeIsPlayerSide(StatusBase status)
+    {
+        //プレイヤーサイドのユニットorプレイヤーのステータスか判定
+        bool isPlayerSide = false;
+        if (status.GetType() == typeof(PlayerStatus)) isPlayerSide = true;
+        if (status.GetType() == typeof(UnitStatus))
+        {
+            isPlayerSide = ((UnitStatus)status).unitManager.isPlayerSide;
+        }
+        return isPlayerSide;
+    }
 }

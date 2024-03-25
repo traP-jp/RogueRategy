@@ -14,4 +14,3 @@ public class CardInfo:ScriptableObject
     [SerializeReference,SubclassSelector] public  CardEffect.ICardEffectBundle cardEffectInfo;
     
 }
-
