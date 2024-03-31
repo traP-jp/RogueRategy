@@ -24,8 +24,9 @@ public class EffectDepictor : SingletonMonoBehaviour<EffectDepictor>
 
     public void DepictEffect(Vector2 position,string effectName)
     {
-        Vector2 UIPos = camera.WorldToScreenPoint(position);
-        SpriteAnimation spriteAnimation = Instantiate(nameToEffect[effectName], UIPos, Quaternion.identity, parentTransform);
+        Vector2 pos = position;
+        if (nameToEffect[effectName].component == SpriteAnimation.WhichComponent.image) pos = camera.WorldToScreenPoint(position);
+        SpriteAnimation spriteAnimation = Instantiate(nameToEffect[effectName], pos, Quaternion.identity, parentTransform);
         spriteAnimation.Initialize();
     }
 }

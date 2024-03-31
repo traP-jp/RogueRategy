@@ -12,11 +12,11 @@ public class SpriteAnimation : MonoBehaviour
     //何番目からループするか
     [SerializeField] int loopPoint = 0;
     int usedLoopPoint = 0;
-    enum WhichComponent{
+    public enum WhichComponent{
         image,
         spriteRenderer
     }
-    [SerializeField] WhichComponent component;
+    public WhichComponent component;
     [Header("nからn+1枚目のanimにかける時間")][SerializeField] float[] animationIntervalTime;
     [SerializeField] float constantInterval = 0;
     [SerializeField] float magnification = 1;

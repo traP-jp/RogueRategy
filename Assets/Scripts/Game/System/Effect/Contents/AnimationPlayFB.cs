@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationPlayFB : MonoBehaviour
+namespace Feedback
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class AnimationPlayFB : IFeedback
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Play(Vector2 position)
+        {
+            
+        }
     }
 }
+
