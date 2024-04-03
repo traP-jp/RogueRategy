@@ -5,8 +5,8 @@ using DG.Tweening;
 using Cysharp.Threading.Tasks;
 public class EnemyMissile : MonoBehaviour
 {
-    //親オブジェクト
-    [SerializeField] Transform parentTransform;
+    
+    
     //ユニットの通過経路
     [SerializeField] private EnemyPaths enemyPaths;
     public void SetEnemyPaths(EnemyPaths enemyPaths){
@@ -15,9 +15,10 @@ public class EnemyMissile : MonoBehaviour
     //敵の軌道作成用
     public EnemyPath[] paths;
     bool isContinueMove = true;
+
     // Start is called before the first frame update
-    void OnEnable()
-    {
+    public virtual void OnEnable()
+    {   
         Movement();
     }
     private void OffActive()
@@ -26,9 +27,6 @@ public class EnemyMissile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    }
     public async UniTaskVoid Movement()
     {
         if(enemyPaths != null){
@@ -55,6 +53,5 @@ public class EnemyMissile : MonoBehaviour
     public void SetPosition(){
         isContinueMove = false;
     }
-    //座標を親オブジェクトに渡してこのオブジェクトの座標をリセットする
 }
 
