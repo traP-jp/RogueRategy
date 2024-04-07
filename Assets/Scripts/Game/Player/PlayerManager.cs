@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerStatus))]
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour,IDamagable
 {
     [SerializeField] float slowRate;
     [SerializeField] PlayerHPUpdater playerHPUpdater;
@@ -72,6 +72,24 @@ public class PlayerManager : MonoBehaviour
 
     public void ChangePlayersHP(float changeHPAmount)
     {
-        playerStatus.HP += changeHPAmount;
+        playerStatus.HPChange(changeHPAmount);
+    }
+
+    public void AddDamage(int strength)
+    {
+        ChangePlayersHP(-strength);
+    }
+
+    public void ConveyBuff(BuffStack bulletsBuffStack)
+    {
+        //状態異常の引き継ぎ
+        foreach (BuffCore bc in bulletsBuffStack.GetNowBuffCoreArray())
+        {
+            if (bc.IsBuffSubjectOpponentUnit())
+            {
+                bc.buffSubject = BuffSubjectEntity.MyselfButCantConvey;
+                playerBuffStack.AddBuff(bc);
+            }
+        }
     }
 }
