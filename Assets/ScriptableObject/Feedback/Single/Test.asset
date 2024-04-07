@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f02245bb1c0604438bc3952d6d321d47, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  playFeedbacks: []
+  feedbackTuples: []
+  childFeedbacks: []
+  references:
+    version: 2
+    RefIds: []

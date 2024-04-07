@@ -6,13 +6,26 @@ namespace Feedback
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Feedback")]
     public class Feedback : ScriptableObject, IFeedback
     {
-        [SerializeReference, SubclassSelector] IFeedback[] mainFeedbacks;
+        [System.Serializable]
+        class FeedbackTuple
+        {
+           [SerializeReference, SubclassSelector] public IFeedback mainFeedback;
+           public bool isWaitForProcessEnd;
+            public float intervalTime;
+        }
+        class FeedbackTuple2
+        {
+            public Feedback mainFeedback;
+            public bool isWaitForProcessEnd;
+            public float intervalTime;
+        }
+        [SerializeField] FeedbackTuple[] feedbackTuples;
         [SerializeField] Feedback[] childFeedbacks;
         public void Play(Vector2 position)
         {
-            foreach(var mainFeedback in mainFeedbacks)
+            foreach(var tuple in feedbackTuples)
             {
-                mainFeedback.Play(position);
+                tuple.mainFeedback.Play(position);
             }
             foreach(var feedBack in childFeedbacks)
             {
