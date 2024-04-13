@@ -48,6 +48,13 @@ public class EnemySpawnerEditor : Editor
                 spawner.waves[i].enemyMovementType = (EnemyWave.EnemyMovementType)EditorGUILayout.EnumPopup("EnemyMovementTime", spawner.waves[i].enemyMovementType);
                 //Routeの場合
                 if(spawner.waves[i].enemyMovementType == EnemyWave.EnemyMovementType.Route){
+                    if (GUILayout.Button("Connect Routes"))
+                    {
+                        for(int j = 0; j < spawner.waves[i].moveRoutes.Count()-1; j++){
+                            int pointCount =  spawner.waves[i].moveRoutes[j].RoutePoint.Count();
+                            spawner.waves[i].moveRoutes[j].RoutePoint[pointCount-1] = spawner.waves[i].moveRoutes[j+1].RoutePoint[0] ;
+                        }
+                    }
                     for(int j = 0; j < spawner.waves[i].moveRoutes.Count(); j++){
                         EnemyWave.EnemyRoute moveRoute = spawner.waves[i].moveRoutes[j];
                         // ルートリストの表示
