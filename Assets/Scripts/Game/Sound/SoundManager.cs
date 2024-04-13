@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-
+using System;
+using UniRx;
 public class SoundManager :SingletonMonoBehaviour<SoundManager>
 {
     [System.Serializable]
@@ -56,6 +57,14 @@ public class SoundManager :SingletonMonoBehaviour<SoundManager>
         SEPlayer.clip = soundData.audioClip;
         SEPlayer.volume = soundData.volume;
         SEPlayer.Play();
+    }
+    public void PlaySE(string SEName,Action onFinished)
+    {
+        SoundData soundData = SESoundDatas[SENameToIndex[SEName]];
+        SEPlayer.clip = soundData.audioClip;
+        SEPlayer.volume = soundData.volume;
+        SEPlayer.Play();
+        SEPlayer.ObserveEveryValueChanged(s => s.isPlaying).Take(2).Subscribe(_ => { },()=> onFinished.Invoke()) ;//SE終了のコールバック
     }
     public void PlayEnvironment(string environmentName)
     {

@@ -9,6 +9,10 @@ public enum MyEnum
 
 public class MyComponent : MonoBehaviour
 {
+    private void Start()
+    {
+        //SoundManager.Instance.PlaySE("TEST", () => { });
+    }
     public MyEnum enumValue;
 }
 

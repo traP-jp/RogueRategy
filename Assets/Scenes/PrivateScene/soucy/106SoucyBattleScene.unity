@@ -206,7 +206,10 @@ MonoBehaviour:
   SEPlayer: {fileID: 175544640}
   environmentPlayer: {fileID: 880708406}
   BGMSoundDatas: []
-  SESoundDatas: []
+  SESoundDatas:
+  - soundName: TEST
+    audioClip: {fileID: 8300000, guid: 33f8d10d993cc489cbc6ed2f723bc2c1, type: 3}
+    volume: 0.5
   environmentSoundDatas: []
   audioMixer: {fileID: 0}
   minimumDB: 0
@@ -965,6 +968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feedbacks:
   - name: 
+    feedback: {fileID: 0}
 --- !u!114 &725628772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,6 +1061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feedbacks:
   - name: 
+    feedback: {fileID: 0}
 --- !u!1 &880708404
 GameObject:
   m_ObjectHideFlags: 0

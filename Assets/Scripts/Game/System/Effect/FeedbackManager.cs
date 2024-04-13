@@ -10,13 +10,13 @@ namespace Feedback
         class OneFeedback
         {
             public string name;
-            public IFeedback feedback;
+            public Feedback feedback;
         }
         [SerializeField] OneFeedback[] feedbacks;
-        Dictionary<string, IFeedback> nameToFeedback;
+        Dictionary<string,Feedback> nameToFeedback;
         private void Awake()
         {
-            nameToFeedback = new Dictionary<string, IFeedback>();
+            nameToFeedback = new Dictionary<string, Feedback>();
             foreach(var oneFeedBack in feedbacks)
             {
                 nameToFeedback.Add(oneFeedBack.name, oneFeedBack.feedback);

@@ -7,10 +7,11 @@ using System.Threading;
 
 namespace Feedback
 {
-   
+    
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Feedback")]
     public class Feedback : ScriptableObject, IFeedback
     {
+
         enum FeedbackKind
         {
             SelfMadeFeedback,
@@ -21,8 +22,8 @@ namespace Feedback
         {
             public FeedbackKind feedbackKind;
             public Feedback selfMadeFeedback;
-           [SerializeReference, SubclassSelector] public IFeedback changeableFeedback;
-           public bool isWaitForEnd;
+            [SerializeReference, SubclassSelector] public IFeedback changeableFeedback;
+            public bool isWaitForEnd;
             public float intervalTime;
         }
         [SerializeField] FeedbackTuple[] feedbackTuples;

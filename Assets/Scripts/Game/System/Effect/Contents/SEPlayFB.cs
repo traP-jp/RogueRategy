@@ -10,7 +10,7 @@ namespace Feedback
         public string SEName;
         public void Play(Vector2 position,Action onFinishedCallback)
         {
-            SoundManager.Instance.PlaySE(SEName);
+            SoundManager.Instance.PlaySE(SEName,onFinishedCallback);
         }
     }
 }
