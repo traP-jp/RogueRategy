@@ -24,7 +24,7 @@ namespace Feedback
         }
         public void PlayFeedback(string feedbackName, Vector2 position)
         {
-            nameToFeedback[feedbackName].Play(position);
+            nameToFeedback[feedbackName].Play(position, () => { });
         }
     }
 }
