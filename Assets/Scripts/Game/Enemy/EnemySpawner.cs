@@ -42,6 +42,12 @@ public class EnemySpawner : MonoBehaviour
                     }
                 }
             }
+            else if(wave.otherEnemy == EnemyWave.OtherEnemy.follow){
+                for(int j = 0;wave.) {
+
+                }
+
+            }
             await UniTask.Delay((int)(wave.spawnTime*1000));
                 
         }
