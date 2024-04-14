@@ -14,16 +14,17 @@ namespace Feedback
         }
         [SerializeField] OneFeedback[] feedbacks;
         Dictionary<string,Feedback> nameToFeedback;
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             nameToFeedback = new Dictionary<string, Feedback>();
-            foreach(var oneFeedBack in feedbacks)
+            foreach(var oneFeedback in feedbacks)
             {
-                nameToFeedback.Add(oneFeedBack.name, oneFeedBack.feedback);
+                nameToFeedback.Add(oneFeedback.name, oneFeedback.feedback);
             }
         }
         public void PlayFeedback(string feedbackName, Vector2 position)
-        {
+        {   
             nameToFeedback[feedbackName].Play(position, () => { });
         }
     }

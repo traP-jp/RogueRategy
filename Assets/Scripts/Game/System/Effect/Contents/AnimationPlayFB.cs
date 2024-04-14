@@ -10,8 +10,8 @@ namespace Feedback
         [SerializeField] string animationName;
         public void Play(Vector2 position, Action onFinishedCallback)
         {
-            EffectDepictor.Instance.DepictEffect(position,animationName);
-            onFinishedCallback.Invoke();
+            //スプライトのアニメーションを再生するフィードバック
+            EffectDepictor.Instance.DepictEffect(position,animationName,onFinishedCallback);
         }
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class EffectDepictor : SingletonMonoBehaviour<EffectDepictor>
 {
     [SerializeField] Camera camera;
@@ -14,8 +14,9 @@ public class EffectDepictor : SingletonMonoBehaviour<EffectDepictor>
         public SpriteAnimation effect;
     }
     Dictionary<string, SpriteAnimation> nameToEffect = new Dictionary<string, SpriteAnimation>();
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         foreach (var nameAndEffect in effects)
         {
             nameToEffect.Add(nameAndEffect.name, nameAndEffect.effect);
@@ -28,5 +29,12 @@ public class EffectDepictor : SingletonMonoBehaviour<EffectDepictor>
         if (nameToEffect[effectName].component == SpriteAnimation.WhichComponent.image) pos = camera.WorldToScreenPoint(position);
         SpriteAnimation spriteAnimation = Instantiate(nameToEffect[effectName], pos, Quaternion.identity, parentTransform);
         spriteAnimation.Initialize();
+    }
+    public void DepictEffect(Vector2 position, string effectName,Action onFinishCallback)
+    {
+        Vector2 pos = position;
+        if (nameToEffect[effectName].component == SpriteAnimation.WhichComponent.image) pos = camera.WorldToScreenPoint(position);
+        SpriteAnimation spriteAnimation = Instantiate(nameToEffect[effectName], pos, Quaternion.identity, parentTransform);
+        spriteAnimation.Initialize(onFinishCallback);
     }
 }

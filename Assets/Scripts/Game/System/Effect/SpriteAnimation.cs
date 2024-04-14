@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 public class SpriteAnimation : MonoBehaviour
 {
     
@@ -35,9 +36,14 @@ public class SpriteAnimation : MonoBehaviour
     public void Initialize()
     {
         animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
-        StartCoroutine(doAnimation());
+        StartCoroutine(doAnimation(() => { }));
     }
-    IEnumerator doAnimation()
+    public void Initialize(Action onFinishCallback)
+    {
+        animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
+        StartCoroutine(doAnimation(onFinishCallback));
+    }
+    IEnumerator doAnimation(Action onFinishCallback)
     {   
         if(component == WhichComponent.image)
         {
@@ -65,6 +71,7 @@ public class SpriteAnimation : MonoBehaviour
             usedLoopPoint = loopPoint;
         } while (isLoop);
         }
+        onFinishCallback.Invoke();
         Destroy(gameObject);
     }
 

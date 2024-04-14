@@ -21,8 +21,8 @@ namespace Feedback
         class FeedbackTuple
         {
             public FeedbackKind feedbackKind;
-            public Feedback selfMadeFeedback;
-            [SerializeReference, SubclassSelector] public IFeedback changeableFeedback;
+            public Feedback selfMadeFB;
+            [SerializeReference, SubclassSelector] public IFeedback changeableFB;
             public bool isWaitForEnd;
             public float intervalTime;
         }
@@ -41,22 +41,25 @@ namespace Feedback
             //今のindex番目以降のフィードバックを再生
             for(;nowPlayingFeedbackIndex < feedbackTuples.Length;)
             {
+                Debug.Log(nowPlayingFeedbackIndex);
                 var feedbackTuple = feedbackTuples[nowPlayingFeedbackIndex];
                 nowPlayingFeedbackIndex++;
                 if (feedbackTuple.feedbackKind == FeedbackKind.SelfMadeFeedback)
                 {
                     if (feedbackTuple.isWaitForEnd)
                     {
-                        feedbackTuple.selfMadeFeedback.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
+                        feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
+                        return;
                     }
                     else if(feedbackTuple.intervalTime != 0)
                     {
-                        feedbackTuple.selfMadeFeedback.Play(nowPlayingFeedbackPosition, () => { });
+                        feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, () => { });
                         PlayFeedbackAfterFewSeconds(feedbackTuple.intervalTime).Forget();
+                        return;
                     }
                     else
                     {
-                        feedbackTuple.selfMadeFeedback.Play(nowPlayingFeedbackPosition, () => { });
+                        feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, () => { });
                     }
 
                 }
@@ -64,16 +67,18 @@ namespace Feedback
                 {
                     if (feedbackTuple.isWaitForEnd)
                     {
-                        feedbackTuple.changeableFeedback.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
+                        feedbackTuple.changeableFB.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
+                        return;
                     }
                     else if (feedbackTuple.intervalTime != 0)
                     {
-                        feedbackTuple.changeableFeedback.Play(nowPlayingFeedbackPosition, () => { });
+                        feedbackTuple.changeableFB.Play(nowPlayingFeedbackPosition, () => { });
                         PlayFeedbackAfterFewSeconds(feedbackTuple.intervalTime).Forget();
+                        return;
                     }
                     else
                     {
-                        feedbackTuple.changeableFeedback.Play(nowPlayingFeedbackPosition, () => { });
+                        feedbackTuple.changeableFB.Play(nowPlayingFeedbackPosition, () => { });
                     }
                 }
             }
