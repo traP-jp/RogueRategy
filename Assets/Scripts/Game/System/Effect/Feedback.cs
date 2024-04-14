@@ -69,7 +69,16 @@ namespace Feedback
                     }
                     else
                     {
-                        feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, () => { });
+                        if(this == feedbackTuple.selfMadeFB)
+                        {
+                            temporaryInterval = feedbackTuple.intervalTime;
+                            feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
+                            return;
+                        }
+                        else
+                        {
+                            feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, () => { });
+                        }
                     }
 
                 }
