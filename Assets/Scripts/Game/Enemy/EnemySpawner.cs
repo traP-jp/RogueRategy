@@ -43,7 +43,14 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
             else if(wave.otherEnemy == EnemyWave.OtherEnemy.follow){
-                for(int j = 0;wave.) {
+                for(int j = 0;j < wave.spawnNumber;j++) {
+                    Debug.Log(j);
+                    //enemyをインスタンス化する(生成する)
+                    GameObject enemyObject = Instantiate(wave.enemyType);
+                    Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
+                    enemy.wave = wave;
+                    enemy.Movement(0);
+                    await UniTask.Delay((int)(wave.spawnIntervalTime*1000));
 
                 }
 
