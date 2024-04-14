@@ -25,26 +25,26 @@ public class EnemySpawner : MonoBehaviour
             if (wave.otherEnemy == EnemyWave.OtherEnemy.line){
                 for(int j = 0; j < wave.horizonalEnemyNumber;j++){
                    for(int k = 0;k < wave.horizonalEnemyNumber;k++){
-                    //enemyをインスタンス化する(生成する)
-                    GameObject enemyObject = Instantiate(wave.enemyType);
-                    Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
-                    enemy.wave = wave;
-                    
-                    Vector3 vector3 = new Vector3(wave.interval.x*j,wave.interval.y*k,0);
-                    enemyObject.transform.position = vector3;
-                    
+                        //enemyをインスタンス化する(生成する)
+                        GameObject enemyObject = Instantiate(wave.enemyType);
+                        Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
+                        enemy.wave = wave;
+                        
+                        Vector3 vector3 = new Vector3(wave.interval.x*j,wave.interval.y*k,0);
+                        enemyObject.transform.position = vector3;
+                        
 
-                    //処理変更予定
-                    //enemy.SetEnemyPaths(wave.paths);
-                    enemy.Movement(0);
-                    //生成した敵の座標を決定する
+                        //処理変更予定
+                        //enemy.SetEnemyPaths(wave.paths);
+                        enemy.Movement(0);
+                        //生成した敵の座標を決定する
                     
                     }
                 }
             }
             else if(wave.otherEnemy == EnemyWave.OtherEnemy.follow){
                 for(int j = 0;j < wave.spawnNumber;j++) {
-                    Debug.Log(j);
+                    
                     //enemyをインスタンス化する(生成する)
                     GameObject enemyObject = Instantiate(wave.enemyType);
                     Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();

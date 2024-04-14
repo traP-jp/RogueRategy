@@ -1167,7 +1167,7 @@ GameObject:
   - component: {fileID: 1029544467}
   - component: {fileID: 1029544469}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemySpawner@
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1188,20 +1188,26 @@ MonoBehaviour:
   nowChangingPlace: 0
   waves:
   - canExpressMark: 0
-    otherEnemy: 1
+    otherEnemy: 0
     horizonalEnemyNumber: 2
     verticalEnemyNumber: 2
     interval: {x: 1, y: 1, z: 0}
     spawnIntervalTime: 2
-    spawnNumber: 2
+    spawnNumber: 3
     enemyMovementType: 0
     moveRoutes:
     - RoutePoint:
       - {x: 2.34, y: 1.9, z: 0}
       - {x: -6.02, y: 0, z: 0}
       - {x: 0, y: -2.47, z: 0}
-      movetime: 8.42
+      movetime: 4.59
       waitTime: 4.01
+      ease: 0
+    - RoutePoint:
+      - {x: 2.8, y: 1.27, z: 0}
+      - {x: 2.69, y: -1.2, z: 0}
+      movetime: 2.47
+      waitTime: 1.46
       ease: 0
     loopPoint: 0
     enemyType: {fileID: 3775559049738054288, guid: 184c7ef14cc24eb45a77e05e3196672a, type: 3}
