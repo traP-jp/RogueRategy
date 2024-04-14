@@ -31,7 +31,7 @@ namespace PrepareSceneOnly
                         resultChoices[i] = GenerateItemGetChoice();
                         break;
                     case 4:
-                        resultChoices[i] = GenerateStatusEnhanceChoice();
+                        resultChoices[i] = GenerateRandomEventChoice();
                         break;
                 }
             }
@@ -72,6 +72,12 @@ namespace PrepareSceneOnly
         {
             StatusEnhanceChoice statusEnhanceChoice = new StatusEnhanceChoice();
             return statusEnhanceChoice;
+        }
+
+        IChoice GenerateRandomEventChoice()
+        {
+            RandomEventChoice randomEventChoice = new RandomEventChoice();
+            return randomEventChoice;
         }
     }
 }
