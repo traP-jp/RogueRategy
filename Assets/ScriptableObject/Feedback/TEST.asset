@@ -16,23 +16,17 @@ MonoBehaviour:
   - feedbackKind: 1
     selfMadeFB: {fileID: 0}
     changeableFB:
-      rid: 6071902649426640896
-    isWaitForEnd: 0
-    intervalTime: 0
-  - feedbackKind: 1
-    selfMadeFB: {fileID: 0}
-    changeableFB:
       rid: 6071902641388257283
     isWaitForEnd: 1
-    intervalTime: 0
+    intervalTime: 2
   - feedbackKind: 1
     selfMadeFB: {fileID: 0}
     changeableFB:
       rid: 6071902641388257284
     isWaitForEnd: 1
     intervalTime: 1
-  - feedbackKind: 1
-    selfMadeFB: {fileID: 0}
+  - feedbackKind: 0
+    selfMadeFB: {fileID: 11400000}
     changeableFB:
       rid: 6071902641388257285
     isWaitForEnd: 0
@@ -52,9 +46,3 @@ MonoBehaviour:
       type: {class: AnimationPlayFB, ns: Feedback, asm: Assembly-CSharp}
       data:
         animationName: Refresh
-    - rid: 6071902649426640896
-      type: {class: ShakeCameraFB, ns: Feedback, asm: Assembly-CSharp}
-      data:
-        shakePattern: 0
-        intensity: 10
-        shakeTime: 1

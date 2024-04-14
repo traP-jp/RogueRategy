@@ -29,25 +29,35 @@ namespace Feedback
         [SerializeField] FeedbackTuple[] feedbackTuples;
         int nowPlayingFeedbackIndex = 0;//今再生しているのはfeedbackTuples[nowPlayingFeedbackIndex]
         Vector2 nowPlayingFeedbackPosition;//今再生しているフィードバックの座標
-        public void Play(Vector2 position,Action onFinishedCallback)
+        Action onFinishCallback;
+        public void Play(Vector2 position,Action _onFinishedCallback)
         {
             nowPlayingFeedbackIndex = 0;
             nowPlayingFeedbackPosition = position;
+            onFinishCallback = _onFinishedCallback;
             PlayAfterNowIndex();
         }
 
+        float temporaryInterval = 0;
         void PlayAfterNowIndex()
         {
+            //isWaitEnd == trueの時のウェイト設定
+            if(temporaryInterval != 0)
+            {
+                PlayFeedbackAfterFewSeconds(temporaryInterval).Forget();
+                temporaryInterval = 0;
+                return;
+            }
             //今のindex番目以降のフィードバックを再生
             for(;nowPlayingFeedbackIndex < feedbackTuples.Length;)
             {
-                Debug.Log(nowPlayingFeedbackIndex);
                 var feedbackTuple = feedbackTuples[nowPlayingFeedbackIndex];
                 nowPlayingFeedbackIndex++;
                 if (feedbackTuple.feedbackKind == FeedbackKind.SelfMadeFeedback)
                 {
                     if (feedbackTuple.isWaitForEnd)
                     {
+                        temporaryInterval = feedbackTuple.intervalTime;
                         feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
                         return;
                     }
@@ -67,6 +77,7 @@ namespace Feedback
                 {
                     if (feedbackTuple.isWaitForEnd)
                     {
+                        temporaryInterval = feedbackTuple.intervalTime;
                         feedbackTuple.changeableFB.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
                         return;
                     }
@@ -81,6 +92,12 @@ namespace Feedback
                         feedbackTuple.changeableFB.Play(nowPlayingFeedbackPosition, () => { });
                     }
                 }
+            }
+            //フィードバック再生が終わったことを検知
+            if (nowPlayingFeedbackIndex >= feedbackTuples.Length)
+            {
+                onFinishCallback.Invoke();
+                return;
             }
         }
         async UniTask PlayFeedbackAfterFewSeconds(float waitTime)
