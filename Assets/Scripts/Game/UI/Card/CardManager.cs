@@ -51,6 +51,7 @@ public class CardManager : MonoBehaviour
     
     void PlayTopCard()
     {
+        Debug.Log(nowDisplayCards[0]);
         nowDisplayCards[0].cardInfo.cardEffectInfo.Process(playerStatus,playerStatus.transform.position);
         BuffManager.Instance.NoticeCardUse();
     }
@@ -89,13 +90,14 @@ public class CardManager : MonoBehaviour
     {
         //CardInfoのデータから初期状態のCardを生成
         Card resultCard = new Card();
+        Debug.Log(resultCard);
         resultCard.cardInfo = cardInfo;
         resultCard.cost = cardInfo.defaultCost;
         GameObject cardObject = Instantiate(cardPrefab, transform);
         // GameObject cardObject = Instantiate(cardPrefab, new Vector2(cardPositionX, bottomPositionY + cardHeight * displayMaxCount),Quaternion.identity);
         resultCard.cardObject = cardObject;
         cardObject.GetComponent<CardDisplayUpdater>().cardGraphic.sprite = cardInfo.sprite;
-        
+        Debug.Log(resultCard);
         return resultCard;
     }
 

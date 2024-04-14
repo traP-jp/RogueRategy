@@ -14,7 +14,7 @@ public class Homing : MonoBehaviour,IBulletMovement
     private Rigidbody2D _rb;
     private Vector2 _positiondiff;
 
-    public void Initialize(float speed)
+    public void Initialize(float speed,bool isPlayerSide)
     {
         _speed = speed;
         _positiondiff = chased.position - gameObject.transform.position;
