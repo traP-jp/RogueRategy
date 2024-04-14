@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
        //Movement(0).Forget();
-       transform.position = wave.moveRoutes[0].RoutePoint[0];
+       transform.localPosition = wave.moveRoutes[0].RoutePoint[0];
     }
     //移動処理
     public async UniTaskVoid Movement(int loopPoint)

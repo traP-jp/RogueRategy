@@ -1189,9 +1189,9 @@ MonoBehaviour:
   waves:
   - canExpressMark: 0
     otherEnemy: 0
-    horizonalEnemyNumber: 1
-    verticalEnemyNumber: 1
-    interval: {x: 0, y: 0, z: 0}
+    horizonalEnemyNumber: 2
+    verticalEnemyNumber: 2
+    interval: {x: 1, y: 1, z: 0}
     spawnIntervalTime: 0
     spawnNumber: 0
     enemyMovementType: 0
