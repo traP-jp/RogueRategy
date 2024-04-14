@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Homing : MonoBehaviour,IBulletMovement
+public class Homing : MonoBehaviour//,IBulletMovement
 {
     //将来的には"ホーミング対象を定める(chasedのtransformに上手く追跡対象を入れたいがプレハブ故難しそう?)",
     //"ユニット側の設定でホーミングの強さを定める"ことができるような設計にしたい

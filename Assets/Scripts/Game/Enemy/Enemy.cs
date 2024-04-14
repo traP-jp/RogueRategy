@@ -47,6 +47,8 @@ public class Enemy : MonoBehaviour
             else nowHP = value;
         }
     }
+    //移動処理用
+    public EnemyWave wave{set; get; }
 
     
     //ダメージ処理
@@ -74,28 +76,45 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       Movement(0).Forget();
+       //Movement(0).Forget();
+       transform.position = wave.moveRoutes[0].RoutePoint[0];
     }
     //移動処理
     public async UniTaskVoid Movement(int loopPoint)
     {
-        if(enemyPaths != null){
-            paths = enemyPaths.SetEnemyPaths();
-            for(int i = loopPoint; i < paths.Length;i++)
+        // if(enemyPaths != null){
+        //     paths = enemyPaths.SetEnemyPaths();
+        //     for(int i = loopPoint; i < paths.Length;i++)
+        //     {
+        //     transform.DOLocalPath(
+        //         path     : paths[i].GetWayPoints(), //移動するポイント
+        //         duration : paths[i].GetMoveTime(), //移動時間
+        //         pathType : PathType.CatmullRom //移動するパスの種類
+        //         ).SetEase(paths[i].GetEase()).OnComplete(SetPosition).SetRelative(true);
+        //     await UniTask.WaitWhile(() => isContinueMove);
+        //     isContinueMove = true;
+        //     await UniTask.Delay(enemyPaths.GetWaitTime(i));
+        //     }
+        //     if(enemyPaths.GetIsLoop()){
+        //     Movement(enemyPaths.GetLoopPoint()).Forget();
+        //     }
+        // }
+        //
+        //敵の動きの処理の修正版
+        for(int i = loopPoint; i < wave.moveRoutes.Count;i++)
             {
             transform.DOLocalPath(
-                path     : paths[i].GetWayPoints(), //移動するポイント
-                duration : paths[i].GetMoveTime(), //移動時間
+                path     : wave.moveRoutes[i].RoutePoint.ToArray(), //移動するポイント
+                duration : wave.moveRoutes[i].movetime, //移動時間
                 pathType : PathType.CatmullRom //移動するパスの種類
-                ).SetEase(paths[i].GetEase()).OnComplete(SetPosition).SetRelative(true);
+                ).SetEase(wave.moveRoutes[i].ease).OnComplete(SetPosition);//.SetRelative(true);
             await UniTask.WaitWhile(() => isContinueMove);
             isContinueMove = true;
-            await UniTask.Delay(enemyPaths.GetWaitTime(i));
+            await UniTask.Delay((int)wave.moveRoutes[i].waitTime);
             }
-            if(enemyPaths.GetIsLoop()){
-            Movement(enemyPaths.GetLoopPoint()).Forget();
+            if(wave.loopPoint != 0){
+                Movement(wave.loopPoint).Forget();
             }
-        }
     }
     public void SetPosition(){
         isContinueMove = false;
