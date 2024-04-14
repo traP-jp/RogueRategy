@@ -51,14 +51,14 @@ public class CardManager : MonoBehaviour
     
     void PlayTopCard()
     {
-        Debug.Log(nowDisplayCards[0]);
+        Debug.Log(nowDisplayCards[0].cardInfo.cardEffectInfo);
         nowDisplayCards[0].cardInfo.cardEffectInfo.Process(playerStatus,playerStatus.transform.position);
         BuffManager.Instance.NoticeCardUse();
     }
     void DeleteTopCard()
     {
         // トップカードの消去
-        nowDisplayCards[0].Vanish();
+       Destroy(nowDisplayCards[0].cardObject);
         //トップカードが空いた分を詰める
         for(int index = 0;index < displayMaxCount - 1; index++)
         {
