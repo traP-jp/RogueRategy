@@ -10,14 +10,14 @@ namespace Feedback
     public class WaitTimeFB : IFeedback
     {
         public float waitTime;
-        public void Play(Vector2 position, Action onFinishCallback)
+        public void Play(Vector2 position, Action<int> onFinishCallback,int parallelFeedbackID = -1)
         {
-            PlayFeedbackAfterFewSeconds(onFinishCallback).Forget();
+            PlayFeedbackAfterFewSeconds(onFinishCallback,parallelFeedbackID).Forget();
         }
-        async UniTask PlayFeedbackAfterFewSeconds(Action onFinishCallback)
+        async UniTask PlayFeedbackAfterFewSeconds(Action<int> onFinishCallback,int parallelFeedbackID = -1)
         {
             await UniTask.Delay(Mathf.RoundToInt(waitTime * 1000));
-            onFinishCallback.Invoke();
+            onFinishCallback.Invoke(parallelFeedbackID);
         }
     }
 }

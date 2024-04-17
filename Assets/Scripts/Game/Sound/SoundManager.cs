@@ -58,13 +58,13 @@ public class SoundManager :SingletonMonoBehaviour<SoundManager>
         SEPlayer.volume = soundData.volume;
         SEPlayer.Play();
     }
-    public void PlaySE(string SEName,Action onFinished)
+    public void PlaySE(string SEName,Action<int> onFinished,int parallelFeedbackID = -1)
     {
         SoundData soundData = SESoundDatas[SENameToIndex[SEName]];
         SEPlayer.clip = soundData.audioClip;
         SEPlayer.volume = soundData.volume;
         SEPlayer.Play();
-        SEPlayer.ObserveEveryValueChanged(s => s.isPlaying).Take(2).Subscribe(_ => { },()=> onFinished.Invoke()) ;//SE終了のコールバック
+        SEPlayer.ObserveEveryValueChanged(s => s.isPlaying).Take(2).Subscribe(_ => { },()=> onFinished.Invoke(parallelFeedbackID)) ;//SE終了のコールバック
     }
     public void PlayEnvironment(string environmentName)
     {

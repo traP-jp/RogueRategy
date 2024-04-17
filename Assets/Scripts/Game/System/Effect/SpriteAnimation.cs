@@ -36,14 +36,14 @@ public class SpriteAnimation : MonoBehaviour
     public void Initialize()
     {
         animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
-        StartCoroutine(doAnimation(() => { }));
+        StartCoroutine(doAnimation(_ => { }));
     }
-    public void Initialize(Action onFinishCallback)
+    public void Initialize(Action<int> onFinishCallback,int parallelFeedbackID = -1)
     {
         animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
-        StartCoroutine(doAnimation(onFinishCallback));
+        StartCoroutine(doAnimation(onFinishCallback,parallelFeedbackID));
     }
-    IEnumerator doAnimation(Action onFinishCallback)
+    IEnumerator doAnimation(Action<int> onFinishCallback,int parallelFeedbackID = -1)
     {   
         if(component == WhichComponent.image)
         {
@@ -71,7 +71,7 @@ public class SpriteAnimation : MonoBehaviour
             usedLoopPoint = loopPoint;
         } while (isLoop);
         }
-        onFinishCallback.Invoke();
+        onFinishCallback.Invoke(parallelFeedbackID);
         Destroy(gameObject);
     }
 

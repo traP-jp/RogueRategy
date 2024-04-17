@@ -26,93 +26,119 @@ namespace Feedback
             public bool isWaitForEnd;
             public float intervalTime;
         }
-        [SerializeField] FeedbackTuple[] feedbackTuples;
-        int nowPlayingFeedbackIndex = 0;//今再生しているのはfeedbackTuples[nowPlayingFeedbackIndex]
-        Vector2 nowPlayingFeedbackPosition;//今再生しているフィードバックの座標
-        Action onFinishCallback;
-        public void Play(Vector2 position,Action _onFinishedCallback)
-        {
-            nowPlayingFeedbackIndex = 0;
-            nowPlayingFeedbackPosition = position;
-            onFinishCallback = _onFinishedCallback;
-            PlayAfterNowIndex();
-        }
 
-        float temporaryInterval = 0;
-        void PlayAfterNowIndex()
+        class ParallelFeedbackInfo
         {
-            //isWaitEnd == trueの時のウェイト設定
-            if(temporaryInterval != 0)
+            public Vector2 position;
+            public int nowPlayingIndex;
+            public float temporaryInterval;
+            public Action<int> onFinishedCallback;
+            public int parentsFeedbackID;
+            public bool isActive = true;
+        }
+        List<ParallelFeedbackInfo> IDToFeedbackInfo = new List<ParallelFeedbackInfo>();
+
+        [SerializeField] FeedbackTuple[] feedbackTuples;
+        public void Play(Vector2 feedbackPosition, Action<int> _onFinishedCallback, int _parentsParallelFeedbackID = -1)
+        {
+            //終了時に_onFinishedCallback.Invoke(_parentsParallelFeedbackID)を行う
+            //呼び出し元などの情報をIDToFeedbackInfoにメモする
+            var info = new ParallelFeedbackInfo();
+            info.position = feedbackPosition;
+            info.nowPlayingIndex = -1;
+            info.temporaryInterval = 0;
+            info.onFinishedCallback = _onFinishedCallback;
+            info.parentsFeedbackID = _parentsParallelFeedbackID;
+            int thisParallelID = IDToFeedbackInfo.Count;//今発行されたフィードバックの並列ID(非負)
+            IDToFeedbackInfo.Add(info);
+            PlayNextFeedback(thisParallelID);
+        }
+        void PlayNextFeedback(int parallelFeedbackID)
+        {
+            if (IDToFeedbackInfo[parallelFeedbackID].temporaryInterval != 0)
             {
-                PlayFeedbackAfterFewSeconds(temporaryInterval).Forget();
-                temporaryInterval = 0;
+                //インターバルタイムが設定されている場合ウェイトを挟んで次のフィードバックを再生
+                PlayFeedbackAfterFewSeconds(parallelFeedbackID).Forget();
                 return;
             }
-            //今のindex番目以降のフィードバックを再生
-            for(;nowPlayingFeedbackIndex < feedbackTuples.Length;)
+            var info = IDToFeedbackInfo[parallelFeedbackID];
+            info.nowPlayingIndex++;
+            if(info.nowPlayingIndex >= feedbackTuples.Length)
             {
-                var feedbackTuple = feedbackTuples[nowPlayingFeedbackIndex];
-                nowPlayingFeedbackIndex++;
-                if (feedbackTuple.feedbackKind == FeedbackKind.SelfMadeFeedback)
+                //再生終了を通知
+                EndFeedback(parallelFeedbackID);
+                return;
+            }
+            var feedbackTuple = feedbackTuples[info.nowPlayingIndex];
+            info.temporaryInterval = feedbackTuple.intervalTime;
+            if (feedbackTuple.feedbackKind == FeedbackKind.SelfMadeFeedback)
+            {
+                if (feedbackTuple.isWaitForEnd)
                 {
-                    if (feedbackTuple.isWaitForEnd)
-                    {
-                        temporaryInterval = feedbackTuple.intervalTime;
-                        feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
-                        return;
-                    }
-                    else if(feedbackTuple.intervalTime != 0)
-                    {
-                        feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, () => { });
-                        PlayFeedbackAfterFewSeconds(feedbackTuple.intervalTime).Forget();
-                        return;
-                    }
-                    else
-                    {
-                        if(this == feedbackTuple.selfMadeFB)
-                        {
-                            temporaryInterval = feedbackTuple.intervalTime;
-                            feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
-                            return;
-                        }
-                        else
-                        {
-                            feedbackTuple.selfMadeFB.Play(nowPlayingFeedbackPosition, () => { });
-                        }
-                    }
-
+                    feedbackTuple.selfMadeFB.Play(info.position,PlayNextFeedback,parallelFeedbackID);
+                    return;
                 }
                 else
                 {
-                    if (feedbackTuple.isWaitForEnd)
-                    {
-                        temporaryInterval = feedbackTuple.intervalTime;
-                        feedbackTuple.changeableFB.Play(nowPlayingFeedbackPosition, PlayAfterNowIndex);
-                        return;
-                    }
-                    else if (feedbackTuple.intervalTime != 0)
-                    {
-                        feedbackTuple.changeableFB.Play(nowPlayingFeedbackPosition, () => { });
-                        PlayFeedbackAfterFewSeconds(feedbackTuple.intervalTime).Forget();
-                        return;
-                    }
-                    else
-                    {
-                        feedbackTuple.changeableFB.Play(nowPlayingFeedbackPosition, () => { });
-                    }
+                    feedbackTuple.selfMadeFB.Play(info.position, _ => { }, parallelFeedbackID);
+                    PlayNextFeedback(parallelFeedbackID);
+                    return;
+                }
+
+            }
+            else
+            {
+                if (feedbackTuple.isWaitForEnd)
+                {
+                    feedbackTuple.changeableFB.Play(info.position, PlayNextFeedback, parallelFeedbackID);
+                    return;
+                }
+                else
+                {
+                    feedbackTuple.changeableFB.Play(info.position, _ => { }, parallelFeedbackID);
+                    PlayNextFeedback(parallelFeedbackID);
+                    return;
                 }
             }
-            //フィードバック再生が終わったことを検知
-            if (nowPlayingFeedbackIndex >= feedbackTuples.Length)
+
+        }
+        public void EndFeedback(int parallelFeedbackID)
+        {
+            var info = IDToFeedbackInfo[parallelFeedbackID];
+            if(info.parentsFeedbackID == -1)
             {
-                onFinishCallback.Invoke();
-                return;
+                //parentsFeedbackIDが-1の時はFeedbackによる再帰以外での呼び出しなので、parallelFeedbackIDを返す
+                info.onFinishedCallback(parallelFeedbackID);
+            }
+            else
+            {
+                info.onFinishedCallback(info.parentsFeedbackID);
+            }
+            info.isActive = false;
+            DeleteUnUsedFeedback();
+        }
+
+        void DeleteUnUsedFeedback()
+        {
+            //activeでないフィードバックをインデックスが高い順に削除
+            for(int i = IDToFeedbackInfo.Count - 1; i >= 0; i--)
+            {
+                if (IDToFeedbackInfo[i].isActive)
+                {
+                    return;
+                }
+                else
+                {
+                    IDToFeedbackInfo.RemoveAt(i);
+                }
             }
         }
-        async UniTask PlayFeedbackAfterFewSeconds(float waitTime)
+        
+        async UniTask PlayFeedbackAfterFewSeconds(int parallelFeedbackID)
         {
-            await UniTask.Delay(Mathf.RoundToInt(waitTime * 1000));
-            PlayAfterNowIndex();
+            await UniTask.Delay(Mathf.RoundToInt(IDToFeedbackInfo[parallelFeedbackID].temporaryInterval * 1000));
+            IDToFeedbackInfo[parallelFeedbackID].temporaryInterval = 0;
+            PlayNextFeedback(parallelFeedbackID);
         }
     }
 

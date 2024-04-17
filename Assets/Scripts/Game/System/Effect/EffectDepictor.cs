@@ -30,11 +30,11 @@ public class EffectDepictor : SingletonMonoBehaviour<EffectDepictor>
         SpriteAnimation spriteAnimation = Instantiate(nameToEffect[effectName], pos, Quaternion.identity, parentTransform);
         spriteAnimation.Initialize();
     }
-    public void DepictEffect(Vector2 position, string effectName,Action onFinishCallback)
+    public void DepictEffect(Vector2 position, string effectName,Action<int> onFinishCallback,int parallelFeedbackID=-1)
     {
         Vector2 pos = position;
         if (nameToEffect[effectName].component == SpriteAnimation.WhichComponent.image) pos = camera.WorldToScreenPoint(position);
         SpriteAnimation spriteAnimation = Instantiate(nameToEffect[effectName], pos, Quaternion.identity, parentTransform);
-        spriteAnimation.Initialize(onFinishCallback);
+        spriteAnimation.Initialize(onFinishCallback,parallelFeedbackID);
     }
 }

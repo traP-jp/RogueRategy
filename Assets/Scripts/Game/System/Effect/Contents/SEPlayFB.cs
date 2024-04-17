@@ -8,9 +8,9 @@ namespace Feedback
     public class SEPlayFB : IFeedback
     {
         public string SEName;
-        public void Play(Vector2 position,Action onFinishedCallback)
+        public void Play(Vector2 position,Action<int> onFinishedCallback,int parallelFeedbackID = -1)
         {
-            SoundManager.Instance.PlaySE(SEName,onFinishedCallback);
+            SoundManager.Instance.PlaySE(SEName,onFinishedCallback,parallelFeedbackID);
         }
     }
 }

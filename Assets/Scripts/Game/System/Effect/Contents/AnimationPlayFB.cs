@@ -8,10 +8,10 @@ namespace Feedback
     public class AnimationPlayFB : IFeedback
     {
         [SerializeField] string animationName;
-        public void Play(Vector2 position, Action onFinishedCallback)
+        public void Play(Vector2 position, Action<int> onFinishedCallback,int parallelFeedbackID)
         {
             //スプライトのアニメーションを再生するフィードバック
-            EffectDepictor.Instance.DepictEffect(position,animationName,onFinishedCallback);
+            EffectDepictor.Instance.DepictEffect(position,animationName,onFinishedCallback,parallelFeedbackID);
         }
     }
 }
