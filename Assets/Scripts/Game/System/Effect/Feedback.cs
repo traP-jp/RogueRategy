@@ -34,6 +34,7 @@ namespace Feedback
             public float temporaryInterval;
             public Action<int> onFinishedCallback;
             public int parentsFeedbackID;
+            public Dictionary<int, int> loopLeftCount = new Dictionary<int, int>();//KeyはFeedbackIndex, Valueは残りループカウント
             public bool isActive = true;
         }
         List<ParallelFeedbackInfo> IDToFeedbackInfo = new List<ParallelFeedbackInfo>();
@@ -71,6 +72,7 @@ namespace Feedback
             }
             var feedbackTuple = feedbackTuples[info.nowPlayingIndex];
             info.temporaryInterval = feedbackTuple.intervalTime;
+            //フィードバックの再生
             if (feedbackTuple.feedbackKind == FeedbackKind.SelfMadeFeedback)
             {
                 if (feedbackTuple.isWaitForEnd)
@@ -88,6 +90,45 @@ namespace Feedback
             }
             else
             {
+                //ループ周りの処理
+                if (feedbackTuple.changeableFB.GetType() == typeof(LoopEndFB))
+                {
+                    LoopEndFB loopEndFB = (LoopEndFB)feedbackTuple.changeableFB;
+                    if (!info.loopLeftCount.ContainsKey(info.nowPlayingIndex))
+                    {
+                        info.loopLeftCount.Add(info.nowPlayingIndex, loopEndFB.loopCount);
+                        if(loopEndFB.loopCount == 0)
+                        {
+                            PlayNextFeedback(parallelFeedbackID);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        info.loopLeftCount[info.nowPlayingIndex]--;
+                        if (info.loopLeftCount[info.nowPlayingIndex] == 0)
+                        {
+                            PlayNextFeedback(parallelFeedbackID);
+                            return;
+                        }
+                    }
+                    //ここまででreturnされていない場合、LoopStartFB or インデックス0まで戻る
+                    int returningIndex = -1;
+                    for(int i = info.nowPlayingIndex-1; i>=0; i--)
+                    {
+                        if (feedbackTuples[i].feedbackKind == FeedbackKind.ChangeableFeedback)
+                        {
+                            if (feedbackTuples[i].changeableFB.GetType() == typeof(LoopStartFB))
+                            {
+                                returningIndex = i;
+                            }
+                        }
+                    }
+                    info.nowPlayingIndex = returningIndex;
+                    PlayNextFeedback(parallelFeedbackID);
+                    return;
+                }
+                //ループ周りの処理終了
                 if (feedbackTuple.isWaitForEnd)
                 {
                     feedbackTuple.changeableFB.Play(info.position, PlayNextFeedback, parallelFeedbackID);
