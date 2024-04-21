@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &135543962
 Transform:
   m_ObjectHideFlags: 0
@@ -1155,115 +1155,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.884536, y: 0.30323124}
   m_EdgeRadius: 0
---- !u!1 &1029544466
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1029544468}
-  - component: {fileID: 1029544467}
-  - component: {fileID: 1029544469}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1029544467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029544466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46248d23bcc0dde439347ee5c1263c94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nowChangingPlace: 0
-  waves:
-  - canExpressMark: 0
-    otherEnemy: 0
-    horizonalEnemyNumber: 1
-    verticalEnemyNumber: 1
-    interval: {x: 0, y: 0, z: 0}
-    spawnIntervalTime: 0
-    spawnNumber: 0
-    enemyMovementType: 0
-    moveRoutes:
-    - RoutePoint:
-      - {x: 0.12, y: 0.24, z: 0}
-      - {x: 5.75, y: 4.42, z: 0}
-      movetime: 0
-      waitTime: 0
-      ease: 0
-    - RoutePoint:
-      - {x: -0.89, y: 0, z: 0}
-      - {x: -3.79, y: 0, z: 0}
-      - {x: -0.01, y: -4.17, z: 0}
-      movetime: 0
-      waitTime: 0
-      ease: 0
-    loopPoint: 0
-    enemyType: {fileID: 0}
-    spawnTime: 0
-  - canExpressMark: 0
-    otherEnemy: 0
-    horizonalEnemyNumber: 1
-    verticalEnemyNumber: 1
-    interval: {x: 0, y: 0, z: 0}
-    spawnIntervalTime: 0
-    spawnNumber: 0
-    enemyMovementType: 0
-    moveRoutes:
-    - RoutePoint:
-      - {x: -1.82, y: 0, z: 0}
-      - {x: 0.54, y: 1.52, z: 0}
-      movetime: 0
-      waitTime: 0
-      ease: 0
-    - RoutePoint:
-      - {x: -6.15, y: 0, z: 0}
-      - {x: 0, y: 2.05, z: 0}
-      movetime: 0
-      waitTime: 0
-      ease: 0
-    loopPoint: 0
-    enemyType: {fileID: 0}
-    spawnTime: 0
---- !u!4 &1029544468
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029544466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1029544469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029544466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcf5a922261478342adcbb2038507b67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 1029544467}
 --- !u!1 &1249725005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,10 +1333,11 @@ MonoBehaviour:
   displayMaxCount: 6
   nowDeck:
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
-  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
-  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   energyManager: {fileID: 1580740802}
   cardPrefab: {fileID: 2481500943566962249, guid: 04b5b068114594311b50d7b15dc4539b, type: 3}
   playerTransform: {fileID: 4782532839192633366}
@@ -2293,7 +2185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.28, y: -0.19}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2427971110274220685
@@ -2390,6 +2282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowRate: 0.5
+  playerMaxHP: 0
   playerHPUpdater: {fileID: 1816015533459529988}
 --- !u!4 &4332787311737726161
 Transform:
@@ -2493,7 +2386,6 @@ MonoBehaviour:
   playerStatus: {fileID: 7810184838114248337}
   cardManager: {fileID: 1382738180}
   playersInfo: {fileID: 11400000, guid: 8274fd8ac3278462da8a800e1c0011c0, type: 2}
-  itemGameInventory: {fileID: 0}
 --- !u!4 &4782532839192633366
 Transform:
   m_ObjectHideFlags: 0
@@ -2697,6 +2589,9 @@ MonoBehaviour:
   bulletSpeedRatio: 1
   costDiffAmount: 0
   isControllReverse: 0
+  resultUnitAttack: 0
+  resultUnitDefense: 0
+  resultUnitSpeed: 0
 --- !u!114 &8469187420479170814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2710,8 +2605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 4782532839192633366}
-  unitParentTransform: {fileID: 0}
-  bulletParentTransform: {fileID: 0}
+  playersUnitParentTransform: {fileID: 7641256597915962255}
+  playerBulletParentTransform: {fileID: 1666738334}
   playerEnergy: {fileID: 1580740802}
 --- !u!4 &8529752031519342734
 Transform:
