@@ -25,10 +25,16 @@ MonoBehaviour:
       rid: 6071902641388257284
     isWaitForEnd: 1
     intervalTime: 1
-  - feedbackKind: 0
+  - feedbackKind: 1
     selfMadeFB: {fileID: 11400000}
     changeableFB:
       rid: 6071902641388257285
+    isWaitForEnd: 0
+    intervalTime: 0
+  - feedbackKind: 0
+    selfMadeFB: {fileID: 11400000}
+    changeableFB:
+      rid: 6071902748597551104
     isWaitForEnd: 0
     intervalTime: 0
   references:
@@ -46,3 +52,7 @@ MonoBehaviour:
       type: {class: AnimationPlayFB, ns: Feedback, asm: Assembly-CSharp}
       data:
         animationName: Refresh
+    - rid: 6071902748597551104
+      type: {class: LoopEndFB, ns: Feedback, asm: Assembly-CSharp}
+      data:
+        loopCount: 3
