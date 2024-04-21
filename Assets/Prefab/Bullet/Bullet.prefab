@@ -14,10 +14,8 @@ GameObject:
   - component: {fileID: -1010217565435742961}
   - component: {fileID: -3337633070562945079}
   - component: {fileID: -4178343824937487828}
-
   - component: {fileID: 953601248610990458}
   - component: {fileID: 4957782538661899769}
-
   m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
@@ -166,9 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletStatus: {fileID: -3337633070562945079}
-
 --- !u!50 &953601248610990458
-
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -195,7 +191,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
-
 --- !u!114 &4957782538661899769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,4 +204,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyByAlly: 0
-

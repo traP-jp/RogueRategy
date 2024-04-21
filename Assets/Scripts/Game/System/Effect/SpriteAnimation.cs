@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-[RequireComponent(typeof(Image))]
+using System;
 public class SpriteAnimation : MonoBehaviour
 {
     
@@ -13,11 +13,11 @@ public class SpriteAnimation : MonoBehaviour
     //何番目からループするか
     [SerializeField] int loopPoint = 0;
     int usedLoopPoint = 0;
-    enum WhichComponent{
+    public enum WhichComponent{
         image,
         spriteRenderer
     }
-    [SerializeField] WhichComponent component;
+    public WhichComponent component;
     [Header("nからn+1枚目のanimにかける時間")][SerializeField] float[] animationIntervalTime;
     [SerializeField] float constantInterval = 0;
     [SerializeField] float magnification = 1;
@@ -25,10 +25,6 @@ public class SpriteAnimation : MonoBehaviour
     Sprite[] animationSprites;
     Image animationImage;
     SpriteRenderer spriteRenderer;
-    private void Awake()
-    {
-        animationImage = GetComponent<Image>();
-    }
     private void Start()
     {
         
@@ -39,22 +35,29 @@ public class SpriteAnimation : MonoBehaviour
     }
     public void Initialize()
     {
-        animationImage = GetComponent<Image>();
         animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
-        StartCoroutine(doAnimation());
+        StartCoroutine(doAnimation(_ => { }));
     }
-    IEnumerator doAnimation()
+    public void Initialize(Action<int> onFinishCallback,int parallelFeedbackID = -1)
+    {
+        animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
+        StartCoroutine(doAnimation(onFinishCallback,parallelFeedbackID));
+    }
+    IEnumerator doAnimation(Action<int> onFinishCallback,int parallelFeedbackID = -1)
     {   
         if(component == WhichComponent.image)
-        do
         {
-            for (int i = usedLoopPoint; i < animationSprites.Length; i++)
+            animationImage = GetComponent<Image>();
+            do
             {
-                animationImage.sprite = animationSprites[i];
-                yield return new WaitForSeconds(animationIntervalTime[i] + constantInterval);
-            }
-            usedLoopPoint = loopPoint;
-        } while (isLoop);
+                for (int i = usedLoopPoint; i < animationSprites.Length; i++)
+                {
+                    animationImage.sprite = animationSprites[i];
+                    yield return new WaitForSeconds(animationIntervalTime[i] + constantInterval);
+                }
+                usedLoopPoint = loopPoint;
+            } while (isLoop);
+        }
         //SpriteRendererの処理
         else{
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -68,6 +71,7 @@ public class SpriteAnimation : MonoBehaviour
             usedLoopPoint = loopPoint;
         } while (isLoop);
         }
+        onFinishCallback.Invoke(parallelFeedbackID);
         Destroy(gameObject);
     }
 
