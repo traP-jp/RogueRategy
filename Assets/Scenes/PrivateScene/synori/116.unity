@@ -1188,12 +1188,12 @@ MonoBehaviour:
   nowChangingPlace: 0
   waves:
   - canExpressMark: 0
-    otherEnemy: 0
+    otherEnemy: 1
     horizonalEnemyNumber: 3
     verticalEnemyNumber: 2
-    interval: {x: 0, y: 0, z: 0}
-    spawnIntervalTime: 0
-    spawnNumber: 0
+    interval: {x: 0.33, y: 0.75, z: 0}
+    spawnIntervalTime: 0.24
+    spawnNumber: 8
     enemyMovementType: 0
     moveRoutes:
     - RoutePoint:
