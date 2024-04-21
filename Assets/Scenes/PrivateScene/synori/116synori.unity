@@ -1190,15 +1190,15 @@ MonoBehaviour:
   - canExpressMark: 0
     otherEnemy: 0
     horizonalEnemyNumber: 2
-    verticalEnemyNumber: 2
+    verticalEnemyNumber: 4
     interval: {x: 1, y: 1, z: 0}
     spawnIntervalTime: 2
     spawnNumber: 3
     enemyMovementType: 0
     moveRoutes:
     - RoutePoint:
-      - {x: 2.34, y: 1.9, z: 0}
-      - {x: -6.02, y: 0, z: 0}
+      - {x: 3.62, y: 1.9, z: 0}
+      - {x: -6.08, y: 0, z: 0}
       - {x: 0, y: -2.47, z: 0}
       movetime: 4.59
       waitTime: 4.01

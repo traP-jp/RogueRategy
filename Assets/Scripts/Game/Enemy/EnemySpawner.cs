@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
             EnemyWave wave = waves[i];
             if (wave.otherEnemy == EnemyWave.OtherEnemy.line){
                 for(int j = 0; j < wave.horizonalEnemyNumber;j++){
-                   for(int k = 0;k < wave.horizonalEnemyNumber;k++){
+                   for(int k = 0;k < wave.verticalEnemyNumber;k++){
                         //enemyをインスタンス化する(生成する)
                         GameObject enemyObject = Instantiate(wave.enemyType);
                         Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
@@ -55,8 +55,7 @@ public class EnemySpawner : MonoBehaviour
                 }
 
             }
-            await UniTask.Delay((int)(wave.spawnTime*1000));
-                
+            await UniTask.Delay((int)(wave.spawnTime*1000));            
         }
     }
   }
