@@ -27,10 +27,11 @@ public class EnemySpawner : MonoBehaviour
                     //enemyをインスタンス化する(生成する)
                     GameObject enemyObject = Instantiate(wave.enemyType);
                     Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
+                    enemy.wave = wave;
                     Debug.Log(enemy);
                     //処理変更予定
                     //enemy.SetEnemyPaths(wave.paths);
-                    //enemy.Movement(0);
+                    enemy.Movement(0);
                     //生成した敵の座標を決定する(現状X=0,Y=10,Z=20の位置に出力)
                     //Vector3 vector3 = new Vector3(wave.interval.x*j,wave.interval.y*k,0);
                     //enemyObject.transform.position = wave.spawnPoint + vector3;
