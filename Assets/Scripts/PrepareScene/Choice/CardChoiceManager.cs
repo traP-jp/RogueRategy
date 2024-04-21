@@ -68,6 +68,7 @@ namespace PrepareSceneOnly
         void Process(OnFinish onFinish,PlayersInfo playersInfo);//クリックされたときはこの関数を呼ぶ
 
         string GetExplanationText();
+        int ProgressAmount();
     }
 }
 

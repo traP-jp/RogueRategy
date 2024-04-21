@@ -16,6 +16,11 @@ namespace PrepareSceneOnly
         {
             return "攻撃力を10増加させる";
         }
+
+        public int ProgressAmount()
+        {
+            return 10;
+        }
     }
 }
 

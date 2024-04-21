@@ -15,6 +15,11 @@ namespace PrepareSceneOnly
         {
             onFinish();
         }
+
+        public int ProgressAmount()
+        {
+            return 10;
+        }
     }
 }
 

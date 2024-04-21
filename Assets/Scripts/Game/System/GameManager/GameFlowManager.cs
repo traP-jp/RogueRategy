@@ -35,6 +35,7 @@ public class GameFlowManager : MonoBehaviour
     public void OnBattleFinish()
     {
         //バトルが終了した時によぶ
+        playersInfo.nowHP = playerStatus.HP;
         string sceneName = SceneManager.GetActiveScene().name.Replace("Battle", "Prepare");
         SceneManager.LoadScene(sceneName);
     }

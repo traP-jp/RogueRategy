@@ -17,6 +17,11 @@ namespace PrepareSceneOnly
             playersInfo.playersDeck.Add(rewardCard);
             onFinish();
         }
+
+        public int ProgressAmount()
+        {
+            return 10;
+        }
     }
 }
 
