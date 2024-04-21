@@ -76,8 +76,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       //Movement(0).Forget();
-       transform.localPosition = wave.moveRoutes[0].RoutePoint[0];
     }
     //移動処理
     public async UniTaskVoid Movement(int loopPoint)
@@ -108,6 +106,7 @@ public class Enemy : MonoBehaviour
                 duration : wave.moveRoutes[i].movetime, //移動時間
                 pathType : PathType.CatmullRom //移動するパスの種類
                 ).SetEase(wave.moveRoutes[i].ease).OnComplete(SetPosition);//.SetRelative(true);
+            transform.localPosition = wave.moveRoutes[i].RoutePoint[0];
             await UniTask.WaitWhile(() => isContinueMove);
             isContinueMove = true;
             await UniTask.Delay((int)wave.moveRoutes[i].waitTime);
