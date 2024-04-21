@@ -9,10 +9,13 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] PlayerStatus playerStatus;
     [SerializeField] CardManager cardManager;
     [SerializeField] PlayersInfo playersInfo;
+    [SerializeField] ItemGameInventory itemGameInventory;
     private void Awake()
     {
         PlayerStatusInitialize();
         //他にもゲームを開始する処理や戦闘開始みたいな表示を出したりする時に使う
+        //ゲーム開始時に持っているアイテムに応じてアイテムインベントリーの更新を行う処理
+        itemGameInventory.DepictItemInInventory(playersInfo);
     }
 
     void PlayerStatusInitialize()

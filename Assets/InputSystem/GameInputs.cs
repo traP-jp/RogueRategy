@@ -71,6 +71,33 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem1"",
+                    ""type"": ""Button"",
+                    ""id"": ""81484278-3e1b-42ad-a06a-a46d52fd2c17"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem2"",
+                    ""type"": ""Button"",
+                    ""id"": ""a79f9461-1094-41d4-814e-f6c8f7d10003"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem3"",
+                    ""type"": ""Button"",
+                    ""id"": ""250c4e6d-21cb-435d-9106-672eec93ca5d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -128,6 +155,39 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Slow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8247449-05f1-408f-a79a-76f5b2b596b5"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b72f2ed0-4593-4b77-8e67-6a2df921b095"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8ddf915-8362-4973-b4c2-658be79c4362"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -141,6 +201,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         m_BattleScene_Left = m_BattleScene.FindAction("Left", throwIfNotFound: true);
         m_BattleScene_Right = m_BattleScene.FindAction("Right", throwIfNotFound: true);
         m_BattleScene_Slow = m_BattleScene.FindAction("Slow", throwIfNotFound: true);
+        m_BattleScene_UseItem1 = m_BattleScene.FindAction("UseItem1", throwIfNotFound: true);
+        m_BattleScene_UseItem2 = m_BattleScene.FindAction("UseItem2", throwIfNotFound: true);
+        m_BattleScene_UseItem3 = m_BattleScene.FindAction("UseItem3", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +270,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_BattleScene_Left;
     private readonly InputAction m_BattleScene_Right;
     private readonly InputAction m_BattleScene_Slow;
+    private readonly InputAction m_BattleScene_UseItem1;
+    private readonly InputAction m_BattleScene_UseItem2;
+    private readonly InputAction m_BattleScene_UseItem3;
     public struct BattleSceneActions
     {
         private @GameInputs m_Wrapper;
@@ -216,6 +282,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         public InputAction @Left => m_Wrapper.m_BattleScene_Left;
         public InputAction @Right => m_Wrapper.m_BattleScene_Right;
         public InputAction @Slow => m_Wrapper.m_BattleScene_Slow;
+        public InputAction @UseItem1 => m_Wrapper.m_BattleScene_UseItem1;
+        public InputAction @UseItem2 => m_Wrapper.m_BattleScene_UseItem2;
+        public InputAction @UseItem3 => m_Wrapper.m_BattleScene_UseItem3;
         public InputActionMap Get() { return m_Wrapper.m_BattleScene; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -240,6 +309,15 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Slow.started += instance.OnSlow;
             @Slow.performed += instance.OnSlow;
             @Slow.canceled += instance.OnSlow;
+            @UseItem1.started += instance.OnUseItem1;
+            @UseItem1.performed += instance.OnUseItem1;
+            @UseItem1.canceled += instance.OnUseItem1;
+            @UseItem2.started += instance.OnUseItem2;
+            @UseItem2.performed += instance.OnUseItem2;
+            @UseItem2.canceled += instance.OnUseItem2;
+            @UseItem3.started += instance.OnUseItem3;
+            @UseItem3.performed += instance.OnUseItem3;
+            @UseItem3.canceled += instance.OnUseItem3;
         }
 
         private void UnregisterCallbacks(IBattleSceneActions instance)
@@ -259,6 +337,15 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Slow.started -= instance.OnSlow;
             @Slow.performed -= instance.OnSlow;
             @Slow.canceled -= instance.OnSlow;
+            @UseItem1.started -= instance.OnUseItem1;
+            @UseItem1.performed -= instance.OnUseItem1;
+            @UseItem1.canceled -= instance.OnUseItem1;
+            @UseItem2.started -= instance.OnUseItem2;
+            @UseItem2.performed -= instance.OnUseItem2;
+            @UseItem2.canceled -= instance.OnUseItem2;
+            @UseItem3.started -= instance.OnUseItem3;
+            @UseItem3.performed -= instance.OnUseItem3;
+            @UseItem3.canceled -= instance.OnUseItem3;
         }
 
         public void RemoveCallbacks(IBattleSceneActions instance)
@@ -283,5 +370,8 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
         void OnSlow(InputAction.CallbackContext context);
+        void OnUseItem1(InputAction.CallbackContext context);
+        void OnUseItem2(InputAction.CallbackContext context);
+        void OnUseItem3(InputAction.CallbackContext context);
     }
 }

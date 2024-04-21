@@ -12,10 +12,7 @@ public class BuffManager : SingletonMonoBehaviour<BuffManager>
     List<BuffStack> buffStackList = new List<BuffStack>();
 
     [SerializeField] BuffStack playerBuffStack;
-    public void AddBuffToPlayer(BuffCore buffCore)
-    {
-        playerBuffStack.AddBuff(buffCore);
-    }
+
     public void SubscribeBuffStack(BuffStack buffStack)
     {
         buffStackList.Add(buffStack);

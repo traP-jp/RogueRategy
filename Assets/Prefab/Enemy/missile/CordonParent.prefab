@@ -134,6 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e92f7475de20154793c4f75a9361711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentTransform: {fileID: 0}
+  orbitPoolName: CordonPool
+  orbitPool: {fileID: 0}
+  orbit: {fileID: 0}
+  fadeTime: 0.1
   enemyPaths: {fileID: 0}
   paths: []

@@ -3,38 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerStatus))]
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour,IDamagable
 {
     [SerializeField] float slowRate;
-    [SerializeField] int playerMaxHP;
     [SerializeField] PlayerHPUpdater playerHPUpdater;
 
     [System.NonSerialized]public PlayerStatus playerStatus;
     [System.NonSerialized] public BuffStack playerBuffStack;
 
     private Rigidbody2D _rigidbody;
-    public int playerHPProperty
-    {
-        get
-        {
-            return playerHP;
-        }
-        set
-        {
-            if(value >= 0 && value <= playerMaxHP)
-            {
-                playerHP = value;
-                playerHPUpdater.UpdateHPTank(value);
-            }
-            else
-            {
-                if (value < 0) playerHP = 0;
-                if (value > playerMaxHP) playerHP = playerMaxHP;
-                playerHPUpdater.UpdateHPTank(playerHP);
-            }
-        }
-    }
-    int playerHP;
 
     #region InputSystem関係
     GameInputs gameInputs;
@@ -56,12 +33,9 @@ public class PlayerManager : MonoBehaviour
         playerStatus = GetComponent<PlayerStatus>();
         playerBuffStack = GetComponent<BuffStack>();
     }
-    void Start()
+    private void Start()
     {
-        
-        //プレイヤーHPの初期化(実際は常にHPMaxスタートではない)
-        playerHPProperty = playerMaxHP-10;
-
+        playerHPUpdater.UpdateHPTank(Mathf.RoundToInt(playerStatus.HP));
     }
     // Update is called once per frame
     void Update()
@@ -92,6 +66,30 @@ public class PlayerManager : MonoBehaviour
         if (playerStatus.isControllReverse) realVelocity *= -1;
         _rigidbody.velocity = realVelocity;
 
+        playerHPUpdater.UpdateHPTank(Mathf.RoundToInt(playerStatus.HP));
+    }
 
+
+    public void ChangePlayersHP(float changeHPAmount)
+    {
+        playerStatus.HPChange(changeHPAmount);
+    }
+
+    public void AddDamage(int strength)
+    {
+        ChangePlayersHP(-strength);
+    }
+
+    public void ConveyBuff(BuffStack bulletsBuffStack)
+    {
+        //状態異常の引き継ぎ
+        foreach (BuffCore bc in bulletsBuffStack.GetNowBuffCoreArray())
+        {
+            if (bc.IsBuffSubjectOpponentUnit())
+            {
+                bc.buffSubject = BuffSubjectEntity.MyselfButCantConvey;
+                playerBuffStack.AddBuff(bc);
+            }
+        }
     }
 }

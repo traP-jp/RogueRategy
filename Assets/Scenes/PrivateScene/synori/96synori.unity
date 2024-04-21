@@ -2089,7 +2089,7 @@ MonoBehaviour:
   - {fileID: 1814051423236329405, guid: a1bcb96f7e17ee24bb00f3aaadfc82f8, type: 3}
   waitTime: 500
   cordon: {fileID: 7902566201564480749, guid: 6f41cadf253e440479fe119791064878, type: 3}
-  CordonPool: {fileID: 972258962}
+  cordonPool: {fileID: 1692457923}
 --- !u!1 &1666738333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,7 +2745,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowRate: 0.5
-  playerMaxHP: 0
   playerHPUpdater: {fileID: 1816015533459529988}
 --- !u!4 &4332787311737726161
 Transform:
