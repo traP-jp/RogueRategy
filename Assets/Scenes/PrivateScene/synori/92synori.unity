@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46248d23bcc0dde439347ee5c1263c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nowChangingPlace: 0
+  nowChangingPlace: 1
   waves:
   - canExpressMark: 0
     otherEnemy: 0
@@ -1197,8 +1197,8 @@ MonoBehaviour:
     enemyMovementType: 0
     moveRoutes:
     - RoutePoint:
-      - {x: 0.12, y: 0.24, z: 0}
-      - {x: 5.75, y: 4.42, z: 0}
+      - {x: 0.12, y: 3.12, z: 0}
+      - {x: -0.89, y: 0, z: 0}
       movetime: 0
       waitTime: 0
       ease: 0
@@ -1223,12 +1223,12 @@ MonoBehaviour:
     moveRoutes:
     - RoutePoint:
       - {x: -1.82, y: 0, z: 0}
-      - {x: 0.54, y: 1.52, z: 0}
+      - {x: -6.54, y: 0, z: 0}
       movetime: 0
       waitTime: 0
       ease: 0
     - RoutePoint:
-      - {x: -6.15, y: 0, z: 0}
+      - {x: -6.54, y: 0, z: 0}
       - {x: 0, y: 2.05, z: 0}
       movetime: 0
       waitTime: 0
@@ -1496,6 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTransform: {fileID: 1635288032}
+  playerManager: {fileID: 0}
   bulletParentTransform: {fileID: 1666738334}
 --- !u!1 &1574238142
 GameObject:
