@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-[RequireComponent(typeof(Image))]
 public class SpriteAnimation : MonoBehaviour
 {
     
@@ -39,25 +38,33 @@ public class SpriteAnimation : MonoBehaviour
     }
     public void Initialize()
     {
-        animationImage = GetComponent<Image>();
+        if(component == WhichComponent.image)
+        {
+            animationImage = GetComponent<Image>();
+        }
+        else
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
         animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
         StartCoroutine(doAnimation());
     }
     IEnumerator doAnimation()
     {   
         if(component == WhichComponent.image)
-        do
         {
-            for (int i = usedLoopPoint; i < animationSprites.Length; i++)
+            do
             {
-                animationImage.sprite = animationSprites[i];
-                yield return new WaitForSeconds(animationIntervalTime[i] + constantInterval);
-            }
-            usedLoopPoint = loopPoint;
-        } while (isLoop);
+                for (int i = usedLoopPoint; i < animationSprites.Length; i++)
+                {
+                    animationImage.sprite = animationSprites[i];
+                    yield return new WaitForSeconds(animationIntervalTime[i] + constantInterval);
+                }
+                usedLoopPoint = loopPoint;
+            } while (isLoop);
+        }
         //SpriteRendererの処理
         else{
-            spriteRenderer = GetComponent<SpriteRenderer>();
             do
         {
             for (int i = usedLoopPoint; i < animationSprites.Length; i++)
@@ -86,7 +93,14 @@ public class SpriteAnimation : MonoBehaviour
                 spriteNumber++;
             }
         }
-        GetComponent<RectTransform>().sizeDelta = new Vector2(oneSpriteSizeX * magnification, oneSpriteSizeY * magnification);
+        if(component == WhichComponent.image)
+        {
+            GetComponent<RectTransform>().sizeDelta = new Vector2(oneSpriteSizeX * magnification, oneSpriteSizeY * magnification);
+        }
+        else
+        {
+            
+        }
         return sprites;
     }
 }
