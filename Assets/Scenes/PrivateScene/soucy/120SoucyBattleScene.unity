@@ -1785,7 +1785,7 @@ Transform:
   m_GameObject: {fileID: 7632918914767664622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.28, y: -0.63562083, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 19342500}
@@ -2069,7 +2069,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3b8cec2a94f6a4e3b90695d33a83558e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aca023d5a8b9044c6bfeb04d1d28e3ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -2266,7 +2266,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.12
 --- !u!114 &6401562599200906726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2596,7 +2596,7 @@ GameObject:
   - component: {fileID: 7451018431512595559}
   - component: {fileID: 877872891662127991}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: '@Enemy'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

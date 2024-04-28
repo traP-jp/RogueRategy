@@ -30,7 +30,6 @@ public class SpriteAnimation : MonoBehaviour
     }
     private void Start()
     {
-        
         if (initializeOnStart)
         {
             Initialize();
