@@ -18,23 +18,30 @@ namespace PrepareSceneOnly
         ChoiceSelector choiceSelector;
         OnFinish onFinish;
 
-        ReactiveProperty<int> progressRate = new ReactiveProperty<int>(0);//進行度、これがある程度貯まるとボス戦が始まる
-        ReactiveProperty<int> moneyAmount = new ReactiveProperty<int>(0);//持っているお金の量
+        ReactiveProperty<int> progressRate = new ReactiveProperty<int>();//進行度、これがある程度貯まるとボス戦が始まる
+        ReactiveProperty<int> moneyAmount = new ReactiveProperty<int>();//持っているお金の量
 
         private void Awake()
         {
             choiceSelector = GetComponent<ChoiceSelector>();
         }
         private void Start()
-        {
+        { 
             //選択終了時にcalledWhenProcessFinishedを呼び出す
             onFinish = CalledWhenProcessFinished;
             SelectNextChoice();
             DepictChoiceText();
 
+            //初期化
+            progressRate.Value = playersInfo.progressRate;
+            moneyAmount.Value = playersInfo.money;
             //進行度やお金の量が変化したとき、テキストを変化させる
             progressRate.Subscribe(x => progressRateText.text = x.ToString()).AddTo(this);
+            progressRate.Subscribe(x => playersInfo.progressRate = x);
             moneyAmount.Subscribe(x => moneyAmountText.text = x.ToString()).AddTo(this);
+            moneyAmount.Subscribe(x => playersInfo.money = x);
+
+
         }
 
         IChoice[] choiceArray = new IChoice[3];

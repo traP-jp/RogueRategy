@@ -9,7 +9,7 @@ namespace PrepareSceneOnly
         //シーン遷移した直後の演出など
         private void Start()
         {
-            
+            Time.timeScale = 1;
         }
     }
 

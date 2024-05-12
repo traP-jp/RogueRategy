@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 348307624882962695}
   - component: {fileID: 1817885142224399146}
   - component: {fileID: 687229474362574666}
+  - component: {fileID: -8936758153065474399}
   m_Layer: 6
   m_Name: Airplane
   m_TagString: Untagged
@@ -237,3 +238,15 @@ MonoBehaviour:
   - 0
   constantInterval: 0.4
   magnification: 1
+--- !u!114 &-8936758153065474399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440545330278303188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d5792d9c4c34a639a30f6eaa792a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

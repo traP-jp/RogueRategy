@@ -10,12 +10,25 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] CardManager cardManager;
     [SerializeField] PlayersInfo playersInfo;
     [SerializeField] ItemGameInventory itemGameInventory;
+
+    //このボスが死んだ時ゲーム終了とする
+    [SerializeField] UnitStatus bossStatus;
+    [SerializeField] GameObject victoryScreen;
     private void Awake()
     {
         PlayerStatusInitialize();
         //他にもゲームを開始する処理や戦闘開始みたいな表示を出したりする時に使う
         //ゲーム開始時に持っているアイテムに応じてアイテムインベントリーの更新を行う処理
         itemGameInventory.DepictItemInInventory(playersInfo);
+    }
+
+    private void Update()
+    {
+        //仮置き、ボスが死んだらカードを選択する画面が出て準備シーンに戻る
+        if(bossStatus.HP <= 0)
+        {
+            OnBattleFinish();
+        }
     }
 
     void PlayerStatusInitialize()
@@ -31,12 +44,17 @@ public class GameFlowManager : MonoBehaviour
         
     }
 
-
-    public void OnBattleFinish()
+    public void TransitionScene()
     {
-        //バトルが終了した時によぶ
+        //バトルが終了し、報酬(カード)を選択した後に呼ぶ
         playersInfo.nowHP = playerStatus.HP;
         string sceneName = SceneManager.GetActiveScene().name.Replace("Battle", "Prepare");
         SceneManager.LoadScene(sceneName);
+    }
+    public void OnBattleFinish()
+    {
+        //バトルが終了した時によぶ
+        victoryScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 }
