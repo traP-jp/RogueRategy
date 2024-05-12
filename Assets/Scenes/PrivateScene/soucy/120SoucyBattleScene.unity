@@ -1821,8 +1821,7 @@ MonoBehaviour:
   - {fileID: 6401562599200906726}
   - {fileID: 4065186577972448851}
   - {fileID: 2999509518965989331}
-  playerStatus: {fileID: 0}
-  mainCamera: {fileID: 0}
+  playerStatus: {fileID: 4333762248268524986}
 --- !u!4 &664726177950567965
 Transform:
   m_ObjectHideFlags: 0
@@ -2371,7 +2370,7 @@ GameObject:
   - component: {fileID: 2813585953619533094}
   - component: {fileID: 592435894534420993}
   m_Layer: 5
-  m_Name: ItemInventory
+  m_Name: '@ItemInventory'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

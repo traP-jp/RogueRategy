@@ -27,7 +27,6 @@ public class ItemGameInventory : MonoBehaviour
     PlayersInfo playersInfo;
     [SerializeField]Image[] itemImages;
     [SerializeField] PlayerStatus playerStatus;
-    [SerializeField] Camera mainCamera;
     public void DepictItemInInventory(PlayersInfo _playersInfo)
     {
         playersInfo = _playersInfo;//このタイミングでPlayersInfoをGameFlowManagerから受け渡す
@@ -62,7 +61,7 @@ public class ItemGameInventory : MonoBehaviour
         }
         else
         {
-            bundle.Process(playerStatus, mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue()));
+            bundle.Process(playerStatus, Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue()));
         }
         playersInfo.playersItem[itemNumber] = null;
         itemImages[itemNumber].sprite = null;

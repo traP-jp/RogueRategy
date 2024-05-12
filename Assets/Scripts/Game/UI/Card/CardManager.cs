@@ -51,7 +51,6 @@ public class CardManager : MonoBehaviour
     
     void PlayTopCard()
     {
-        Debug.Log(nowDisplayCards[0].cardInfo.cardEffectInfo);
         nowDisplayCards[0].cardInfo.cardEffectInfo.Process(playerStatus,playerStatus.transform.position);
         BuffManager.Instance.NoticeCardUse();
     }
@@ -90,14 +89,12 @@ public class CardManager : MonoBehaviour
     {
         //CardInfoのデータから初期状態のCardを生成
         Card resultCard = new Card();
-        Debug.Log(resultCard);
         resultCard.cardInfo = cardInfo;
         resultCard.cost = cardInfo.defaultCost;
         GameObject cardObject = Instantiate(cardPrefab, transform);
         // GameObject cardObject = Instantiate(cardPrefab, new Vector2(cardPositionX, bottomPositionY + cardHeight * displayMaxCount),Quaternion.identity);
         resultCard.cardObject = cardObject;
         cardObject.GetComponent<CardDisplayUpdater>().cardGraphic.sprite = cardInfo.sprite;
-        Debug.Log(resultCard);
         return resultCard;
     }
 
@@ -112,6 +109,12 @@ public class CardManager : MonoBehaviour
         //一番先頭のカードのコストを返す
         //プレイヤーの次のカードを打てるようになるまでの時間を描画するのに使う
         return nowDisplayCards[0].cost;
+    }
+    public GameObject GetTopCardGameObject()
+    {
+        //一番先頭のカードのオブジェクトを返す
+        //プレイヤーの次のカードを打てるようになるまでの時間を描画するのに使う
+        return nowDisplayCards[0].cardObject;
     }
 }
     
