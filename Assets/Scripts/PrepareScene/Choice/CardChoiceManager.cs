@@ -41,10 +41,10 @@ namespace PrepareSceneOnly
         public void ChooseChoice(int choiceNumber)
         {
             //3択の選択肢のどれかを選んだときに呼び出される
-            //一番左のを選んだ時はchoiceNumber=0,真ん中は1,右は2
-            choiceArray[choiceNumber].Process(onFinish,playersInfo);
             //進行度を増やす
             progressRate.Value += choiceArray[choiceNumber].ProgressAmount();
+            //一番左のを選んだ時はchoiceNumber=0,真ん中は1,右は2
+            choiceArray[choiceNumber].Process(onFinish,playersInfo);
         }
 
         void CalledWhenProcessFinished()
