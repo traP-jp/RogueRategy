@@ -20,6 +20,6 @@ public class UITracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rectTransform.position = (Vector2)Camera.main.ScreenToWorldPoint(targetTransform.position) + offset;
+        rectTransform.position = (Vector2)Camera.main.WorldToScreenPoint(targetTransform.position) + offset;
     }
 }

@@ -106,5 +106,12 @@ public class CardManager : MonoBehaviour
         //戦闘開始時のデッキの初期化に利用
         nowDeck = inputDeck;
     }
+
+    public int GetTopCardCost()
+    {
+        //一番先頭のカードのコストを返す
+        //プレイヤーの次のカードを打てるようになるまでの時間を描画するのに使う
+        return nowDisplayCards[0].cost;
+    }
 }
     
