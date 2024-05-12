@@ -33,9 +33,9 @@ public class CardManager : MonoBehaviour
     private void Update()
     {
         //仮置き
-        if (nowDisplayCards[0].cost + playerStatus.costDiffAmount <= energyManager.nowEnergyProperty)
+        if (nowDisplayCards[0].cost + playerStatus.costDiffAmount <= energyManager.nowEnergyFloat)
         {
-            energyManager.nowEnergyProperty -= nowDisplayCards[0].cost + playerStatus.costDiffAmount;
+            energyManager.ChangeEnergyValue(-(nowDisplayCards[0].cost + playerStatus.costDiffAmount));
             CardMovement();
         }
     }

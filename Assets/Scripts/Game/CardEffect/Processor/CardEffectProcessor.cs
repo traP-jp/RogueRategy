@@ -37,7 +37,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
 
     public void RestoreEnergy(int amount)
     {
-        playerEnergy.nowEnergyProperty += amount;
+        playerEnergy.ChangeEnergyValue(amount);
     }
 
     public void GenerateBullet(BulletManager bulletObject,StatusBase usersStatus,Vector2 usersPos)
