@@ -14,6 +14,7 @@ public class GameFlowManager : MonoBehaviour
     //このボスが死んだ時ゲーム終了とする
     [SerializeField] UnitStatus bossStatus;
     [SerializeField] GameObject victoryScreen;
+    [SerializeField] GameObject gameOverScreen;
     private void Awake()
     {
         PlayerStatusInitialize();
@@ -55,6 +56,12 @@ public class GameFlowManager : MonoBehaviour
     {
         //バトルが終了した時によぶ
         victoryScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void OnGameOver()
+    {
+        gameOverScreen.SetActive(true);
         Time.timeScale = 0;
     }
 }
