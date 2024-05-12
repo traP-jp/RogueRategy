@@ -24,6 +24,8 @@ public class GizmosSpawner : MonoBehaviour
                     var start = moveRoute.RoutePoint[index];
                     var end = moveRoute.RoutePoint[next];
                     Gizmos.DrawLine(start, end);
+                    Gizmos.DrawLine(end, (Vector3)end + Quaternion.Euler(0, 0, 45) * (start - end).normalized * 1.5f);
+                    Gizmos.DrawLine(end, (Vector3)end + Quaternion.Euler(0, 0, -45) * (start - end).normalized * 1.5f);
                 }
             }
         }

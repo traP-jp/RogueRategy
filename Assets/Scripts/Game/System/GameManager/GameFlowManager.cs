@@ -20,7 +20,7 @@ public class GameFlowManager : MonoBehaviour
         PlayerStatusInitialize();
         //他にもゲームを開始する処理や戦闘開始みたいな表示を出したりする時に使う
         //ゲーム開始時に持っているアイテムに応じてアイテムインベントリーの更新を行う処理
-        itemGameInventory.DepictItemInInventory(playersInfo);
+        //itemGameInventory.DepictItemInInventory(playersInfo);
     }
 
     private void Update()
