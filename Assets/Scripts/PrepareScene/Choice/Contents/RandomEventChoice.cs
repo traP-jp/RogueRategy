@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace PrepareSceneOnly
 {
-    public class CardGetChoice : MonoBehaviour,IChoice
-    {
-        public CardInfo rewardCard;
-
+    public class RandomEventChoice : MonoBehaviour,IChoice
+{
         public string GetExplanationText()
         {
-            return rewardCard.cardName + "を獲得する";
+            return "何が起こるかわからない";
         }
 
-        public void Process(OnFinish onFinish,PlayersInfo playersInfo)
+        public void Process(OnFinish onFinish, PlayersInfo playersInfo)
         {
-            playersInfo.playersDeck.Add(rewardCard);
             onFinish();
         }
 

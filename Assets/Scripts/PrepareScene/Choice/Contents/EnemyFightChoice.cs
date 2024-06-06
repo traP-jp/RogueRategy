@@ -16,6 +16,11 @@ namespace PrepareSceneOnly
         {
             return "敵と戦闘する";
         }
+
+        public int ProgressAmount()
+        {
+            return 5;
+        }
     }
 }
 

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -4178343824937487828}
   - component: {fileID: 953601248610990458}
   - component: {fileID: 4957782538661899769}
+  - component: {fileID: 4225424186315992522}
   m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 3408257862577032563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.0318167, y: -0.63562083, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6155c76ce6b6b425ea72991147326a6e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0709104af8a84559af06d96bc644b52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,7 +137,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.04
 --- !u!114 &-3337633070562945079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +205,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyByAlly: 0
+--- !u!114 &4225424186315992522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3408257862577032563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac6714710780490991e2f97cda7a7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSprite: {fileID: 21300000, guid: d0709104af8a84559af06d96bc644b52, type: 3}
+  spriteSplitCount: {x: 2, y: 1}
+  initializeOnStart: 1
+  isLoop: 1
+  loopPoint: 0
+  component: 1
+  animationIntervalTime:
+  - 0
+  - 0
+  constantInterval: 0.2
+  magnification: 1

@@ -16,22 +16,22 @@ namespace PrepareSceneOnly
             for(int i = 0; i < length; i++)
             {
                 //仮置きとして各選択肢に対しランダムで休憩、カード取得、敵と戦闘、アイテム取得の中から選ぶ
-                switch (Random.Range(0, 5))
+                switch (Random.Range(0, 15))
                 {
-                    case 0:
+                    case int x when x == 0:
                         resultChoices[i] = GenerateRestChoice();
                         break;
-                    case 1:
+                    case int x when x <=2:
                         resultChoices[i] = GenerateCardGetChoice();
                         break;
-                    case 2:
+                    case int x when x <= 10:
                         resultChoices[i] = GenerateEnemyFightChoice();
                         break;
-                    case 3:
+                    case int x when x <= 11:
                         resultChoices[i] = GenerateItemGetChoice();
                         break;
-                    case 4:
-                        resultChoices[i] = GenerateStatusEnhanceChoice();
+                    case int x when x <= 14:
+                        resultChoices[i] = GenerateRandomEventChoice();
                         break;
                 }
             }
@@ -68,10 +68,11 @@ namespace PrepareSceneOnly
             return itemGetChoice;
         }
 
-        IChoice GenerateStatusEnhanceChoice()
+
+        IChoice GenerateRandomEventChoice()
         {
-            StatusEnhanceChoice statusEnhanceChoice = new StatusEnhanceChoice();
-            return statusEnhanceChoice;
+            RandomEventChoice randomEventChoice = new RandomEventChoice();
+            return randomEventChoice;
         }
     }
 }

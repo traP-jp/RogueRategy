@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using UniRx;
 public class EnergyManager : MonoBehaviour
 {
     [SerializeField] int maxEnergy;
@@ -10,53 +10,30 @@ public class EnergyManager : MonoBehaviour
     
     private Image energyBase;
     public float energyRecoverInterval = 1;
-    int nowEnergy = 0;
-    public int nowEnergyProperty
-    {
-        get
-        {
-            return nowEnergy;
-        }
-        set
-        {
-            if(value >= 0 && value <= maxEnergy)
-            {
-                nowEnergy = value;
-                DisplayEnergy();
-            }
-            else
-            {
-                if (value < 0) nowEnergy = 0;
-                if (value > maxEnergy) nowEnergy = maxEnergy;
-                DisplayEnergy();
-            }
-        }
-    }
+    ReactiveProperty<int> nowEnergy = new ReactiveProperty<int>(0);
+    public float nowEnergyFloat = 0;
+    
 
     private void Awake()
     {
         energyBase = gameObject.GetComponent<Image>();
     }
+
     private void Start()
     {
-        //変化させる対象のImageを選択
-        
-        StartCoroutine(recoverEnergyConstantly());
+        nowEnergy.Subscribe(x => energyBase.sprite = energyImages[x]).AddTo(this);
     }
 
-    IEnumerator recoverEnergyConstantly()
+    private void Update()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(energyRecoverInterval);
-            nowEnergyProperty = nowEnergyProperty + 1;
-        }
-        
-       
+        //エナジーを一定時間おきに回復させる
+        ChangeEnergyValue(Time.deltaTime / energyRecoverInterval);
     }
 
-    void DisplayEnergy()
+    public void ChangeEnergyValue(float value)
     {
-            energyBase.sprite = energyImages[nowEnergyProperty];
+        //valueだけエナジーを増減する
+        nowEnergyFloat += value;
+        nowEnergy.Value = Mathf.Clamp(Mathf.RoundToInt(nowEnergyFloat), 0, 15);
     }
 }

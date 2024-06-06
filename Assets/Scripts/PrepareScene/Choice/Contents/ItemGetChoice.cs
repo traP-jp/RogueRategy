@@ -24,6 +24,11 @@ namespace PrepareSceneOnly
         {
             return "アイテム:" +rewardItem.itemName+"を獲得する";
         }
+
+        public int ProgressAmount()
+        {
+            return 10;
+        }
     }
 
 }

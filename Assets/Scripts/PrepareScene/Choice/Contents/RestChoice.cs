@@ -16,6 +16,11 @@ namespace PrepareSceneOnly
         {
             return "休憩してHPを" + recoverAmount + "回復する";
         }
+
+        public int ProgressAmount()
+        {
+            return 10;
+        }
     }
 }
 

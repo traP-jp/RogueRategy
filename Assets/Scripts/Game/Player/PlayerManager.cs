@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour,IDamagable
 {
     [SerializeField] float slowRate;
     [SerializeField] PlayerHPUpdater playerHPUpdater;
+    [SerializeField] GameFlowManager gameFlowManager;
 
     [System.NonSerialized]public PlayerStatus playerStatus;
     [System.NonSerialized] public BuffStack playerBuffStack;
@@ -67,6 +68,10 @@ public class PlayerManager : MonoBehaviour,IDamagable
         _rigidbody.velocity = realVelocity;
 
         playerHPUpdater.UpdateHPTank(Mathf.RoundToInt(playerStatus.HP));
+        if(playerStatus.HP <= 0)
+        {
+            gameFlowManager.OnGameOver();
+        }
     }
 
 
@@ -92,4 +97,6 @@ public class PlayerManager : MonoBehaviour,IDamagable
             }
         }
     }
+
+    
 }
