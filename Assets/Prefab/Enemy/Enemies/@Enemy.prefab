@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf9a9edb4e75a84d9a27e59a61a5971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missilePool: {fileID: 0}
   enemyHPSlider: {fileID: 0}
   enemyPaths: {fileID: 0}
   paths: []
@@ -82,6 +83,8 @@ MonoBehaviour:
   nowHP: 1000
   missile: []
   waitTime: 0
+  cordon: {fileID: 0}
+  cordonPool: {fileID: 0}
   missilePort: []
   missiles: []
   isbroken: 0
@@ -140,7 +143,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf9a9edb4e75a84d9a27e59a61a5971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missilePool: {fileID: 0}
   enemyHPSlider: {fileID: 0}
   enemyPaths: {fileID: 0}
   paths: []
@@ -191,6 +195,8 @@ MonoBehaviour:
   nowHP: 1000
   missile: []
   waitTime: 0
+  cordon: {fileID: 0}
+  cordonPool: {fileID: 0}
   missilePort:
   - {fileID: 7426199564659329173}
   - {fileID: 6332842879088516136}
@@ -251,7 +257,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf9a9edb4e75a84d9a27e59a61a5971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missilePool: {fileID: 0}
   enemyHPSlider: {fileID: 0}
   enemyPaths: {fileID: 0}
   paths: []
@@ -302,6 +309,8 @@ MonoBehaviour:
   nowHP: 1000
   missile: []
   waitTime: 0
+  cordon: {fileID: 0}
+  cordonPool: {fileID: 0}
   missilePort:
   - {fileID: 5218329255682752686}
   missiles:
@@ -361,7 +370,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -405,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf9a9edb4e75a84d9a27e59a61a5971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missilePool: {fileID: 0}
   enemyHPSlider: {fileID: 0}
   enemyPaths: {fileID: 0}
   paths: []
@@ -412,6 +422,8 @@ MonoBehaviour:
   nowHP: 1000
   missile: []
   waitTime: 0
+  cordon: {fileID: 0}
+  cordonPool: {fileID: 0}
   missilePort:
   - {fileID: 2610226782401705212}
   missiles:
@@ -514,6 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf9a9edb4e75a84d9a27e59a61a5971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missilePool: {fileID: 0}
   enemyHPSlider: {fileID: 0}
   enemyPaths: {fileID: 0}
   paths: []
@@ -521,6 +534,8 @@ MonoBehaviour:
   nowHP: 1000
   missile: []
   waitTime: 0
+  cordon: {fileID: 0}
+  cordonPool: {fileID: 0}
   missilePort:
   - {fileID: 2610226782401705212}
   missiles:

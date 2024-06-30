@@ -442,7 +442,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -486,15 +486,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0ec618d6e73ea4fbbcbc9782e1a130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missilePool: {fileID: 0}
   enemyHPSlider: {fileID: 7704189120080195036}
   enemyPaths: {fileID: 0}
   paths: []
   maxHP: 1000
   nowHP: 1000
-  parentTransform: {fileID: 8622806212795797011}
   missile:
   - {fileID: 2050110343604384230, guid: 7c5f1f3222a3797438b17e7d2ad0178e, type: 3}
   waitTime: 999999
+  cordon: {fileID: 0}
+  cordonPool: {fileID: 0}
 --- !u!1 &6558719223637699979
 GameObject:
   m_ObjectHideFlags: 0

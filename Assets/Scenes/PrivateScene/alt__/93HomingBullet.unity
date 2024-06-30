@@ -727,7 +727,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1388,6 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTransform: {fileID: 1635288032}
+  playerManager: {fileID: 0}
   bulletParentTransform: {fileID: 1666738334}
 --- !u!1 &1574238142
 GameObject:
@@ -1609,7 +1610,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2282,7 +2283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowRate: 0.5
-  playerMaxHP: 0
   playerHPUpdater: {fileID: 1816015533459529988}
 --- !u!4 &4332787311737726161
 Transform:
@@ -2386,6 +2386,7 @@ MonoBehaviour:
   playerStatus: {fileID: 7810184838114248337}
   cardManager: {fileID: 1382738180}
   playersInfo: {fileID: 11400000, guid: 8274fd8ac3278462da8a800e1c0011c0, type: 2}
+  itemGameInventory: {fileID: 0}
 --- !u!4 &4782532839192633366
 Transform:
   m_ObjectHideFlags: 0
@@ -2589,9 +2590,6 @@ MonoBehaviour:
   bulletSpeedRatio: 1
   costDiffAmount: 0
   isControllReverse: 0
-  resultUnitAttack: 0
-  resultUnitDefense: 0
-  resultUnitSpeed: 0
 --- !u!114 &8469187420479170814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2606,7 +2604,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 4782532839192633366}
   playersUnitParentTransform: {fileID: 7641256597915962255}
-  playerBulletParentTransform: {fileID: 1666738334}
+  enemysUnitParentTransform: {fileID: 0}
+  bulletParentTransform: {fileID: 0}
   playerEnergy: {fileID: 1580740802}
 --- !u!4 &8529752031519342734
 Transform:
@@ -2643,7 +2642,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
