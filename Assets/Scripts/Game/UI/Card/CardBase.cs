@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class CardBase : MonoBehaviour
+using UnityEngine.EventSystems;
+public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private CardInfo cardInfo;
+    [SerializeField] private GameObject cardInfoPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,4 +22,14 @@ public class CardBase : MonoBehaviour
         this.cardInfo = cardInfo;
         this.GetComponent<UnityEngine.UI.Image>().sprite = cardInfo.cardimage;
     }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        cardInfoPanel.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        cardInfoPanel.SetActive(false);
+    }
+
 }

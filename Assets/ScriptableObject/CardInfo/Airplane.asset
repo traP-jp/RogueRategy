@@ -16,7 +16,7 @@ MonoBehaviour:
   cardimage: {fileID: 21300000, guid: ab9f1ba42ef542a4daad9279b95175f6, type: 3}
   defaultCost: 2
   cardName: Airplane
-  cardExplanation: 
+  cardExplanation: "\u30C6\u30B9\u30C8"
   cardEffectInfo:
     rid: 6071902649426640897
   references:
