@@ -1417,9 +1417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInfo: {fileID: 11400000, guid: 8274fd8ac3278462da8a800e1c0011c0, type: 2}
   cardbases: []
-  cardbase: {fileID: 2481500943566962249, guid: ff9e9e7ea85c4264c9da358448bcb027, type: 3}
-  nowpage: 0
-  eachpage: 5
+  cardbase: {fileID: 2481500943566962249, guid: de288dcb15056b94a89fee41db1d7b89, type: 3}
 --- !u!4 &1919774384
 Transform:
   m_ObjectHideFlags: 0
@@ -2192,7 +2190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &5088897595638910303
 Rigidbody2D:
   serializedVersion: 4
