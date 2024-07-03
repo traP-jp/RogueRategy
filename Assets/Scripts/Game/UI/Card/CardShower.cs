@@ -33,7 +33,7 @@ public class CardShower : MonoBehaviour
     public void LayoutCards(){
         for(int i = 0; i < cardbases.Count; i++){
             int point = i % eachpage;
-            cardbases[i].transform.localPosition = new Vector3(point*100 - 200, 0,0);
+            cardbases[i].transform.localPosition = new Vector3(point*100 - 200, -120,0);
         }
     }
     public void NowShowCard(){
@@ -47,6 +47,12 @@ public class CardShower : MonoBehaviour
     public void NextPage(){
         if(nowpage < cardbases.Count/eachpage){
             nowpage++;
+            NowShowCard();
+        }
+    }
+    public void BackPage(){
+        if(nowpage > 0){
+            nowpage--;
             NowShowCard();
         }
     }

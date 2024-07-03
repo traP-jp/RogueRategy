@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
-  - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
+  - {fileID: 11400000, guid: 0c1768c9b81804a7881493739dab63d6, type: 2}
   - {fileID: 11400000, guid: d52882bf9e22c447f8ec61addf5a823d, type: 2}
   _playersItem:
   - {fileID: 11400000, guid: 835ab16addd0746699e67b2c55e6ea35, type: 2}
@@ -29,3 +29,5 @@ MonoBehaviour:
   _defense: 3
   _speed: 3
   _bulletSpeed: 3
+  progressRate: 0
+  money: 0
