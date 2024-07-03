@@ -27,6 +27,9 @@ public class PlayersInfo:ScriptableObject
     [SerializeField] float _speed;
     [SerializeField] float _bulletSpeed;
 
+    public int progressRate = 0;
+    public int money = 0;
+
     private void OnEnable()
     {
         nowHP = _nowHP;

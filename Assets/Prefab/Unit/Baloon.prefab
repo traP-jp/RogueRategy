@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -6147495964100545168}
   - component: {fileID: -4812431308771784745}
   - component: {fileID: -444374939593227484}
+  - component: {fileID: 8775942295840318407}
   m_Layer: 6
   m_Name: Baloon
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 40693c289e375472aaa4d7d640c5b444, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f5e51f86abb47348be8d7c4200314a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -227,12 +228,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedBuffStack: {fileID: -6147495964100545168}
-  MaxHP: 1000
+  MaxHP: 100
   attack: 5
   defense: 0
   speed: 2
   bulletSpeed: 4
-  HP: 1000
+  HP: 100
   resultAttack: 0
   resultDefense: 0
   resultSpeed: 0
@@ -254,3 +255,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d5792d9c4c34a639a30f6eaa792a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8775942295840318407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311921651342255844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac6714710780490991e2f97cda7a7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSprite: {fileID: 21300000, guid: 4f5e51f86abb47348be8d7c4200314a9, type: 3}
+  spriteSplitCount: {x: 2, y: 1}
+  initializeOnStart: 1
+  isLoop: 1
+  loopPoint: 0
+  component: 1
+  animationIntervalTime:
+  - 0
+  - 0
+  constantInterval: 0.4
+  magnification: 1

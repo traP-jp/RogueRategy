@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: -7149031143781184849}
   - component: {fileID: 348307624882962695}
   - component: {fileID: 1817885142224399146}
+  - component: {fileID: 687229474362574666}
+  - component: {fileID: -8936758153065474399}
   m_Layer: 6
   m_Name: Airplane
   m_TagString: Untagged
@@ -79,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a79a186e9e30a4635b633df0f98ea19d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f5e51f86abb47348be8d7c4200314a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -185,12 +187,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedBuffStack: {fileID: -7149031143781184849}
-  MaxHP: 0
+  MaxHP: 100
   attack: 5
   defense: 1
   speed: 1
   bulletSpeed: 2
-  HP: 0
+  HP: 100
   resultAttack: 0
   resultDefense: 0
   resultSpeed: 0
@@ -213,3 +215,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyByAlly: 0
+--- !u!114 &687229474362574666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440545330278303188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac6714710780490991e2f97cda7a7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSprite: {fileID: 21300000, guid: 4f5e51f86abb47348be8d7c4200314a9, type: 3}
+  spriteSplitCount: {x: 2, y: 1}
+  initializeOnStart: 1
+  isLoop: 1
+  loopPoint: 0
+  component: 1
+  animationIntervalTime:
+  - 0
+  - 0
+  constantInterval: 0.4
+  magnification: 1
+--- !u!114 &-8936758153065474399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440545330278303188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d5792d9c4c34a639a30f6eaa792a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

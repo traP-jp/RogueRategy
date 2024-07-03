@@ -12,7 +12,6 @@ public class DamageReceiver : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //敵の情報を管理するところにIDamagableをつける
-        Debug.Log(collision.GetComponent<BulletStatus>());
         damagable.AddDamage(Mathf.RoundToInt(collision.GetComponent<BulletStatus>().GetDamage()));
         Destroy(collision.gameObject);
     }

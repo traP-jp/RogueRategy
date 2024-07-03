@@ -27,7 +27,6 @@ public class SpriteAnimation : MonoBehaviour
     SpriteRenderer spriteRenderer;
     private void Start()
     {
-        
         if (initializeOnStart)
         {
             Initialize();
@@ -35,6 +34,14 @@ public class SpriteAnimation : MonoBehaviour
     }
     public void Initialize()
     {
+        if(component == WhichComponent.image)
+        {
+            animationImage = GetComponent<Image>();
+        }
+        else
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
         animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
         StartCoroutine(doAnimation(_ => { }));
     }
@@ -47,7 +54,6 @@ public class SpriteAnimation : MonoBehaviour
     {   
         if(component == WhichComponent.image)
         {
-            animationImage = GetComponent<Image>();
             do
             {
                 for (int i = usedLoopPoint; i < animationSprites.Length; i++)
@@ -60,7 +66,6 @@ public class SpriteAnimation : MonoBehaviour
         }
         //SpriteRendererの処理
         else{
-            spriteRenderer = GetComponent<SpriteRenderer>();
             do
         {
             for (int i = usedLoopPoint; i < animationSprites.Length; i++)
@@ -90,7 +95,14 @@ public class SpriteAnimation : MonoBehaviour
                 spriteNumber++;
             }
         }
-        GetComponent<RectTransform>().sizeDelta = new Vector2(oneSpriteSizeX * magnification, oneSpriteSizeY * magnification);
+        if(component == WhichComponent.image)
+        {
+            GetComponent<RectTransform>().sizeDelta = new Vector2(oneSpriteSizeX * magnification, oneSpriteSizeY * magnification);
+        }
+        else
+        {
+            
+        }
         return sprites;
     }
 }
