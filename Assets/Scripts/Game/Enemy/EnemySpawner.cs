@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
                    for(int k = 0;k < wave.verticalEnemyNumber;k++){
                         //enemyをインスタンス化する(生成する)
                         GameObject enemyObject = Instantiate(wave.enemyType);
+                        enemyObject.layer = 8;
                         Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
                         enemy.wave = wave;
                         
@@ -47,6 +48,7 @@ public class EnemySpawner : MonoBehaviour
                     
                     //enemyをインスタンス化する(生成する)
                     GameObject enemyObject = Instantiate(wave.enemyType);
+                    enemyObject.layer = 8;
                     Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
                     enemy.wave = wave;
                     enemy.Movement(0);

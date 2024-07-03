@@ -9,16 +9,6 @@ public class Enemy : MonoBehaviour
 {
     
     [SerializeField] Transform missilePool;
-    [SerializeField] UnityEngine.UI.Slider enemyHPSlider;
-    //ユニットの通過経路
-    [SerializeField] private EnemyPaths enemyPaths;
-    public void SetEnemyPaths(EnemyPaths enemyPaths){
-        this.enemyPaths = enemyPaths;
-    }
-    //敵の軌道作成用
-    public EnemyPath[] paths;
-    [SerializeField] int maxHP = 1000;
-    [SerializeField] int nowHP = 1000;
     //弾丸の種類
     [SerializeField] List<GameObject> missile;
     //攻撃の待機時間
@@ -30,74 +20,12 @@ public class Enemy : MonoBehaviour
     //警戒線とそのプール
     [SerializeField] GameObject cordon;
     [SerializeField] Transform cordonPool;
-    int nowHPProperty
-    {
-        get { return nowHP; }
-        set
-        {
-            if (value <= 0)
-            {
-                //エネミーを消す処理
-            }
-            else if (value > maxHP)
-            {
-                nowHP = maxHP;
-                throw new System.ArgumentOutOfRangeException();
-            }
-            else nowHP = value;
-        }
-    }
     //移動処理用
     public EnemyWave wave{set; get; }
-
     
-    //ダメージ処理
-    public void AddDamage(int strength)
-    {
-        Debug.Log(strength + "ダメージ");
-        try
-        {
-            nowHPProperty -= strength;
-        }
-        catch
-        {
-
-        }
-        finally
-        {
-            //enemyHPSlider.value = nowHPProperty / (float)maxHP;
-        }
-    }
-    //倒された時の処理
-    public void Deathmotion()
-    {
-
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
     //移動処理
     public async UniTaskVoid Movement(int loopPoint)
     {
-        // if(enemyPaths != null){
-        //     paths = enemyPaths.SetEnemyPaths();
-        //     for(int i = loopPoint; i < paths.Length;i++)
-        //     {
-        //     transform.DOLocalPath(
-        //         path     : paths[i].GetWayPoints(), //移動するポイント
-        //         duration : paths[i].GetMoveTime(), //移動時間
-        //         pathType : PathType.CatmullRom //移動するパスの種類
-        //         ).SetEase(paths[i].GetEase()).OnComplete(SetPosition).SetRelative(true);
-        //     await UniTask.WaitWhile(() => isContinueMove);
-        //     isContinueMove = true;
-        //     await UniTask.Delay(enemyPaths.GetWaitTime(i));
-        //     }
-        //     if(enemyPaths.GetIsLoop()){
-        //     Movement(enemyPaths.GetLoopPoint()).Forget();
-        //     }
-        // }
-        //
         //敵の動きの処理の修正版
         for(int i = loopPoint; i < wave.moveRoutes.Count;i++)
             {
@@ -145,14 +73,6 @@ public class Enemy : MonoBehaviour
             Instantiate(missile, vector3, quaternion,pool);
         }
     }
-    //被弾処理
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log(nowHPProperty);
-        BulletStatus bulletStatus = other.gameObject.GetComponent<BulletStatus>();
-        AddDamage((int)bulletStatus.GetDamage());
-        Destroy(other.gameObject);
-    }    
     void Update()
     {
         time += 1;
@@ -160,7 +80,5 @@ public class Enemy : MonoBehaviour
             time = 0;
             Attack();
         }
-    }
-    public void BrokenEffect(){
     }
 }
