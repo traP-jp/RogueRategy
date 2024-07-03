@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 235cb0675fc5a43e98b9a4aa1943d938, type: 3}
-  m_Name: SimpleGenerateBullet
+  m_Name: GenerateBulletTowardsEnemy
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   defaultCost: 0
@@ -25,8 +25,8 @@ MonoBehaviour:
       type: {class: CardEffectBundle, ns: CardEffect, asm: Assembly-CSharp}
       data:
         cardEffectArray:
-        - rid: 7494894146173272065
-    - rid: 7494894146173272065
+        - rid: 8600851716518969345
+    - rid: 8600851716518969345
       type: {class: GenerateBullet, ns: CardEffect, asm: Assembly-CSharp}
       data:
         bulletObject: {fileID: -4178343824937487828, guid: 439555104f0a04948acc16e75b4a7610, type: 3}
