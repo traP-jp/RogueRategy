@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
@@ -22,10 +23,10 @@ public class CardManager : MonoBehaviour
     private void Start()
     {
         //初期化
+        Debug.Log(displayMaxCount);
         nowDisplayCards = new Card[displayMaxCount];
         for(int index = 0;index < displayMaxCount; index++)
         {
-            
             nowDisplayCards[index] = GenerateDefaultCard(nowDeck[index % nowDeck.Length]);
         }
         UpdateCardDisplay();
@@ -94,7 +95,7 @@ public class CardManager : MonoBehaviour
         GameObject cardObject = Instantiate(cardPrefab, transform);
         // GameObject cardObject = Instantiate(cardPrefab, new Vector2(cardPositionX, bottomPositionY + cardHeight * displayMaxCount),Quaternion.identity);
         resultCard.cardObject = cardObject;
-        cardObject.GetComponent<CardDisplayUpdater>().cardGraphic.sprite = cardInfo.sprite;
+        cardObject.GetComponent<Image>().sprite = cardInfo.sprite;
         return resultCard;
     }
 

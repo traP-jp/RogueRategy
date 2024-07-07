@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235cb0675fc5a43e98b9a4aa1943d938, type: 3}
   m_Name: Airplane
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: a79a186e9e30a4635b633df0f98ea19d, type: 3}
+  sprite: {fileID: 21300000, guid: 7dc8f1fe81b154586a34451873648007, type: 3}
   cardimage: {fileID: 21300000, guid: ab9f1ba42ef542a4daad9279b95175f6, type: 3}
   defaultCost: 2
   cardName: Airplane
