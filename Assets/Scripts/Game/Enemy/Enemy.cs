@@ -17,6 +17,15 @@ public class Enemy : MonoBehaviour
     int time = 0;
     //移動処理が完了したか
     bool isContinueMove = true;
+    bool issearch = false;
+    public void SetSearch(){
+        issearch = true;
+    }
+    float speed = 0.01f;
+    public void SetSpeed(float speed){
+        this.speed = speed;
+    }
+    
     //警戒線とそのプール
     [SerializeField] GameObject cordon;
     [SerializeField] Transform cordonPool;
@@ -42,6 +51,16 @@ public class Enemy : MonoBehaviour
             if(wave.loopPoint != 0){
                 Movement(wave.loopPoint).Forget();
             }
+    }
+    public void SearchMoveing(){
+  
+            GameObject player = GameObject.Find("Player");
+            Debug.Log(player);
+            Vector3 playerPos = player.transform.position;
+            Vector3 enemyPos = this.transform.position;
+            Vector3 direction = playerPos - enemyPos;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, playerPos, speed*Time.deltaTime);
     }
     public void SetPosition(){
         isContinueMove = false;
@@ -79,6 +98,9 @@ public class Enemy : MonoBehaviour
         if (time >= waitTime){
             time = 0;
             Attack();
+        }
+        if(issearch){
+            SearchMoveing();
         }
     }
 }

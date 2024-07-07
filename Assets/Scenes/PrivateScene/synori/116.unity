@@ -1188,6 +1188,8 @@ MonoBehaviour:
   nowChangingPlace: 0
   waves:
   - canExpressMark: 0
+    enemyAttackType: 1
+    searchPoint: {x: 5, y: 0, z: 0}
     otherEnemy: 1
     horizonalEnemyNumber: 3
     verticalEnemyNumber: 2
@@ -1211,30 +1213,6 @@ MonoBehaviour:
       ease: 0
     loopPoint: 0
     enemyType: {fileID: 3775559049738054288, guid: 184c7ef14cc24eb45a77e05e3196672a, type: 3}
-    spawnTime: 0
-  - canExpressMark: 0
-    otherEnemy: 0
-    horizonalEnemyNumber: 1
-    verticalEnemyNumber: 1
-    interval: {x: 0, y: 0, z: 0}
-    spawnIntervalTime: 0
-    spawnNumber: 0
-    enemyMovementType: 0
-    moveRoutes:
-    - RoutePoint:
-      - {x: -1.82, y: 0, z: 0}
-      - {x: -6.54, y: 0, z: 0}
-      movetime: 0
-      waitTime: 0
-      ease: 0
-    - RoutePoint:
-      - {x: -6.54, y: 0, z: 0}
-      - {x: 0, y: 2.05, z: 0}
-      movetime: 0
-      waitTime: 0
-      ease: 0
-    loopPoint: 0
-    enemyType: {fileID: 0}
     spawnTime: 0
 --- !u!4 &1029544468
 Transform:
@@ -1408,7 +1386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1382738179
 Transform:
   m_ObjectHideFlags: 0
@@ -1639,6 +1617,7 @@ MonoBehaviour:
   - {fileID: -1822629379, guid: 9864edcd79f2760439bf389133422add, type: 3}
   - {fileID: -119161093, guid: 9864edcd79f2760439bf389133422add, type: 3}
   energyRecoverInterval: 0.5
+  nowEnergyFloat: 0
 --- !u!222 &1580740803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2388,6 +2367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowRate: 0.5
   playerHPUpdater: {fileID: 1816015533459529988}
+  gameFlowManager: {fileID: 0}
 --- !u!4 &4332787311737726161
 Transform:
   m_ObjectHideFlags: 0
@@ -2491,6 +2471,9 @@ MonoBehaviour:
   cardManager: {fileID: 1382738180}
   playersInfo: {fileID: 11400000, guid: 8274fd8ac3278462da8a800e1c0011c0, type: 2}
   itemGameInventory: {fileID: 0}
+  bossStatus: {fileID: 0}
+  victoryScreen: {fileID: 0}
+  gameOverScreen: {fileID: 0}
 --- !u!4 &4782532839192633366
 Transform:
   m_ObjectHideFlags: 0
@@ -2522,7 +2505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6403203899938188543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,6 +2758,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

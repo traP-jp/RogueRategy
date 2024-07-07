@@ -34,63 +34,70 @@ public class EnemySpawnerEditor : Editor
                 using(new EditorGUILayout.VerticalScope("Box", GUILayout.ExpandWidth(true)))
                 {
                     EditorGUI.BeginChangeCheck();
-                    spawner.waves[i].canExpressMark = EditorGUILayout.Toggle("Spawn Time", spawner.waves[i].canExpressMark);
+                    spawner.waves[i].enemyAttackType = (EnemyWave.EnemyAttackType)EditorGUILayout.EnumPopup("EnemyAttackType", spawner.waves[i].enemyAttackType);
                     spawner.waves[i].enemyType = (GameObject)EditorGUILayout.ObjectField("Enemy Type", spawner.waves[i].enemyType, typeof(GameObject), false);
                     spawner.waves[i].spawnTime = EditorGUILayout.FloatField("Spawn Time", spawner.waves[i].spawnTime);
-                    spawner.waves[i].otherEnemy = (EnemyWave.OtherEnemy)EditorGUILayout.EnumPopup("OtherEnemy", spawner.waves[i].otherEnemy);
-                    //Lineの場合
-                    if(spawner.waves[i].otherEnemy == EnemyWave.OtherEnemy.line){
-                        spawner.waves[i].horizonalEnemyNumber = EditorGUILayout.IntField("H_Enemy Number", spawner.waves[i].horizonalEnemyNumber);
-                        spawner.waves[i].verticalEnemyNumber = EditorGUILayout.IntField("V_Enemy Number", spawner.waves[i].verticalEnemyNumber);
-                        spawner.waves[i].interval = EditorGUILayout.Vector3Field("EnemyInterval", spawner.waves[i].interval);
+                    if(spawner.waves[i].enemyAttackType == EnemyWave.EnemyAttackType.Tracking){
+                        spawner.waves[i].searchspeed = EditorGUILayout.FloatField("Search Speed", spawner.waves[i].searchspeed);
+                        spawner.waves[i].searchPoint = EditorGUILayout.Vector3Field("Search Point", spawner.waves[i].searchPoint);  
                     }
-                    //Followの場合
-                    if(spawner.waves[i].otherEnemy == EnemyWave.OtherEnemy.follow){
-                        spawner.waves[i].spawnNumber = EditorGUILayout.IntField("SpawnNumber", spawner.waves[i].spawnNumber);
-                        spawner.waves[i].spawnIntervalTime = EditorGUILayout.FloatField("IntervalTime", spawner.waves[i].spawnIntervalTime);
-                    }
-                    spawner.waves[i].enemyMovementType = (EnemyWave.EnemyMovementType)EditorGUILayout.EnumPopup("EnemyMovementTime", spawner.waves[i].enemyMovementType);
-                    //Routeの場合
-                    if(spawner.waves[i].enemyMovementType == EnemyWave.EnemyMovementType.Route){
-                        if (GUILayout.Button("Connect Routes"))
-                        {
-                            for(int j = 0; j < spawner.waves[i].moveRoutes.Count()-1; j++){
-                                int pointCount =  spawner.waves[i].moveRoutes[j].RoutePoint.Count();
-                                spawner.waves[i].moveRoutes[j].RoutePoint[pointCount-1] = spawner.waves[i].moveRoutes[j+1].RoutePoint[0] ;
-                            }
+                    else{
+                        spawner.waves[i].canExpressMark = EditorGUILayout.Toggle("Spawn Time", spawner.waves[i].canExpressMark);
+                        spawner.waves[i].otherEnemy = (EnemyWave.OtherEnemy)EditorGUILayout.EnumPopup("OtherEnemy", spawner.waves[i].otherEnemy);
+                        //Lineの場合
+                        if(spawner.waves[i].otherEnemy == EnemyWave.OtherEnemy.line){
+                            spawner.waves[i].horizonalEnemyNumber = EditorGUILayout.IntField("H_Enemy Number", spawner.waves[i].horizonalEnemyNumber);
+                            spawner.waves[i].verticalEnemyNumber = EditorGUILayout.IntField("V_Enemy Number", spawner.waves[i].verticalEnemyNumber);
+                            spawner.waves[i].interval = EditorGUILayout.Vector3Field("EnemyInterval", spawner.waves[i].interval);
                         }
-                        for(int j = 0; j < spawner.waves[i].moveRoutes.Count(); j++){
-                            EnemyWave.EnemyRoute moveRoute = spawner.waves[i].moveRoutes[j];
-                            // ルートリストの表示
-                            for(int k = 0; k < moveRoute.RoutePoint.Count();k++)
+                        //Followの場合
+                        if(spawner.waves[i].otherEnemy == EnemyWave.OtherEnemy.follow){
+                            spawner.waves[i].spawnNumber = EditorGUILayout.IntField("SpawnNumber", spawner.waves[i].spawnNumber);
+                            spawner.waves[i].spawnIntervalTime = EditorGUILayout.FloatField("IntervalTime", spawner.waves[i].spawnIntervalTime);
+                        }
+                        spawner.waves[i].enemyMovementType = (EnemyWave.EnemyMovementType)EditorGUILayout.EnumPopup("EnemyMovementTime", spawner.waves[i].enemyMovementType);
+                        //Routeの場合
+                        if(spawner.waves[i].enemyMovementType == EnemyWave.EnemyMovementType.Route){
+                            if (GUILayout.Button("Connect Routes"))
                             {
-                                moveRoute.RoutePoint[k] = EditorGUILayout.Vector3Field("",moveRoute.RoutePoint[k]);
+                                for(int j = 0; j < spawner.waves[i].moveRoutes.Count()-1; j++){
+                                    int pointCount =  spawner.waves[i].moveRoutes[j].RoutePoint.Count();
+                                    spawner.waves[i].moveRoutes[j].RoutePoint[pointCount-1] = spawner.waves[i].moveRoutes[j+1].RoutePoint[0] ;
+                                }
                             }
-                            //ルートリストの追加
-                            if (GUILayout.Button("Add Point"))
+                            for(int j = 0; j < spawner.waves[i].moveRoutes.Count(); j++){
+                                EnemyWave.EnemyRoute moveRoute = spawner.waves[i].moveRoutes[j];
+                                // ルートリストの表示
+                                for(int k = 0; k < moveRoute.RoutePoint.Count();k++)
                                 {
-                                moveRoute.RoutePoint.Add(new Vector3(0f,0f,0f));
+                                    moveRoute.RoutePoint[k] = EditorGUILayout.Vector3Field("",moveRoute.RoutePoint[k]);
                                 }
-                            if (GUILayout.Button("Remove Point"))
-                                {
-                                moveRoute.RoutePoint.RemoveAt(spawner.waves.Count - 1);
-                                }
-                        moveRoute.ease = (DG.Tweening.Ease)EditorGUILayout.EnumPopup("EnemyMovementTime", moveRoute.ease);
-                        moveRoute.movetime = EditorGUILayout.FloatField("MoveTime",moveRoute.movetime);
-                        moveRoute.waitTime = EditorGUILayout.FloatField("WaitTime",moveRoute.waitTime);
-                        spawner.waves[i].loopPoint = EditorGUILayout.IntField("LoopRoute",spawner.waves[i].loopPoint);
+                                //ルートリストの追加
+                                if (GUILayout.Button("Add Point"))
+                                    {
+                                    moveRoute.RoutePoint.Add(new Vector3(0f,0f,0f));
+                                    }
+                                if (GUILayout.Button("Remove Point"))
+                                    {
+                                    moveRoute.RoutePoint.RemoveAt(spawner.waves.Count - 1);
+                                    }
+                            moveRoute.ease = (DG.Tweening.Ease)EditorGUILayout.EnumPopup("EnemyMovementTime", moveRoute.ease);
+                            moveRoute.movetime = EditorGUILayout.FloatField("MoveTime",moveRoute.movetime);
+                            moveRoute.waitTime = EditorGUILayout.FloatField("WaitTime",moveRoute.waitTime);
+                            spawner.waves[i].loopPoint = EditorGUILayout.IntField("LoopRoute",spawner.waves[i].loopPoint);
+                                
+                            GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
+                            }
                             
-                        GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
-                        }
-                        
-                        if (GUILayout.Button("Add Route"))
-                            {
-                            spawner.waves[i].moveRoutes.Add(new EnemyWave.EnemyRoute());
-                            }
-                        if (GUILayout.Button("Remove Route"))
+                            if (GUILayout.Button("Add Route"))
                                 {
-                                spawner.waves[i].moveRoutes.RemoveAt(spawner.waves.Count - 1);
+                                spawner.waves[i].moveRoutes.Add(new EnemyWave.EnemyRoute());
                                 }
+                            if (GUILayout.Button("Remove Route"))
+                                    {
+                                    spawner.waves[i].moveRoutes.RemoveAt(spawner.waves.Count - 1);
+                                    }
+                        }
                     }
                     //変化しているかの処理
                     if (EditorGUI.EndChangeCheck())

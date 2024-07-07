@@ -807,6 +807,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &527131553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527131555}
+  - component: {fileID: 527131554}
+  m_Layer: 0
+  m_Name: EnemySpwaner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &527131554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527131553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46248d23bcc0dde439347ee5c1263c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nowChangingPlace: 0
+  waves:
+  - canExpressMark: 0
+    enemyAttackType: 1
+    searchPoint: {x: 5, y: 0, z: 0}
+    searchspeed: 1
+    otherEnemy: 0
+    horizonalEnemyNumber: 1
+    verticalEnemyNumber: 1
+    interval: {x: 0, y: 0, z: 0}
+    spawnIntervalTime: 0
+    spawnNumber: 0
+    enemyMovementType: 0
+    moveRoutes: []
+    loopPoint: 0
+    enemyType: {fileID: 3775559049738054288, guid: 184c7ef14cc24eb45a77e05e3196672a, type: 3}
+    spawnTime: 3
+--- !u!4 &527131555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527131553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 975.99457, y: 459.34573, z: -6.870694}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &698862135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,7 +1555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1580740801
 RectTransform:
   m_ObjectHideFlags: 0

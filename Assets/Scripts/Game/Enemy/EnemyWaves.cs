@@ -6,6 +6,16 @@ public class EnemyWave
 {
     //経路の表示用のスクリプト
     public bool canExpressMark = false;
+    //追尾か経路か
+    public enum EnemyAttackType{
+        Route,
+        Tracking
+    }
+    public EnemyAttackType enemyAttackType = EnemyAttackType.Route;
+    //追尾型の判定とその値
+    public Vector3 searchPoint;
+    public float searchspeed = 0.01f;
+    //経路型の判定とその値
     //複数敵を出現させるときに並ばせるか、列を作るか
     public enum OtherEnemy{
         line,
