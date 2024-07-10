@@ -40,7 +40,7 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         playerEnergy.ChangeEnergyValue(amount);
     }
 
-    public void GenerateBullet(BulletManager bulletObject,StatusBase usersStatus,Vector2 usersPos)
+    public void GenerateBullet(BulletManager bulletObject,StatusBase usersStatus,Vector2 usersPos,float magnification)
     {
         //弾丸を生成する.　以前はGameObjectをInstantiateしていたが、BulletStatusに変更(GetComponentを減らすため)
         BulletManager bulletMane = Instantiate(bulletObject, usersPos, Quaternion.identity, bulletParentTransform);
@@ -56,9 +56,13 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
         }
         //レイヤーの設定
         bulletMane.gameObject.layer = JudgeIsPlayerSide(usersStatus) ? 7 : 9;
+        
+        //サイズの設定
+        Vector3 bulletManeLocalScale = bulletMane.transform.localScale;
+        bulletMane.transform.localScale = new Vector3(magnification * bulletManeLocalScale.x, magnification * bulletManeLocalScale.y, 0);
     }
 
-    public void GenerateBulletCircle(BulletManager bulletObject, StatusBase usersStatus, Vector2 usersPos, int bulletCount)
+    public void GenerateBulletCircle(BulletManager bulletObject, StatusBase usersStatus, Vector2 usersPos, int bulletCount, float magnification)
     {
         //bulletCount...輪状に弾幕を飛ばすのの一周の弾幕の数
         float deltaDegree = 360f / (float)bulletCount;
@@ -79,6 +83,10 @@ public class CardEffectProcessor : SingletonMonoBehaviour<CardEffectProcessor>
             }
             //レイヤーの設定
             bulletMane.gameObject.layer = JudgeIsPlayerSide(usersStatus) ? 7 : 9;
+            
+            //サイズの設定
+            Vector3 bulletManeLocalScale = bulletMane.transform.localScale;
+            bulletMane.transform.localScale = new Vector3(magnification * bulletManeLocalScale.x, magnification * bulletManeLocalScale.y, 0);
         }
         
         

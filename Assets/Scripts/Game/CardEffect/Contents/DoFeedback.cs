@@ -16,8 +16,6 @@ namespace CardEffect
             public FeedbackKind feedbackKind;
             public Feedback.Feedback selfMadeFB;
             [SerializeReference, SubclassSelector] public IFeedback changeableFB;
-            public bool isWaitForEnd;
-            public float intervalTime;
         }
 
         [SerializeField] FeedbackTuple _feedback;

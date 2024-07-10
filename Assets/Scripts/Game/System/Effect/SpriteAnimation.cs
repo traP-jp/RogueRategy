@@ -47,6 +47,14 @@ public class SpriteAnimation : MonoBehaviour
     }
     public void Initialize(Action<int> onFinishCallback,int parallelFeedbackID = -1)
     {
+        if(component == WhichComponent.image)
+        {
+            animationImage = GetComponent<Image>();
+        }
+        else
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
         animationSprites = getSpritesFromLargeSprite(animationSprite, spriteSplitCount.x, spriteSplitCount.y);
         StartCoroutine(doAnimation(onFinishCallback,parallelFeedbackID));
     }
