@@ -6,6 +6,7 @@ public class CardShower : MonoBehaviour
 {
     [SerializeField] private PlayersInfo playerInfo;
     [SerializeField] private List<GameObject> cardbases;
+    //プレハブ
     [SerializeField] private GameObject cardbase;
     private int nowpage = 0;
     private int eachpage = 5;
@@ -29,19 +30,26 @@ public class CardShower : MonoBehaviour
             
         }
         LayoutCards();
+        NowShowCard();
     }
     public void LayoutCards(){
         for(int i = 0; i < cardbases.Count; i++){
             int point = i % eachpage;
-            cardbases[i].transform.localPosition = new Vector3(point*100 - 200, -20,0);
+            cardbases[i].transform.localPosition = new Vector3(point*100 - 250, -20,0);
         }
     }
     public void NowShowCard(){
         foreach(GameObject cardbase in cardbases){
-            cardbase.SetActive(false);
+            if(cardbase.GetComponent<CardBase>().showing == true){
+                cardbase.GetComponent<CardBase>().DrawthisCard();
+                cardbase.GetComponent<CardBase>().showing = false;
+            }
+            
         }
         for(int i = nowpage*eachpage; i < Mathf.Min(nowpage*eachpage + eachpage, cardbases.Count); i++){
-            cardbases[i].SetActive(true);
+            Debug.Log(i);
+            cardbases[i].GetComponent<CardBase>().ShowthisCard();
+            cardbases[i].GetComponent<CardBase>().showing = true;
         }
     }
     public void NextPage(){
