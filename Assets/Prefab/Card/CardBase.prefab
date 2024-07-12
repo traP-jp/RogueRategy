@@ -31,7 +31,7 @@ RectTransform:
   m_GameObject: {fileID: 2481500943566962249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4933481200497686430}
@@ -50,7 +50,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2481500943566962249}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &1059764551914195950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,11 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9912ad1c5b8393418a6dd0dd6540fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceY: 40
+  distanceY: 120
   percent: 0
   cardInfoPanel: {fileID: 3334846327028989873}
   explain: {fileID: 8962629063425041715}
-  showing: 0
+  showing: 1
 --- !u!61 &2751491627177638782
 BoxCollider2D:
   m_ObjectHideFlags: 0

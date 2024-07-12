@@ -30,12 +30,12 @@ public class CardShower : MonoBehaviour
             
         }
         LayoutCards();
-        NowShowCard();
+        ShowCard();
     }
     public void LayoutCards(){
         for(int i = 0; i < cardbases.Count; i++){
             int point = i % eachpage;
-            cardbases[i].transform.localPosition = new Vector3(point*100 - 250, -20,0);
+            cardbases[i].transform.localPosition = new Vector3(point*100 - 250, -120,0);
         }
     }
     public void NowShowCard(){
@@ -46,11 +46,7 @@ public class CardShower : MonoBehaviour
             }
             
         }
-        for(int i = nowpage*eachpage; i < Mathf.Min(nowpage*eachpage + eachpage, cardbases.Count); i++){
-            Debug.Log(i);
-            cardbases[i].GetComponent<CardBase>().ShowthisCard();
-            cardbases[i].GetComponent<CardBase>().showing = true;
-        }
+        ShowCard();
     }
     public void NextPage(){
         if(nowpage < cardbases.Count/eachpage){
@@ -62,6 +58,18 @@ public class CardShower : MonoBehaviour
         if(nowpage > 0){
             nowpage--;
             NowShowCard();
+        }
+    }
+    public void ShowCard(){
+        for(int i = 0; i < cardbases.Count; i++){
+            if(i >= nowpage*eachpage && i < Mathf.Min(nowpage*eachpage + eachpage, cardbases.Count)){
+                cardbases[i].GetComponent<CardBase>().ShowthisCard();
+                cardbases[i].GetComponent<CardBase>().showing = true;
+            }
+            else{
+                cardbases[i].GetComponent<CardBase>().DrawthisCard();
+                cardbases[i].GetComponent<CardBase>().showing = false;
+            }
         }
     }
 }
