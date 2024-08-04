@@ -23,7 +23,6 @@ public class CardManager : MonoBehaviour
     private void Start()
     {
         //初期化
-        Debug.Log(displayMaxCount);
         nowDisplayCards = new Card[displayMaxCount];
         for(int index = 0;index < displayMaxCount; index++)
         {
