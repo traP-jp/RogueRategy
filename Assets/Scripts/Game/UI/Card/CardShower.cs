@@ -7,6 +7,9 @@ public class CardShower : MonoBehaviour
     [SerializeField] private PlayersInfo playerInfo;
     [SerializeField] private List<GameObject> cardbases;
     [SerializeField] private GameObject cardbase;
+    [SerializeField] private float sety = 0;
+    [SerializeField] private float setx = 0;
+    [SerializeField] private float perx = 0;
     private int nowpage = 0;
     private int eachpage = 5;
     // Start is called before the first frame update
@@ -33,7 +36,7 @@ public class CardShower : MonoBehaviour
     public void LayoutCards(){
         for(int i = 0; i < cardbases.Count; i++){
             int point = i % eachpage;
-            cardbases[i].transform.localPosition = new Vector3((point-2)*115 - 40, 20,0);
+            cardbases[i].transform.localPosition = new Vector3(point*perx - setx, sety,0);
         }
     }
     public void NowShowCard(){
