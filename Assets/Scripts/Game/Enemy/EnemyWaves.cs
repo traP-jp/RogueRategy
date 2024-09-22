@@ -52,6 +52,9 @@ public class EnemyWave
     public int loopPoint = 0;
     
     public GameObject enemyType;
+    //自動で生成するか
+    public bool autoSpawn = true;
+    //敵の生成間隔
     public float spawnTime;
 }
 
