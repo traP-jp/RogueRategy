@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CardEffect;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,6 @@ public class CardInfo:ScriptableObject
     public int defaultCost;
     public string cardName;
     public string cardExplanation;
-    [SerializeReference,SubclassSelector] public  CardEffect.ICardEffectBundle cardEffectInfo;
+    [SerializeReference] public  CardEffectBundle cardEffectInfo;
     
 }

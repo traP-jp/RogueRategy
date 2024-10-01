@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CardEffect;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Item")]
@@ -9,6 +10,6 @@ public class Item : ScriptableObject
     //この値がfalseの時、マウスの座標にアイテムを使用します
     public string itemName;
     public string itemExplanation;
-    [SerializeReference, SubclassSelector] public CardEffect.ICardEffectBundle itemEffectInfo;
+    [SerializeReference] public CardEffectBundle itemEffectInfo;
     public Sprite itemIcon;
 }

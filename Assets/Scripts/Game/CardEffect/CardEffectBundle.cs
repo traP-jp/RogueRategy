@@ -5,7 +5,7 @@ using UnityEngine;
 namespace CardEffect
 {
     [System.Serializable]
-    public class CardEffectBundle : ICardEffectBundle
+    public class CardEffectBundle
     {
         //カードの効果が複数あるのを一つにまとめたもの
         [SerializeReference,SubclassSelector]public ICardEffect[] cardEffectArray;
@@ -19,10 +19,6 @@ namespace CardEffect
         }
 
 
-    }
-    public interface ICardEffectBundle
-    {
-        void Process(StatusBase usersStatus,Vector2 usersPos);
     }
     public interface ICardEffect
     {
