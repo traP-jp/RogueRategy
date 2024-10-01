@@ -7,17 +7,17 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/BattleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 022837ba91daf44cba33f3ecadc98959
   - enabled: 0
     path: Assets/Scenes/PrivateScene/soucy/17SoucyBattleScene.unity
     guid: ec788f7e80e184ab0b4301a37258c69c
   - enabled: 0
     path: Assets/Scenes/PrivateScene/soucy/17SoucyPrepareScene.unity
     guid: 7490d2f5669b14304adb10df29929e55
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PrivateScene/soucy/120SoucyBattleScene.unity
     guid: c676a2b2092ee412a874dc25d2e280bf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PrivateScene/soucy/120SoucyPrepareScene.unity
     guid: e42dbdcc5a37c4ff8bc9379c17d1d900
   m_configObjects:
