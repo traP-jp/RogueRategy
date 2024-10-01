@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CardEffect;
 using UnityEngine;
 using UniRx;
 
@@ -38,12 +39,12 @@ public class UnitMovementKamikaze : MonoBehaviour
     {
         if (other.gameObject.layer == 8 && unitManager.isPlayerSide)
         {
-            onColliderEffect?.cardEffectInfo.Process(unitManager.unitStatus, transform.position + (Vector3)offset);
+            CardUseProcessor.Instance.UseCard(onColliderEffect.cardEffectInfo, unitManager.unitStatus, (Vector2)transform.position + offset);
             Destroy(gameObject);
         }
         else if (other.gameObject.layer == 10 && !unitManager.isPlayerSide)
         {
-            onColliderEffect?.cardEffectInfo.Process(unitManager.unitStatus, transform.position + (Vector3)offset);
+            CardUseProcessor.Instance.UseCard(onColliderEffect.cardEffectInfo, unitManager.unitStatus, (Vector2)transform.position + offset);
             Destroy(gameObject);
         }
     }
@@ -52,12 +53,12 @@ public class UnitMovementKamikaze : MonoBehaviour
     {
         if (other.gameObject.layer == 8 && unitManager.isPlayerSide)
         {
-            onColliderEffect?.cardEffectInfo.Process(unitManager.unitStatus, transform.position + (Vector3)offset);
+            CardUseProcessor.Instance.UseCard(onColliderEffect.cardEffectInfo, unitManager.unitStatus, (Vector2)transform.position + offset);
             Destroy(gameObject);
         }
         else if (other.gameObject.layer == 10 && !unitManager.isPlayerSide)
         {
-            onColliderEffect?.cardEffectInfo.Process(unitManager.unitStatus, transform.position + (Vector3)offset);
+            CardUseProcessor.Instance.UseCard(onColliderEffect.cardEffectInfo, unitManager.unitStatus, (Vector2)transform.position + offset);
             Destroy(gameObject);
         }
     }

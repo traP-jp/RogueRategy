@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CardEffect;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -57,11 +58,11 @@ public class ItemGameInventory : MonoBehaviour
         var bundle = playersInfo.playersItem[itemNumber].itemEffectInfo;
         if (playersInfo.playersItem[itemNumber].isUseItemOnPlayer)
         {
-            bundle.Process(playerStatus, playerStatus.transform.position);
+            CardUseProcessor.Instance.UseCard(bundle, playerStatus, playerStatus.transform.position);
         }
         else
         {
-            bundle.Process(playerStatus, Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue()));
+            CardUseProcessor.Instance.UseCard(bundle, playerStatus, Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue()));
         }
         playersInfo.playersItem[itemNumber] = null;
         itemImages[itemNumber].sprite = null;

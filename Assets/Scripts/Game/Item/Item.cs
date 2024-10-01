@@ -10,6 +10,6 @@ public class Item : ScriptableObject
     //この値がfalseの時、マウスの座標にアイテムを使用します
     public string itemName;
     public string itemExplanation;
-    [SerializeReference] public CardEffectBundle itemEffectInfo;
+    [SerializeReference,SubclassSelector] public ICardEffect[] itemEffectInfo;
     public Sprite itemIcon;
 }

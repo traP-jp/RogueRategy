@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CardEffect;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -51,7 +52,7 @@ public class CardManager : MonoBehaviour
     
     void PlayTopCard()
     {
-        nowDisplayCards[0].cardInfo.cardEffectInfo.Process(playerStatus,playerStatus.transform.position);
+        CardUseProcessor.Instance.UseCard(nowDisplayCards[0].cardInfo.cardEffectInfo, playerStatus, playerStatus.transform.position);
         BuffManager.Instance.NoticeCardUse();
     }
     void DeleteTopCard()

@@ -13,6 +13,6 @@ public class CardInfo:ScriptableObject
     public int defaultCost;
     public string cardName;
     public string cardExplanation;
-    [SerializeReference] public  CardEffectBundle cardEffectInfo;
+    [SerializeReference, SubclassSelector] public  ICardEffect[] cardEffectInfo;
     
 }

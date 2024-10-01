@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CardEffect;
 using UnityEngine;
 using DG.Tweening;
 
@@ -30,7 +31,7 @@ public class UnitMovementCircle : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(interval);
-            cardEffect.cardEffectInfo.Process(unitManager.unitStatus,transform.position);
+            CardUseProcessor.Instance.UseCard(cardEffect.cardEffectInfo, unitManager.unitStatus, transform.position);
         }
     }
 
