@@ -10,7 +10,6 @@ namespace Game.Player
     {
         [SerializeField] int _energy;
         [SerializeField] float _energyChargeInterval;
-        [SerializeField] int _health;
         [SerializeField] UnitStatus _unitStatus;
         [SerializeField] List<CardInfo> _deck;
 
@@ -20,6 +19,7 @@ namespace Game.Player
             get => _energy;
             set
             {
+                Debug.Log(value);
                 int oldEnergy = _energy;
                 _energy = Mathf.Clamp(value,0,9);
                 _energyUI.UpdateUI(oldEnergy, _energy);
@@ -31,13 +31,7 @@ namespace Game.Player
             get => _energyChargeInterval;
             set => _energyChargeInterval = value;
         }
-
-        public int Health
-        {
-            get => _health;
-            set => _health = value;
-        }
-
+        
         public UnitStatus UnitStatus => _unitStatus;
 
         public List<CardInfo> Deck => _deck;

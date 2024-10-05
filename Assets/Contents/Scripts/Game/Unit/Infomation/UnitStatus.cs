@@ -1,14 +1,20 @@
+using System;
+using UniRx;
 using UnityEngine;
 
 namespace Game.Unit
 {
     public class UnitStatus : MonoBehaviour
     {
-        [SerializeField] float _speed;
-        public float Speed
+        public IntReactiveProperty HealthPoint = new IntReactiveProperty();
+        public IntReactiveProperty MaxHealthPoint = new IntReactiveProperty();
+        public FloatReactiveProperty Speed = new FloatReactiveProperty();
+
+        void Awake()
         {
-            get => _speed;
-            set => _speed = value;
+            HealthPoint
+                .Where(hp => hp > MaxHealthPoint.Value)
+                .Subscribe(_ => HealthPoint.Value = MaxHealthPoint.Value);
         }
     }
 }

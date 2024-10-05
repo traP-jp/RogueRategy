@@ -19,9 +19,9 @@ namespace Game.Card
         {
             if (_playerInfo.Deck[0].Cost <= _playerInfo.Energy)
             {
+                _playerInfo.Energy -= _playerInfo.Deck[0].Cost;
                 UseTopCard();
                 DeleteTopCard();
-                _playerInfo.Energy -= _playerInfo.Deck[0].Cost;
             }
         }
 
@@ -39,7 +39,7 @@ namespace Game.Card
         void UseTopCard()
         {
             var topCard = _playerInfo.Deck[0];
-            Debug.Log("Use");
+            CardEffectUse.Instance.UseEffect(topCard.CardEffectInfo, _playerInfo.UnitStatus, _playerInfo.transform.position);
         }
     }
 }
