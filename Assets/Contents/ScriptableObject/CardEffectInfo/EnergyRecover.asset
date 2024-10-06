@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: EnergyRecover
   m_EditorClassIdentifier: 
   CardEffects:
-  - rid: 9179909538589179906
+  - rid: 9179909538589179907
   references:
     version: 2
     RefIds:
-    - rid: 9179909538589179906
-      type: {class: EnergyRecover, ns: Game.Card.CardEffectSetting, asm: Assembly-CSharp}
+    - rid: 9179909538589179907
+      type: {class: GenerateBullet, ns: Game.Card.CardEffectSetting, asm: Assembly-CSharp}
       data:
-        RecoverAmount: 1
+        BulletPrefab: {fileID: 3575093288295177597, guid: e5f242ca05bef4825a231ea3f4ee87e7, type: 3}

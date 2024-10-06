@@ -25,7 +25,7 @@ namespace Game.Player
 
         void Update()
         {
-            float playerNowSpeed = _unitStatus.Speed.Value;
+            float playerNowSpeed = _unitStatus.Speed;
             if (_gameInputs.BattleScene.Slow.IsPressed())
             {
                 playerNowSpeed *= _slowRatio;

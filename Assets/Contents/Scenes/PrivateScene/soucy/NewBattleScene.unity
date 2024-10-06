@@ -489,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc79a91696694a87ad4e7fb48b093110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletParent: {fileID: 534943046}
 --- !u!1 &698862135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347930640}
   - component: {fileID: 1347930641}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352532979}
   - component: {fileID: 1352532980}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: EnergyCharge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,6 +1174,51 @@ MonoBehaviour:
   _displayCardCount: 4
   _bottomOrigin: {fileID: 1534045976504489427}
   _cardPrefab: {fileID: 2819964414050195998, guid: 68f2503b2f912433ea4ac3768f54c22b, type: 3}
+--- !u!1 &1479019806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479019807}
+  - component: {fileID: 1479019808}
+  m_Layer: 0
+  m_Name: DamageReceiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1479019807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479019806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2519605816088212698}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1479019808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479019806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802871987b084d51b5ba1c21bab7303e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitStatus: {fileID: 1673664387}
 --- !u!1 &1508277488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673664386}
   - component: {fileID: 1673664387}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1589,8 +1635,10 @@ MonoBehaviour:
     value: 200
   MaxHealthPoint:
     value: 1500
-  Speed:
-    value: 3
+  _speed: 3
+  _attack: 0
+  _defence: 0
+  _isPlayerSide: 1
 --- !u!1 &1698498392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +2047,7 @@ Transform:
   - {fileID: 1347930640}
   - {fileID: 1352532979}
   - {fileID: 1673664386}
+  - {fileID: 1479019807}
   m_Father: {fileID: 2062964724}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2017,7 +2066,7 @@ GameObject:
   - component: {fileID: 7765093490265349811}
   - component: {fileID: 7765093490265349814}
   - component: {fileID: 7765093490265349813}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
