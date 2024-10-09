@@ -1,4 +1,5 @@
 using System;
+using NaughtyAttributes;
 using UniRx;
 using UnityEngine;
 
@@ -9,7 +10,9 @@ namespace Game.Unit
         public IntReactiveProperty HealthPoint = new IntReactiveProperty();
         public IntReactiveProperty MaxHealthPoint = new IntReactiveProperty();
         [SerializeField] float _speed;
-        [SerializeField] int _attack;
+        [SerializeField] int _attackDefault;
+        [SerializeField, ReadOnly] int _attackNormal;
+        [SerializeField, ReadOnly] int _attackNow;
         [SerializeField] int _defence;
         [SerializeField] bool _isPlayerSide;
 
@@ -19,10 +22,22 @@ namespace Game.Unit
             set => _speed = value;
         }
 
-        public int Attack
+        public int AttackDefault => _attackDefault;
+
+        public int AttackNormal
         {
-            get => _attack;
-            set => _attack = value;
+            get => _attackNormal;
+            set
+            {
+                _attackNormal = value;
+                AttackNow = _attackNormal;//本当はバフの影響も考慮して値を出す
+            }
+        }
+
+        public int AttackNow
+        {
+            get => _attackNow;
+            set => _attackNow = value;
         }
 
         public int Defence

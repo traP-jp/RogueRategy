@@ -6,7 +6,7 @@ namespace Game.Bullet
     public class BulletStatus : MonoBehaviour
     {
         [SerializeField, ReadOnly] bool _isPlayerSide;
-        [SerializeField, ReadOnly] int _attack;
+        [SerializeField, ReadOnly] int _attackNormal;
         [SerializeField] int _defaultAttack;
 
         public bool IsPlayerSide
@@ -15,10 +15,10 @@ namespace Game.Bullet
             set => _isPlayerSide = value;
         }
 
-        public int Attack
+        public int AttackNormal
         {
-            get => _attack;
-            set => _attack = value;
+            get => _attackNormal;
+            set => _attackNormal = value;
         }
 
         public int DefaultAttack => _defaultAttack;

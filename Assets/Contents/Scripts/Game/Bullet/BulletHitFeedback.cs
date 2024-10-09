@@ -15,7 +15,7 @@ namespace Game.Bullet
 
         public int CalcDamage(int defence)
         {
-            return DamageCalculator.CalcDamage(_bulletStatus.Attack, _bulletStatus.DefaultAttack, defence);
+            return DamageCalculator.CalcDamage(_bulletStatus.AttackNormal, defence);
         }
 
         public void OnHit()

@@ -18,7 +18,7 @@ namespace Game.Bullet
 
         public void Initialize(UnitStatus userStatus, Vector2 orientation)
         {
-            _bulletStatus.Attack = userStatus.Attack;
+            _bulletStatus.AttackNormal = userStatus.AttackNow + userStatus.AttackDefault;
             _bulletStatus.IsPlayerSide = userStatus.IsPlayerSide;
             gameObject.layer = _bulletStatus.IsPlayerSide ? 7 : 9;
             _bulletMovement.Orientation = orientation;

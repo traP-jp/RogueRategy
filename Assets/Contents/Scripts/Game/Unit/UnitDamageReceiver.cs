@@ -12,10 +12,10 @@ namespace Game.Unit
         {
             gameObject.layer = _unitStatus.IsPlayerSide ? 6 : 8;
         }
-
-        void OnCollisionEnter2D(Collision2D other)
+        
+        void OnTriggerEnter2D(Collider2D other)
         {
-            var feedback = other.gameObject.GetComponent<BulletHitFeedback>();
+            var feedback = other.GetComponent<BulletHitFeedback>();
             _unitStatus.HealthPoint.Value -= feedback.CalcDamage(_unitStatus.Defence);
             feedback.OnHit();
         }
