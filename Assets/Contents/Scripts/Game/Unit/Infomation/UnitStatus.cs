@@ -15,7 +15,7 @@ namespace Game.Unit
         [SerializeField, ReadOnly] int _attackNow;
         [SerializeField] int _defence;
         [SerializeField] bool _isPlayerSide;
-
+        [SerializeField] UnitBuffStack _buffStack;
         public float Speed
         {
             get => _speed;
@@ -50,6 +50,11 @@ namespace Game.Unit
         {
             get => _isPlayerSide;
             set => _isPlayerSide = value;
+        }
+
+        public UnitBuffStack GetBuffStack()
+        {
+            return _buffStack;
         }
 
         void Awake()
