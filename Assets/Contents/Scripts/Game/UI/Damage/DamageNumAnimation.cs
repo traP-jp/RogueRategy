@@ -14,7 +14,7 @@ namespace Game.UI.Damage
         {
             TextMeshProUGUI tmPro = GetComponent<TextMeshProUGUI>();
             Sequence animSeq = DOTween.Sequence();
-            animSeq.Append(transform.DOLocalMoveY(_moveDistance, _duration).SetEase(Ease.OutCubic))
+            animSeq.Append(transform.DOMoveY(_moveDistance + transform.position.y, _duration).SetEase(Ease.OutCubic))
                 .Join(tmPro.DOFade(0, _duration).SetEase(Ease.InCubic))
                 .OnComplete(() => Destroy(gameObject));
             animSeq.Play();
