@@ -18,9 +18,9 @@ namespace Game.Unit
         {
             foreach (var buff in _nowBuff)
             {
+                Debug.Log(buff.LeftTime);
                 buff.LeftTime -= Time.deltaTime;
             }
-
             _nowBuff = _nowBuff.Where(b => b.LeftTime > 0).ToList();
         }
     }

@@ -19,7 +19,6 @@ namespace Game.Player
             get => _energy;
             set
             {
-                Debug.Log(value);
                 int oldEnergy = _energy;
                 _energy = Mathf.Clamp(value,0,9);
                 _energyUI.UpdateUI(oldEnergy, _energy);

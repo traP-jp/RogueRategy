@@ -10,17 +10,16 @@ namespace Game.Unit
         [SerializeField] BuffKind _buffKind;
         [SerializeField] bool _buffOrDebuff;
         [SerializeField] string[] _buffInfos;
-        [SerializeField, ReadOnly] float _leftTime;
+        [SerializeField] float _effectTime;
         
         public BuffKind BuffKind => _buffKind;
         public bool BuffOrDebuff => _buffOrDebuff;
         public string[] BuffInfos => _buffInfos;
 
-        public float LeftTime
-        {
-            get => _leftTime;
-            set => _leftTime = value;
-        }
+
+        public float EffectTime => _effectTime;
+        public float LeftTime { get; set; }
+        
     }
 
     public enum BuffKind

@@ -16,4 +16,4 @@ MonoBehaviour:
   _cost: 3
   _cardName: 
   _cardExplanation: 
-  _cardEffectInfo: {fileID: 11400000, guid: 76730045b77184d30bc5e11a97079bac, type: 2}
+  _cardEffectInfo: {fileID: 11400000, guid: b8abce4d06594442293e87cd0fe0acbe, type: 2}

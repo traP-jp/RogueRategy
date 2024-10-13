@@ -15,11 +15,9 @@ namespace Game.Unit
         void OnTriggerEnter2D(Collider2D other)
         {
             var feedback = other.GetComponent<BulletHitFeedback>();
-            int damageNum = feedback.CalcDamage(_unitStatus.Defence);
+            int damageNum = feedback.CalcDamage(_unitStatus);
             _unitStatus.HealthPoint.Value -= damageNum;
             feedback.OnHit();
-            
-            DamageNumberUI.Instance.Generate(damageNum, transform.position);
         }
     }
 }

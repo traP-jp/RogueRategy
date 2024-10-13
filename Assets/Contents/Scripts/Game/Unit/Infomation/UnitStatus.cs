@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using NaughtyAttributes;
 using UniRx;
 using UnityEngine;
@@ -12,8 +13,7 @@ namespace Game.Unit
         [SerializeField] float _speed;
         [SerializeField] int _attackDefault;
         [SerializeField, ReadOnly] int _attackNormal;
-        [SerializeField, ReadOnly] int _attackNow;
-        [SerializeField] int _defence;
+        [SerializeField] int _defenceDefault;
         [SerializeField] bool _isPlayerSide;
         [SerializeField] UnitBuffStack _buffStack;
         public float Speed
@@ -27,23 +27,38 @@ namespace Game.Unit
         public int AttackNormal
         {
             get => _attackNormal;
-            set
-            {
-                _attackNormal = value;
-                AttackNow = _attackNormal;//本当はバフの影響も考慮して値を出す
-            }
+            set => _attackNormal = value;
         }
 
         public int AttackNow
         {
-            get => _attackNow;
-            set => _attackNow = value;
+            get
+            {
+                int nowAttack = AttackNormal;
+                foreach (var buff in _buffStack.NowBuff.Where(b => b.BuffKind == BuffKind.IncreaseAttack))
+                {
+                    nowAttack += int.Parse(buff.BuffInfos[1]);
+                    nowAttack = Mathf.RoundToInt(float.Parse(buff.BuffInfos[0]) * nowAttack);
+                }
+
+                return nowAttack;
+            }
         }
 
-        public int Defence
+        public int DefenceDefault => _defenceDefault;
+
+        public int DefenceNow
         {
-            get => _defence;
-            set => _defence = value;
+            get
+            {
+                int nowDefence = 0;
+                foreach (var buff in _buffStack.NowBuff.Where(b => b.BuffKind == BuffKind.IncreaseDefence))
+                {
+                    nowDefence += int.Parse(buff.BuffInfos[1]);
+                    nowDefence = Mathf.RoundToInt(float.Parse(buff.BuffInfos[0]) * nowDefence);
+                }
+                return nowDefence;
+            }
         }
 
         public bool IsPlayerSide

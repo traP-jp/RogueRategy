@@ -1,5 +1,6 @@
 using System;
 using Game.Parameter.Damage;
+using Game.Unit;
 using UnityEngine;
 
 namespace Game.Bullet
@@ -13,9 +14,9 @@ namespace Game.Bullet
             _bulletStatus = GetComponent<BulletStatus>();
         }
 
-        public int CalcDamage(int defence)
+        public int CalcDamage(UnitStatus defenceStatus)
         {
-            return DamageCalculator.CalcDamage(_bulletStatus.AttackNormal, defence);
+            return DamageCalculator.CalcDamage(_bulletStatus.AttackNormal, defenceStatus);
         }
 
         public void OnHit()
