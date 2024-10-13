@@ -11,8 +11,8 @@ namespace Game.Player
         [SerializeField] int _energy;
         [SerializeField] float _energyChargeInterval;
         [SerializeField] UnitStatus _unitStatus;
-        [SerializeField] List<CardInfo> _deck;
-
+        [SerializeField] CardInfo[] _deck;
+        
         [SerializeField] EnergyUI _energyUI; 
         public int Energy
         {
@@ -33,6 +33,8 @@ namespace Game.Player
         
         public UnitStatus UnitStatus => _unitStatus;
 
-        public List<CardInfo> Deck => _deck;
+        public CardInfo[] Deck => _deck;
+
+        public List<NowCard> NowDeck { get; set; }
     }
 }
