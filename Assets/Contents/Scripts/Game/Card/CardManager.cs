@@ -17,7 +17,7 @@ namespace Game.Card
             _playerInfo.NowDeck = _playerInfo.Deck
                 .Select(info => new NowCard() { Cost = info.Cost, Info = info })
                 .ToList();
-            _cardUI.InitializeCardDeck(_playerInfo.Deck);
+            _cardUI.InitializeCardDeck(_playerInfo.NowDeck.ToArray());
         }
 
         void Update()
@@ -38,7 +38,7 @@ namespace Game.Card
                 _playerInfo.NowDeck[i - 1] = _playerInfo.NowDeck[i];
             }
             _playerInfo.NowDeck[^1] = new NowCard(){Cost = topCard.Info.Cost, Info = topCard.Info};
-            _cardUI.OnUseBottomCard(_playerInfo.NowDeck.Select(c => c.Info).ToArray());
+            _cardUI.OnUseBottomCard(_playerInfo.NowDeck.ToArray());
         }
 
         void UseTopCard()

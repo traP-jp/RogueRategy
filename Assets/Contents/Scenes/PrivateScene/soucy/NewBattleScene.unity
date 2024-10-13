@@ -1520,7 +1520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayCardCount: 4
   _bottomOrigin: {fileID: 1534045976504489427}
-  _cardPrefab: {fileID: 2819964414050195998, guid: 68f2503b2f912433ea4ac3768f54c22b, type: 3}
+  _cardPrefab: {fileID: 4311584657708038692, guid: 68f2503b2f912433ea4ac3768f54c22b, type: 3}
 --- !u!1 &1479019806
 GameObject:
   m_ObjectHideFlags: 0

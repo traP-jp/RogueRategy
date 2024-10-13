@@ -11,23 +11,24 @@ namespace Game.UI.Card
     {
         [SerializeField] int _displayCardCount = 4;
         [SerializeField] RectTransform _bottomOrigin;
-        [SerializeField] Image _cardPrefab;
+        [SerializeField] CardAppearanceInitializer _cardPrefab;
         RectTransform[] _cardRectTransforms;
         readonly List<Tweener> _movingTweener = new List<Tweener>();
 
-        public void InitializeCardDeck(CardInfo[] cardInfos)
+        public void InitializeCardDeck(NowCard[] cardInfos)
         {
             _cardRectTransforms = new RectTransform[_displayCardCount];
             for (int i = 0; i < _displayCardCount; i++)
             {
-                Image cardImage = Instantiate(_cardPrefab, transform);
-                cardImage.sprite = cardInfos[i % cardInfos.Length].CardImage;
-                _cardRectTransforms[i] = cardImage.GetComponent<RectTransform>();
+                CardAppearanceInitializer cardAppearance = Instantiate(_cardPrefab, transform);
+                NowCard displayCard = cardInfos[i % cardInfos.Length];
+                cardAppearance.Initialize(displayCard.Info.CardImage, displayCard.Cost);
+                _cardRectTransforms[i] = cardAppearance.GetComponent<RectTransform>();
                 _cardRectTransforms[i].anchoredPosition = _bottomOrigin.anchoredPosition + Vector2.up * i * 280;
             }
         }
 
-        public void OnUseBottomCard(CardInfo[] afterCardInfos)
+        public void OnUseBottomCard(NowCard[] afterCardInfos)
         {
             //先頭削除
             Destroy(_cardRectTransforms[0].gameObject);
@@ -39,9 +40,10 @@ namespace Game.UI.Card
             }
             
             //新しいカードを作成
-            Image cardImage = Instantiate(_cardPrefab, transform);
-            cardImage.sprite = afterCardInfos[(_displayCardCount - 1) % afterCardInfos.Length].CardImage;
-            _cardRectTransforms[^1] = cardImage.GetComponent<RectTransform>();
+            var cardAppearance = Instantiate(_cardPrefab, transform);
+            NowCard displayCard = afterCardInfos[(_displayCardCount - 1) % afterCardInfos.Length];
+            cardAppearance.Initialize(displayCard.Info.CardImage, displayCard.Cost);
+            _cardRectTransforms[^1] = cardAppearance.GetComponent<RectTransform>();
             _cardRectTransforms[^1].anchoredPosition = _cardRectTransforms[^2].anchoredPosition + Vector2.up * 280;
             
             _movingTweener.ForEach(t => t?.Kill());
