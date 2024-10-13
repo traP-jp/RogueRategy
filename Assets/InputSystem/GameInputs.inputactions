@@ -92,8 +92,30 @@
                 },
                 {
                     "name": "",
+                    "id": "f5814a19-65bd-4dd5-abff-e008dc307f42",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e78c967d-9102-4f84-9470-54a90295ce7f",
                     "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b814ad3-8190-44ae-aac4-ac52aa749b6a",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -114,6 +136,17 @@
                 },
                 {
                     "name": "",
+                    "id": "df7e5959-8485-4130-b46d-3575cb53b82c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7ffd0694-9c9f-448f-8704-74fce16fcd59",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
@@ -125,8 +158,30 @@
                 },
                 {
                     "name": "",
+                    "id": "13a0150c-7848-453e-aa4c-e80b1e3d4504",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d667acfc-6d63-4ec4-9294-1d6f58882538",
                     "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24302205-34a8-4389-b30e-c60342ccd821",
+                    "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
