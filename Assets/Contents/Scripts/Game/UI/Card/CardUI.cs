@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Game.Card;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Game.UI.Card
 {
@@ -22,6 +21,7 @@ namespace Game.UI.Card
             {
                 CardAppearanceInitializer cardAppearance = Instantiate(_cardPrefab, transform);
                 NowCard displayCard = cardInfos[i % cardInfos.Length];
+                displayCard.Prefab = cardAppearance;
                 cardAppearance.Initialize(displayCard.Info.CardImage, displayCard.Cost);
                 _cardRectTransforms[i] = cardAppearance.GetComponent<RectTransform>();
                 _cardRectTransforms[i].anchoredPosition = _bottomOrigin.anchoredPosition + Vector2.up * i * 280;
@@ -42,6 +42,7 @@ namespace Game.UI.Card
             //新しいカードを作成
             var cardAppearance = Instantiate(_cardPrefab, transform);
             NowCard displayCard = afterCardInfos[(_displayCardCount - 1) % afterCardInfos.Length];
+            displayCard.Prefab = cardAppearance;
             cardAppearance.Initialize(displayCard.Info.CardImage, displayCard.Cost);
             _cardRectTransforms[^1] = cardAppearance.GetComponent<RectTransform>();
             _cardRectTransforms[^1].anchoredPosition = _cardRectTransforms[^2].anchoredPosition + Vector2.up * 280;
@@ -53,6 +54,18 @@ namespace Game.UI.Card
             {
                 var tween = _cardRectTransforms[i].DOAnchorPosY(_bottomOrigin.anchoredPosition.y + i * 280, 1);
                 _movingTweener.Add(tween);
+            }
+        }
+
+        public void UpdateCost(NowCard[] cardInfos)
+        {
+            foreach (var card in cardInfos)
+            {
+                if (card.Prefab is not null)
+                {
+                    Debug.Log("UPDATED");
+                    card.Prefab.UpdateCost(card.Cost);   
+                }
             }
         }
     }

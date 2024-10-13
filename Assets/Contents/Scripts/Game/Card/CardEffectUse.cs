@@ -12,6 +12,7 @@ namespace Game.Card
         [SerializeField] HealthRecoverProcessor _healthRecoverProcessor;
         [SerializeField] EnergyRecoverProcessor _energyRecoverProcessor;
         [SerializeField] AddBuffProcessor _addBuffProcessor;
+        [SerializeField] CardCostDownProcessor _cardCostDownProcessor;
 
         public void UseEffect(CardEffectInfo cardEffectInfo, UnitStatus userStatus, Vector2 pos)
         {
@@ -49,6 +50,10 @@ namespace Game.Card
                 case "AddBuff":
                     AddBuff ab = (AddBuff)cardEffectSetting;
                     _addBuffProcessor.Process(userStatus, ab.Buff);
+                    break;
+                case "CardCostDown":
+                    CardCostDown ccd = (CardCostDown)cardEffectSetting;
+                    _cardCostDownProcessor.Process(ccd.CardCount, ccd.CostRatio, ccd.DownAmount);
                     break;
             }
         }

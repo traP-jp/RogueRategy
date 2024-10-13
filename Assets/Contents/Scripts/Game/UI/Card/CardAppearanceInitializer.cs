@@ -14,5 +14,10 @@ namespace Game.UI.Card
             _image.sprite = sprite;
             _costText.text = cost.ToString();
         }
+
+        public void UpdateCost(int newCost)
+        {
+            _costText.text = newCost.ToString();
+        }
     }
 }
