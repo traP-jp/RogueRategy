@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2515441745410087452}
   - component: {fileID: 3706164395931425793}
   - component: {fileID: 8484922327115226609}
+  - component: {fileID: 8848181992639359078}
   m_Layer: 0
   m_Name: SimpleBullet
   m_TagString: Untagged
@@ -248,3 +249,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef83e6bfef74b6e8aa630e2c94ff80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8848181992639359078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877587600863406727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc826f24aff4f59a3d4ec1225437f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _status: {fileID: 5987077987751886990}
