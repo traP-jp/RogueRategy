@@ -37,7 +37,7 @@ public class DestinationViewUI : MonoBehaviour
     }
     //選択されているときにDotweenでカードを大きくする
     public void ChooseCard(){
-        _rectTransform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), _moveTime).SetEase(Ease.OutExpo);
+        _rectTransform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), _moveTime).SetEase(Ease.OutExpo);
     }
     //選択されていないときにDotweenでカードを元に戻す
     public void UnChooseCard(){

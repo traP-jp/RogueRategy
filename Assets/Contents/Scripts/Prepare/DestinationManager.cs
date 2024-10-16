@@ -5,6 +5,7 @@ using System.Linq;
 
 public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
 {
+
     //選択肢の数
     private int _destinationCount = 3;
     enum DestinationType{
@@ -22,12 +23,19 @@ public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
     [SerializeField] float _horizonInterval;
     DestinationViewUI[] _destinationViewUIs = new DestinationViewUI[3];
     int choosePoint = 0;
+    bool isDecide = false;
     // Start is called before the first frame update
     void Start()
     {
-        ShowNormalDestinations();
+
     }
     public void ShowNormalDestinations(){
+        //子オブジェクトを全削除
+        foreach(Transform n in this.transform){
+            Destroy(n.gameObject);
+        }
+        isDecide = false;
+        
         List<int> ChooseType = new List<int>(){0, 1, 2, 3, 4};
         for(int i = 0; i < _destinationCount; i++){
             Vector3 position = _basePosition + new Vector3(_horizonInterval * i, 0, 0);
@@ -49,12 +57,18 @@ public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
     }
     public void OnRight(){
         //右にスライド
+        if(isDecide){
+            return;
+        }
         if(choosePoint < _destinationCount - 1){
             choosePoint++;
         }
         SetCardSize();
     }
     public void OnLeft(){
+        if(isDecide){
+            return;
+        }
         //左にスライド
         if(choosePoint > 0){
             choosePoint--;  
@@ -71,6 +85,10 @@ public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
         }
     }
     public void OnDecide(){
+        if(isDecide){
+            return;
+        }
+        isDecide = true;
         for(int i = 0; i < _destinationCount; i++){
             if(i == choosePoint){
                 _destinationViewUIs[i].UseThisCardAnimation();
