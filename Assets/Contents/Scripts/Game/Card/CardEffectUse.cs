@@ -53,7 +53,7 @@ namespace Game.Card
                     break;
                 case "CardCostDown":
                     CardCostDown ccd = (CardCostDown)cardEffectSetting;
-                    _cardCostDownProcessor.Process(ccd.CardCount, ccd.CostRatio, ccd.DownAmount);
+                    _cardCostDownProcessor.Process(ccd.CardCount, ccd.CostRatio, ccd.DownAmount, ccd.MaxCost);
                     break;
             }
         }
