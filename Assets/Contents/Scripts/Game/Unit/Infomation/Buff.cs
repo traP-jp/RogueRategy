@@ -20,6 +20,8 @@ namespace Game.Unit
         public float EffectTime => _effectTime;
         public float LeftTime { get; set; }
         
+        public float IntervalTime { get; set; }//何秒かに一回発動する系のバフの次の発動までの時間を書く
+        
     }
 
     public enum BuffKind
