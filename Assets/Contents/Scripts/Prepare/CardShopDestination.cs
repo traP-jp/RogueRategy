@@ -1,31 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
+using Cysharp.Threading.Tasks;
+using Game.Card;
 using System;
-public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
+using System.Linq;
+public class CardShopDestination : MonoBehaviour ,IDestinationEventInterface,IPrepareSceneInterface
 {
-
-    public event Action OnDestinationDecide;
-    //選択肢の数
+    public event System.Action OnDestinationEvent;
     private int _destinationCount = 3;
-    public enum DestinationType{
-        Battle,// = 0
-        CardShop,// = 1
-        EnhanceShop,// = 2
-        Fix,// = 3
-        Treasure,// = 4
-        
+    [SerializeField] GameObject _ChooseCardUI;
+    [SerializeField] GameObject _CardUIsObject;
+    //選択のカードの種類
+    [SerializeField] private List<CardInfo> _AllCardChoose;
+    void IDestinationEventInterface.StartthisDestination()
+    {
+        ShowNormalDestinations();
     }
-    [SerializeField] Sprite[] _destinationImages;
-    [SerializeField] GameObject _destinationObjectUI;
-    private DestinationType[] _destinationTypes = new DestinationType[3];
-    private DestinationType chooseDestination = 0;
-    public DestinationType ChooseDestination{
-        get{
-            return chooseDestination;
-        }
+    public void EndthisDestination()
+    {
+        OnDestinationEvent.Invoke();
     }
+    // Start is called before the first frame update
     [SerializeField] Vector3 _basePosition;
     [SerializeField] float _horizonInterval;
     DestinationViewUI[] _destinationViewUIs = new DestinationViewUI[3];
@@ -37,6 +33,9 @@ public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
 
     }
     public void ShowNormalDestinations(){
+        //表示するカードをランダムに選ぶ
+        List<CardInfo> _cardChoose = new List<CardInfo>(_AllCardChoose);
+        _cardChoose = _cardChoose.OrderBy(a => Guid.NewGuid()).ToList();
         //子オブジェクトを全削除
         foreach(Transform n in this.transform){
             Destroy(n.gameObject);
@@ -47,15 +46,10 @@ public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
         for(int i = 0; i < _destinationCount; i++){
             Vector3 position = _basePosition + new Vector3(_horizonInterval * i, 0, 0);
             //オブジェクトを子オブジェクトとして生成
-            GameObject destinationObject = Instantiate(_destinationObjectUI, position, Quaternion.identity);
-            destinationObject.transform.SetParent(this.transform, false);
-            //選択肢の種類をランダムで決定.ただし、同じ選択肢がでないようにする
-            int type = ChooseType[UnityEngine.Random.Range(0, ChooseType.Count)];
-            _destinationTypes[i] = (DestinationType)type;
-            ChooseType.Remove(type);
-            
+            GameObject destinationObject = Instantiate(_ChooseCardUI, position, Quaternion.identity);
             DestinationViewUI destinationViewUI = destinationObject.GetComponent<DestinationViewUI>();
-            destinationViewUI.SetCardView(_destinationImages[type]);
+            destinationObject.transform.SetParent(_CardUIsObject.transform, false);
+            destinationViewUI.SetCardView(_cardChoose.ElementAt(i).CardImage);
             _destinationViewUIs[i] = destinationViewUI;
 
         }
@@ -82,6 +76,7 @@ public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
         SetCardSize();
     }
     public void SetCardSize(){
+        Debug.Log("SetCardSize");
         for(int i = 0; i < _destinationCount; i++){
             if(i == choosePoint){
                 _destinationViewUIs[i].ChooseCard();
@@ -90,6 +85,9 @@ public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
             }
         }
     }
+    public async UniTask Wait(){
+        await UniTask.Delay(3000);
+    }
     public void OnDecide(){
         if(isDecide){
             return;
@@ -97,13 +95,15 @@ public class DestinationManager : MonoBehaviour,IPrepareSceneInterface
         isDecide = true;
         for(int i = 0; i < _destinationCount; i++){
             if(i == choosePoint){
+                //選んだカードのアニメーション
                 _destinationViewUIs[i].UseThisCardAnimation();
             }else{
+                //選んでいないカードのアニメーション
                 _destinationViewUIs[i].CleanThisCardAnimation();
             }
         }
-        chooseDestination = _destinationTypes[choosePoint];
-        OnDestinationDecide?.Invoke();
+        //Wait();
+        EndthisDestination();
         //選択した選択肢によって処理を変える
         // switch(_destinationTypes[choosePoint]){
         //     case DestinationType.Battle:

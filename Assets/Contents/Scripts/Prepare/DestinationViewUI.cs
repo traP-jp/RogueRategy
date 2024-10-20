@@ -15,6 +15,7 @@ public class DestinationViewUI : MonoBehaviour
     [SerializeField] float _moveTime;
     [SerializeField] Vector3 _cardPosition;
     [SerializeField] Vector3 _useCardPosition;
+    [SerializeField] Vector3 _useCardPosition2;
     [SerializeField] Vector3 _cleanCardPosition;
 
     public void SetCardView(Sprite sprite){
@@ -27,8 +28,10 @@ public class DestinationViewUI : MonoBehaviour
     }
 
     public void UseThisCardAnimation(){
-        //カードを中心に動かす
-        _rectTransform.DOAnchorPos(_useCardPosition, _moveTime).SetEase(Ease.OutExpo);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(_rectTransform.DOAnchorPos(_useCardPosition, _moveTime).SetEase(Ease.OutExpo));
+        sequence.Append(_rectTransform.DOAnchorPos(_useCardPosition2, _moveTime).SetEase(Ease.OutExpo).SetRelative(true));
+        
     }
 
     public void CleanThisCardAnimation(){
@@ -42,5 +45,8 @@ public class DestinationViewUI : MonoBehaviour
     //選択されていないときにDotweenでカードを元に戻す
     public void UnChooseCard(){
         _rectTransform.DOScale(new Vector3(1f, 1f, 1f), _moveTime).SetEase(Ease.OutExpo);
+    }
+    void OnDestroy(){
+        DOTween.Kill(this.gameObject);
     }
 }
