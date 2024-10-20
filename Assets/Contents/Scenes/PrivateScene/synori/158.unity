@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChooseCardUI: {fileID: 5041842001680855528, guid: 3f262e7399c7c8c4eb98cc489d1e5912, type: 3}
   _CardUIsObject: {fileID: 530323285}
+  _playerInfo: {fileID: 11400000, guid: 2bffaa64999d26647ac662be42bbbca0, type: 2}
   _AllCardChoose:
   - {fileID: 11400000, guid: 89fb25beb447945df8db4273e4bac1dc, type: 2}
   - {fileID: 11400000, guid: 89fb25beb447945df8db4273e4bac1dc, type: 2}
@@ -738,6 +739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _EnhanceCardUI: {fileID: 5041842001680855528, guid: 3f262e7399c7c8c4eb98cc489d1e5912, type: 3}
   _ChooseEnhanceUIs: {fileID: 403997103}
+  _playerInfo: {fileID: 11400000, guid: 2bffaa64999d26647ac662be42bbbca0, type: 2}
   _basePosition: {x: 0, y: -250, z: 0}
   _horizonInterval: 300
 --- !u!1 &785745114

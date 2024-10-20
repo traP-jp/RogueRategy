@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Player;
 
 public class EnhanceShopDestination : MonoBehaviour,IDestinationEventInterface,IPrepareSceneInterface
 {
@@ -8,6 +9,7 @@ public class EnhanceShopDestination : MonoBehaviour,IDestinationEventInterface,I
     private int _destinationCount = 3;
     [SerializeField] GameObject _EnhanceCardUI;
     [SerializeField] GameObject _ChooseEnhanceUIs;
+    [SerializeField] private PlayerInfoData _playerInfo;
     void IDestinationEventInterface.StartthisDestination()
     {
         ShowNormalDestinations();
