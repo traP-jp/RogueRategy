@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de954125f1aa24e478cfafa1b73d6cb6
+guid: 5deeeb4e8f90ffe46846dc72b66226be
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heal_effect_0
+      name: "\u884C\u5148\u306E\u8868\u793A-Sheet_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 67
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48bb60daee29104438a2f3cde4e6d4af
-      internalID: -1242177005
+      spriteID: 9e2d58c514ed6d14a8ecb546d7d59808
+      internalID: 17807179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_1
+      name: "\u884C\u5148\u306E\u8868\u793A-Sheet_1"
       rect:
         serializedVersion: 2
-        x: 48
+        x: 67
         y: 0
-        width: 48
-        height: 48
+        width: 67
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e115dd1c25ea9342a16b8163de60345
-      internalID: -1743762421
+      spriteID: e33f73e5ea5844f45bef8bc35816eaa1
+      internalID: -2065749060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_2
+      name: "\u884C\u5148\u306E\u8868\u793A-Sheet_2"
       rect:
         serializedVersion: 2
-        x: 96
+        x: 134
         y: 0
-        width: 48
-        height: 48
+        width: 67
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 665ec6b3f60355142b791def4ce97287
-      internalID: -2027345353
+      spriteID: e779c9aba9dfcb14999fdd9af11f7897
+      internalID: 901269198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_3
+      name: "\u884C\u5148\u306E\u8868\u793A-Sheet_3"
       rect:
         serializedVersion: 2
-        x: 144
+        x: 201
         y: 0
-        width: 48
-        height: 48
+        width: 67
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 211b3c06e5fd15748bbf0a5fa8c2650a
-      internalID: 1710590566
+      spriteID: dbce38dfaf0a40c4fa0004bb6202027d
+      internalID: -1927205458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_4
+      name: "\u884C\u5148\u306E\u8868\u793A-Sheet_4"
       rect:
         serializedVersion: 2
-        x: 192
+        x: 268
         y: 0
-        width: 48
-        height: 48
+        width: 67
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6daefa77dfb8891489c8eaff3d68430e
-      internalID: 1957553920
+      spriteID: df7edd534267f9842aa01c7e10255406
+      internalID: -668564290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_5
+      name: "\u884C\u5148\u306E\u8868\u793A-Sheet_5"
       rect:
         serializedVersion: 2
-        x: 240
+        x: 335
         y: 0
-        width: 48
-        height: 48
+        width: 67
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 167d0bcfefefe6e41b6f5e61c97b3d86
-      internalID: 860764946
+      spriteID: 17f218e11540f0349b654a79921c6ef0
+      internalID: 1225157032
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      heal_effect_0: -1242177005
-      heal_effect_1: -1743762421
-      heal_effect_2: -2027345353
-      heal_effect_3: 1710590566
-      heal_effect_4: 1957553920
-      heal_effect_5: 860764946
+      "\u884C\u5148\u306E\u8868\u793A-Sheet_0": 17807179
+      "\u884C\u5148\u306E\u8868\u793A-Sheet_1": -2065749060
+      "\u884C\u5148\u306E\u8868\u793A-Sheet_2": 901269198
+      "\u884C\u5148\u306E\u8868\u793A-Sheet_3": -1927205458
+      "\u884C\u5148\u306E\u8868\u793A-Sheet_4": -668564290
+      "\u884C\u5148\u306E\u8868\u793A-Sheet_5": 1225157032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de954125f1aa24e478cfafa1b73d6cb6
+guid: d9bfb8dbf29d1f1489ed5e7bb5a4ffda
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heal_effect_0
+      name: rogurateEnemies7-10_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48bb60daee29104438a2f3cde4e6d4af
-      internalID: -1242177005
+      spriteID: 5f3f3ec4f5785514b8f1a14a7fab5b32
+      internalID: -1992038450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_1
+      name: rogurateEnemies7-10_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e115dd1c25ea9342a16b8163de60345
-      internalID: -1743762421
+      spriteID: 26379093274baed46875c73dfbda41e0
+      internalID: -992973783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_2
+      name: rogurateEnemies7-10_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,41 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 665ec6b3f60355142b791def4ce97287
-      internalID: -2027345353
+      spriteID: 56ae1d8c7dc737146bb072b144d127f4
+      internalID: -528018452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 211b3c06e5fd15748bbf0a5fa8c2650a
-      internalID: 1710590566
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heal_effect_4
+      name: rogurateEnemies7-10_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6daefa77dfb8891489c8eaff3d68430e
-      internalID: 1957553920
+      spriteID: 2a16a2109afe1f946940a496b3ec6d46
+      internalID: -535017898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_5
+      name: rogurateEnemies7-10_4
       rect:
         serializedVersion: 2
-        x: 240
+        x: 256
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +208,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 167d0bcfefefe6e41b6f5e61c97b3d86
-      internalID: 860764946
+      spriteID: 9de23f12df5d33046bc7abe80d1f12fe
+      internalID: 1062921990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rogurateEnemies7-10_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 643f11a2a76a2f646a7bc121ca6c3800
+      internalID: 446344822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rogurateEnemies7-10_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d00aee09a63004e8f513820384f0c8
+      internalID: 107222035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rogurateEnemies7-10_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fe67396ab8802459d960f8db8d635e
+      internalID: 227388676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rogurateEnemies7-10_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886e59b0d83353d46977c18f084dc4a6
+      internalID: 2098863563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rogurateEnemies7-10_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333e977c476552345bf70a14d5b5d6ba
+      internalID: 889823447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rogurateEnemies7-10_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd6a498968ca4744835b13ffa41a707
+      internalID: 1045855643
       vertices: []
       indices: 
       edges: []
@@ -246,12 +351,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      heal_effect_0: -1242177005
-      heal_effect_1: -1743762421
-      heal_effect_2: -2027345353
-      heal_effect_3: 1710590566
-      heal_effect_4: 1957553920
-      heal_effect_5: 860764946
+      rogurateEnemies7-10_0: -1992038450
+      rogurateEnemies7-10_1: -992973783
+      rogurateEnemies7-10_10: 1045855643
+      rogurateEnemies7-10_2: -528018452
+      rogurateEnemies7-10_3: -535017898
+      rogurateEnemies7-10_4: 1062921990
+      rogurateEnemies7-10_5: 446344822
+      rogurateEnemies7-10_6: 107222035
+      rogurateEnemies7-10_7: 227388676
+      rogurateEnemies7-10_8: 2098863563
+      rogurateEnemies7-10_9: 889823447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

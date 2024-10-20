@@ -346,6 +346,169 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PrepareScene"",
+            ""id"": ""3e6853c3-4b4b-4cef-9271-097d98bfdd95"",
+            ""actions"": [
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b809d85-660e-4fe1-afcf-c15c81a334ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""18e5034b-7a64-4a43-939b-5474e85d82b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8bc37f0-cdda-4c51-9f50-ec7b26104444"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""8bebad47-c940-4e92-866f-df7101405569"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Decide"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8c83e6f-9be6-4ef3-9c4d-c2ff5962a0b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""97f9e2cb-33b4-48ef-8f71-8f18c02ff139"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66b0cbb3-a27d-4d81-9a10-362bb4fdcaaa"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8668c3a1-8522-43f4-9065-c9287ca219cc"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67b3a059-541f-42fb-8b86-b3b362e79403"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""706462d2-b9ec-4df1-ac53-a4786e827d0d"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78aba915-351f-4d78-b606-38ee7388302b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e695610-e26a-456f-a6ae-9fe709ad58ae"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21109f3d-24b2-4be4-b77d-df4f6b9bc9b3"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""427d0285-cfc9-469a-95d7-dda0532d7f3c"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Decide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e956015-dc6e-46f3-9c3c-9ead56b7ed76"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Decide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -365,6 +528,13 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         m_TitleScene_Up = m_TitleScene.FindAction("Up", throwIfNotFound: true);
         m_TitleScene_Down = m_TitleScene.FindAction("Down", throwIfNotFound: true);
         m_TitleScene_Decide = m_TitleScene.FindAction("Decide", throwIfNotFound: true);
+        // PrepareScene
+        m_PrepareScene = asset.FindActionMap("PrepareScene", throwIfNotFound: true);
+        m_PrepareScene_Up = m_PrepareScene.FindAction("Up", throwIfNotFound: true);
+        m_PrepareScene_Down = m_PrepareScene.FindAction("Down", throwIfNotFound: true);
+        m_PrepareScene_Left = m_PrepareScene.FindAction("Left", throwIfNotFound: true);
+        m_PrepareScene_Right = m_PrepareScene.FindAction("Right", throwIfNotFound: true);
+        m_PrepareScene_Decide = m_PrepareScene.FindAction("Decide", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -586,6 +756,84 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         }
     }
     public TitleSceneActions @TitleScene => new TitleSceneActions(this);
+
+    // PrepareScene
+    private readonly InputActionMap m_PrepareScene;
+    private List<IPrepareSceneActions> m_PrepareSceneActionsCallbackInterfaces = new List<IPrepareSceneActions>();
+    private readonly InputAction m_PrepareScene_Up;
+    private readonly InputAction m_PrepareScene_Down;
+    private readonly InputAction m_PrepareScene_Left;
+    private readonly InputAction m_PrepareScene_Right;
+    private readonly InputAction m_PrepareScene_Decide;
+    public struct PrepareSceneActions
+    {
+        private @GameInputs m_Wrapper;
+        public PrepareSceneActions(@GameInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Up => m_Wrapper.m_PrepareScene_Up;
+        public InputAction @Down => m_Wrapper.m_PrepareScene_Down;
+        public InputAction @Left => m_Wrapper.m_PrepareScene_Left;
+        public InputAction @Right => m_Wrapper.m_PrepareScene_Right;
+        public InputAction @Decide => m_Wrapper.m_PrepareScene_Decide;
+        public InputActionMap Get() { return m_Wrapper.m_PrepareScene; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PrepareSceneActions set) { return set.Get(); }
+        public void AddCallbacks(IPrepareSceneActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PrepareSceneActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PrepareSceneActionsCallbackInterfaces.Add(instance);
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+            @Decide.started += instance.OnDecide;
+            @Decide.performed += instance.OnDecide;
+            @Decide.canceled += instance.OnDecide;
+        }
+
+        private void UnregisterCallbacks(IPrepareSceneActions instance)
+        {
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+            @Decide.started -= instance.OnDecide;
+            @Decide.performed -= instance.OnDecide;
+            @Decide.canceled -= instance.OnDecide;
+        }
+
+        public void RemoveCallbacks(IPrepareSceneActions instance)
+        {
+            if (m_Wrapper.m_PrepareSceneActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPrepareSceneActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PrepareSceneActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PrepareSceneActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PrepareSceneActions @PrepareScene => new PrepareSceneActions(this);
     public interface IBattleSceneActions
     {
         void OnDown(InputAction.CallbackContext context);
@@ -601,6 +849,14 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     {
         void OnUp(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
+        void OnDecide(InputAction.CallbackContext context);
+    }
+    public interface IPrepareSceneActions
+    {
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
         void OnDecide(InputAction.CallbackContext context);
     }
 }

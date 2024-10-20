@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de954125f1aa24e478cfafa1b73d6cb6
+guid: 29a74c7ebd4897049b62d39b7f114d79
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heal_effect_0
+      name: beam-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 44
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48bb60daee29104438a2f3cde4e6d4af
-      internalID: -1242177005
+      spriteID: aed0a7e399346d947aaf391c982902b0
+      internalID: 479124401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_1
+      name: beam-Sheet_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 44
         y: 0
-        width: 48
-        height: 48
+        width: 44
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e115dd1c25ea9342a16b8163de60345
-      internalID: -1743762421
+      spriteID: a568b2ab24a75c348b0b5ce38cc69565
+      internalID: -1852977216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_2
+      name: beam-Sheet_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 88
         y: 0
-        width: 48
-        height: 48
+        width: 44
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 665ec6b3f60355142b791def4ce97287
-      internalID: -2027345353
+      spriteID: d4a59e4bc422e8a4dafa8f18c9be5b6c
+      internalID: -950158144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_3
+      name: beam-Sheet_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 132
         y: 0
-        width: 48
-        height: 48
+        width: 44
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 211b3c06e5fd15748bbf0a5fa8c2650a
-      internalID: 1710590566
+      spriteID: 13cb425557471ba4997ad121c6ad4d55
+      internalID: 589958993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_4
+      name: beam-Sheet_4
       rect:
         serializedVersion: 2
-        x: 192
+        x: 176
         y: 0
-        width: 48
-        height: 48
+        width: 44
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6daefa77dfb8891489c8eaff3d68430e
-      internalID: 1957553920
+      spriteID: 815cf49e6a73f0046983a5aa11c6dbb8
+      internalID: -1839157951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heal_effect_5
+      name: beam-Sheet_5
       rect:
         serializedVersion: 2
-        x: 240
+        x: 220
         y: 0
-        width: 48
-        height: 48
+        width: 44
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 167d0bcfefefe6e41b6f5e61c97b3d86
-      internalID: 860764946
+      spriteID: 285b3c33742b3604f93fa34a4ef39dd3
+      internalID: 735566858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff05a027690f824e851b6e3185ce17b
+      internalID: -1592053810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c6fc0584fd0ce4f8c1c8ed6c10b200
+      internalID: -24106824
       vertices: []
       indices: 
       edges: []
@@ -246,12 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      heal_effect_0: -1242177005
-      heal_effect_1: -1743762421
-      heal_effect_2: -2027345353
-      heal_effect_3: 1710590566
-      heal_effect_4: 1957553920
-      heal_effect_5: 860764946
+      beam-Sheet_0: 479124401
+      beam-Sheet_1: -1852977216
+      beam-Sheet_2: -950158144
+      beam-Sheet_3: 589958993
+      beam-Sheet_4: -1839157951
+      beam-Sheet_5: 735566858
+      beam-Sheet_6: -1592053810
+      beam-Sheet_7: -24106824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
