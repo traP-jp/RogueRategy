@@ -284,7 +284,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 89fb25beb447945df8db4273e4bac1dc, type: 2}
   - {fileID: 11400000, guid: 89fb25beb447945df8db4273e4bac1dc, type: 2}
   - {fileID: 11400000, guid: 715fc29babd6841da9e9ebe016871c86, type: 2}
-  _basePosition: {x: 0, y: -250, z: 0}
+  _basePosition: {x: -180, y: -500, z: 0}
   _horizonInterval: 300
 --- !u!1 &365581939
 GameObject:
@@ -737,11 +737,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95119aadf23bfa4e9dd4de43c0ad208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EnhanceCardUI: {fileID: 5041842001680855528, guid: 3f262e7399c7c8c4eb98cc489d1e5912, type: 3}
+  _EnhanceCardUI: {fileID: 5041842001680855528, guid: e05da5f9d92baf1478e594eaa87199a3, type: 3}
   _ChooseEnhanceUIs: {fileID: 403997103}
   _playerInfo: {fileID: 11400000, guid: 2bffaa64999d26647ac662be42bbbca0, type: 2}
-  _basePosition: {x: 0, y: -250, z: 0}
-  _horizonInterval: 300
+  _enhanceContents:
+  - {fileID: 11400000, guid: b7df23f531f2f7d4cab21ef42c1ca4e5, type: 2}
+  - {fileID: 11400000, guid: b7df23f531f2f7d4cab21ef42c1ca4e5, type: 2}
+  - {fileID: 11400000, guid: b7df23f531f2f7d4cab21ef42c1ca4e5, type: 2}
+  _basePosition: {x: -180, y: -500, z: 0}
+  _horizonInterval: 410
 --- !u!1 &785745114
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,8 +5609,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1831744404}
   - {fileID: 702246124}
+  - {fileID: 1831744404}
   - {fileID: 286712453}
   - {fileID: 972488109}
   m_Father: {fileID: 0}

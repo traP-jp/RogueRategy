@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9035278c6cd694a8d2c4605d1258b3, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  _enhanceInterfaces:
+  - rid: 8334852760406327296
+  _explainText: "\u30B9\u30D4\u30FC\u30C9\u30A2\u30C3\u30D7\u30C6\u30B9\u30C8"
+  _icon: {fileID: 17807179, guid: 5deeeb4e8f90ffe46846dc72b66226be, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8334852760406327296
+      type: {class: SpeedEnhance, ns: , asm: Assembly-CSharp}
+      data:
+        _enhanceValue: 1

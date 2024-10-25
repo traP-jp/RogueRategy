@@ -8,6 +8,7 @@ namespace Game.Player
     [CreateAssetMenu(menuName = "ScriptableObject/PlayerInfoData", fileName = "PlayerInfoData")]
     public class PlayerInfoData : ScriptableObject
     {
+        [SerializeField] int _playerHP;
         [SerializeField] float _energyChargeInterval;
         [SerializeField] CardInfo[] _deck;
         [SerializeField] float _speed;
@@ -16,6 +17,11 @@ namespace Game.Player
         [SerializeField] float _invictionInterval;
         [SerializeField] float _coinCollectEfficiency;
 
+        public int PlayerHP
+        {
+            get => _playerHP;
+            set => _playerHP = value;
+        }
         public float EnergyChargeInterval
         {
             get => _energyChargeInterval;
