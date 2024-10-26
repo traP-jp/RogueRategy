@@ -92,6 +92,11 @@ public class EnhanceShopDestination : MonoBehaviour,IDestinationEventInterface,I
         if(isDecide){
             return;
         }
+        //買えるかどうかの判定
+        if(_playerInfo.Money < _enhanceChoose[choosePoint].Price){
+            return;
+        }
+        _playerInfo.Money -= _enhanceChoose[choosePoint].Price;
         isDecide = true;
         for(int i = 0; i < _destinationCount; i++){
             if(i == choosePoint){

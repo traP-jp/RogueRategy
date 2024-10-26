@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bebe2b1de137caa48882b04a4e643e43, type: 3}
   m_Name: PlayerInfoData
   m_EditorClassIdentifier: 
+  _money: 6000
+  _playerHP: 100
   _energyChargeInterval: 0
-  _deck: []
-  _speed: 0
+  _deck:
+  - {fileID: 11400000, guid: 715fc29babd6841da9e9ebe016871c86, type: 2}
+  - {fileID: 11400000, guid: 89fb25beb447945df8db4273e4bac1dc, type: 2}
+  - {fileID: 11400000, guid: 89fb25beb447945df8db4273e4bac1dc, type: 2}
+  - {fileID: 11400000, guid: 715fc29babd6841da9e9ebe016871c86, type: 2}
+  - {fileID: 11400000, guid: 89fb25beb447945df8db4273e4bac1dc, type: 2}
+  - {fileID: 11400000, guid: 89fb25beb447945df8db4273e4bac1dc, type: 2}
+  _speed: 16
   _attackDefault: 0
   _attackNormal: 0
   _invictionInterval: 0

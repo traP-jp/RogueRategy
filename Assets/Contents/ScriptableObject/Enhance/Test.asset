@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enhanceInterfaces:
   - rid: 8334852760406327296
+  _price: 1000
   _explainText: "\u30B9\u30D4\u30FC\u30C9\u30A2\u30C3\u30D7\u30C6\u30B9\u30C8"
   _icon: {fileID: 17807179, guid: 5deeeb4e8f90ffe46846dc72b66226be, type: 3}
   references:

@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveTime: 2
-  _cardPosition: {x: 0, y: 600, z: 0}
+  _cardPosition: {x: 0, y: 510, z: 0}
   _useCardPosition: {x: 230, y: 0, z: 0}
   _useCardPosition2: {x: 0, y: 1200, z: 0}
   _cleanCardPosition: {x: 0, y: 1000, z: 0}

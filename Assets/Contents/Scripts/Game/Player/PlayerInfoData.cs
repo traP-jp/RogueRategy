@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Card;
+using System;
+using Cysharp.Threading.Tasks;
 
 namespace Game.Player
 {
     [CreateAssetMenu(menuName = "ScriptableObject/PlayerInfoData", fileName = "PlayerInfoData")]
     public class PlayerInfoData : ScriptableObject
     {
+        [SerializeField] private int _money;
         [SerializeField] int _playerHP;
         [SerializeField] float _energyChargeInterval;
         [SerializeField] CardInfo[] _deck;
@@ -17,6 +20,22 @@ namespace Game.Player
         [SerializeField] float _invictionInterval;
         [SerializeField] float _coinCollectEfficiency;
 
+        //イベント用
+        public delegate void CoinInfoDataEventHandler();
+        public event CoinInfoDataEventHandler OnCoinInfoDataChanged;
+
+        public int Money
+        {
+            get => _money;
+            set
+            {
+                if (_money != value)
+                {
+                    _money = value;
+                    OnCoinInfoDataChanged?.Invoke();
+                }
+            }
+        }
         public int PlayerHP
         {
             get => _playerHP;
