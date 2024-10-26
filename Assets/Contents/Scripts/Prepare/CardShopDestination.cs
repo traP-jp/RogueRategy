@@ -5,12 +5,14 @@ using Cysharp.Threading.Tasks;
 using Game.Card;
 using System;
 using System.Linq;
+using Game.Player;
 public class CardShopDestination : MonoBehaviour ,IDestinationEventInterface,IPrepareSceneInterface
 {
     public event System.Action OnDestinationEvent;
     private int _destinationCount = 3;
     [SerializeField] GameObject _ChooseCardUI;
     [SerializeField] GameObject _CardUIsObject;
+    [SerializeField] private PlayerInfoData _playerInfo;
     //選択のカードの種類
     [SerializeField] private List<CardInfo> _AllCardChoose;
     void IDestinationEventInterface.StartthisDestination()
@@ -27,6 +29,7 @@ public class CardShopDestination : MonoBehaviour ,IDestinationEventInterface,IPr
     DestinationViewUI[] _destinationViewUIs = new DestinationViewUI[3];
     int choosePoint = 0;
     bool isDecide = false;
+    List<CardInfo> _cardChoose;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +37,7 @@ public class CardShopDestination : MonoBehaviour ,IDestinationEventInterface,IPr
     }
     public void ShowNormalDestinations(){
         //表示するカードをランダムに選ぶ
-        List<CardInfo> _cardChoose = new List<CardInfo>(_AllCardChoose);
+        _cardChoose = new List<CardInfo>(_AllCardChoose);
         _cardChoose = _cardChoose.OrderBy(a => Guid.NewGuid()).ToList();
         //子オブジェクトを全削除
         foreach(Transform n in this.transform){
@@ -93,6 +96,7 @@ public class CardShopDestination : MonoBehaviour ,IDestinationEventInterface,IPr
             return;
         }
         isDecide = true;
+        _playerInfo.AddCardInfo(_cardChoose.ElementAt(choosePoint));
         for(int i = 0; i < _destinationCount; i++){
             if(i == choosePoint){
                 //選んだカードのアニメーション

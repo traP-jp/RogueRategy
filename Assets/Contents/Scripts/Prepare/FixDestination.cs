@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using Game.Player;
 
 public class FixDestination : MonoBehaviour,IDestinationEventInterface,IPrepareSceneInterface
 {
     public event System.Action OnDestinationEvent;
     ParticleSystem _particleSystem;
+    [SerializeField] private PlayerInfoData _playerInfoData;
     void IDestinationEventInterface.StartthisDestination()
     {
+        _playerInfoData.PlayerHP += 100;
         Fix();
     }
     void EndthisDestination()

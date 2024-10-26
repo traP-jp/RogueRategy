@@ -94,7 +94,7 @@ MonoBehaviour:
   _cardPosition: {x: 0, y: 400, z: 0}
   _useCardPosition: {x: -800, y: 50, z: 0}
   _useCardPosition2: {x: 0, y: 1500, z: 0}
-  _cleanCardPosition: {x: 0, y: 700, z: 0}
+  _cleanCardPosition: {x: 0, y: 900, z: 0}
 --- !u!212 &6299269315653752535
 SpriteRenderer:
   m_ObjectHideFlags: 0

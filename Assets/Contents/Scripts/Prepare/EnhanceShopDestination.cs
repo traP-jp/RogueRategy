@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Game.Player;
+using System;
+using System.Linq;
+using TMPro;
 public class EnhanceShopDestination : MonoBehaviour,IDestinationEventInterface,IPrepareSceneInterface
 {
     public event System.Action OnDestinationEvent;
     private int _destinationCount = 3;
     [SerializeField] GameObject _EnhanceCardUI;
     [SerializeField] GameObject _ChooseEnhanceUIs;
+    [SerializeField] private PlayerInfoData _playerInfo;
+    //選択強化の種類
+    [SerializeField] private List<EnhanceContent> _enhanceContents;
     void IDestinationEventInterface.StartthisDestination()
     {
         ShowNormalDestinations();
@@ -23,12 +29,16 @@ public class EnhanceShopDestination : MonoBehaviour,IDestinationEventInterface,I
     DestinationViewUI[] _destinationViewUIs = new DestinationViewUI[3];
     int choosePoint = 0;
     bool isDecide = false;
+    List<EnhanceContent> _enhanceChoose;
     // Start is called before the first frame update
     void Start()
     {
 
     }
     public void ShowNormalDestinations(){
+        //表示する強化をランダムに選ぶ
+        _enhanceChoose = new List<EnhanceContent>(_enhanceContents);
+        _enhanceChoose = _enhanceChoose.OrderBy(a => Guid.NewGuid()).ToList();
         //子オブジェクトを全削除
         foreach(Transform n in this.transform){
             Destroy(n.gameObject);
@@ -42,7 +52,8 @@ public class EnhanceShopDestination : MonoBehaviour,IDestinationEventInterface,I
             GameObject destinationObject = Instantiate(_EnhanceCardUI, position, Quaternion.identity);
             DestinationViewUI destinationViewUI = destinationObject.GetComponent<DestinationViewUI>();
             destinationObject.transform.SetParent(_ChooseEnhanceUIs.transform, false);
-            destinationViewUI.SetCardView(null);
+            destinationObject.GetComponentInChildren<TextMeshProUGUI>().text = _enhanceChoose[i].ExplainText;
+            destinationViewUI.SetCardView(_enhanceChoose[i].Icon);
             _destinationViewUIs[i] = destinationViewUI;
 
         }
@@ -81,6 +92,11 @@ public class EnhanceShopDestination : MonoBehaviour,IDestinationEventInterface,I
         if(isDecide){
             return;
         }
+        //買えるかどうかの判定
+        if(_playerInfo.Money < _enhanceChoose[choosePoint].Price){
+            return;
+        }
+        _playerInfo.Money -= _enhanceChoose[choosePoint].Price;
         isDecide = true;
         for(int i = 0; i < _destinationCount; i++){
             if(i == choosePoint){
@@ -90,6 +106,9 @@ public class EnhanceShopDestination : MonoBehaviour,IDestinationEventInterface,I
                 //選んでいないカードのアニメーション
                 _destinationViewUIs[i].CleanThisCardAnimation();
             }
+        }
+        foreach(var enhance in _enhanceChoose[choosePoint].EnhanceInterfaces){
+            enhance.EnhancePlayer(_playerInfo);
         }
         EndthisDestination();
         //選択した選択肢によって処理を変える

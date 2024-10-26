@@ -30,13 +30,12 @@ public class DestinationViewUI : MonoBehaviour
     public void UseThisCardAnimation(){
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_rectTransform.DOAnchorPos(_useCardPosition, _moveTime).SetEase(Ease.OutExpo));
-        sequence.Append(_rectTransform.DOAnchorPos(_useCardPosition2, _moveTime).SetEase(Ease.OutExpo).SetRelative(true));
-        
+        sequence.Append(_rectTransform.DOAnchorPos(_useCardPosition2, _moveTime).SetEase(Ease.OutExpo).SetRelative(true).OnComplete(() => Destroy(this.gameObject)));
     }
 
     public void CleanThisCardAnimation(){
         //カードを下に動かす
-        _rectTransform.DOAnchorPos(_cleanCardPosition, _moveTime).SetEase(Ease.OutExpo).SetRelative(true);
+        _rectTransform.DOAnchorPos(_cleanCardPosition, _moveTime).SetEase(Ease.OutExpo).SetRelative(true).OnComplete(() => Destroy(this.gameObject));
     }
     //選択されているときにDotweenでカードを大きくする
     public void ChooseCard(){
