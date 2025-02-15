@@ -13,11 +13,10 @@ GameObject:
   - component: {fileID: 6711540549465359257}
   - component: {fileID: 4070831651876741131}
   - component: {fileID: 445226097215832342}
-  - component: {fileID: 3707415327588676628}
-  - component: {fileID: 2348487061564965775}
   - component: {fileID: 115189042424160709}
   - component: {fileID: 2435190450345275036}
   - component: {fileID: 6477769701280370801}
+  - component: {fileID: 3488501521009766272}
   m_Layer: 0
   m_Name: TestUnit
   m_TagString: Untagged
@@ -148,37 +147,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3707415327588676628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89913859509194314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17f64454c0fb41dfa07a4ecc9efc1268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shootDistance: 4
-  _force: 3
-  _forceDownRange: 1
-  _resistPower: 3
---- !u!114 &2348487061564965775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89913859509194314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad4ca462d5044c58b9c83325755ffee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _useCardEffect: {fileID: 11400000, guid: 12e84ab92195547a59afbff1320c15ee, type: 2}
-  _attackInterval: 1
-  _status: {fileID: 4755300184894401364}
 --- !u!58 &115189042424160709
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -240,6 +208,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _status: {fileID: 4755300184894401364}
+--- !u!114 &3488501521009766272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89913859509194314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baef600e07964eddad76995b63dc96b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootDistance: 4
+  _velocity: 2
+  _status: {fileID: 4755300184894401364}
+  _attackCardInfo: {fileID: 11400000, guid: 12e84ab92195547a59afbff1320c15ee, type: 2}
+  _shootInterval: 1
 --- !u!1 &5568288200511592205
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,12 +16,12 @@ namespace Game.Bullet
             _bulletMovement = GetComponent<IBulletMovement>();
         }
 
-        public void Initialize(UnitStatus userStatus, Vector2 orientation)
+        public void Initialize(UnitStatus userStatus)
         {
             _bulletStatus.AttackNormal = userStatus.AttackNow + userStatus.AttackDefault;
             _bulletStatus.IsPlayerSide = userStatus.IsPlayerSide;
             gameObject.layer = _bulletStatus.IsPlayerSide ? 7 : 9;
-            _bulletMovement.Orientation = orientation;
+            _bulletMovement.Orientation = userStatus.WeaponOrientation;
         }
     }
 }
