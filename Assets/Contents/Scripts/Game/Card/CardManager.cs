@@ -11,7 +11,23 @@ namespace Game.Card
     {
         [SerializeField] PlayerInfo _playerInfo;
         [SerializeField] CardUI _cardUI;
-        
+
+
+        GameInputs _inputs;
+        #region Input関係
+        void OnEnable()
+        {
+            _inputs = new GameInputs();
+            _inputs.Enable();
+        }
+
+        void OnDisable()
+        {
+            _inputs.Disable();
+        }
+
+        #endregion
+
         void Start()
         {
             _playerInfo.NowDeck = new List<NowCard>();
@@ -31,10 +47,13 @@ namespace Game.Card
         {
             if (_playerInfo.NowDeck[0].Cost <= _playerInfo.Energy)
             {
-                _playerInfo.Energy -= _playerInfo.Deck[0].Cost;
-                UseTopCard();
-                DeleteTopCard();
-                UpdateCardCostUI();
+                if (_inputs.BattleScene.UseCard.WasPressedThisFrame())
+                {
+                    _playerInfo.Energy -= _playerInfo.Deck[0].Cost;
+                    UseTopCard();
+                    DeleteTopCard();
+                    UpdateCardCostUI();   
+                }
             }
         }
 
