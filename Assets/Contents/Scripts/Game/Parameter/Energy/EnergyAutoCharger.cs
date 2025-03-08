@@ -8,18 +8,10 @@ namespace Game.Parameter.Energy
     public class EnergyAutoCharger : MonoBehaviour
     {
         [SerializeField] PlayerInfo _playerInfo;
-        void Start()
-        {
-            StartCoroutine(AutoCharge());
-        }
 
-        IEnumerator AutoCharge()
+        void Update()
         {
-            while (true)
-            {
-                yield return new WaitForSeconds(_playerInfo.EnergyChargeInterval);
-                _playerInfo.Energy += 1;
-            }
+            _playerInfo.Energy += Time.deltaTime / _playerInfo.EnergyChargeInterval;
         }
     }
 }
