@@ -18,7 +18,7 @@ namespace Game.Bullet
 
         public void Initialize(UnitStatus userStatus)
         {
-            _bulletStatus.AttackNormal = userStatus.AttackNow + userStatus.AttackDefault;
+            _bulletStatus.AttackNormal = userStatus.AttackNow * _bulletStatus.AttackRatio;
             _bulletStatus.IsPlayerSide = userStatus.IsPlayerSide;
             gameObject.layer = _bulletStatus.IsPlayerSide ? 7 : 9;
             _bulletMovement.Orientation = userStatus.WeaponOrientation;

@@ -7,7 +7,7 @@ namespace Game.Bullet
     {
         [SerializeField, ReadOnly] bool _isPlayerSide;
         [SerializeField, ReadOnly] int _attackNormal;
-        [SerializeField] int _defaultAttack;
+        [SerializeField] int _attackRatio;
 
         public bool IsPlayerSide
         {
@@ -21,6 +21,6 @@ namespace Game.Bullet
             set => _attackNormal = value;
         }
 
-        public int DefaultAttack => _defaultAttack;
+        public int AttackRatio => _attackRatio;
     }
 }
