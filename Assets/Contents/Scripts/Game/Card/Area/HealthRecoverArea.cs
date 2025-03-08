@@ -14,6 +14,12 @@ namespace Game.Card.Area
         List<UnitStatus> _statusList = new List<UnitStatus>();
 
         float _nowTime = 0;
+
+        void Start()
+        {
+            GetComponent<Collider2D>().enabled = true;
+        }
+
         void Update()
         {
             _nowTime += Time.deltaTime;
