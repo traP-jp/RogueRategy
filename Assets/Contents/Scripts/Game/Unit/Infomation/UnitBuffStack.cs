@@ -25,7 +25,7 @@ namespace Game.Unit
 
         public void RemoveAllDebuff()
         {
-            _nowBuff = _nowBuff.Where(buff => !buff.BuffOrDebuff).ToList();
+            _nowBuff = _nowBuff.Where(buff => buff.BuffOrDebuff).ToList();
         }
     }
 }

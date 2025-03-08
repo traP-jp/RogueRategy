@@ -12,6 +12,7 @@ namespace Game.Unit
             var buffStack = _status.GetBuffStack();
             foreach (var buff in buffStack.NowBuff.Where(b => b.BuffKind == BuffKind.AutoHealthRecover))
             {
+                Debug.Log(buff);
                 buff.IntervalTime -= Time.deltaTime;
                 if (buff.IntervalTime < 0)
                 {

@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5650054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5650055}
+  - component: {fileID: 5650056}
+  m_Layer: 0
+  m_Name: RemoveAllDebuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5650055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1508277489}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5650056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c723fb4ed74825b552da1e1b6839b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &33190206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1691,7 @@ Transform:
   - {fileID: 1542492200}
   - {fileID: 1873866270}
   - {fileID: 2128140641}
+  - {fileID: 5650055}
   m_Father: {fileID: 414770605}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1668,6 +1713,7 @@ MonoBehaviour:
   _energyRecoverProcessor: {fileID: 168465684}
   _addBuffProcessor: {fileID: 1873866271}
   _cardCostDownProcessor: {fileID: 2128140642}
+  _removeAllDebuffProcessor: {fileID: 5650056}
 --- !u!1 &1542492199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,6 +2184,7 @@ GameObject:
   - component: {fileID: 1673664387}
   - component: {fileID: 1673664388}
   - component: {fileID: 1673664389}
+  - component: {fileID: 1673664390}
   m_Layer: 0
   m_Name: Status
   m_TagString: Untagged
@@ -2208,6 +2255,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nowBuff: []
+--- !u!114 &1673664390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673664385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de720fd9a6ea45009373b8754fa2e4da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _status: {fileID: 1673664387}
 --- !u!1 &1698498392
 GameObject:
   m_ObjectHideFlags: 0
