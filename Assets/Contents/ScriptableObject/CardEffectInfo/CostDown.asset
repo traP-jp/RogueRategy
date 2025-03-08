@@ -20,6 +20,7 @@ MonoBehaviour:
     - rid: 9179909738948460546
       type: {class: CardCostDown, ns: Game.Card.CardEffectSetting, asm: Assembly-CSharp}
       data:
-        CardCount: 2
+        CardCount: 1
         CostRatio: 1
-        DownAmount: 1
+        DownAmount: 4
+        MaxCost: 10

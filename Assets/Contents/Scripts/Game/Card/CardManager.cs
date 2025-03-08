@@ -49,7 +49,7 @@ namespace Game.Card
             {
                 if (_inputs.BattleScene.UseCard.WasPressedThisFrame())
                 {
-                    _playerInfo.Energy -= _playerInfo.Deck[0].Cost;
+                    _playerInfo.Energy -= _playerInfo.NowDeck[0].Cost;
                     UseTopCard();
                     DeleteTopCard();
                     UpdateCardCostUI();   
