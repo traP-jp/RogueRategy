@@ -22,5 +22,10 @@ namespace Game.Unit
             }
             _nowBuff = _nowBuff.Where(b => b.LeftTime > 0).ToList();
         }
+
+        public void RemoveAllDebuff()
+        {
+            _nowBuff = _nowBuff.Where(buff => !buff.BuffOrDebuff).ToList();
+        }
     }
 }
