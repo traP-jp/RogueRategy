@@ -63,7 +63,6 @@ namespace Game.UI.Card
             {
                 if (card.Prefab is not null)
                 {
-                    Debug.Log("UPDATED");
                     card.Prefab.UpdateCost(card.Cost);   
                 }
             }

@@ -8,18 +8,18 @@ namespace Game.Player
 {
     public class PlayerInfo : MonoBehaviour
     {
-        [SerializeField] int _energy;
+        [SerializeField] float _energy;
         [SerializeField] float _energyChargeInterval;
         [SerializeField] UnitStatus _unitStatus;
         [SerializeField] CardInfo[] _deck;
         
         [SerializeField] EnergyUI _energyUI; 
-        public int Energy
+        public float Energy
         {
             get => _energy;
             set
             {
-                int oldEnergy = _energy;
+                float oldEnergy = _energy;
                 _energy = Mathf.Clamp(value,0,9);
                 _energyUI.UpdateUI(oldEnergy, _energy);
             }

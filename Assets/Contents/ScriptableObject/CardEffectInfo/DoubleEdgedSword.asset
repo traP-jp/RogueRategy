@@ -14,10 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardEffects:
   - rid: 9179909738948460544
-  - rid: 9179909738948460545
+  - rid: 3831241862695878657
   references:
     version: 2
     RefIds:
+    - rid: 3831241862695878657
+      type: {class: AddBuff, ns: Game.Card.CardEffectSetting, asm: Assembly-CSharp}
+      data:
+        Buff:
+          _buffKind: 0
+          _buffOrDebuff: 0
+          _buffInfos:
+          - 5
+          _effectTime: 3
     - rid: 9179909738948460544
       type: {class: AddBuff, ns: Game.Card.CardEffectSetting, asm: Assembly-CSharp}
       data:
@@ -27,13 +36,4 @@ MonoBehaviour:
           _buffInfos:
           - 2
           - 0
-          _effectTime: 3
-    - rid: 9179909738948460545
-      type: {class: AddBuff, ns: Game.Card.CardEffectSetting, asm: Assembly-CSharp}
-      data:
-        Buff:
-          _buffKind: 0
-          _buffOrDebuff: 0
-          _buffInfos:
-          - 2
           _effectTime: 3

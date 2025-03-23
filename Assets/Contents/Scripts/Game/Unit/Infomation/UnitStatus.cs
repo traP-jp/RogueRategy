@@ -66,6 +66,9 @@ namespace Game.Unit
             get => _isPlayerSide;
             set => _isPlayerSide = value;
         }
+        
+        //弾幕をどっち向きに飛ばすか
+        [field: SerializeField]public Vector2 WeaponOrientation { get; set; }
 
         public UnitBuffStack GetBuffStack()
         {

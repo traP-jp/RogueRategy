@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPlayerSide: 0
   _attackNormal: 0
-  _defaultAttack: 10
+  _attackRatio: 1
 --- !u!114 &3575093288295177597
 MonoBehaviour:
   m_ObjectHideFlags: 0
