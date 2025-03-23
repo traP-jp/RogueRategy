@@ -2870,6 +2870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutoRecoveryArea
       objectReference: {fileID: 0}
+    - target: {fileID: 778945171459224726, guid: c7c06c1db88804b3ba7b9d5b5a21803c, type: 3}
+      propertyPath: Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3973466582365012325, guid: c7c06c1db88804b3ba7b9d5b5a21803c, type: 3}
       propertyPath: m_RootOrder
       value: 1

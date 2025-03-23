@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Game.Unit;
 using UnityEngine;
+using Utility.Extension;
 
 namespace Game.Card.Area
 {
@@ -10,54 +10,37 @@ namespace Game.Card.Area
         public int RecoverAmount;
         public float RecoverInterval;
         public bool IsPlayerSideOnly;
-
-        List<UnitStatus> _statusList = new List<UnitStatus>();
-
+        public float Radius;
+        
         float _nowTime = 0;
 
         void Start()
         {
             GetComponent<Collider2D>().enabled = true;
+            transform.SetLossyScale(new Vector3(Radius / 0.4f,Radius/ 0.4f, Radius/ 0.4f));
         }
 
-        void Update()
+        void FixedUpdate()
         {
             _nowTime += Time.deltaTime;
             
-            
+            List<UnitStatus> statusList = new List<UnitStatus>();
+            var colliders = Physics2D.OverlapCircleAll(transform.position, Radius);
+            foreach (var col in colliders)
+            {
+                if (col.CompareTag("Collision"))
+                {
+                    statusList.Add(col.GetComponentInChildren<UnitStatus>());
+                }
+            }
             
             if (RecoverInterval < _nowTime)
             {
-                foreach (var status in _statusList)
+                foreach (var status in statusList)
                 {
                     status.HealthPoint.Value += RecoverAmount;
                 }
                 _nowTime -= RecoverInterval;
-            }
-        }
-
-        public void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Collision"))
-            {
-                Debug.Log("Enter");
-                var status = other.GetComponentInChildren<UnitStatus>();
-                if (status.IsPlayerSide == IsPlayerSideOnly)
-                {
-                    _statusList.Add(status);   
-                }
-            }
-        }
-
-        public void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag("Collision"))
-            {
-                var status = other.GetComponentInChildren<UnitStatus>();
-                if (status.IsPlayerSide == IsPlayerSideOnly)
-                {
-                    _statusList.Remove(status);   
-                }
             }
         }
     }

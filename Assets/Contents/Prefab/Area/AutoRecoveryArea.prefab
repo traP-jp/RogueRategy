@@ -136,3 +136,4 @@ MonoBehaviour:
   RecoverAmount: 2
   RecoverInterval: 0.5
   IsPlayerSideOnly: 1
+  Radius: 2
