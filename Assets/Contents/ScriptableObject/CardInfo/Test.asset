@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardImage: {fileID: 21300000, guid: 1a5f868be7a9847e8b60cc3fc7048138, type: 3}
   _cost: 2
-  _cardName: 
-  _cardExplanation: 
-  _cardEffectInfo: {fileID: 11400000, guid: d6710d7e7827941cda7ff15f8ba73362, type: 2}
+  _cardName: "\u30C6\u30B9\u30C8"
+  _cardExplanation: "\u8AAC\u660E"
+  _cardEffectInfo: {fileID: 11400000, guid: 8bfcd4fb1819c4cf6abfbabda0497b34, type: 2}
