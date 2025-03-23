@@ -98,6 +98,15 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseCard"",
+                    ""type"": ""Button"",
+                    ""id"": ""37f80a95-939e-44c6-a3f1-5a40189cf227"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -241,6 +250,28 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UseItem3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""460ad1a8-9860-46c9-8d96-1dab9526ac42"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseCard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b3a3f2d-ba9a-4914-8cc6-33760816b3af"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseCard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -523,6 +554,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         m_BattleScene_UseItem1 = m_BattleScene.FindAction("UseItem1", throwIfNotFound: true);
         m_BattleScene_UseItem2 = m_BattleScene.FindAction("UseItem2", throwIfNotFound: true);
         m_BattleScene_UseItem3 = m_BattleScene.FindAction("UseItem3", throwIfNotFound: true);
+        m_BattleScene_UseCard = m_BattleScene.FindAction("UseCard", throwIfNotFound: true);
         // TitleScene
         m_TitleScene = asset.FindActionMap("TitleScene", throwIfNotFound: true);
         m_TitleScene_Up = m_TitleScene.FindAction("Up", throwIfNotFound: true);
@@ -604,6 +636,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_BattleScene_UseItem1;
     private readonly InputAction m_BattleScene_UseItem2;
     private readonly InputAction m_BattleScene_UseItem3;
+    private readonly InputAction m_BattleScene_UseCard;
     public struct BattleSceneActions
     {
         private @GameInputs m_Wrapper;
@@ -616,6 +649,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         public InputAction @UseItem1 => m_Wrapper.m_BattleScene_UseItem1;
         public InputAction @UseItem2 => m_Wrapper.m_BattleScene_UseItem2;
         public InputAction @UseItem3 => m_Wrapper.m_BattleScene_UseItem3;
+        public InputAction @UseCard => m_Wrapper.m_BattleScene_UseCard;
         public InputActionMap Get() { return m_Wrapper.m_BattleScene; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -649,6 +683,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @UseItem3.started += instance.OnUseItem3;
             @UseItem3.performed += instance.OnUseItem3;
             @UseItem3.canceled += instance.OnUseItem3;
+            @UseCard.started += instance.OnUseCard;
+            @UseCard.performed += instance.OnUseCard;
+            @UseCard.canceled += instance.OnUseCard;
         }
 
         private void UnregisterCallbacks(IBattleSceneActions instance)
@@ -677,6 +714,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @UseItem3.started -= instance.OnUseItem3;
             @UseItem3.performed -= instance.OnUseItem3;
             @UseItem3.canceled -= instance.OnUseItem3;
+            @UseCard.started -= instance.OnUseCard;
+            @UseCard.performed -= instance.OnUseCard;
+            @UseCard.canceled -= instance.OnUseCard;
         }
 
         public void RemoveCallbacks(IBattleSceneActions instance)
@@ -844,6 +884,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         void OnUseItem1(InputAction.CallbackContext context);
         void OnUseItem2(InputAction.CallbackContext context);
         void OnUseItem3(InputAction.CallbackContext context);
+        void OnUseCard(InputAction.CallbackContext context);
     }
     public interface ITitleSceneActions
     {

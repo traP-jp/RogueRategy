@@ -13,6 +13,8 @@ namespace Game.Card
         [SerializeField] EnergyRecoverProcessor _energyRecoverProcessor;
         [SerializeField] AddBuffProcessor _addBuffProcessor;
         [SerializeField] CardCostDownProcessor _cardCostDownProcessor;
+        [SerializeField] RemoveAllDebuffProcessor _removeAllDebuffProcessor;
+        [SerializeField] HealthAutoRecoveryAreaProcessor _healthAutoRecoveryAreaProcessor;
 
         public void UseEffect(CardEffectInfo cardEffectInfo, UnitStatus userStatus, Vector2 pos)
         {
@@ -54,6 +56,14 @@ namespace Game.Card
                 case "CardCostDown":
                     CardCostDown ccd = (CardCostDown)cardEffectSetting;
                     _cardCostDownProcessor.Process(ccd.CardCount, ccd.CostRatio, ccd.DownAmount, ccd.MaxCost);
+                    break;
+                case "RemoveAllDebuff":
+                    RemoveAllDebuff rad = (RemoveAllDebuff)cardEffectSetting;
+                    _removeAllDebuffProcessor.Process(userStatus);
+                    break;
+                case "HealthAutoRecoverArea":
+                    HealthAutoRecoverArea hara = (HealthAutoRecoverArea)cardEffectSetting;
+                    _healthAutoRecoveryAreaProcessor.Process(userStatus, hara);
                     break;
             }
         }

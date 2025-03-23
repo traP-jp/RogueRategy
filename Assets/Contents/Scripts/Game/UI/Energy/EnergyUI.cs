@@ -14,9 +14,9 @@ namespace Game.UI.Energy
             _energySprite = GetComponent<Image>();
         }
 
-        public void UpdateUI(int oldEnergy, int newEnergy)
+        public void UpdateUI(float oldEnergy, float newEnergy)
         {
-            _energySprite.sprite = _energySprites[newEnergy];
+            _energySprite.sprite = _energySprites[Mathf.FloorToInt(newEnergy)];
         }
     }
 }

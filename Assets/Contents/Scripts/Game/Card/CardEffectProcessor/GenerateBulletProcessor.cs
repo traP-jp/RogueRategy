@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Game.Bullet;
 using Game.Unit;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Game.Card.CardEffectProcessor
 {
@@ -11,7 +12,8 @@ namespace Game.Card.CardEffectProcessor
         public void Process(BulletInitializer bulletPrefab, UnitStatus userStatus, Vector2 pos)
         {
             BulletInitializer initializer = Instantiate(bulletPrefab, pos, Quaternion.identity, _bulletParent);
-            initializer.Initialize(userStatus, userStatus.IsPlayerSide ? Vector2.right : Vector2.left);
+            //userStatus.WeaponOrientation = userStatus.IsPlayerSide ? Vector2.right : Vector2.left;
+            initializer.Initialize(userStatus);
         }
     }
 }
