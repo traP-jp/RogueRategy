@@ -11,6 +11,7 @@ namespace Game.Card.Area
         public float RecoverInterval;
         public bool IsPlayerSideOnly;
         public float Radius;
+        public int LeftRecoverCount;
         
         float _nowTime = 0;
 
@@ -36,11 +37,16 @@ namespace Game.Card.Area
             
             if (RecoverInterval < _nowTime)
             {
+                LeftRecoverCount--;
                 foreach (var status in statusList)
                 {
                     status.HealthPoint.Value += RecoverAmount;
                 }
                 _nowTime -= RecoverInterval;
+                if (LeftRecoverCount < 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
