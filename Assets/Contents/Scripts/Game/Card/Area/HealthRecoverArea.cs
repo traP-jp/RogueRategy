@@ -23,6 +23,9 @@ namespace Game.Card.Area
         void Update()
         {
             _nowTime += Time.deltaTime;
+            
+            
+            
             if (RecoverInterval < _nowTime)
             {
                 foreach (var status in _statusList)
@@ -37,6 +40,7 @@ namespace Game.Card.Area
         {
             if (other.CompareTag("Collision"))
             {
+                Debug.Log("Enter");
                 var status = other.GetComponentInChildren<UnitStatus>();
                 if (status.IsPlayerSide == IsPlayerSideOnly)
                 {

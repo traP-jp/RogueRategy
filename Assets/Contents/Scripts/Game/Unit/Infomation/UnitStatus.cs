@@ -68,7 +68,7 @@ namespace Game.Unit
         }
         
         //弾幕をどっち向きに飛ばすか
-        public Vector2 WeaponOrientation { get; set; }
+        [field: SerializeField]public Vector2 WeaponOrientation { get; set; }
 
         public UnitBuffStack GetBuffStack()
         {
