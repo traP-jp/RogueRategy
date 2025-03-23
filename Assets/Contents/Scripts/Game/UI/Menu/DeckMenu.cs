@@ -5,6 +5,8 @@ using Game.Card;
 using DG.Tweening;
 using UniRx;
 using UnityEngine.InputSystem;
+using Game.UI.Card;
+using TMPro;
 
 namespace Game.UI
 {
@@ -12,6 +14,10 @@ namespace Game.UI
     {
         [SerializeField] List<CardInfo> cardInfoList;
         [SerializeField] DeckCardSelects deckCardSelects;
+        [SerializeField] private CardAppearanceInitializer cardAppearanceInitializer;
+
+        [SerializeField] private TextMeshProUGUI name;
+        [SerializeField] private TextMeshProUGUI explain;
 
         private GameInputs gameInputs;
         private int currentSelectIndex = 0;
@@ -31,11 +37,13 @@ namespace Game.UI
             gameInputs.PrepareScene.Up.performed += OnUpButton;
             gameInputs.PrepareScene.Down.performed += OnDownButton;
             gameInputs.Enable();
+            ShowSelectCard();
         }
 
         public void CloseDeckMenu()
         {
             gameObject.SetActive(false);
+            gameInputs.Disable();
         }
 
         // 決定ボタンを押したときの処理
@@ -53,7 +61,7 @@ namespace Game.UI
             {
                 currentSelectIndex--;
                 deckCardSelects.OnUpButton();
-                Debug.Log("Up");
+                ShowSelectCard();
             }
         }
 
@@ -64,8 +72,16 @@ namespace Game.UI
             {
                 currentSelectIndex++;
                 deckCardSelects.OnDownButton();
-                Debug.Log("Down");
+                ShowSelectCard();
             }
+        }
+
+        private void ShowSelectCard()
+        {
+            CardInfo cardInfo = cardInfoList[currentSelectIndex];
+            cardAppearanceInitializer.Initialize(cardInfo.CardImage,cardInfo.Cost);
+            name.text = cardInfo.name;
+            explain.text = cardInfo.CardExplanation;
         }
     }
 }
