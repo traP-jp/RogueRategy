@@ -1,4 +1,3 @@
-using System;
 using Game.Bullet.Movement;
 using Game.Unit;
 using UnityEngine;
@@ -10,6 +9,8 @@ namespace Game.Bullet
     {
         BulletStatus _bulletStatus;
         IBulletMovement _bulletMovement;
+        UnitStatus _userStatus;
+        
         void Awake()
         {
             _bulletStatus = GetComponent<BulletStatus>();
@@ -18,10 +19,16 @@ namespace Game.Bullet
 
         public void Initialize(UnitStatus userStatus)
         {
+            _userStatus = userStatus;
             _bulletStatus.AttackNormal = userStatus.AttackNow * _bulletStatus.AttackRatio;
             _bulletStatus.IsPlayerSide = userStatus.IsPlayerSide;
             gameObject.layer = _bulletStatus.IsPlayerSide ? 7 : 9;
             _bulletMovement.Orientation = userStatus.WeaponOrientation;
+        }
+
+        public UnitStatus GetUserStatus()
+        {
+            return _userStatus;
         }
     }
 }

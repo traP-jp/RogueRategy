@@ -9,6 +9,8 @@ namespace Game.Bullet
     public class BulletHitFeedback : MonoBehaviour
     {
         BulletStatus _bulletStatus;
+        protected int DamageNum;
+        
         void Awake()
         {
             _bulletStatus = GetComponent<BulletStatus>();
@@ -16,10 +18,11 @@ namespace Game.Bullet
 
         public int CalcDamage(UnitStatus defenceStatus)
         {
-            return DamageCalculator.CalcDamage(_bulletStatus.AttackNormal, defenceStatus);
+            DamageNum = DamageCalculator.CalcDamage(_bulletStatus.AttackNormal, defenceStatus);
+            return DamageNum;
         }
 
-        public void OnHit()
+        public virtual void OnHit()
         {
             Destroy(gameObject);
         }

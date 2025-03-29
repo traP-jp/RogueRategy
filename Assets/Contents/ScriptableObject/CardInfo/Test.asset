@@ -16,4 +16,4 @@ MonoBehaviour:
   _cost: 2
   _cardName: "\u30C6\u30B9\u30C8"
   _cardExplanation: "\u8AAC\u660E"
-  _cardEffectInfo: {fileID: 11400000, guid: 8bfcd4fb1819c4cf6abfbabda0497b34, type: 2}
+  _cardEffectInfo: {fileID: 11400000, guid: 9cfe950fcd2804c9eb2824f6dfffcab8, type: 2}

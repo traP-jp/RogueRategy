@@ -9,6 +9,7 @@ namespace Game.Player
         void Start()
         {
             _playerStatus.AttackNormal = _playerStatus.AttackDefault;
+            _playerStatus.WeaponOrientation = Vector2.right;
         }
     }
 }
