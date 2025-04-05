@@ -9,9 +9,9 @@ namespace Game.Card.CardEffectProcessor
     public class GenerateBulletProcessor : MonoBehaviour
     {
         [SerializeField] Transform _bulletParent;
-        public void Process(BulletInitializer bulletPrefab, UnitStatus userStatus, Vector2 pos)
+        public void Process(GameObject bulletPrefab, UnitStatus userStatus, Vector2 pos)
         {
-            BulletInitializer initializer = Instantiate(bulletPrefab, pos, Quaternion.identity, _bulletParent);
+            var initializer = Instantiate(bulletPrefab, pos, Quaternion.identity, _bulletParent).GetComponent<IBulletInitializer>();
             //userStatus.WeaponOrientation = userStatus.IsPlayerSide ? Vector2.right : Vector2.left;
             initializer.Initialize(userStatus);
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.Bullet
 {
     [RequireComponent(typeof(BulletStatus))]
-    public class BulletInitializer : MonoBehaviour
+    public class BulletInitializer : MonoBehaviour, IBulletInitializer
     {
         BulletStatus _bulletStatus;
         IBulletMovement _bulletMovement;

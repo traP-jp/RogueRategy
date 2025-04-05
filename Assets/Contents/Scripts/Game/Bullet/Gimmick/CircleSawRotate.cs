@@ -10,6 +10,7 @@ namespace Game.Bullet.Gimmick
         [SerializeField] int _sawCount;
         [SerializeField] Transform _sawPrefab;
         [SerializeField] float _duration;
+        [SerializeField] BulletInitializerCircleSaw _bulletInitializerCircleSaw;
 
         Transform[] _sawList;
         float _nowZ;
@@ -29,6 +30,7 @@ namespace Game.Bullet.Gimmick
 
         void Update()
         {
+            transform.position = _bulletInitializerCircleSaw.GetPlayerTransform().position;
             _nowZ += _rotationVelocity * Time.deltaTime;
             transform.rotation = Quaternion.Euler(new Vector3(0,0,_nowZ));
             _duration -= Time.deltaTime;
