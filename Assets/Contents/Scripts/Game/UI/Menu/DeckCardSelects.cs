@@ -46,14 +46,12 @@ namespace Game.UI
             if (isSelected)
             {
                 // 選択されたカードをDotweenで少し右にずらす
-                deckCardSelects[selectIndex].transform.DOLocalMoveX(20, 0.1f);
-                selectCursor.gameObject.SetActive(false);
+                deckCardSelects[selectIndex].transform.DOLocalMoveX(60, 0.1f);
                 isHolding = true;
             }
             else
             {
                 deckCardSelects[selectIndex].transform.DOLocalMoveX(0, 0.1f);
-                selectCursor.gameObject.SetActive(true);
                 isHolding = false;
             }
         }
@@ -80,7 +78,12 @@ namespace Game.UI
         {
             var prevIndex = selectIndex;
             selectIndex += direction;
-            selectCursor.localPosition = new Vector3(selectCursor.localPosition.x, startPos.y - yInterval * selectIndex, selectCursor.localPosition.z);
+            selectCursor.DOLocalMove(new Vector3(
+                selectCursor.localPosition.x, 
+                startPos.y - yInterval * selectIndex, 
+                selectCursor.localPosition.z
+            ), 0.1f);
+
             if (isHolding)
             {
                 var newCard = deckCardSelects[selectIndex];
