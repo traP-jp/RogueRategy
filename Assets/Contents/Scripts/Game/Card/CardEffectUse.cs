@@ -15,6 +15,7 @@ namespace Game.Card
         [SerializeField] CardCostDownProcessor _cardCostDownProcessor;
         [SerializeField] RemoveAllDebuffProcessor _removeAllDebuffProcessor;
         [SerializeField] HealthAutoRecoveryAreaProcessor _healthAutoRecoveryAreaProcessor;
+        [SerializeField] FlashDamageProcessor _flashDamageProcessor;
 
         public void UseEffect(CardEffectInfo cardEffectInfo, UnitStatus userStatus, Vector2 pos)
         {
@@ -64,6 +65,10 @@ namespace Game.Card
                 case "HealthAutoRecoverArea":
                     HealthAutoRecoverArea hara = (HealthAutoRecoverArea)cardEffectSetting;
                     _healthAutoRecoveryAreaProcessor.Process(userStatus, hara);
+                    break;
+                case "FlashDamage":
+                    FlashDamage flashDamage = (FlashDamage)cardEffectSetting;
+                    _flashDamageProcessor.Process(userStatus, flashDamage);
                     break;
             }
         }

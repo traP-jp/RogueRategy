@@ -37,5 +37,15 @@ namespace Game.Unit
 
             return nearestTransform;
         }
+
+        public List<Transform> GetPlayerSideTransforms()
+        {
+            return _playerSideTransforms;
+        }
+
+        public List<Transform> GetEnemySideTransforms()
+        {
+            return _enemySideTransforms;
+        }
     }
 }
