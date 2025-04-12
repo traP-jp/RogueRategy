@@ -7,43 +7,43 @@ using UniRx;
 using UnityEngine.InputSystem;
 using Game.UI.Card;
 using TMPro;
+using Game.Player;
 
 namespace Game.UI
 {
     public class DeckMenu : MonoBehaviour
     {
-        [SerializeField] List<CardInfo> cardInfoList;
+        [SerializeField] PlayerInfoData playerInfo;
         [SerializeField] DeckCardSelects deckCardSelects;
         [SerializeField] private CardAppearanceInitializer cardAppearanceInitializer;
 
         [SerializeField] private TextMeshProUGUI name;
         [SerializeField] private TextMeshProUGUI explain;
 
-        private GameInputs gameInputs;
+        private GameInputs _gameInputs;
         private int currentSelectIndex = 0;
         private bool isHolding = false;
+        private CardInfo[] cardInfoList;
 
-        void Start ()
+        public void OpenDeckMenu(GameInputs gameinputs)
         {
-            OpenDeckMenu();
-        }
-
-        public void OpenDeckMenu()
-        {
+            deckCardSelects.ClearCardInfoList();
+            _gameInputs = gameinputs;
+            cardInfoList = playerInfo.Deck;
             gameObject.SetActive(true);
-            gameInputs = new GameInputs();
             deckCardSelects.SetCardInfoList(cardInfoList);
-            gameInputs.PrepareScene.Decide.performed += OnDecideButton;
-            gameInputs.PrepareScene.Up.performed += OnUpButton;
-            gameInputs.PrepareScene.Down.performed += OnDownButton;
-            gameInputs.Enable();
+            _gameInputs.PrepareScene.Decide.performed += OnDecideButton;
+            _gameInputs.PrepareScene.Up.performed += OnUpButton;
+            _gameInputs.PrepareScene.Down.performed += OnDownButton;
             ShowSelectCard();
         }
 
         public void CloseDeckMenu()
         {
             gameObject.SetActive(false);
-            gameInputs.Disable();
+            _gameInputs.PrepareScene.Decide.performed -= OnDecideButton;
+            _gameInputs.PrepareScene.Up.performed -= OnUpButton;
+            _gameInputs.PrepareScene.Down.performed -= OnDownButton;
         }
 
         // 決定ボタンを押したときの処理
@@ -68,7 +68,7 @@ namespace Game.UI
         // 下ボタンを押した時の処理
         public void OnDownButton(InputAction.CallbackContext context)
         {
-            if (currentSelectIndex < cardInfoList.Count - 1)
+            if (currentSelectIndex < cardInfoList.Length - 1)
             {
                 currentSelectIndex++;
                 deckCardSelects.OnDownButton();
