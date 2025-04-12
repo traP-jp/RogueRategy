@@ -15,25 +15,24 @@ public class DestinationController : MonoBehaviour
     public void SetPrepareSceneInterface(IPrepareSceneInterface prepareSceneInterface){
         this.prepareSceneInterface = prepareSceneInterface;
     }
-    void OnEnable()
+    public void Enable(GameInputs gameInputs)
     {
-        _gameInputs = new GameInputs();
+        Debug.Log(gameInputs);
+        _gameInputs = gameInputs;
         _gameInputs.PrepareScene.Up.performed += UpHoge;
         _gameInputs.PrepareScene.Down.performed += DownHoge;
         _gameInputs.PrepareScene.Decide.performed += DecideHoge;
         _gameInputs.PrepareScene.Left.performed += LeftHoge;
         _gameInputs.PrepareScene.Right.performed += RightHoge;
-        _gameInputs.Enable();
     }
 
-    void OnDisable()
+    public void Disable()
     {
         _gameInputs.PrepareScene.Up.performed -= UpHoge;
         _gameInputs.PrepareScene.Down.performed -= DownHoge;
         _gameInputs.PrepareScene.Decide.performed -= DecideHoge;
         _gameInputs.PrepareScene.Left.performed -= LeftHoge;
         _gameInputs.PrepareScene.Right.performed -= RightHoge;
-        _gameInputs.Dispose();
     }
 
     void UpHoge(InputAction.CallbackContext context)

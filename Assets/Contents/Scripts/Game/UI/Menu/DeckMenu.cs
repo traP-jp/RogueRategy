@@ -19,31 +19,27 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI name;
         [SerializeField] private TextMeshProUGUI explain;
 
-        private GameInputs gameInputs;
+        private GameInputs _gameInputs;
         private int currentSelectIndex = 0;
         private bool isHolding = false;
 
-        void Start ()
+        public void OpenDeckMenu(GameInputs gameinputs)
         {
-            OpenDeckMenu();
-        }
-
-        public void OpenDeckMenu()
-        {
+            _gameInputs = gameinputs;
             gameObject.SetActive(true);
-            gameInputs = new GameInputs();
             deckCardSelects.SetCardInfoList(cardInfoList);
-            gameInputs.PrepareScene.Decide.performed += OnDecideButton;
-            gameInputs.PrepareScene.Up.performed += OnUpButton;
-            gameInputs.PrepareScene.Down.performed += OnDownButton;
-            gameInputs.Enable();
+            _gameInputs.PrepareScene.Decide.performed += OnDecideButton;
+            _gameInputs.PrepareScene.Up.performed += OnUpButton;
+            _gameInputs.PrepareScene.Down.performed += OnDownButton;
             ShowSelectCard();
         }
 
         public void CloseDeckMenu()
         {
             gameObject.SetActive(false);
-            gameInputs.Disable();
+            _gameInputs.PrepareScene.Decide.performed -= OnDecideButton;
+            _gameInputs.PrepareScene.Up.performed -= OnUpButton;
+            _gameInputs.PrepareScene.Down.performed -= OnDownButton;
         }
 
         // 決定ボタンを押したときの処理

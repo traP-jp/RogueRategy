@@ -2,19 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using UnityEngine.InputSystem;
+using Game.UI;
+
 public class PrepareSceneManager : MonoBehaviour
 {
     [SerializeField] private DestinationManager destinationManager;
     //操作用のクラス。具体的な処理はインターフェイスをセットして行う
     [SerializeField] private DestinationController destinationController;
     [SerializeField] private PhaseUIManager phaseUIManager;
+    [SerializeField] private DeckMenu deckMenu;
     IDestinationEventInterface _DestinationEventInterface;
+    GameInputs _gameInputs;
+    
     int phase = 0;
     int maxPhase = 5;
+    bool isDeckMenuOpen = false;
+
     void Start()
     {
+        _gameInputs = new GameInputs();
+        _gameInputs.PrepareScene.Enable();
         destinationManager.OnDestinationDecide += DecideDestination;
+        _gameInputs.PrepareScene.Menu.performed += SetDeckMenuOpen;
         destinationController.SetPrepareSceneInterface((IPrepareSceneInterface)destinationManager);
+        destinationController.Enable(_gameInputs);
         destinationManager.ShowNormalDestinations();
         phaseUIManager.MakePhaseUI(maxPhase);
     }
@@ -28,11 +40,23 @@ public class PrepareSceneManager : MonoBehaviour
         destinationManager.ShowNormalDestinations();
         phaseUIManager.MovePointer(phase);
     }
-    public void Update(){
-        if(Input.GetKeyDown(KeyCode.Space)){
-            NextPhase();
+
+    //デッキメニューを開いているときに、デッキメニューを閉じる
+    public void SetDeckMenuOpen(InputAction.CallbackContext context){
+        if (!isDeckMenuOpen)
+        {
+            destinationController.Disable();
+            deckMenu.OpenDeckMenu(_gameInputs);
+            isDeckMenuOpen = true;
+        }
+        else
+        {
+            deckMenu.CloseDeckMenu();
+            destinationController.Enable(_gameInputs);
+            isDeckMenuOpen = false;
         }
     }
+
     //行先を決定したときの処理
     public void DecideDestination(){
         switch (destinationManager.ChooseDestination)

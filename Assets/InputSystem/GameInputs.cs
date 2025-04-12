@@ -426,6 +426,15 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""aca01e57-6f64-45be-a9ca-8ac5e3eaf597"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -538,6 +547,17 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Decide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""016c85e3-d681-4a8c-8822-b14642a19fb0"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -567,6 +587,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         m_PrepareScene_Left = m_PrepareScene.FindAction("Left", throwIfNotFound: true);
         m_PrepareScene_Right = m_PrepareScene.FindAction("Right", throwIfNotFound: true);
         m_PrepareScene_Decide = m_PrepareScene.FindAction("Decide", throwIfNotFound: true);
+        m_PrepareScene_Menu = m_PrepareScene.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -805,6 +826,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PrepareScene_Left;
     private readonly InputAction m_PrepareScene_Right;
     private readonly InputAction m_PrepareScene_Decide;
+    private readonly InputAction m_PrepareScene_Menu;
     public struct PrepareSceneActions
     {
         private @GameInputs m_Wrapper;
@@ -814,6 +836,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         public InputAction @Left => m_Wrapper.m_PrepareScene_Left;
         public InputAction @Right => m_Wrapper.m_PrepareScene_Right;
         public InputAction @Decide => m_Wrapper.m_PrepareScene_Decide;
+        public InputAction @Menu => m_Wrapper.m_PrepareScene_Menu;
         public InputActionMap Get() { return m_Wrapper.m_PrepareScene; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -838,6 +861,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Decide.started += instance.OnDecide;
             @Decide.performed += instance.OnDecide;
             @Decide.canceled += instance.OnDecide;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
         }
 
         private void UnregisterCallbacks(IPrepareSceneActions instance)
@@ -857,6 +883,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Decide.started -= instance.OnDecide;
             @Decide.performed -= instance.OnDecide;
             @Decide.canceled -= instance.OnDecide;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
         }
 
         public void RemoveCallbacks(IPrepareSceneActions instance)
@@ -899,5 +928,6 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
         void OnDecide(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }
