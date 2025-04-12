@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Contents/Scenes/PrivateScene/synori/158.unity
+    path: Assets/Contents/Scenes/PrivateScene/synori/PrepareScene.unity
     guid: 1dab39aa424e44a45a3b9373a8c5422c
   - enabled: 1
     path: Assets/Contents/Scenes/BattleScene.unity
