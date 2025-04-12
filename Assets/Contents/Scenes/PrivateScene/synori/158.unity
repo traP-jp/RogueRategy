@@ -225,8 +225,8 @@ RectTransform:
   - {fileID: 520413968}
   - {fileID: 530323286}
   - {fileID: 403997104}
-  - {fileID: 666390034}
   - {fileID: 1928284474}
+  - {fileID: 666390034}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6547,6 +6547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 147954852}
     m_Modifications:
+    - target: {fileID: 1561745966869511459, guid: ad9e5ec5aa17fa040abe56dba8a73f74, type: 3}
+      propertyPath: playerInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bffaa64999d26647ac662be42bbbca0, type: 2}
     - target: {fileID: 3256631281172519965, guid: ad9e5ec5aa17fa040abe56dba8a73f74, type: 3}
       propertyPath: m_Name
       value: Main

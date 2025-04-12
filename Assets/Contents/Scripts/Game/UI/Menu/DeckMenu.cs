@@ -7,12 +7,13 @@ using UniRx;
 using UnityEngine.InputSystem;
 using Game.UI.Card;
 using TMPro;
+using Game.Player;
 
 namespace Game.UI
 {
     public class DeckMenu : MonoBehaviour
     {
-        [SerializeField] List<CardInfo> cardInfoList;
+        [SerializeField] PlayerInfoData playerInfo;
         [SerializeField] DeckCardSelects deckCardSelects;
         [SerializeField] private CardAppearanceInitializer cardAppearanceInitializer;
 
@@ -22,10 +23,13 @@ namespace Game.UI
         private GameInputs _gameInputs;
         private int currentSelectIndex = 0;
         private bool isHolding = false;
+        private CardInfo[] cardInfoList;
 
         public void OpenDeckMenu(GameInputs gameinputs)
         {
+            deckCardSelects.ClearCardInfoList();
             _gameInputs = gameinputs;
+            cardInfoList = playerInfo.Deck;
             gameObject.SetActive(true);
             deckCardSelects.SetCardInfoList(cardInfoList);
             _gameInputs.PrepareScene.Decide.performed += OnDecideButton;
@@ -64,7 +68,7 @@ namespace Game.UI
         // 下ボタンを押した時の処理
         public void OnDownButton(InputAction.CallbackContext context)
         {
-            if (currentSelectIndex < cardInfoList.Count - 1)
+            if (currentSelectIndex < cardInfoList.Length - 1)
             {
                 currentSelectIndex++;
                 deckCardSelects.OnDownButton();

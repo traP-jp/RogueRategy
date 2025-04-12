@@ -22,14 +22,14 @@ namespace Game.UI
         private bool isHolding = false;
         private List<DeckCardSelect> deckCardSelects = new List<DeckCardSelect>();
         private float yInterval;
-        private List<CardInfo> cardInfoList;
+        private CardInfo[] cardInfoList;
 
-        public void SetCardInfoList(List<CardInfo> cardInfoList)
+        public void SetCardInfoList(CardInfo[] cardInfoList)
         {
             this.cardInfoList = cardInfoList;
             yInterval = -1*(endPos.y - startPos.y) / cardNum;
 
-            for (int i = 0; i < cardInfoList.Count; i++)
+            for (int i = 0; i < cardInfoList.Length; i++)
             {
                 var deckCardSelect = Instantiate(deckCardSelectPrefab, selectionParent);
                 deckCardSelect.SetCardInfo(cardInfoList[i]);
@@ -39,6 +39,16 @@ namespace Game.UI
             }
 
             selectCursor.localPosition = new Vector3(selectCursor.localPosition.x, startPos.y - yInterval * selectIndex, selectCursor.localPosition.z);
+        }
+
+        // 選択されたカードをクリアする
+        public void ClearCardInfoList()
+        {
+            foreach (var card in deckCardSelects)
+            {
+                Destroy(card.gameObject);
+            }
+            deckCardSelects.Clear();
         }
 
         public void SetSelectIndex(bool isSelected)
