@@ -15,7 +15,7 @@ namespace Game.Bullet.Gimmick
         Transform[] _sawList;
         float _nowZ;
         
-        void Start()
+        public void Initialize()
         {
             _sawList = new Transform[_sawCount];
             float deltaRadian = 2 * Mathf.PI / _sawCount;

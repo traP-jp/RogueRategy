@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 362412975e614fb4bece52a2bf202d6d, type: 3}
-  m_Name: GenerateBulletSmall
+  m_Name: GenerateCircleSaw
   m_EditorClassIdentifier: 
   CardEffects:
-  - rid: 9179909538589179909
+  - rid: 361890083756834816
   references:
     version: 2
     RefIds:
-    - rid: 9179909538589179909
+    - rid: 361890083756834816
       type: {class: GenerateBullet, ns: Game.Card.CardEffectSetting, asm: Assembly-CSharp}
       data:
-        BulletPrefab: {fileID: 1877587600863406727, guid: e5f242ca05bef4825a231ea3f4ee87e7, type: 3}
+        BulletPrefab: {fileID: 1474739777839477723, guid: 3ee105934ea6244ae88581e584d0e634, type: 3}

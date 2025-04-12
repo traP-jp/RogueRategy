@@ -20,4 +20,4 @@ MonoBehaviour:
     - rid: 3831242339137617920
       type: {class: GenerateBullet, ns: Game.Card.CardEffectSetting, asm: Assembly-CSharp}
       data:
-        BulletPrefab: {fileID: 5684649226864315728, guid: 6d8cf9993eef540d69aad20537e777d0, type: 3}
+        BulletPrefab: {fileID: 7012891682881855250, guid: 6d8cf9993eef540d69aad20537e777d0, type: 3}

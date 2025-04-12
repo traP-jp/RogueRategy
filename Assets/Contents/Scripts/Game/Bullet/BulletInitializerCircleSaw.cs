@@ -1,3 +1,4 @@
+using Game.Bullet.Gimmick;
 using Game.Bullet.Movement;
 using Game.Unit;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Game.Bullet
         
         public void Initialize(UnitStatus userStatus)
         {
+            GetComponent<CircleSawRotate>().Initialize();
             _playerTransform = userStatus.transform;
             foreach (var st in GetComponentsInChildren<BulletStatus>())
             {
